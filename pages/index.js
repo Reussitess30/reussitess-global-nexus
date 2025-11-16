@@ -122,37 +122,37 @@ export default function Home() {
                         <div className="item-icon">🏠</div>
                         <h4>Page d'Accueil</h4>
                         <p>Découvrez notre vitrine principale avec vue d'ensemble du réseau global</p>
-                        <a href="#" className="item-btn btn-consult">Accéder</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-consult">Accéder</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📊</div>
                         <h4>Tableau de Bord</h4>
                         <p>Gérez et suivez vos activités sur notre plateforme sécurisée</p>
-                        <a href="#" className="item-btn btn-consult">Accéder</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-consult">Accéder</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">🔐</div>
                         <h4>Connexion</h4>
                         <p>Accédez à votre espace personnel sécurisé</p>
-                        <a href="#" className="item-btn btn-join">Se Connecter</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-join">Se Connecter</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📝</div>
                         <h4>Inscription</h4>
                         <p>Rejoignez le réseau Reussitess® Global</p>
-                        <a href="#" className="item-btn btn-join">S'inscrire</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-join">S'inscrire</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">🛍️</div>
                         <h4>Boutiques Mondiales</h4>
                         <p>Explorez nos {STATS.totalShops} boutiques Amazon dans {STATS.totalCountries} pays</p>
-                        <a href="#" className="item-btn btn-consult">Découvrir</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-consult">Découvrir</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📱</div>
                         <h4>Application PWA</h4>
                         <p>Installez notre app pour un accès hors ligne</p>
-                        <a href="#" className="item-btn btn-join">Installer</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-join">Installer</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📈</div>
