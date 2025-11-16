@@ -35,11 +35,7 @@ const influencerStores = [
     { name: "Belgique", flag: "🇧🇪", link: "https://amzlink.to/az08ZB76xWpGm" }
 ];
 
-const STATS = {
-    totalShops: 26,
-    totalCountries: 14,
-    totalContinents: 5
-};
+const STATS = { totalShops: 26, totalCountries: 14, totalContinents: 5 };
 
 export default function Home() {
     const [isOnline, setIsOnline] = useState(true);
@@ -59,48 +55,50 @@ export default function Home() {
         };
     }, []);
 
-    return (<>
-        <Head>
-            <title>🌐 Reussitess® Global Nexus</title>
-            <meta name="description" content="Hub Central - 26 Boutiques Amazon" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
-        <div className="dash">
-            <header className="hdr">
-                <div className="ic">🌐</div>
-                <h1>Reussitess® Global Nexus</h1>
-                <p>Le Hub Central du Réseau Mondial</p>
-            </header>
-            <section className="wel">
-                <h2>Bienvenue au réseau Reussitess® Global</h2>
-                <p>Hub central avec <strong>{STATS.totalShops} boutiques</strong> dans <strong>{STATS.totalCountries} pays</strong></p>
-            </section>
-            <section className="sts">
-                <div className="sc"><div className="n">{STATS.totalShops}</div><div className="l">Boutiques</div></div>
-                <div className="sc"><div className="n">{STATS.totalCountries}</div><div className="l">Pays</div></div>
-                <div className="sc"><div className="n">{STATS.totalContinents}</div><div className="l">Continents</div></div>
-                <div className="sc"><div className="n">24/7</div><div className="l">Disponibilité</div></div>
-            </section>
-            <footer className="ftr">
-                <h3>Reussitess® Global Nexus</h3>
-                <p>© 2024 Tous droits réservés</p>
-            </footer>
-        </div>
-        <style jsx global>{`
-            *{margin:0;padding:0;box-sizing:border-box}
-            body{font-family:Arial;background:linear-gradient(135deg,#1e3c72,#7e22ce);min-height:100vh;color:#fff}
-            .dash{max-width:1400px;margin:0 auto;padding:20px}
-            .hdr{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:24px;padding:40px;text-align:center;margin-bottom:30px}
-            .ic{font-size:4em;margin-bottom:10px}
-            .hdr h1{font-size:3em;margin-bottom:10px}
-            .wel{background:rgba(255,255,255,0.1);border-radius:20px;padding:30px;margin-bottom:30px}
-            .wel h2{color:#fbbf24;margin-bottom:15px}
-            .sts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:40px}
-            .sc{background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:20px;padding:40px 30px;text-align:center;transition:transform 0.3s}
-            .sc:hover{transform:translateY(-10px)}
-            .n{font-size:4em;font-weight:bold;margin-bottom:10px}
-            .l{font-size:1.1em}
-            .ftr{background:rgba(255,255,255,0.1);border-radius:20px;padding:40px;text-align:center}
-        `}</style>
-    </>);
+    return (
+        <>
+            <Head>
+                <title>🌐 Reussitess® Global Nexus</title>
+                <meta name="description" content="Hub Central - 26 Boutiques Amazon" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
+            <div className="dash">
+                <header className="hdr">
+                    <div className="ic">🌐</div>
+                    <h1>Reussitess® Global Nexus</h1>
+                    <p>Le Hub Central du Réseau Mondial</p>
+                </header>
+                <section className="wel">
+                    <h2>Bienvenue au réseau Reussitess® Global</h2>
+                    <p>Hub central avec <strong>{STATS.totalShops} boutiques</strong> dans <strong>{STATS.totalCountries} pays</strong></p>
+                </section>
+                <section className="sts">
+                    <div className="sc"><div className="n">{STATS.totalShops}</div><div className="l">Boutiques</div></div>
+                    <div className="sc"><div className="n">{STATS.totalCountries}</div><div className="l">Pays</div></div>
+                    <div className="sc"><div className="n">{STATS.totalContinents}</div><div className="l">Continents</div></div>
+                    <div className="sc"><div className="n">24/7</div><div className="l">Disponibilité</div></div>
+                </section>
+                <footer className="ftr">
+                    <h3>Reussitess® Global Nexus</h3>
+                    <p>© 2024 Tous droits réservés</p>
+                </footer>
+            </div>
+            <style jsx global>{`
+                *{margin:0;padding:0;box-sizing:border-box}
+                body{font-family:Arial;background:linear-gradient(135deg,#1e3c72,#7e22ce);min-height:100vh;color:#fff}
+                .dash{max-width:1400px;margin:0 auto;padding:20px}
+                .hdr{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:24px;padding:40px;text-align:center;margin-bottom:30px}
+                .ic{font-size:4em;margin-bottom:10px}
+                .hdr h1{font-size:3em;margin-bottom:10px}
+                .wel{background:rgba(255,255,255,0.1);border-radius:20px;padding:30px;margin-bottom:30px}
+                .wel h2{color:#fbbf24;margin-bottom:15px}
+                .sts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:40px}
+                .sc{background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:20px;padding:40px 30px;text-align:center;transition:transform 0.3s}
+                .sc:hover{transform:translateY(-10px)}
+                .n{font-size:4em;font-weight:bold;margin-bottom:10px}
+                .l{font-size:1.1em}
+                .ftr{background:rgba(255,255,255,0.1);border-radius:20px;padding:40px;text-align:center}
+            `}</style>
+        </>
+    );
 }
