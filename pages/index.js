@@ -191,6 +191,9 @@ export default function Home() {
                 <p className="status-badge">🟢 Connecté au réseau global</p>
                 <p>© 2024 Tous droits réservés</p>
                 <p>Développé avec Next.js et Workbox (PWA)</p>
+                <div style={{ background: "#fff3cd", padding: "15px", borderRadius: "10px", margin: "20px 0", borderLeft: "4px solid #ffc107", textAlign: "center" }}>
+                    <p style={{ margin: 0, fontSize: "0.9em", color: "#856404" }}>⚠️ <strong>Divulgation :</strong> En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</p>
+                </div>
             </footer>
         </div>
 
