@@ -30,6 +30,7 @@ export default function NexusDashboard() {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
+            {/* VALEUR REMISE À 42 */}
             <div className="text-5xl font-bold text-blue-600 mb-2">42</div>
             <div className="text-gray-600 font-medium">Boutiques Amazon</div>
           </div>
