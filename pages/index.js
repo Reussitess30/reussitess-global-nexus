@@ -116,6 +116,36 @@ export default function Home() {
             </section>
 
             <section className="shop-list">
+                <h2>🛍️ Boutiques Personnelles ({personalStores.length})</h2>
+                <div className="shops-grid">
+                    {personalStores.map((shop, index) => (
+                        <div key={index} className="shop-item">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn">
+                                🛒 Visiter
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="shop-list">
+                <h2>⭐ Boutiques Influenceur ({influencerStores.length})</h2>
+                <div className="shops-grid">
+                    {influencerStores.map((shop, index) => (
+                        <div key={index} className="shop-item influencer">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn influencer-btn">
+                                ⭐ Visiter
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="shop-list">
                 <h2>🔗 Accès Rapide au Réseau</h2>
                 <div className="quick-access-grid">
                     <div className="quick-access-item">
@@ -166,6 +196,36 @@ export default function Home() {
                         <p>Guides sur la TVA et exigences légales des 14 marchés</p>
                         <a href="/legal" className="item-btn btn-consult">Consulter</a>
                     </div>
+                </div>
+            </section>
+
+            <section className="shop-list">
+                <h2>🛍️ Boutiques Personnelles ({personalStores.length})</h2>
+                <div className="shops-grid">
+                    {personalStores.map((shop, index) => (
+                        <div key={index} className="shop-item">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn">
+                                🛒 Visiter
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="shop-list">
+                <h2>⭐ Boutiques Influenceur ({influencerStores.length})</h2>
+                <div className="shops-grid">
+                    {influencerStores.map((shop, index) => (
+                        <div key={index} className="shop-item influencer">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn influencer-btn">
+                                ⭐ Visiter
+                            </a>
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -377,6 +437,56 @@ export default function Home() {
                 .stats-grid { grid-template-columns: repeat(2, 1fr); }
                 .quick-access-grid { grid-template-columns: 1fr; }
             }
+                .shops-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 20px;
+                    margin-top: 20px;
+                }
+                .shop-item {
+                    background: white;
+                    padding: 25px;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    transition: all 0.3s;
+                }
+                .shop-item:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                }
+                .shop-item.influencer {
+                    background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+                }
+                .shop-flag {
+                    font-size: 2.5em;
+                    margin-right: 15px;
+                }
+                .shop-item h4 {
+                    margin: 0;
+                    flex-grow: 1;
+                    font-size: 1.2em;
+                }
+                .shop-link-btn {
+                    background: linear-gradient(45deg, #ff9500, #ffb84d);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 25px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    white-space: nowrap;
+                }
+                .shop-link-btn:hover {
+                    background: linear-gradient(45deg, #e6860a, #ff9500);
+                }
+                .influencer-btn {
+                    background: linear-gradient(45deg, #9333ea, #c084fc);
+                }
+                .influencer-btn:hover {
+                    background: linear-gradient(45deg, #7e22ce, #9333ea);
+                }
         `}</style>
     </>);
 }
