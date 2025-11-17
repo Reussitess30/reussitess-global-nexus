@@ -116,43 +116,73 @@ export default function Home() {
             </section>
 
             <section className="shop-list">
+                <h2>🛍️ Boutiques Personnelles ({personalStores.length})</h2>
+                <div className="shops-grid">
+                    {personalStores.map((shop, index) => (
+                        <div key={index} className="shop-item">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn">
+                                🛒 Visiter
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="shop-list">
+                <h2>⭐ Boutiques Influenceur ({influencerStores.length})</h2>
+                <div className="shops-grid">
+                    {influencerStores.map((shop, index) => (
+                        <div key={index} className="shop-item influencer">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn influencer-btn">
+                                ⭐ Visiter
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="shop-list">
                 <h2>🔗 Accès Rapide au Réseau</h2>
                 <div className="quick-access-grid">
                     <div className="quick-access-item">
                         <div className="item-icon">🏠</div>
                         <h4>Page d'Accueil</h4>
                         <p>Découvrez notre vitrine principale avec vue d'ensemble du réseau global</p>
-                        <a href="#" className="item-btn btn-consult">Accéder</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-consult">Accéder</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📊</div>
                         <h4>Tableau de Bord</h4>
                         <p>Gérez et suivez vos activités sur notre plateforme sécurisée</p>
-                        <a href="#" className="item-btn btn-consult">Accéder</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-consult">Accéder</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">🔐</div>
                         <h4>Connexion</h4>
                         <p>Accédez à votre espace personnel sécurisé</p>
-                        <a href="#" className="item-btn btn-join">Se Connecter</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-join">Se Connecter</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📝</div>
                         <h4>Inscription</h4>
                         <p>Rejoignez le réseau Reussitess® Global</p>
-                        <a href="#" className="item-btn btn-join">S'inscrire</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-join">S'inscrire</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">🛍️</div>
                         <h4>Boutiques Mondiales</h4>
                         <p>Explorez nos {STATS.totalShops} boutiques Amazon dans {STATS.totalCountries} pays</p>
-                        <a href="#" className="item-btn btn-consult">Découvrir</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-consult">Découvrir</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📱</div>
                         <h4>Application PWA</h4>
                         <p>Installez notre app pour un accès hors ligne</p>
-                        <a href="#" className="item-btn btn-join">Installer</a>
+                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-join">Installer</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📈</div>
@@ -166,12 +196,36 @@ export default function Home() {
                         <p>Guides sur la TVA et exigences légales des 14 marchés</p>
                         <a href="/legal" className="item-btn btn-consult">Consulter</a>
                     </div>
-                    <div className="quick-access-item">
-                        <div className="item-icon">💰</div>
-                        <h4>Programme d'Affiliation</h4>
-                        <p>Gagnez des revenus passifs en partageant nos boutiques Amazon</p>
-                        <a href="https://reussitess-global-pwa.vercel.app/affiliation" className="item-btn btn-join">Rejoindre</a>
-                    </div>
+                </div>
+            </section>
+
+            <section className="shop-list">
+                <h2>🛍️ Boutiques Personnelles ({personalStores.length})</h2>
+                <div className="shops-grid">
+                    {personalStores.map((shop, index) => (
+                        <div key={index} className="shop-item">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn">
+                                🛒 Visiter
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="shop-list">
+                <h2>⭐ Boutiques Influenceur ({influencerStores.length})</h2>
+                <div className="shops-grid">
+                    {influencerStores.map((shop, index) => (
+                        <div key={index} className="shop-item influencer">
+                            <span className="shop-flag">{shop.flag}</span>
+                            <h4>{shop.name}</h4>
+                            <a href={shop.link} target="_blank" rel="nofollow sponsored noopener noreferrer" className="shop-link-btn influencer-btn">
+                                ⭐ Visiter
+                            </a>
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -191,9 +245,6 @@ export default function Home() {
                 <p className="status-badge">🟢 Connecté au réseau global</p>
                 <p>© 2024 Tous droits réservés</p>
                 <p>Développé avec Next.js et Workbox (PWA)</p>
-                <div style={{ background: "#fff3cd", padding: "15px", borderRadius: "10px", margin: "20px 0", borderLeft: "4px solid #ffc107", textAlign: "center" }}>
-                    <p style={{ margin: 0, fontSize: "0.9em", color: "#856404" }}>⚠️ <strong>Divulgation :</strong> En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</p>
-                </div>
             </footer>
         </div>
 
@@ -386,6 +437,56 @@ export default function Home() {
                 .stats-grid { grid-template-columns: repeat(2, 1fr); }
                 .quick-access-grid { grid-template-columns: 1fr; }
             }
+                .shops-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 20px;
+                    margin-top: 20px;
+                }
+                .shop-item {
+                    background: white;
+                    padding: 25px;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    transition: all 0.3s;
+                }
+                .shop-item:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                }
+                .shop-item.influencer {
+                    background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+                }
+                .shop-flag {
+                    font-size: 2.5em;
+                    margin-right: 15px;
+                }
+                .shop-item h4 {
+                    margin: 0;
+                    flex-grow: 1;
+                    font-size: 1.2em;
+                }
+                .shop-link-btn {
+                    background: linear-gradient(45deg, #ff9500, #ffb84d);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 25px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    white-space: nowrap;
+                }
+                .shop-link-btn:hover {
+                    background: linear-gradient(45deg, #e6860a, #ff9500);
+                }
+                .influencer-btn {
+                    background: linear-gradient(45deg, #9333ea, #c084fc);
+                }
+                .influencer-btn:hover {
+                    background: linear-gradient(45deg, #7e22ce, #9333ea);
+                }
         `}</style>
     </>);
 }
