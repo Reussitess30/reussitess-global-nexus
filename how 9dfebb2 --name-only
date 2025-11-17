@@ -1,0 +1,161 @@
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+
+const FIXED_14_COUNTRIES = [
+    { name: "États-Unis", flag: "🇺🇸", link: "https://amzlink.to/az0LY0DXMG6dR" },
+    { name: "France", flag: "🇫🇷", link: "https://amzlink.to/az0RLMqtXqC2d" },
+    { name: "Italie", flag: "🇮🇹", link: "https://amzlink.to/az0tV67jW36S7" },
+    { name: "Espagne", flag: "🇪🇸", link: "https://amzlink.to/az085o25FtlRd" },
+    { name: "Allemagne", flag: "🇩🇪", link: "https://amzlink.to/az00VtRPRGpmm" },
+    { name: "Canada", flag: "🇨🇦", link: "https://amzlink.to/az0MvN3FRKKQQ" },
+    { name: "Inde", flag: "🇮🇳", link: "https://amzlink.to/az0GVe8b9O7cF" },
+    { name: "Pays-Bas", flag: "🇳🇱", link: "https://amzlink.to/az0G27sb8ZVbI" },
+    { name: "Suède", flag: "🇸🇪", link: "https://amzlink.to/az0Ig0XgFkR8o" },
+    { name: "Singapour", flag: "🇸🇬", link: "https://amzlink.to/az0b3TpUdq32r" },
+    { name: "Royaume-Uni", flag: "🇬🇧", link: "https://amzlink.to/az03r8CJgliMq" },
+    { name: "Australie", flag: "🇦🇺", link: "https://amzlink.to/az05kTTrYJ06L" },
+    { name: "Belgique", flag: "🇧🇪", link: "https://amzlink.to/az08ZB76xWpGm" },
+    { name: "Brésil", flag: "🇧🇷", link: "https://amzlink.to/az0ymmoCLHvyA" }
+];
+
+const personalStores = FIXED_14_COUNTRIES.map(c => ({ name: c.name, flag: c.flag, link: c.link }));
+
+const influencerStores = [
+    { name: "États-Unis", flag: "🇺🇸", link: "https://amzlink.to/az0G6w0uuYRlg" },
+    { name: "Italie", flag: "🇮🇹", link: "https://amzlink.to/az0yC7BiDQmPg" },
+    { name: "Espagne", flag: "🇪🇸", link: "https://amzlink.to/az0DKsP6Zr5IL" },
+    { name: "Allemagne", flag: "🇩🇪", link: "https://amzlink.to/az0PuGdrA0kgh" },
+    { name: "Canada", flag: "🇨🇦", link: "https://amzlink.to/az0YFa3j2fsnv" },
+    { name: "Inde", flag: "🇮🇳", link: "https://amzlink.to/az0Qry9pNlCkw" },
+    { name: "Pays-Bas", flag: "🇳🇱", link: "https://amzlink.to/az0v9jdbSf7Km" },
+    { name: "Suède", flag: "🇸🇪", link: "https://amzlink.to/az0Q5qEXfyqk5" },
+    { name: "Singapour", flag: "🇸🇬", link: "https://amzlink.to/az05gMuq73i99" },
+    { name: "Royaume-Uni", flag: "🇬🇧", link: "https://amzlink.to/az0VutIAPP8MY" },
+    { name: "Australie", flag: "🇦🇺", link: "https://amzlink.to/az0on91nKaQvh" },
+    { name: "Belgique", flag: "🇧🇪", link: "https://amzlink.to/az08ZB76xWpGm" }
+];
+
+const STATS = {
+    totalShops: 26,
+    totalCountries: 14,
+    totalContinents: 5
+};
+
+export default function Home() {
+    const [isOnline, setIsOnline] = useState(true);
+
+    useEffect(() => {
+        const update = () => setIsOnline(navigator.onLine);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('online', update);
+            window.addEventListener('offline', update);
+            update();
+        }
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('online', update);
+                window.removeEventListener('offline', update);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            var Tawk_API = Tawk_API || {};
+            (function(){
+                var s1 = document.createElement("script");
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/6738b4f02480f5b4f59f0f47/1icsoqkl4';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                var s0 = document.getElementsByTagName("script")[0];
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        }
+    }, []);
+
+    return (<>
+        <Head>
+            <title>🏆 Reussitess® Global Nexus 🏆</title>
+            <meta name="description" content="Hub Central du Réseau Mondial" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+        <div className="container">
+            <header className="header">
+                <h1>🏆 Reussitess® Global Nexus 🏆</h1>
+                <p className="status-indicator">
+                    Statut : {isOnline ? '🟢 En ligne' : '🔴 Hors ligne'}
+                </p>
+            </header>
+
+            <section className="welcome-section">
+                <h2>Bienvenue au cœur du réseau Reussitess® Global</h2>
+                <p>Ce hub central connecte nos <strong>{STATS.totalShops} boutiques Amazon</strong> à travers <strong>{STATS.totalCountries} pays</strong>, offrant un accès unifié à notre écosystème mondial d'excellence et d'innovation.</p>
+            </section>
+
+            <section className="stats-dashboard">
+                <h2>Statistiques Globales</h2>
+                <div className="stats-grid">
+                    <div className="stat-card">
+                        <h3>{STATS.totalShops}</h3>
+                        <p>Boutiques Amazon</p>
+                    </div>
+                    <div className="stat-card">
+                        <h3>{STATS.totalCountries}</h3>
+                        <p>Pays Connectés</p>
+                    </div>
+                    <div className="stat-card">
+                        <h3>{STATS.totalContinents}</h3>
+                        <p>Continents</p>
+                    </div>
+                    <div className="stat-card">
+                        <h3>24/7</h3>
+                        <p>Disponibilité</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="shop-list">
+                <h2>🔗 Accès Rapide au Réseau</h2>
+                <div className="quick-access-grid">
+                    <div className="quick-access-item">
+                        <div className="item-icon">🏠</div>
+                        <h4>Page d'Accueil</h4>
+                        <p>Découvrez notre vitrine principale avec vue d'ensemble du réseau global</p>
+                        <a href="#" className="item-btn btn-consult">Accéder</a>
+                    </div>
+                    <div className="quick-access-item">
+                        <div className="item-icon">📊</div>
+                        <h4>Tableau de Bord</h4>
+                        <p>Gérez et suivez vos activités sur notre plateforme sécurisée</p>
+                        <a href="#" className="item-btn btn-consult">Accéder</a>
+                    </div>
+                    <div className="quick-access-item">
+                        <div className="item-icon">🔐</div>
+                        <h4>Connexion</h4>
+                        <p>Accédez à votre espace personnel sécurisé</p>
+                        <a href="#" className="item-btn btn-join">Se Connecter</a>
+                    </div>
+                    <div className="quick-access-item">
+                        <div className="item-icon">📝</div>
+                        <h4>Inscription</h4>
+                        <p>Rejoignez le réseau Reussitess® Global</p>
+                        <a href="#" className="item-btn btn-join">S'inscrire</a>
+                    </div>
+                    <div className="quick-access-item">
+                        <div className="item-icon">🛍️</div>
+                        <h4>Boutiques Mondiales</h4>
+                        <p>Explorez nos {STATS.totalShops} boutiques Amazon dans {STATS.totalCountries} pays</p>
+                        <a href="#" className="item-btn btn-consult">Découvrir</a>
+                    </div>
+                    <div className="quick-access-item">
+                        <div className="item-icon">📱</div>
+                        <h4>Application PWA</h4>
+                        <p>Installez notre app pour un accès hors ligne</p>
+                        <a href="#" className="item-btn btn-join">Installer</a>
+                    </div>
+                    <div className="quick-access-item">
+                        <div className="item-icon">📈</div>
+                        <h4>Analyse de Performance</h4>
+                        <p>Suivi en temps réel des clics, conversions et revenus par pays</p>
+          
