@@ -30,8 +30,8 @@ export default function NexusDashboard() {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            {/* VALEUR REMISE À 42 */}
-            <div className="text-5xl font-bold text-blue-600 mb-2">42</div>
+            {/* CORRECTION FAITE ICI : 26 Boutiques Amazon */}
+            <div className="text-5xl font-bold text-blue-600 mb-2">26</div>
             <div className="text-gray-600 font-medium">Boutiques Amazon</div>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
@@ -122,7 +122,7 @@ export default function NexusDashboard() {
               </div>
               <h3 className="text-lg font-bold text-gray-800 mb-2">Boutiques Mondiales</h3>
               <p className="text-sm text-gray-600 mb-4">
-                Explorez nos 42 boutiques Amazon dans 14 pays
+                Explorez nos 26 boutiques Amazon dans 14 pays
               </p>
               <button className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition">
                 Découvrir
