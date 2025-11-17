@@ -14,7 +14,7 @@ const FIXED_14_COUNTRIES = [
     { name: "Singapour", flag: "🇸🇬", link: "https://amzlink.to/az0b3TpUdq32r" },
     { name: "Royaume-Uni", flag: "🇬🇧", link: "https://amzlink.to/az03r8CJgliMq" },
     { name: "Australie", flag: "🇦🇺", link: "https://amzlink.to/az05kTTrYJ06L" },
-    { name: "Belgique", flag: "🇧🇪", link: "https://amzlink.to/az08ZB76xWpGm" },
+    { name: "Belgique", flag: "🇧🇪", link: "https://www.amazon.com.be/shop/influencer-fb942837" },
     { name: "Brésil", flag: "🇧🇷", link: "https://amzlink.to/az0ymmoCLHvyA" }
 ];
 
@@ -32,7 +32,7 @@ const influencerStores = [
     { name: "Singapour", flag: "🇸🇬", link: "https://amzlink.to/az05gMuq73i99" },
     { name: "Royaume-Uni", flag: "🇬🇧", link: "https://amzlink.to/az0VutIAPP8MY" },
     { name: "Australie", flag: "🇦🇺", link: "https://amzlink.to/az0on91nKaQvh" },
-    { name: "Belgique", flag: "🇧🇪", link: "https://amzlink.to/az08ZB76xWpGm" }
+    { name: "Belgique", flag: "🇧🇪", link: "https://www.amazon.com.be/shop/influencer-fb942837" }
 ];
 
 const STATS = {
