@@ -9,7 +9,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body>
-        {/* Le contenu de app/page.js (NexusDashboard) sera affiché ici grâce à la prop {children} */}
         {children}
       </body>
     </html>
