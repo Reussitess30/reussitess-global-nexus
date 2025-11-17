@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import SocialBar from '../components/SocialBar';
 import Head from 'next/head';
 
 const FIXED_14_COUNTRIES = [

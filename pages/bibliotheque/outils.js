@@ -1,5 +1,4 @@
                     </div>
-import SocialBar from '../components/SocialBar';
 
                     {/* Convertisseur de devises */}
                     <h2 style={{ color: '#667eea', marginBottom: '20px' }}>💱 Convertisseur de Devises</h2>

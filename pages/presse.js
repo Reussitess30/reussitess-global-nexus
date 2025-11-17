@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import SocialBar from '../components/SocialBar';
 
 export default function Presse() {
     const router = useRouter();
