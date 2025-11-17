@@ -183,7 +183,7 @@ export default function Home() {
                         <div className="item-icon">📱</div>
                         <h4>Application PWA</h4>
                         <p>Installez notre app pour un accès hors ligne</p>
-                        <a href="https://reussitess-global-pwa.vercel.app" className="item-btn btn-join">Installer</a>
+                        <a href="/pwa-app" className="item-btn btn-join">Installer</a>
                     </div>
                     <div className="quick-access-item">
                         <div className="item-icon">📈</div>
