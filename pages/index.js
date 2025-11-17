@@ -166,6 +166,12 @@ export default function Home() {
                         <p>Guides sur la TVA et exigences légales des 14 marchés</p>
                         <a href="/legal" className="item-btn btn-consult">Consulter</a>
                     </div>
+                    <div className="quick-access-item">
+                        <div className="item-icon">💰</div>
+                        <h4>Programme d'Affiliation</h4>
+                        <p>Gagnez des revenus passifs en partageant nos boutiques Amazon</p>
+                        <a href="https://reussitess-global-pwa.vercel.app/affiliation" className="item-btn btn-join">Rejoindre</a>
+                    </div>
                 </div>
             </section>
 
