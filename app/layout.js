@@ -1,5 +1,4 @@
 import './globals.css';
-import AntiCopyProtection from './components/AntiCopyProtection';
 import AutoUpdate from './components/AutoUpdate';
 
 export const metadata = {
@@ -25,10 +24,8 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </head>
       <body className="antialiased">
-        <AntiCopyProtection>
           {children}
           <AutoUpdate />
-        </AntiCopyProtection>
       </body>
     </html>
   );
