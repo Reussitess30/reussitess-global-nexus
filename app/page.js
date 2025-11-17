@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Globe, Home, BarChart3, Lock, FileText, ShoppingBag, Smartphone, Activity, BarChart, TestTube, TrendingUp } from 'lucide-react';
 
