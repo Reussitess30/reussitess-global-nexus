@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Globe, Home, BarChart3, Lock, FileText, ShoppingBag, Smartphone, Activity, BarChart, TestTube, TrendingUp } from 'lucide-react';
 
@@ -8,7 +6,6 @@ export default function NexusDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-800 to-purple-900 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-6">
         
-        {/* Header */}
         <div className="bg-white rounded-2xl shadow-2xl p-8 text-center">
           <div className="flex items-center justify-center gap-3 mb-2">
             <Globe className="w-10 h-10 text-blue-600" />
@@ -17,18 +14,15 @@ export default function NexusDashboard() {
           <p className="text-gray-600 text-lg">Le Hub Central du Réseau Mondial</p>
         </div>
 
-        {/* Welcome Section */}
         <div className="bg-white rounded-2xl shadow-xl p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-3">
             Bienvenue au cœur du réseau Reussitess® Global.
           </h2>
-          {/* CONTENU CORRIGÉ ET DÉTAILLÉ */}
           <p className="text-gray-700">
-            Ce hub central connecte nos 26 boutiques Amazon à travers 14 pays (France, Angleterre, Italie, Allemagne, Suède, Singapour, Australie, Espagne, Brésil, Royaume-Uni, Inde, Nouvelle-Zélande, États-Unis, Canada), offrant un accès unifié à notre écosystème mondial d'excellence et d'innovation.
+            Ce hub central connecte nos 26 boutiques Amazon à travers 14 pays, offrant un accès unifié à notre écosystème mondial d'excellence et d'innovation.
           </p>
         </div>
 
-        {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="text-5xl font-bold text-blue-600 mb-2">26</div>
@@ -48,7 +42,6 @@ export default function NexusDashboard() {
           </div>
         </div>
 
-        {/* Quick Access Section */}
         <div className="bg-white rounded-2xl shadow-xl p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
             <Activity className="w-7 h-7 text-blue-600" />
@@ -56,7 +49,6 @@ export default function NexusDashboard() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            {/* Page d'Accueil */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-md">
               <div className="flex justify-center mb-4">
                 <Home className="w-12 h-12 text-blue-600" />
@@ -70,7 +62,6 @@ export default function NexusDashboard() {
               </button>
             </div>
 
-            {/* Tableau de Bord */}
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-md">
               <div className="flex justify-center mb-4">
                 <BarChart3 className="w-12 h-12 text-purple-600" />
@@ -84,7 +75,6 @@ export default function NexusDashboard() {
               </button>
             </div>
 
-            {/* Connexion */}
             <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 shadow-md">
               <div className="flex justify-center mb-4">
                 <Lock className="w-12 h-12 text-yellow-600" />
@@ -98,7 +88,6 @@ export default function NexusDashboard() {
               </button>
             </div>
 
-            {/* Inscription */}
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-md">
               <div className="flex justify-center mb-4">
                 <FileText className="w-12 h-12 text-green-600" />
@@ -113,9 +102,7 @@ export default function NexusDashboard() {
             </div>
           </div>
 
-          {/* Boutiques & App */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Boutiques Mondiales */}
             <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6 shadow-md">
               <div className="flex justify-center mb-4">
                 <ShoppingBag className="w-12 h-12 text-pink-600" />
@@ -129,7 +116,6 @@ export default function NexusDashboard() {
               </button>
             </div>
 
-            {/* Application PWA */}
             <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 shadow-md">
               <div className="flex justify-center mb-4">
                 <Smartphone className="w-12 h-12 text-indigo-600" />
@@ -145,7 +131,6 @@ export default function NexusDashboard() {
           </div>
         </div>
 
-        {/* Actions Rapides */}
         <div className="bg-white rounded-2xl shadow-xl p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Actions Rapides</h2>
           <div className="flex flex-wrap justify-center gap-4">
@@ -168,7 +153,6 @@ export default function NexusDashboard() {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="bg-white rounded-2xl shadow-xl p-6 text-center">
           <h3 className="text-xl font-bold text-gray-800 mb-2">Reussitess® Global Nexus</h3>
           <p className="text-gray-600 mb-2">Hub Central du Réseau Mondial</p>
