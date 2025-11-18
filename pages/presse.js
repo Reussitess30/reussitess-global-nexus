@@ -17,7 +17,6 @@ export default function Presse() {
             <meta name="description" content="Kit presse, communiqués, statistiques et contacts média pour Reussitess® Global Nexus" />
         </Head>
 
-        <SocialBar />
 
         <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '20px' }}>
             <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
