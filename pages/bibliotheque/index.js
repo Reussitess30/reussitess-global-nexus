@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import SocialBar from '../components/SocialBar';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -30,7 +29,6 @@ export default function Bibliotheque() {
 
     return (<>
         <Head>
-        <SocialBar />
             <title>📚 Bibliothèque Mondiale - Reussitess® Global Nexus</title>
             <meta name="description" content="Centre de ressources mondial sur le e-commerce Amazon" />
         </Head>

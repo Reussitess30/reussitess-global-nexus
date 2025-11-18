@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import SocialBar from '../components/SocialBar';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -39,7 +38,6 @@ export default function Glossaire() {
 
     return (<>
         <Head>
-        <SocialBar />
             <title>📖 Glossaire E-commerce - Bibliothèque Mondiale</title>
         </Head>
 
