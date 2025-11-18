@@ -12,29 +12,13 @@ export default function Glossaire() {
         { term: 'FBM', def: 'Fulfillment by Merchant - Expédition gérée par le vendeur lui-même', cat: 'Logistique' },
         { term: 'Buy Box', def: 'Encart d\'achat principal sur une page produit Amazon (très convoité)', cat: 'Vente' },
         { term: 'A+ Content', def: 'Contenu enrichi avec images et texte formaté sur les pages produits', cat: 'Marketing' },
-        { term: 'BSR', def: 'Best Sellers Rank - Classement des meilleures ventes par catégorie', cat: 'Statistiques' },
-        { term: 'PPC', def: 'Pay Per Click - Publicité au clic sur Amazon (Sponsored Products)', cat: 'Publicité' },
-        { term: 'Amazon Associates', def: 'Programme d\'affiliation Amazon (1-10% de commission)', cat: 'Affiliation' },
-        { term: 'Prime', def: 'Programme d\'abonnement Amazon avec livraison gratuite et rapide', cat: 'Service' },
-        { term: 'Seller Central', def: 'Interface de gestion pour les vendeurs Amazon', cat: 'Plateforme' },
-        { term: 'Vendor Central', def: 'Interface pour les fournisseurs vendant directement à Amazon', cat: 'Plateforme' },
-        { term: 'SKU', def: 'Stock Keeping Unit - Référence unique de gestion des stocks', cat: 'Technique' },
-        { term: 'TVA', def: 'Taxe sur la Valeur Ajoutée - Impôt indirect sur la consommation', cat: 'Fiscalité' },
-        { term: 'Reverse Charge', def: 'Mécanisme où l\'acheteur paie la TVA (ventes B2B UE)', cat: 'Fiscalité' },
-        { term: 'RGPD', def: 'Règlement Général sur la Protection des Données (privacy EU)', cat: 'Légal' },
-        { term: 'Feedback', def: 'Note et commentaire laissés par un client sur le vendeur', cat: 'Réputation' },
-        { term: 'Review', def: 'Avis client sur un produit spécifique', cat: 'Réputation' },
-        { term: 'Keywords', def: 'Mots-clés pour le référencement des produits sur Amazon', cat: 'SEO' },
-        { term: 'Listing', def: 'Page produit complète sur Amazon', cat: 'Vente' },
-        { term: 'Suppressed Listing', def: 'Listing désactivé pour non-conformité ou problème', cat: 'Technique' }
+        { term: 'BSR', def: 'Best Sellers Rank - Classement des meilleures ventes par catégorie', cat: 'Statistiques' }
     ];
 
     const filteredTerms = terms.filter(t => 
         t.term.toLowerCase().includes(search.toLowerCase()) ||
         t.def.toLowerCase().includes(search.toLowerCase())
     );
-
-    const categories = [...new Set(terms.map(t => t.cat))];
 
     return (<>
         <Head>
@@ -60,7 +44,6 @@ export default function Glossaire() {
                         Tous les termes du e-commerce Amazon expliqués simplement
                     </p>
 
-                    {/* Recherche */}
                     <input 
                         type="text"
                         placeholder="🔍 Rechercher un terme..."
@@ -76,60 +59,19 @@ export default function Glossaire() {
                         }}
                     />
 
-                    {/* Catégories */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '30px' }}>
-                        {categories.map(cat => (
-                            <span key={cat} style={{
-                                background: '#f0f4ff',
-                                color: '#667eea',
-                                padding: '8px 16px',
-                                borderRadius: '20px',
-                                fontSize: '0.9em',
-                                cursor: 'pointer'
-                            }}>
-                                {cat} ({terms.filter(t => t.cat === cat).length})
-                            </span>
-                        ))}
-                    </div>
-
-                    {/* Liste des termes */}
                     <div>
-                        {filteredTerms.length === 0 ? (
-                            <p style={{ textAlign: 'center', color: '#666', padding: '40px' }}>
-                                Aucun terme trouvé pour "{search}"
-                            </p>
-                        ) : (
-                            filteredTerms.map((term, i) => (
-                                <div key={i} style={{
-                                    background: '#f9fafb',
-                                    padding: '20px',
-                                    borderRadius: '10px',
-                                    marginBottom: '15px',
-                                    borderLeft: '4px solid #667eea'
-                                }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                                        <h3 style={{ color: '#667eea', margin: 0, fontSize: '1.3em' }}>{term.term}</h3>
-                                        <span style={{
-                                            background: '#667eea',
-                                            color: 'white',
-                                            padding: '5px 12px',
-                                            borderRadius: '15px',
-                                            fontSize: '0.8em'
-                                        }}>
-                                            {term.cat}
-                                        </span>
-                                    </div>
-                                    <p style={{ margin: 0, color: '#666', lineHeight: '1.6' }}>{term.def}</p>
-                                </div>
-                            ))
-                        )}
-                    </div>
-
-                    {/* Stats */}
-                    <div style={{ marginTop: '40px', textAlign: 'center', padding: '20px', background: '#f0f4ff', borderRadius: '10px' }}>
-                        <p style={{ margin: 0, color: '#667eea', fontSize: '1.1em' }}>
-                            📚 {terms.length} termes expliqués • {categories.length} catégories • Mis à jour régulièrement
-                        </p>
+                        {filteredTerms.map((term, i) => (
+                            <div key={i} style={{
+                                background: '#f9fafb',
+                                padding: '20px',
+                                borderRadius: '10px',
+                                marginBottom: '15px',
+                                borderLeft: '4px solid #667eea'
+                            }}>
+                                <h3 style={{ color: '#667eea', margin: '0 0 10px 0', fontSize: '1.3em' }}>{term.term}</h3>
+                                <p style={{ margin: 0, color: '#666', lineHeight: '1.6' }}>{term.def}</p>
+                            </div>
+                        ))}
                     </div>
 
                 </div>
