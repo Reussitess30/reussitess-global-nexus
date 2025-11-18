@@ -76,7 +76,6 @@ export default function Home() {
 
     return (<>
         <Head>
-        <SocialBar />
             <title>🏆 Reussitess® Global Nexus 🏆</title>
             <meta name="description" content="Hub Central du Réseau Mondial" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
