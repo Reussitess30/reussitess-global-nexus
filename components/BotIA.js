@@ -16,7 +16,7 @@ export default function BotAssistant() {
 
   useEffect(() => {
     setMessages([{ text: greetings[0], isBot: true }])
-  }, [])
+  }, [greetings])
 
   const handleSend = () => {
     if (!input.trim()) return

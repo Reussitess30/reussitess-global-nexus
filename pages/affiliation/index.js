@@ -19,7 +19,7 @@ export default function Affiliation() {
                 marginBottom: '30px'
             }}>← Retour au Hub</button>
             
-            <h1 style={{ color: '#667eea', marginBottom: '20px' }}>💰 Programme d'Affiliation</h1>
+            <h1 style={{ color: '#667eea', marginBottom: '20px' }}>💰 Programme d&apos;Affiliation</h1>
             
             <div style={{ background: 'white', padding: '30px', borderRadius: '15px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
                 <h2>Gagnez des revenus passifs</h2>
@@ -43,7 +43,7 @@ export default function Affiliation() {
                 <h3 style={{ marginTop: '40px', marginBottom: '20px' }}>Comment ça marche ?</h3>
                 <ol style={{ fontSize: '1.1em', lineHeight: '2' }}>
                     <li>Inscrivez-vous gratuitement au programme</li>
-                    <li>Recevez vos liens d'affiliation personnalisés</li>
+                    <li>Recevez vos liens d&apos;affiliation personnalisés</li>
                     <li>Partagez sur vos réseaux sociaux, blog, email...</li>
                     <li>Gagnez des commissions sur chaque vente générée</li>
                 </ol>
