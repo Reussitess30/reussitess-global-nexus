@@ -1,7 +1,18 @@
 import Layout from '../components/Layout'
 import Head from 'next/head'
+import { useState, useEffect } from 'react'
 
 export default function Boutiques() {
+  const [visitorCount, setVisitorCount] = useState(0)
+
+  // Increment visitor counter on page load
+  useEffect(() => {
+    const currentCount = parseInt(localStorage.getItem('boutiquesVisitors') || '0', 10)
+    const newCount = currentCount + 1
+    localStorage.setItem('boutiquesVisitors', newCount.toString())
+    setVisitorCount(newCount)
+  }, [])
+
   // Boutiques personnelles (14 pays)
   const boutiquesPersonnelles = [
     { flag: '🇺🇸', name: 'United States', link: 'https://amzlink.to/az0LY0DXMG6dR' },
@@ -65,6 +76,10 @@ export default function Boutiques() {
               <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
                 <div className="text-3xl font-bold text-pink-400">5</div>
                 <div className="text-sm text-gray-300">Continents</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-green-400/20 hover:border-green-400 transition-colors">
+                <div className="text-3xl font-bold text-green-400">{visitorCount.toLocaleString()}</div>
+                <div className="text-sm text-gray-300">👥 Visiteurs</div>
               </div>
             </div>
           </div>
