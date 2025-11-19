@@ -1,0 +1,45 @@
+# Security Headers - Apache Configuration
+# This file provides additional security when served by Apache
+# For production deployments using Apache/similar web servers
+
+<IfModule mod_headers.c>
+    # Prevent directory listing
+    Options -Indexes
+    
+    # Force HTTPS
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    
+    # Prevent clickjacking
+    Header always set X-Frame-Options "DENY"
+    
+    # Prevent MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # XSS Protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Remove server signature
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+
+# Prevent access to .env files
+<FilesMatch "\.env">
+    Require all denied
+</FilesMatch>
+
+# Prevent access to backup files
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+    Require all denied
+</FilesMatch>

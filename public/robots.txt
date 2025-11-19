@@ -1,0 +1,37 @@
+# Robots.txt for Reussitess Global Nexus
+# Security-focused configuration
+
+User-agent: *
+# Allow all pages for indexing
+Allow: /
+
+# Disallow sensitive paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /.env
+Disallow: /.git/
+
+# Allow specific static resources
+Allow: /_next/static/
+Allow: /public/
+
+# Crawl delay (prevent aggressive scraping)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Block known bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
