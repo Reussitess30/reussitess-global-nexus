@@ -4,3 +4,6 @@ out/
 .DS_Store
 *.log
 .env*.local
+public/sw.js
+public/workbox-*.js
+public/sw.js.map
