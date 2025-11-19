@@ -19,7 +19,7 @@ export default function OutilsCalculateurs() {
           <button className="btn" disabled>Bientôt disponible</button>
         </div>
       </div>
-      <a href="/" className="back-link">← Retour à l'accueil</a>
+      <a href="/" className="back-link">← Retour à l&apos;accueil</a>
     </div>
   )
 }

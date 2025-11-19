@@ -114,7 +114,7 @@ export default function TestConnexion() {
                             Diagnostic Connexion
                         </h1>
                         <p style={{ fontSize: '1.2em', color: '#666' }}>
-                            Vérification de l'état du système
+                            Vérification de l&apos;état du système
                         </p>
                     </div>
 

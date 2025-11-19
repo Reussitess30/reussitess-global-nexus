@@ -150,7 +150,7 @@ export default function Home() {
                   opacity: '0.7',
                   color: '#fbbf24'
                 }}>
-                  Lien d'affiliation sécurisé
+                  Lien d&apos;affiliation sécurisé
                 </div>
               </div>
             ))}
