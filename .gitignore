@@ -4,3 +4,32 @@ out/
 .DS_Store
 *.log
 .env*.local
+.env
+.env.production
+.env.development
+
+# Security - Never commit these
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+*.secret
+credentials.json
+service-account*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+coverage/
+.nyc_output/
+
+# Build artifacts
+dist/
+build/
+
