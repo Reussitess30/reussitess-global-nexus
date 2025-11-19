@@ -137,6 +137,48 @@ export default function Boutiques() {
             </div>
           </section>
 
+          {/* CTA Devenir Influenceur */}
+          <section className="mt-16">
+            <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-2xl p-8 md:p-12 text-center shadow-2xl border border-purple-400/30">
+              <div className="max-w-3xl mx-auto">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  💼 Devenez Influenceur Amazon Reussitess®
+                </h3>
+                <p className="text-white/90 mb-6 text-lg md:text-xl">
+                  Rejoignez notre programme d&apos;affiliation et gagnez des commissions sur vos recommandations de produits Amazon
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a 
+                    href="/affiliation"
+                    className="inline-block bg-white text-purple-600 font-bold py-4 px-8 rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  >
+                    🚀 Rejoindre le programme
+                  </a>
+                  <a 
+                    href="/contact"
+                    className="inline-block bg-purple-800/50 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-800 transition-all duration-300 border border-white/30"
+                  >
+                    💬 En savoir plus
+                  </a>
+                </div>
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-white/80 text-sm">
+                  <div>
+                    <div className="text-2xl font-bold text-white">4-10%</div>
+                    <div>Commission par vente</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-white">14</div>
+                    <div>Pays disponibles</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-white">24/7</div>
+                    <div>Support dédié</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Info Section */}
           <section className="mt-16 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <div className="text-center">
