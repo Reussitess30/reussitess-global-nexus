@@ -92,6 +92,7 @@ export default function HeroSection() {
             {/* Mascotte IA principale */}
             <div className="mascot-container">
               <div className="mascot-glow"></div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src="/ia-mascot-animated.svg" 
                 alt="Mascotte IA Reussitess"
@@ -109,6 +110,7 @@ export default function HeroSection() {
               }}
             >
               <div className="bot-pulse"></div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src="/bot-avatar-animated.svg" 
                 alt="Bot IA Assistant"
