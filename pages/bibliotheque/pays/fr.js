@@ -100,7 +100,7 @@ export default function France() {
                     <h2 style={{ color: '#667eea' }}>🔗 Ressources Officielles</h2>
                     <div style={{ background: '#f9fafb', padding: '20px', borderRadius: '10px' }}>
                         <p>📄 <a href="https://www.economie.gouv.fr/entreprises/tva-taux-applicables" target="_blank" style={{ color: '#667eea' }}>
-                            Taux de TVA - Ministère de l'Économie
+                            Taux de TVA - Ministère de l&apos;Économie
                         </a></p>
                         <p>📄 <a href="https://sellercentral-europe.amazon.com" target="_blank" style={{ color: '#667eea' }}>
                             Amazon Seller Central Europe

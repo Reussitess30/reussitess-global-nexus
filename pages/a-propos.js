@@ -7,12 +7,12 @@ export default function APropos() {
         <div className="container">
           <div className="text-center mb-12">
             <h1>À Propos de Reussitess©GlobalNexus</h1>
-            <p className="text-xl">Votre Passerelle Vers l'Excellence Mondiale</p>
+            <p className="text-xl">Votre Passerelle Vers l&apos;Excellence Mondiale</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="card">
-              <h2>Bienvenue dans l'univers de Reussitess©GlobalNexus</h2>
+              <h2>Bienvenue dans l&apos;univers de Reussitess©GlobalNexus</h2>
               <p className="mb-4">
                 Le hub central de votre écosystème mondial. Conçue pour les membres du réseau Reussitess®, 
                 notre application PWA vous offre un accès inédit à 42 boutiques Amazon réparties dans 
@@ -49,8 +49,8 @@ export default function APropos() {
 
               <p className="text-center premium-text">
                 Reussitess©GlobalNexus est votre partenaire essentiel pour naviguer et prospérer 
-                au sein de notre écosystème d'excellence et d'innovation. Téléchargez-la dès aujourd'hui 
-                pour débloquer un monde d'opportunités et rejoignez le réseau mondial des entrepreneurs du succès.
+                au sein de notre écosystème d&apos;excellence et d&apos;innovation. Téléchargez-la dès aujourd&apos;hui 
+                pour débloquer un monde d&apos;opportunités et rejoignez le réseau mondial des entrepreneurs du succès.
               </p>
 
               <div className="text-center mt-8">

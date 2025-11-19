@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function OutilsCalculateurs() {
   return (
     <div className="container">
@@ -19,7 +21,7 @@ export default function OutilsCalculateurs() {
           <button className="btn" disabled>Bientôt disponible</button>
         </div>
       </div>
-      <a href="/" className="back-link">← Retour à l'accueil</a>
+      <Link href="/" className="back-link">← Retour à l&apos;accueil</Link>
     </div>
   )
 }

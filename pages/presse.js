@@ -70,7 +70,7 @@ export default function Presse() {
                             Fondée en 2024, notre plateforme connecte 26 boutiques Amazon à travers 14 pays et 5 continents.
                         </p>
                         <p style={{ fontSize: '1.2em', lineHeight: '1.8' }}>
-                            Nous sommes particulièrement engagés auprès des entrepreneurs d'Afrique et des DOM-TOM (Guadeloupe, 
+                            Nous sommes particulièrement engagés auprès des entrepreneurs d&apos;Afrique et des DOM-TOM (Guadeloupe, 
                             Martinique, Guyane, Réunion) avec des ressources adaptées à leurs marchés spécifiques.
                         </p>
                     </div>
