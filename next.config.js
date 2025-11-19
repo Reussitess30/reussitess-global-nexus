@@ -2,12 +2,21 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  
+  // i18n configuration for multilingual support
+  i18n: {
+    locales: ['fr', 'en', 'es', 'de', 'it', 'pt'],
+    defaultLocale: 'fr',
+  },
+  
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com'],
   },
+  
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  
   async headers() {
     return [
       {
@@ -21,7 +30,25 @@ const nextConfig = {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
         ],
+      },
+    ]
+  },
+  
+  // Rewrites for SEO-friendly URLs
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
       },
     ]
   },
