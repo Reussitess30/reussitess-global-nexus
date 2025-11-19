@@ -4,36 +4,36 @@ import Head from 'next/head'
 export default function Boutiques() {
   // Boutiques personnelles (14 pays)
   const boutiquesPersonnelles = [
-    { name: "États-Unis", flag: "🇺🇸", link: "https://amzlink.to/az0LY0DXMG6dR" },
-    { name: "France", flag: "🇫🇷", link: "https://amzlink.to/az0RLMqtXqC2d" },
-    { name: "Italie", flag: "🇮🇹", link: "https://amzlink.to/az0tV67jW36S7" },
-    { name: "Espagne", flag: "🇪🇸", link: "https://amzlink.to/az085o25FtlRd" },
-    { name: "Allemagne", flag: "🇩🇪", link: "https://amzlink.to/az00VtRPRGpmm" },
-    { name: "Canada", flag: "🇨🇦", link: "https://amzlink.to/az0MvN3FRKKQQ" },
-    { name: "Inde", flag: "🇮🇳", link: "https://amzlink.to/az0GVe8b9O7cF" },
-    { name: "Pays-Bas", flag: "🇳🇱", link: "https://amzlink.to/az0G27sb8ZVbI" },
-    { name: "Suède", flag: "🇸🇪", link: "https://amzlink.to/az0Ig0XgFkR8o" },
-    { name: "Singapour", flag: "🇸🇬", link: "https://amzlink.to/az0b3TpUdq32r" },
-    { name: "Royaume-Uni", flag: "🇬🇧", link: "https://amzlink.to/az03r8CJgliMq" },
-    { name: "Australie", flag: "🇦🇺", link: "https://amzlink.to/az05kTTrYJ06L" },
-    { name: "Belgique", flag: "🇧🇪", link: "https://www.amazon.com.be/shop/influencer-fb942837" },
-    { name: "Brésil", flag: "🇧🇷", link: "https://amzlink.to/az0ymmoCLHvyA" }
+    { flag: '🇺🇸', name: 'United States', link: 'https://amzlink.to/az0LY0DXMG6dR' },
+    { flag: '🇫🇷', name: 'France', link: 'https://amzlink.to/az0RLMqtXqC2d' },
+    { flag: '🇮🇹', name: 'Italia', link: 'https://amzlink.to/az0tV67jW36S7' },
+    { flag: '🇪🇸', name: 'España', link: 'https://amzlink.to/az085o25FtlRd' },
+    { flag: '🇩🇪', name: 'Deutschland', link: 'https://amzlink.to/az00VtRPRGpmm' },
+    { flag: '🇨🇦', name: 'Canada', link: 'https://amzlink.to/az0MvN3FRKKQQ' },
+    { flag: '🇮🇳', name: 'भारत', link: 'https://amzlink.to/az0GVe8b9O7cF' },
+    { flag: '🇳🇱', name: 'Nederland', link: 'https://amzlink.to/az0G27sb8ZVbI' },
+    { flag: '🇸🇪', name: 'Sverige', link: 'https://amzlink.to/az0Ig0XgFkR8o' },
+    { flag: '🇸🇬', name: 'Singapore', link: 'https://amzlink.to/az0b3TpUdq32r' },
+    { flag: '🇬🇧', name: 'United Kingdom', link: 'https://amzlink.to/az03r8CJgliMq' },
+    { flag: '🇦🇺', name: 'Australia', link: 'https://amzlink.to/az05kTTrYJ06L' },
+    { flag: '🇧🇪', name: 'België/Belgique', link: 'https://amzlink.to/az08ZB76xWpGm' },
+    { flag: '🇧🇷', name: 'Brasil', link: 'https://amzlink.to/az0ymmoCLHvyA' }
   ]
 
   // Boutiques influenceur (12 pays)
   const boutiquesInfluenceur = [
-    { name: "États-Unis", flag: "🇺🇸", link: "https://amzlink.to/az0G6w0uuYRlg" },
-    { name: "Italie", flag: "🇮🇹", link: "https://amzlink.to/az0yC7BiDQmPg" },
-    { name: "Espagne", flag: "🇪🇸", link: "https://amzlink.to/az0DKsP6Zr5IL" },
-    { name: "Allemagne", flag: "🇩🇪", link: "https://amzlink.to/az0PuGdrA0kgh" },
-    { name: "Canada", flag: "🇨🇦", link: "https://amzlink.to/az0YFa3j2fsnv" },
-    { name: "Inde", flag: "🇮🇳", link: "https://amzlink.to/az0Qry9pNlCkw" },
-    { name: "Pays-Bas", flag: "🇳🇱", link: "https://amzlink.to/az0v9jdbSf7Km" },
-    { name: "Suède", flag: "🇸🇪", link: "https://amzlink.to/az0Q5qEXfyqk5" },
-    { name: "Singapour", flag: "🇸🇬", link: "https://amzlink.to/az05gMuq73i99" },
-    { name: "Royaume-Uni", flag: "🇬🇧", link: "https://amzlink.to/az0VutIAPP8MY" },
-    { name: "Australie", flag: "🇦🇺", link: "https://amzlink.to/az0on91nKaQvh" },
-    { name: "Belgique", flag: "🇧🇪", link: "https://www.amazon.com.be/shop/influencer-fb942837" }
+    { flag: '🇺🇸', name: 'USA', link: 'https://amzlink.to/az0G6w0uuYRlg' },
+    { flag: '🇮🇹', name: 'Italia', link: 'https://amzlink.to/az0yC7BiDQmPg' },
+    { flag: '🇪🇸', name: 'España', link: 'https://amzlink.to/az0DKsP6Zr5IL' },
+    { flag: '🇩🇪', name: 'Deutschland', link: 'https://amzlink.to/az0PuGdrA0kgh' },
+    { flag: '🇨🇦', name: 'Canada', link: 'https://amzlink.to/az0YFa3j2fsnv' },
+    { flag: '🇮🇳', name: 'India', link: 'https://amzlink.to/az0Qry9pNlCkw' },
+    { flag: '🇳🇱', name: 'Nederland', link: 'https://amzlink.to/az0v9jdbSf7Km' },
+    { flag: '🇸🇪', name: 'Sverige', link: 'https://amzlink.to/az0Q5qEXfyqk5' },
+    { flag: '🇸🇬', name: 'Singapore', link: 'https://amzlink.to/az05gMuq73i99' },
+    { flag: '🇬🇧', name: 'UK', link: 'https://amzlink.to/az0VutIAPP8MY' },
+    { flag: '🇦🇺', name: 'Australia', link: 'https://amzlink.to/az0on91nKaQvh' },
+    { flag: '🇧🇪', name: 'Belgique', link: 'https://www.amazon.com.be/shop/influencer-fb942837' }
   ]
 
   return (
