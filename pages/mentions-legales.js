@@ -91,6 +91,93 @@ export default function MentionsLegales() {
           contenu: "Soporte multilingüe 24/7 disponible a través de nuestra plataforma."
         }
       ]
+    },
+    pt: {
+      titre: "Avisos Legais - Reussitess Global Nexus",
+      sections: [
+        {
+          titre: "📄 Informações Gerais",
+          contenu: "Reussitess Global Nexus é uma plataforma global de e-commerce que conecta 42 lojas Amazon em 14 países."
+        },
+        {
+          titre: "🏢 Editor",
+          contenu: "Rede Global Reussitess - Centro Central de E-commerce Global"
+        },
+        {
+          titre: "🌍 Hospedagem",
+          contenu: "Vercel Inc. - 440 N Barranca Ave #4133, Covina, CA 91723, USA"
+        },
+        {
+          titre: "📊 Dados Pessoais",
+          contenu: "Protegemos seus dados de acordo com o RGPD. Nenhum dado sensível é compartilhado sem consentimento."
+        },
+        {
+          titre: "🔒 Propriedade Intelectual",
+          contenu: "Reussitess® é uma marca registrada. Todos os direitos reservados sobre o conteúdo e a plataforma."
+        },
+        {
+          titre: "📞 Contato",
+          contenu: "Suporte multilíngue 24/7 disponível através da nossa plataforma."
+        }
+      ]
+    },
+    it: {
+      titre: "Note Legali - Reussitess Global Nexus",
+      sections: [
+        {
+          titre: "📄 Informazioni Generali",
+          contenu: "Reussitess Global Nexus è una piattaforma globale di e-commerce che collega 42 negozi Amazon in 14 paesi."
+        },
+        {
+          titre: "🏢 Editore",
+          contenu: "Rete Globale Reussitess - Centro Centrale di E-commerce Globale"
+        },
+        {
+          titre: "🌍 Hosting",
+          contenu: "Vercel Inc. - 440 N Barranca Ave #4133, Covina, CA 91723, USA"
+        },
+        {
+          titre: "📊 Dati Personali",
+          contenu: "Proteggiamo i tuoi dati in conformità con il GDPR. Nessun dato sensibile viene condiviso senza consenso."
+        },
+        {
+          titre: "🔒 Proprietà Intellettuale",
+          contenu: "Reussitess® è un marchio registrato. Tutti i diritti riservati sui contenuti e sulla piattaforma."
+        },
+        {
+          titre: "📞 Contatto",
+          contenu: "Supporto multilingue 24/7 disponibile attraverso la nostra piattaforma."
+        }
+      ]
+    },
+    de: {
+      titre: "Rechtliche Hinweise - Reussitess Global Nexus",
+      sections: [
+        {
+          titre: "📄 Allgemeine Informationen",
+          contenu: "Reussitess Global Nexus ist eine globale E-Commerce-Plattform, die 42 Amazon-Shops in 14 Ländern verbindet."
+        },
+        {
+          titre: "🏢 Herausgeber",
+          contenu: "Reussitess Global Network - Globales E-Commerce-Zentralhub"
+        },
+        {
+          titre: "🌍 Hosting",
+          contenu: "Vercel Inc. - 440 N Barranca Ave #4133, Covina, CA 91723, USA"
+        },
+        {
+          titre: "📊 Personenbezogene Daten",
+          contenu: "Wir schützen Ihre Daten gemäß DSGVO. Keine sensiblen Daten werden ohne Zustimmung weitergegeben."
+        },
+        {
+          titre: "🔒 Geistiges Eigentum",
+          contenu: "Reussitess® ist eine eingetragene Marke. Alle Rechte an Inhalten und Plattform vorbehalten."
+        },
+        {
+          titre: "📞 Kontakt",
+          contenu: "Mehrsprachiger 24/7-Support über unsere Plattform verfügbar."
+        }
+      ]
     }
   }
 
@@ -122,6 +209,24 @@ export default function MentionsLegales() {
                 onClick={() => setLangue('es')}
               >
                 🇪🇸 Español
+              </button>
+              <button 
+                className={langue === 'pt' ? 'btn active' : 'btn'}
+                onClick={() => setLangue('pt')}
+              >
+                🇵🇹 Português
+              </button>
+              <button 
+                className={langue === 'it' ? 'btn active' : 'btn'}
+                onClick={() => setLangue('it')}
+              >
+                🇮🇹 Italiano
+              </button>
+              <button 
+                className={langue === 'de' ? 'btn active' : 'btn'}
+                onClick={() => setLangue('de')}
+              >
+                🇩🇪 Deutsch
               </button>
             </div>
           </div>
