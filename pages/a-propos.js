@@ -15,7 +15,7 @@ export default function APropos() {
               <h2>Bienvenue dans l&apos;univers de Reussitess©GlobalNexus</h2>
               <p className="mb-4">
                 Le hub central de votre écosystème mondial. Conçue pour les membres du réseau Reussitess®, 
-                notre application PWA vous offre un accès inédit à 42 boutiques Amazon réparties dans 
+                notre application PWA vous offre un accès inédit à 26 boutiques Amazon réparties dans 
                 14 pays et 5 continents, le tout avec une disponibilité 24h/24 et 7j/7.
               </p>
 
@@ -23,7 +23,7 @@ export default function APropos() {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="feature-item">
                   <strong>🌍 Accès Universel</strong>
-                  <p>Connectez-vous instantanément à nos 42 boutiques Amazon partenaires à travers le monde</p>
+                  <p>Connectez-vous instantanément à nos 26 boutiques Amazon partenaires à travers le monde</p>
                 </div>
                 <div className="feature-item">
                   <strong>📊 Tableau de Bord Intuitif</strong>
