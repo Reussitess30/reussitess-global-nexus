@@ -309,3 +309,30 @@ body {
 .boutique-card, .feature-card, .card {
   animation: fadeInUp 0.6s ease-out;
 }
+
+/* Styles pour la page outils */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #3B82F6;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #6B7280;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #374151;
+}
