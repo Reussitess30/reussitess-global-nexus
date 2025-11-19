@@ -41,7 +41,7 @@ export default function PWAApp() {
     return (<>
         <Head>
             <title>📱 Application PWA - Reussitess® Global Nexus</title>
-            <meta name="description" content="Installez l'app Reussitess pour un accès hors ligne et une expérience optimale" />
+            <meta name="description" content="Installez l&apos;app Reussitess pour un accès hors ligne et une expérience optimale" />
         </Head>
 
         <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '20px' }}>
@@ -107,7 +107,7 @@ export default function PWAApp() {
                                 cursor: 'pointer',
                                 boxShadow: '0 5px 20px rgba(0,0,0,0.2)'
                             }}>
-                                Installer l'application
+                                Installer l&apos;application
                             </button>
                         </div>
                     ) : (
@@ -122,14 +122,14 @@ export default function PWAApp() {
                                 <p><strong>Sur Android (Chrome) :</strong></p>
                                 <ol>
                                     <li>Ouvrez le menu (⋮) en haut à droite</li>
-                                    <li>Appuyez sur "Installer l'application"</li>
-                                    <li>Confirmez l'installation</li>
+                                    <li>Appuyez sur &quot;Installer l&apos;application&quot;</li>
+                                    <li>Confirmez l&apos;installation</li>
                                 </ol>
                                 <p style={{ marginTop: '20px' }}><strong>Sur iOS (Safari) :</strong></p>
                                 <ol>
                                     <li>Appuyez sur le bouton Partager (□↑)</li>
-                                    <li>Faites défiler et appuyez sur "Sur l'écran d'accueil"</li>
-                                    <li>Appuyez sur "Ajouter"</li>
+                                    <li>Faites défiler et appuyez sur &quot;Sur l&apos;écran d&apos;accueil&quot;</li>
+                                    <li>Appuyez sur &quot;Ajouter&quot;</li>
                                 </ol>
                             </div>
                         </div>
@@ -137,7 +137,7 @@ export default function PWAApp() {
 
                     {/* Avantages */}
                     <h2 style={{ color: '#667eea', fontSize: '2em', marginBottom: '25px', textAlign: 'center' }}>
-                        ✨ Avantages de l'app
+                        ✨ Avantages de l&apos;app
                     </h2>
                     <div style={{
                         display: 'grid',

@@ -10,7 +10,7 @@ export default function MentionsLegales() {
       sections: [
         {
           titre: "📄 Informations Générales",
-          contenu: "Reussitess Global Nexus est une plateforme e-commerce globale connectant 42 boutiques Amazon à travers 14 pays."
+          contenu: "Reussitess Global Nexus est une plateforme e-commerce globale connectant 26 boutiques Amazon à travers 14 pays."
         },
         {
           titre: "🏢 Éditeur",
@@ -39,7 +39,7 @@ export default function MentionsLegales() {
       sections: [
         {
           titre: "📄 General Information",
-          contenu: "Reussitess Global Nexus is a global e-commerce platform connecting 42 Amazon stores across 14 countries."
+          contenu: "Reussitess Global Nexus is a global e-commerce platform connecting 26 Amazon stores across 14 countries."
         },
         {
           titre: "🏢 Publisher",
@@ -68,7 +68,7 @@ export default function MentionsLegales() {
       sections: [
         {
           titre: "📄 Información General",
-          contenu: "Reussitess Global Nexus es una plataforma global de e-commerce que conecta 42 tiendas Amazon en 14 países."
+          contenu: "Reussitess Global Nexus es una plataforma global de e-commerce que conecta 26 tiendas Amazon en 14 países."
         },
         {
           titre: "🏢 Editor",

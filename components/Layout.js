@@ -35,7 +35,7 @@ export default function Layout({ children }) {
           <div className="footer-content">
             <div className="footer-section">
               <h4>🌐 Réseau Global</h4>
-              <p>42 boutiques • 14 pays • 5 continents</p>
+              <p>26 boutiques • 14 pays • 5 continents</p>
             </div>
             <div className="footer-section">
               <h4>📞 Support</h4>
