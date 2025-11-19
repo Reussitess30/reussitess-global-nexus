@@ -38,7 +38,7 @@ export default function Home() {
     <Layout>
       <div className="hero">
         <div className="container">
-          <h1>RÉUSSITESS GLOBAL NEXUS</h1>
+          <h1>REUSSITESS GLOBAL NEXUS</h1>
           <p className="subtitle">
             Accès Direct à Nos 26 Boutiques Amazon
           </p>

@@ -47,7 +47,7 @@ export default function APropos() {
                 </div>
               </div>
 
-              <p className="text-center premium-text">
+              <p className="text-center text-lg text-gray-800 font-medium">
                 Reussitess©GlobalNexus est votre partenaire essentiel pour naviguer et prospérer 
                 au sein de notre écosystème d&apos;excellence et d&apos;innovation. Téléchargez-la dès aujourd&apos;hui 
                 pour débloquer un monde d&apos;opportunités et rejoignez le réseau mondial des entrepreneurs du succès.
