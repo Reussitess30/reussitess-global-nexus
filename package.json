@@ -1,0 +1,41 @@
+{
+  "name": "reussitess-global-nexus",
+  "version": "1.0.0",
+  "description": "🌍 Global E-commerce Nexus - 26 Amazon boutiques across 14 countries",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export",
+    "deploy": "npm run build && npm run export",
+    "deploy:vercel": "vercel --prod",
+    "deploy:github": "npm run build && npm run export && touch out/.nojekyll && gh-pages -d out",
+    "update:all": "git pull && npm install && npm run build"
+  },
+  "dependencies": {
+    "next": "13.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "next-pwa": "^5.6.0",
+    "next-seo": "^5.15.0"
+  },
+  "devDependencies": {
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.5.6",
+    "gh-pages": "^5.0.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  },
+  "keywords": [
+    "ecommerce",
+    "amazon",
+    "affiliation",
+    "global",
+    "multilingual",
+    "pwa"
+  ],
+  "author": "Reussitess Global",
+  "license": "MIT"
+}
