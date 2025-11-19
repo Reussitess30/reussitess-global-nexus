@@ -15,35 +15,35 @@ export default function Boutiques() {
 
   // Boutiques personnelles (14 pays)
   const boutiquesPersonnelles = [
-    { flag: '🇺🇸', name: 'United States', link: 'https://amzlink.to/az0LY0DXMG6dR' },
-    { flag: '🇫🇷', name: 'France', link: 'https://amzlink.to/az0RLMqtXqC2d' },
-    { flag: '🇮🇹', name: 'Italia', link: 'https://amzlink.to/az0tV67jW36S7' },
-    { flag: '🇪🇸', name: 'España', link: 'https://amzlink.to/az085o25FtlRd' },
-    { flag: '🇩🇪', name: 'Deutschland', link: 'https://amzlink.to/az00VtRPRGpmm' },
-    { flag: '🇨🇦', name: 'Canada', link: 'https://amzlink.to/az0MvN3FRKKQQ' },
-    { flag: '🇮🇳', name: 'भारत', link: 'https://amzlink.to/az0GVe8b9O7cF' },
-    { flag: '🇳🇱', name: 'Nederland', link: 'https://amzlink.to/az0G27sb8ZVbI' },
-    { flag: '🇸🇪', name: 'Sverige', link: 'https://amzlink.to/az0Ig0XgFkR8o' },
-    { flag: '🇸🇬', name: 'Singapore', link: 'https://amzlink.to/az0b3TpUdq32r' },
-    { flag: '🇬🇧', name: 'United Kingdom', link: 'https://amzlink.to/az03r8CJgliMq' },
-    { flag: '🇦🇺', name: 'Australia', link: 'https://amzlink.to/az05kTTrYJ06L' },
-    { flag: '🇧🇪', name: 'België/Belgique', link: 'https://amzlink.to/az08ZB76xWpGm' },
-    { flag: '🇧🇷', name: 'Brasil', link: 'https://amzlink.to/az0ymmoCLHvyA' }
+    { flag: '🇺🇸', name: 'United States', link: 'https://www.amazon.com/shop/amourguadeloupe' },
+    { flag: '🇮🇹', name: 'Italia', link: 'https://www.amazon.it/shop/amourguadeloupe' },
+    { flag: '🇫🇷', name: 'France', link: 'https://www.amazon.fr/shop/amourguadeloupe' },
+    { flag: '🇪🇸', name: 'España', link: 'https://www.amazon.es/shop/amourguadeloupe' },
+    { flag: '🇩🇪', name: 'Deutschland', link: 'https://www.amazon.de/shop/amourguadeloupe' },
+    { flag: '🇨🇦', name: 'Canada', link: 'https://www.amazon.ca/shop/amourguadeloupe' },
+    { flag: '🇮🇳', name: 'भारत', link: 'https://www.amazon.in/shop/amourguadeloupe' },
+    { flag: '🇳🇱', name: 'Nederland', link: 'https://www.amazon.nl/shop/amourguadeloupe' },
+    { flag: '🇸🇪', name: 'Sverige', link: 'https://www.amazon.se/shop/amourguadeloupe' },
+    { flag: '🇸🇬', name: 'Singapore', link: 'https://www.amazon.sg/shop/amourguadeloupe' },
+    { flag: '🇬🇧', name: 'United Kingdom', link: 'https://www.amazon.co.uk/shop/amourguadeloupe' },
+    { flag: '🇦🇺', name: 'Australia', link: 'https://www.amazon.com.au/shop/amourguadeloupe' },
+    { flag: '🇧🇪', name: 'België/Belgique', link: 'https://www.amazon.com.be/shop/amourguadeloupe' },
+    { flag: '🇧🇷', name: 'Brasil', link: 'https://www.amazon.com.br/shop/amourguadeloupe' }
   ]
 
   // Boutiques influenceur (12 pays)
   const boutiquesInfluenceur = [
-    { flag: '🇺🇸', name: 'USA', link: 'https://amzlink.to/az0G6w0uuYRlg' },
-    { flag: '🇮🇹', name: 'Italia', link: 'https://amzlink.to/az0yC7BiDQmPg' },
-    { flag: '🇪🇸', name: 'España', link: 'https://amzlink.to/az0DKsP6Zr5IL' },
-    { flag: '🇩🇪', name: 'Deutschland', link: 'https://amzlink.to/az0PuGdrA0kgh' },
-    { flag: '🇨🇦', name: 'Canada', link: 'https://amzlink.to/az0YFa3j2fsnv' },
-    { flag: '🇮🇳', name: 'India', link: 'https://amzlink.to/az0Qry9pNlCkw' },
-    { flag: '🇳🇱', name: 'Nederland', link: 'https://amzlink.to/az0v9jdbSf7Km' },
-    { flag: '🇸🇪', name: 'Sverige', link: 'https://amzlink.to/az0Q5qEXfyqk5' },
-    { flag: '🇸🇬', name: 'Singapore', link: 'https://amzlink.to/az05gMuq73i99' },
-    { flag: '🇬🇧', name: 'UK', link: 'https://amzlink.to/az0VutIAPP8MY' },
-    { flag: '🇦🇺', name: 'Australia', link: 'https://amzlink.to/az0on91nKaQvh' },
+    { flag: '🇺🇸', name: 'USA', link: 'https://www.amazon.com/shop/influencer-fb942837' },
+    { flag: '🇮🇹', name: 'Italia', link: 'https://www.amazon.it/shop/influencer-fb942837' },
+    { flag: '🇪🇸', name: 'España', link: 'https://www.amazon.es/shop/influencer-fb942837' },
+    { flag: '🇩🇪', name: 'Deutschland', link: 'https://www.amazon.de/shop/influencer-fb942837' },
+    { flag: '🇨🇦', name: 'Canada', link: 'https://www.amazon.ca/shop/influencer-fb942837' },
+    { flag: '🇮🇳', name: 'India', link: 'https://www.amazon.in/shop/influencer-fb942837' },
+    { flag: '🇳🇱', name: 'Nederland', link: 'https://www.amazon.nl/shop/influencer-fb942837' },
+    { flag: '🇸🇪', name: 'Sverige', link: 'https://www.amazon.se/shop/influencer-fb942837' },
+    { flag: '🇸🇬', name: 'Singapore', link: 'https://www.amazon.sg/shop/influencer-fb942837' },
+    { flag: '🇬🇧', name: 'UK', link: 'https://www.amazon.co.uk/shop/influencer-fb942837' },
+    { flag: '🇦🇺', name: 'Australia', link: 'https://www.amazon.com.au/shop/influencer-fb942837' },
     { flag: '🇧🇪', name: 'Belgique', link: 'https://www.amazon.com.be/shop/influencer-fb942837' }
   ]
 
