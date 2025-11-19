@@ -1,4 +1,5 @@
 import Layout from '../components/Layout'
+import HeroSection from '../components/HeroSection'
 
 export default function Home() {
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
@@ -36,7 +37,10 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="hero">
+      {/* Hero Section avec design signature Reussitess® */}
+      <HeroSection />
+
+      <div className="hero" id="fonctionnement">
         <div className="container">
           <h1>RÉUSSITESS GLOBAL NEXUS</h1>
           <p className="subtitle">
@@ -128,6 +132,7 @@ export default function Home() {
                   href={boutique.lien} 
                   target="_blank" 
                   rel="noopener noreferrer nofollow sponsored"
+                  className="boutique-link"
                   style={{
                     display: 'inline-block',
                     background: 'linear-gradient(135deg, #10b981, #3b82f6)',
@@ -139,8 +144,6 @@ export default function Home() {
                     transition: 'all 0.3s ease',
                     width: '100%'
                   }}
-                  onMouseOver="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(16, 185, 129, 0.4)'"
-                  onMouseOut="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
                 >
                   🛍️ Visiter la Boutique
                 </a>
@@ -205,6 +208,11 @@ export default function Home() {
         .btn-principal:hover {
           transform: translateY(-3px);
           box-shadow: 0 20px 40px rgba(225, 29, 72, 0.6);
+        }
+        
+        .boutique-link:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
         }
       `}</style>
     </Layout>

@@ -1,0 +1,128 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Définitions pour les gradients et animations -->
+  <defs>
+    <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1">
+        <animate attributeName="stop-color" values="#10b981;#06b6d4;#10b981" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1">
+        <animate attributeName="stop-color" values="#06b6d4;#10b981;#06b6d4" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.8"/>
+    </linearGradient>
+    
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Cercle de fond pulsant -->
+  <circle cx="60" cy="60" r="55" fill="url(#avatarGradient)" opacity="0.1">
+    <animate attributeName="r" values="55;58;55" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.2;0.1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Tête du bot avatar -->
+  <circle cx="60" cy="45" r="25" fill="url(#avatarGradient)" stroke="#047857" stroke-width="2">
+    <animate attributeName="cy" values="45;43;45" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Écran facial (visière) -->
+  <ellipse cx="60" cy="45" rx="20" ry="15" fill="url(#screenGlow)" opacity="0.9" filter="url(#softGlow)">
+    <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Yeux numériques -->
+  <g id="digital-eyes">
+    <rect x="50" y="42" width="3" height="6" fill="#22d3ee" rx="1">
+      <animate attributeName="height" values="6;2;6" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="42;44;42" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="67" y="42" width="3" height="6" fill="#22d3ee" rx="1">
+      <animate attributeName="height" values="6;2;6" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="42;44;42" dur="2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Points indicateurs (status) -->
+  <g id="status-dots">
+    <circle cx="45" cy="38" r="1.5" fill="#fbbf24">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="75" cy="38" r="1.5" fill="#fbbf24">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Ligne de sourire -->
+  <path d="M 48 50 Q 60 55 72 50" stroke="#22d3ee" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8">
+    <animate attributeName="d" values="M 48 50 Q 60 55 72 50;M 48 50 Q 60 57 72 50;M 48 50 Q 60 55 72 50" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Corps simplifié -->
+  <path d="M 45 70 L 45 90 M 75 70 L 75 90" stroke="url(#avatarGradient)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="60" cy="75" r="18" fill="url(#avatarGradient)" stroke="#047857" stroke-width="2"/>
+  
+  <!-- Logo ou symbole central -->
+  <g id="center-symbol">
+    <circle cx="60" cy="75" r="8" fill="none" stroke="#22d3ee" stroke-width="1.5">
+      <animate attributeName="r" values="8;10;8" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="60" cy="75" r="3" fill="#22d3ee">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Bras/Connexions -->
+  <line x1="42" y1="75" x2="30" y2="80" stroke="url(#avatarGradient)" stroke-width="4" stroke-linecap="round">
+    <animateTransform attributeName="transform" type="rotate" values="0 42 75;-10 42 75;0 42 75" dur="2s" repeatCount="indefinite"/>
+  </line>
+  <line x1="78" y1="75" x2="90" y2="80" stroke="url(#avatarGradient)" stroke-width="4" stroke-linecap="round">
+    <animateTransform attributeName="transform" type="rotate" values="0 78 75;10 78 75;0 78 75" dur="2s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Pieds -->
+  <circle cx="50" cy="95" r="4" fill="url(#avatarGradient)"/>
+  <circle cx="70" cy="95" r="4" fill="url(#avatarGradient)"/>
+  
+  <!-- Particules d'énergie -->
+  <g id="energy-particles" opacity="0.7">
+    <circle cx="25" cy="50" r="2" fill="#22d3ee">
+      <animate attributeName="cx" values="25;20;25" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="95" cy="55" r="2" fill="#10b981">
+      <animate attributeName="cx" values="95;100;95" dur="2.3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="35" cy="85" r="1.5" fill="#fbbf24">
+      <animate attributeName="cy" values="85;80;85" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="85" cy="88" r="1.5" fill="#fbbf24">
+      <animate attributeName="cy" values="88;83;88" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Signal d'onde (communication) -->
+  <g id="signal-waves" opacity="0.4">
+    <circle cx="60" cy="25" r="5" fill="none" stroke="#22d3ee" stroke-width="1">
+      <animate attributeName="r" values="5;15;5" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="60" cy="25" r="5" fill="none" stroke="#22d3ee" stroke-width="1">
+      <animate attributeName="r" values="5;15;5" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
