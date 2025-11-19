@@ -41,7 +41,7 @@ export default function PWAApp() {
     return (<>
         <Head>
             <title>📱 Application PWA - Reussitess® Global Nexus</title>
-            <meta name="description" content="Installez l'app Reussitess pour un accès hors ligne et une expérience optimale" />
+            <meta name="description" content="Installez l&apos;app Reussitess pour un accès hors ligne et une expérience optimale" />
         </Head>
 
         <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '20px' }}>

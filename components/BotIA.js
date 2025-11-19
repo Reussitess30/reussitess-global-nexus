@@ -2,21 +2,21 @@
 
 import { useState, useEffect } from 'react'
 
+const greetings = [
+  "Bonjour ! Je suis votre assistant Reussitess Global Nexus 🌍",
+  "Hello! I'm your Reussitess Global Nexus assistant 🌍", 
+  "¡Hola! Soy tu asistente de Reussitess Global Nexus 🌍",
+  "Hallo! Ich bin Ihr Reussitess Global Nexus-Assistent 🌍"
+]
+
 export default function BotAssistant() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
 
-  const greetings = [
-    "Bonjour ! Je suis votre assistant Reussitess Global Nexus 🌍",
-    "Hello! I'm your Reussitess Global Nexus assistant 🌍", 
-    "¡Hola! Soy tu asistente de Reussitess Global Nexus 🌍",
-    "Hallo! Ich bin Ihr Reussitess Global Nexus-Assistent 🌍"
-  ]
-
   useEffect(() => {
     setMessages([{ text: greetings[0], isBot: true }])
-  }, [greetings])
+  }, [])
 
   const handleSend = () => {
     if (!input.trim()) return
