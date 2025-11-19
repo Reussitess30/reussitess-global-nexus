@@ -1,9 +1,14 @@
+import Layout from '../components/Layout'
+import BibliothequeOutremer from '../components/BibliothequeOutremer'
+
 export default function Bibliotheque() {
   return (
-    <div className="container">
-      <h1>📚 Bibliothèque</h1>
-      <p>Explorez nos ressources et outils.</p>
-      <a href="/">← Retour à l'accueil</a>
-    </div>
+    <Layout>
+      <section className="section">
+        <div className="container">
+          <BibliothequeOutremer />
+        </div>
+      </section>
+    </Layout>
   )
 }
