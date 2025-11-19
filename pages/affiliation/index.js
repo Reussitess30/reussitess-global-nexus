@@ -48,21 +48,27 @@ export default function Affiliation() {
                     <li>Gagnez des commissions sur chaque vente générée</li>
                 </ol>
                 
-                <button style={{
-                    marginTop: '30px',
-                    padding: '15px 40px',
-                    background: 'linear-gradient(45deg, #ff9500, #ffb84d)',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '30px',
-                    fontSize: '1.2em',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                    width: '100%',
-                    maxWidth: '400px',
-                    display: 'block',
-                    margin: '30px auto 0'
-                }}>Rejoindre le Programme</button>
+                <a 
+                    href="https://affiliate-program.amazon.com/influencers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                        marginTop: '30px',
+                        padding: '15px 40px',
+                        background: 'linear-gradient(45deg, #ff9500, #ffb84d)',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '30px',
+                        fontSize: '1.2em',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        width: '100%',
+                        maxWidth: '400px',
+                        display: 'block',
+                        margin: '30px auto 0',
+                        textDecoration: 'none',
+                        textAlign: 'center'
+                    }}>S'inscrire au Programme Influenceur Amazon</a>
             </div>
         </div>
     </>);
