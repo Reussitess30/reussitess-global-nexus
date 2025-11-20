@@ -1,8 +1,11 @@
 import Link from 'next/link'
+import BotIA from '../components/BotIA'
 
 export default function Bibliotheque() {
   return (
     <>
+      {/* Bot IA Multilingue avec Synthèse Vocale */}
+      <BotIA />
       <div className="hero" style={{minHeight: '300px', padding: '3rem 0'}}>
         <div className="container">
           <h1 style={{fontSize: '3rem', marginBottom: '1rem'}}>📚 Bibliothèque Ressources</h1>
