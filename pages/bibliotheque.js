@@ -26,7 +26,7 @@ export default function Bibliotheque() {
             </button>
           </Link>
           
-          <Link href="/affiliation" style={{textDecoration: 'none'}}>
+          <a href="https://partenaires.amazon.fr/influencers" target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none'}}>
             <button style={{
               background: 'linear-gradient(135deg, #f59e0b, #d97706)',
               color: 'white',
@@ -40,9 +40,9 @@ export default function Bibliotheque() {
             }}>
               💰 Programme Amazon
             </button>
-          </Link>
+          </a>
           
-          <Link href="/contact" style={{textDecoration: 'none'}}>
+          <a href="mailto:influenceur@reussitess.fr" style={{textDecoration: 'none'}}>
             <button style={{
               background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
               color: 'white',
@@ -56,7 +56,7 @@ export default function Bibliotheque() {
             }}>
               📧 Nous Joindre
             </button>
-          </Link>
+          </a>
         </div>
       </div>
       
