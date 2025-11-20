@@ -141,6 +141,69 @@ export default function Bibliotheque() {
                 </span>
               </div>
             </Link>
+
+            <Link href="/bibliotheque/pays/guadeloupe" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇬🇵 Ressources Guadeloupe
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Culture, économie et opportunités en Guadeloupe
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #e11d48, #f59e0b)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Découvrir →
+                </span>
+              </div>
+            </Link>
+
+            <Link href="/bibliotheque/pays/martinique" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇲🇶 Ressources Martinique
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Patrimoine et e-commerce en Martinique
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #e11d48, #f59e0b)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Découvrir →
+                </span>
+              </div>
+            </Link>
+
+            <Link href="/bibliotheque/pays/guyane" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇬🇫 Ressources Guyane
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Opportunités et ressources en Guyane française
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #e11d48, #f59e0b)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Découvrir →
+                </span>
+              </div>
+            </Link>
           </div>
         </section>
 
@@ -188,50 +251,110 @@ export default function Bibliotheque() {
           </h2>
           
           <div className="grid-boutiques">
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🇫🇷 France
-              </h3>
-              <p style={{color: '#666'}}>
-                Marché français, TVA 20%, comportement consommateur, logistique
-              </p>
-            </div>
+            <Link href="/bibliotheque/pays/fr" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇫🇷 France
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Marché français, TVA 20%, comportement consommateur, logistique
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Consulter →
+                </span>
+              </div>
+            </Link>
             
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🇩🇪 Allemagne
-              </h3>
-              <p style={{color: '#666'}}>
-                Premier marché européen, TVA 19%, standards qualité élevés
-              </p>
-            </div>
+            <Link href="/bibliotheque/pays/guadeloupe" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇬🇵 Guadeloupe
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Territoire français d&apos;outre-mer, marché caribéen, culture créole
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Consulter →
+                </span>
+              </div>
+            </Link>
             
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🇺🇸 États-Unis
-              </h3>
-              <p style={{color: '#666'}}>
-                Marché américain, taxes variables, opportunités massives
-              </p>
-            </div>
+            <Link href="/bibliotheque/pays/martinique" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇲🇶 Martinique
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Île aux fleurs, patrimoine historique, économie insulaire
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Consulter →
+                </span>
+              </div>
+            </Link>
 
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🇬🇧 Royaume-Uni
-              </h3>
-              <p style={{color: '#666'}}>
-                Post-Brexit, TVA 20%, marché anglophone européen
-              </p>
-            </div>
+            <Link href="/bibliotheque/pays/guyane" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇬🇫 Guyane
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Territoire amazonien, espace spatial, biodiversité exceptionnelle
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Consulter →
+                </span>
+              </div>
+            </Link>
 
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🌏 Asie-Pacifique
-              </h3>
-              <p style={{color: '#666'}}>
-                Japon, Inde, Singapour, Australie - Marchés en expansion
-              </p>
-            </div>
+            <Link href="/bibliotheque/outils" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🧮 Outils E-commerce
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Calculateurs TVA, commissions, profits pour vos boutiques Amazon
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Utiliser les outils →
+                </span>
+              </div>
+            </Link>
           </div>
         </section>
 
@@ -249,41 +372,89 @@ export default function Bibliotheque() {
           </h2>
           
           <div className="grid-boutiques">
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🇪🇺 RGPD Européen
-              </h3>
-              <p style={{color: '#666'}}>
-                Protection des données, conformité GDPR, droits des consommateurs
-              </p>
-            </div>
+            <Link href="/bibliotheque/reglementation" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🇪🇺 RGPD Européen
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Protection des données, conformité GDPR, droits des consommateurs
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #dc2626, #f59e0b)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Consulter →
+                </span>
+              </div>
+            </Link>
             
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                💰 TVA & Taxes
-              </h3>
-              <p style={{color: '#666'}}>
-                Réglementation TVA par pays, déclarations, seuils OSS
-              </p>
-            </div>
+            <Link href="/bibliotheque/reglementation" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  💰 TVA & Taxes
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Réglementation TVA par pays, déclarations, seuils OSS
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #dc2626, #f59e0b)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  En savoir plus →
+                </span>
+              </div>
+            </Link>
             
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                📦 Douanes & Import
-              </h3>
-              <p style={{color: '#666'}}>
-                Réglementations douanières, codes HS, restrictions produits
-              </p>
-            </div>
+            <Link href="/bibliotheque/reglementation" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  📦 Douanes & Import
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Réglementations douanières, codes HS, restrictions produits
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #dc2626, #f59e0b)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Découvrir →
+                </span>
+              </div>
+            </Link>
 
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🏷️ Propriété Intellectuelle
-              </h3>
-              <p style={{color: '#666'}}>
-                Marques, brevets, droits d&apos;auteur, contrefaçon
-              </p>
-            </div>
+            <Link href="/bibliotheque/reglementation" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🏷️ Propriété Intellectuelle
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Marques, brevets, droits d&apos;auteur, contrefaçon
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #dc2626, #f59e0b)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Voir plus →
+                </span>
+              </div>
+            </Link>
           </div>
         </section>
 
@@ -301,32 +472,68 @@ export default function Bibliotheque() {
           </h2>
           
           <div className="grid-boutiques">
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                📊 Études de Cas
-              </h3>
-              <p style={{color: '#666'}}>
-                Cas pratiques e-commerce, analyses marché, success stories
-              </p>
-            </div>
+            <Link href="/bibliotheque/prof" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  📊 Études de Cas
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Cas pratiques e-commerce, analyses marché, success stories
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #7c3aed, #2563eb)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Consulter →
+                </span>
+              </div>
+            </Link>
             
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                📈 Analyses Stratégiques
-              </h3>
-              <p style={{color: '#666'}}>
-                Stratégies marketing, pricing, positionnement international
-              </p>
-            </div>
+            <Link href="/bibliotheque/prof" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  📈 Analyses Stratégiques
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Stratégies marketing, pricing, positionnement international
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #7c3aed, #2563eb)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Découvrir →
+                </span>
+              </div>
+            </Link>
             
-            <div className="boutique-card">
-              <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
-                🎓 Supports Pédagogiques
-              </h3>
-              <p style={{color: '#666'}}>
-                Cours, présentations, exercices pratiques e-commerce
-              </p>
-            </div>
+            <Link href="/bibliotheque/prof" style={{textDecoration: 'none'}}>
+              <div className="boutique-card" style={{cursor: 'pointer'}}>
+                <h3 style={{fontSize: '1.3rem', marginBottom: '1rem', color: '#1a1a2e'}}>
+                  🎓 Supports Pédagogiques
+                </h3>
+                <p style={{color: '#666', marginBottom: '1rem'}}>
+                  Cours, présentations, exercices pratiques e-commerce
+                </p>
+                <span className="btn-boutique" style={{
+                  display: 'inline-block',
+                  background: 'linear-gradient(135deg, #7c3aed, #2563eb)',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '25px',
+                  fontWeight: '600'
+                }}>
+                  Accéder →
+                </span>
+              </div>
+            </Link>
           </div>
         </section>
 
