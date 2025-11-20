@@ -4,7 +4,7 @@ import HeroSection from '../components/HeroSection'
 export default function Home() {
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
   const boutiques = [
-    // Boutiques Personnelles (13)
+    // Boutiques Personnelles (14)
     { nom: "🇫🇷 [Personnel] France", lien: "https://amzlink.to/personnel-FR" },
     { nom: "🇮🇹 [Personnel] Italie", lien: "https://amzlink.to/personnel-IT" },
     { nom: "🇩🇪 [Personnel] Allemagne", lien: "https://amzlink.to/personnel-DE" },
@@ -15,11 +15,12 @@ export default function Home() {
     { nom: "🇧🇷 [Personnel] Brésil", lien: "https://amzlink.to/personnel-BR" },
     { nom: "🇬🇧 [Personnel] Royaume-Uni", lien: "https://amzlink.to/personnel-UK" },
     { nom: "🇮🇳 [Personnel] Inde", lien: "https://amzlink.to/personnel-IN" },
+    { nom: "🇳🇿 [Personnel] Nouvelle-Zélande", lien: "https://amzlink.to/personnel-NZ" },
     { nom: "🇺🇸 [Personnel] États-Unis", lien: "https://amzlink.to/personnel-US" },
     { nom: "🇨🇦 [Personnel] Canada", lien: "https://amzlink.to/personnel-CA" },
     { nom: "🇧🇪 [Personnel] Belgique", lien: "https://amzlink.to/personnel-BE" },
 
-    // Boutiques Influenceurs (11)
+    // Boutiques Influenceurs (12)
     { nom: "🇮🇹 [Influenceur] Italie", lien: "https://amzlink.to/influenceur-IT" },
     { nom: "🇩🇪 [Influenceur] Allemagne", lien: "https://amzlink.to/influenceur-DE" },
     { nom: "🇸🇪 [Influenceur] Suède", lien: "https://amzlink.to/influenceur-SE" },
@@ -28,9 +29,10 @@ export default function Home() {
     { nom: "🇪🇸 [Influenceur] Espagne", lien: "https://amzlink.to/influenceur-ES" },
     { nom: "🇬🇧 [Influenceur] Royaume-Uni", lien: "https://amzlink.to/influenceur-UK" },
     { nom: "🇮🇳 [Influenceur] Inde", lien: "https://amzlink.to/influenceur-IN" },
+    { nom: "🇳🇿 [Influenceur] Nouvelle-Zélande", lien: "https://amzlink.to/influenceur-NZ" },
     { nom: "🇺🇸 [Influenceur] États-Unis", lien: "https://amzlink.to/influenceur-US" },
     { nom: "🇨🇦 [Influenceur] Canada", lien: "https://amzlink.to/influenceur-CA" },
-    { nom: "🇧🇪 [Influenceur] Belgique", lien: "https://www.amazon.com.be/shop/influencer-fb942837" }
+    { nom: "🇧🇷 [Influenceur] Brésil", lien: "https://amzlink.to/influenceur-BR" }
   ]
 
   return (
@@ -42,7 +44,7 @@ export default function Home() {
         <div className="container">
           <h1>RÉUSSITESS GLOBAL NEXUS</h1>
           <p className="subtitle">
-            Accès Direct à Nos 24 Boutiques Amazon
+            Accès Direct à Nos 26 Boutiques Amazon
           </p>
           
           {/* Carte Guadeloupe */}
@@ -70,7 +72,7 @@ export default function Home() {
                 transition: 'all 0.3s ease'
               }}
             >
-              🚀 ACCÉDER AUX 24 BOUTIQUES AMAZON
+              🚀 ACCÉDER AUX 26 BOUTIQUES AMAZON
             </a>
           </div>
 
