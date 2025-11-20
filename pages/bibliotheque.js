@@ -6,6 +6,60 @@ export default function Bibliotheque() {
     <>
       {/* Bot IA Multilingue avec Synthèse Vocale */}
       <BotIA />
+      
+      {/* Boutons de Navigation */}
+      <div style={{background: 'linear-gradient(135deg, #1e3a8a, #3b82f6)', padding: '1.5rem 2rem'}}>
+        <div className="container" style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center'}}>
+          <Link href="/" style={{textDecoration: 'none'}}>
+            <button style={{
+              background: 'linear-gradient(135deg, #10b981, #059669)',
+              color: 'white',
+              padding: '0.75rem 1.5rem',
+              border: 'none',
+              borderRadius: '25px',
+              fontWeight: '600',
+              fontSize: '1rem',
+              cursor: 'pointer',
+              transition: 'transform 0.3s ease'
+            }}>
+              🏠 Retour au Hub
+            </button>
+          </Link>
+          
+          <Link href="/affiliation" style={{textDecoration: 'none'}}>
+            <button style={{
+              background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+              color: 'white',
+              padding: '0.75rem 1.5rem',
+              border: 'none',
+              borderRadius: '25px',
+              fontWeight: '600',
+              fontSize: '1rem',
+              cursor: 'pointer',
+              transition: 'transform 0.3s ease'
+            }}>
+              💰 Programme Amazon
+            </button>
+          </Link>
+          
+          <Link href="/contact" style={{textDecoration: 'none'}}>
+            <button style={{
+              background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
+              color: 'white',
+              padding: '0.75rem 1.5rem',
+              border: 'none',
+              borderRadius: '25px',
+              fontWeight: '600',
+              fontSize: '1rem',
+              cursor: 'pointer',
+              transition: 'transform 0.3s ease'
+            }}>
+              📧 Nous Joindre
+            </button>
+          </Link>
+        </div>
+      </div>
+      
       <div className="hero" style={{minHeight: '300px', padding: '3rem 0'}}>
         <div className="container">
           <h1 style={{fontSize: '3rem', marginBottom: '1rem'}}>📚 Bibliothèque Ressources</h1>
