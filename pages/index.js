@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import HeroSection from '../components/HeroSection'
+import Link from 'next/link'
 
 export default function Home() {
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
@@ -20,7 +21,7 @@ export default function Home() {
     { nom: "🇨🇦 [Personnel] Canada", lien: "https://amzlink.to/personnel-CA" },
     { nom: "🇧🇪 [Personnel] Belgique", lien: "https://amzlink.to/personnel-BE" },
 
-    // Boutiques Influenceurs (12)
+    // Boutiques Influenceurs (12 pays - PAS France ni Brésil)
     { nom: "🇮🇹 [Influenceur] Italie", lien: "https://amzlink.to/influenceur-IT" },
     { nom: "🇩🇪 [Influenceur] Allemagne", lien: "https://amzlink.to/influenceur-DE" },
     { nom: "🇸🇪 [Influenceur] Suède", lien: "https://amzlink.to/influenceur-SE" },
@@ -29,10 +30,10 @@ export default function Home() {
     { nom: "🇪🇸 [Influenceur] Espagne", lien: "https://amzlink.to/influenceur-ES" },
     { nom: "🇬🇧 [Influenceur] Royaume-Uni", lien: "https://amzlink.to/influenceur-UK" },
     { nom: "🇮🇳 [Influenceur] Inde", lien: "https://amzlink.to/influenceur-IN" },
-    { nom: "🇳🇿 [Influenceur] Nouvelle-Zélande", lien: "https://amzlink.to/influenceur-NZ" },
     { nom: "🇺🇸 [Influenceur] États-Unis", lien: "https://amzlink.to/influenceur-US" },
     { nom: "🇨🇦 [Influenceur] Canada", lien: "https://amzlink.to/influenceur-CA" },
-    { nom: "🇧🇷 [Influenceur] Brésil", lien: "https://amzlink.to/influenceur-BR" }
+    { nom: "🇳🇿 [Influenceur] Nouvelle-Zélande", lien: "https://amzlink.to/influenceur-NZ" },
+    { nom: "🇧🇪 [Influenceur] Belgique", lien: "https://amzlink.to/influenceur-BE" }
   ]
 
   return (
@@ -160,6 +161,40 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Section Bibliothèque */}
+        <section style={{
+          padding: '3rem 0',
+          textAlign: 'center',
+          marginTop: '3rem'
+        }}>
+          <Link href="/bibliotheque">
+            <a style={{
+              display: 'inline-block',
+              padding: '1.5rem 3rem',
+              fontSize: '1.3rem',
+              fontWeight: 'bold',
+              background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+              color: 'white',
+              borderRadius: '15px',
+              textDecoration: 'none',
+              boxShadow: '0 10px 30px rgba(139, 92, 246, 0.4)',
+              transition: 'all 0.3s ease',
+              border: '2px solid rgba(255, 255, 255, 0.1)'
+            }}
+            className="btn-bibliotheque">
+              📚 Découvrir la Bibliothèque
+            </a>
+          </Link>
+          <p style={{
+            marginTop: '1rem',
+            fontSize: '1rem',
+            opacity: '0.8',
+            color: '#a78bfa'
+          }}>
+            Outils, ressources et calculateurs pour votre succès
+          </p>
+        </section>
+
         {/* Section Information */}
         <section style={{
           padding: '4rem 0',
@@ -213,6 +248,11 @@ export default function Home() {
         .boutique-link:hover {
           transform: translateY(-2px);
           box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-bibliotheque:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
         }
       `}</style>
     </Layout>
