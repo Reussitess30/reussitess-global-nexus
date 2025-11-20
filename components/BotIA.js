@@ -13,24 +13,24 @@ const greetings = {
 
 const responses = {
   fr: {
-    boutiques: "Nous avons 26 boutiques Amazon dans 14 pays ! Voulez-vous savoir lesquelles ? 🛍️",
-    pays: "Nos boutiques couvrent : France 🇫🇷, Italie 🇮🇹, Allemagne 🇩🇪, Espagne 🇪🇸, Royaume-Uni 🇬🇧, USA 🇺🇸, Canada 🇨🇦, Brésil 🇧🇷, Australie 🇦🇺, Inde 🇮🇳, Singapour 🇸🇬, Suède 🇸🇪, Nouvelle-Zélande 🇳🇿, Belgique 🇧🇪",
-    affiliation: "Notre programme d'affiliation offre 4 à 10% de commission avec un cookie de 24 heures ! Voulez-vous plus d'informations ? 💰",
-    bibliotheque: "La bibliothèque contient des ressources par pays et des outils. Accédez-y via le menu Outils ! 📚",
-    aide: "Je peux vous aider avec : les boutiques Amazon, le programme d'affiliation, la bibliothèque de ressources, ou toute autre question !",
-    contact: "Support disponible 24 sur 7, en multilingue via notre plateforme ! 📞",
-    securite: "Vos données sont cryptées et conformes au RGPD. Transactions 100% sécurisées ! 🔒",
-    default: "Je suis là pour vous aider ! Demandez-moi sur nos boutiques, l'affiliation, ou nos ressources. 😊"
+    boutiques: "Nous avons 26 boutiques Amazon dans 14 pays sur 5 continents ! 14 boutiques Personnel avec la France et le Brésil, 12 boutiques Influenceur. Chaque boutique affiche 'Visiter la Boutique' dans sa langue ! 🛍️",
+    pays: "Nos boutiques couvrent : France 🇫🇷, Italie 🇮🇹, Allemagne 🇩🇪, Espagne 🇪🇸, Royaume-Uni 🇬🇧, USA 🇺🇸, Canada 🇨🇦, Brésil 🇧🇷, Australie 🇦🇺, Inde 🇮🇳, Singapour 🇸🇬, Suède 🇸🇪, Nouvelle-Zélande 🇳🇿, Belgique 🇧🇪, Pays-Bas 🇳🇱",
+    affiliation: "Notre programme Amazon Influenceur offre 4 à 10% de commission avec un cookie de 24 heures ! Rejoignez sur https://partenaires.amazon.fr/influencers 💰",
+    bibliotheque: "La bibliothèque contient : Histoire Africaine & Outremer, Actualités, Ressources Professeur, Réglementation RGPD, Ressources pays (France, Guadeloupe 🇬🇵, Martinique 🇲🇶, Guyane 🇬🇫) ! 📚",
+    aide: "Je peux vous aider avec : les 26 boutiques Amazon multilingues, le programme Amazon Influenceur, la bibliothèque internationale, ou toute autre question !",
+    contact: "Support disponible 24/7, en 6 langues via notre plateforme : influenceur@reussitess.fr ! 📞",
+    securite: "Vos données sont cryptées et conformes au RGPD. Transactions 100% sécurisées sur Amazon ! Lien d'affiliation sécurisé 🔒",
+    default: "Je suis là pour vous aider ! Demandez-moi sur nos 26 boutiques, l'affiliation Amazon Influenceur, ou nos ressources multilingues. 😊"
   },
   en: {
-    boutiques: "We have 26 Amazon stores in 14 countries! Want to know which ones? 🛍️",
-    pays: "Our stores cover: France, Italy, Germany, Spain, UK, USA, Canada, Brazil, Australia, India, Singapore, Sweden, New Zealand, Belgium",
-    affiliation: "Our affiliate program offers 4 to 10 percent commission with 24 hour cookie! Want more info? 💰",
-    bibliotheque: "The library contains country resources and tools. Access it via the Tools menu! 📚",
-    aide: "I can help you with: Amazon stores, affiliate program, resource library, or any other question!",
-    contact: "24/7 multilingual support available through our platform! 📞",
-    securite: "Your data is encrypted and GDPR compliant. 100% secure transactions! 🔒",
-    default: "I'm here to help! Ask me about our stores, affiliation, or resources. 😊"
+    boutiques: "We have 26 Amazon stores in 14 countries across 5 continents! 14 Personal stores with France & Brazil, 12 Influencer stores. Each store displays 'Visit Store' in its own language! 🛍️",
+    pays: "Our stores cover: France 🇫🇷, Italy 🇮🇹, Germany 🇩🇪, Spain 🇪🇸, UK 🇬🇧, USA 🇺🇸, Canada 🇨🇦, Brazil 🇧🇷, Australia 🇦🇺, India 🇮🇳, Singapore 🇸🇬, Sweden 🇸🇪, New Zealand 🇳🇿, Belgium 🇧🇪, Netherlands 🇳🇱",
+    affiliation: "Our Amazon Influencer program offers 4 to 10% commission with 24 hour cookie! Join at https://partenaires.amazon.fr/influencers 💰",
+    bibliotheque: "The library contains: African & Overseas History, News, Teacher Resources, GDPR Regulations, Country Resources (France, Guadeloupe 🇬🇵, Martinique 🇲🇶, French Guiana 🇬🇫)! 📚",
+    aide: "I can help you with: 26 multilingual Amazon stores, Amazon Influencer program, international library, or any other question!",
+    contact: "24/7 support available in 6 languages via our platform: influenceur@reussitess.fr! 📞",
+    securite: "Your data is encrypted and GDPR compliant. 100% secure transactions on Amazon! Secure affiliate link 🔒",
+    default: "I'm here to help! Ask me about our 26 stores, Amazon Influencer affiliation, or multilingual resources. 😊"
   },
   es: {
     boutiques: "¡Tenemos 26 tiendas Amazon en 14 países! ¿Quieres saber cuáles? 🛍️",
