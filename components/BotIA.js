@@ -152,6 +152,15 @@ function speak(text, lang) {
   }
 }
 
+const languages = [
+  { code: 'fr', flag: '🇫🇷', name: 'Français' },
+  { code: 'en', flag: '🇬🇧', name: 'English' },
+  { code: 'es', flag: '🇪🇸', name: 'Español' },
+  { code: 'pt', flag: '🇧🇷', name: 'Português' },
+  { code: 'it', flag: '🇮🇹', name: 'Italiano' },
+  { code: 'de', flag: '🇩🇪', name: 'Deutsch' }
+]
+
 export default function BotAssistant() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([])
@@ -159,12 +168,23 @@ export default function BotAssistant() {
   const [currentLang, setCurrentLang] = useState('fr')
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [voiceEnabled, setVoiceEnabled] = useState(true)
+  const [showLangSelector, setShowLangSelector] = useState(false)
 
   useEffect(() => {
-    setMessages([{ text: greetings.fr, isBot: true }])
+    setMessages([{ text: greetings[currentLang], isBot: true }])
     // Parler le message de bienvenue
-    setTimeout(() => speak(greetings.fr, 'fr'), 500)
+    setTimeout(() => speak(greetings[currentLang], currentLang), 500)
   }, [])
+
+  const changeLang = (newLang) => {
+    setCurrentLang(newLang)
+    setShowLangSelector(false)
+    const greeting = { text: greetings[newLang], isBot: true }
+    setMessages([greeting])
+    if (voiceEnabled) {
+      speak(greetings[newLang], newLang)
+    }
+  }
 
   const handleSend = () => {
     if (!input.trim()) return
@@ -172,22 +192,18 @@ export default function BotAssistant() {
     const userMessage = { text: input, isBot: false }
     setMessages(prev => [...prev, userMessage])
     
-    // Détecter la langue
-    const detectedLang = detectLanguage(input)
-    setCurrentLang(detectedLang)
-    
     const userInput = input
     setInput('')
 
     // Réponse automatique du bot
     setTimeout(() => {
-      const botResponse = getResponse(userInput, detectedLang)
+      const botResponse = getResponse(userInput, currentLang)
       const botMessage = { text: botResponse, isBot: true }
       setMessages(prev => [...prev, botMessage])
       
       // Faire parler le bot si la voix est activée
       if (voiceEnabled) {
-        speak(botResponse, detectedLang)
+        speak(botResponse, currentLang)
       }
     }, 800)
   }
@@ -196,7 +212,15 @@ export default function BotAssistant() {
     setVoiceEnabled(!voiceEnabled)
     if (!voiceEnabled) {
       // Tester la voix avec un message
-      speak("Voix activée !", currentLang)
+      const testMessages = {
+        fr: "Voix activée !",
+        en: "Voice enabled!",
+        es: "¡Voz activada!",
+        pt: "Voz ativada!",
+        it: "Voce attivata!",
+        de: "Stimme aktiviert!"
+      }
+      speak(testMessages[currentLang], currentLang)
     } else {
       window.speechSynthesis.cancel()
     }
@@ -259,7 +283,29 @@ export default function BotAssistant() {
                 Disponible 24/7 {voiceEnabled ? '🔊' : '🔇'}
               </p>
             </div>
-            <div style={{display: 'flex', gap: '8px'}}>
+            <div style={{display: 'flex', gap: '8px', alignItems: 'center'}}>
+              {/* Language selector button */}
+              <button 
+                onClick={() => setShowLangSelector(!showLangSelector)}
+                title="Changer de langue"
+                style={{
+                  background: 'rgba(255,255,255,0.2)',
+                  border: 'none',
+                  color: 'white',
+                  fontSize: '20px',
+                  cursor: 'pointer',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  position: 'relative'
+                }}
+              >
+                🌐
+              </button>
+              
               <button 
                 onClick={toggleVoice}
                 title={voiceEnabled ? "Désactiver la voix" : "Activer la voix"}
@@ -299,6 +345,53 @@ export default function BotAssistant() {
               </button>
             </div>
           </div>
+
+          {/* Language Selector Dropdown */}
+          {showLangSelector && (
+            <div style={{
+              background: 'white',
+              padding: '12px',
+              borderBottom: '1px solid #e5e7eb',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '8px'
+            }}>
+              {languages.map(lang => (
+                <button
+                  key={lang.code}
+                  onClick={() => changeLang(lang.code)}
+                  style={{
+                    background: currentLang === lang.code ? 'linear-gradient(135deg, #2563eb, #7c3aed)' : '#f3f4f6',
+                    border: 'none',
+                    borderRadius: '8px',
+                    padding: '8px',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    color: currentLang === lang.code ? 'white' : '#374151',
+                    fontWeight: currentLang === lang.code ? 'bold' : 'normal',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '4px',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (currentLang !== lang.code) {
+                      e.target.style.background = '#e5e7eb'
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (currentLang !== lang.code) {
+                      e.target.style.background = '#f3f4f6'
+                    }
+                  }}
+                >
+                  <span style={{fontSize: '24px'}}>{lang.flag}</span>
+                  <span>{lang.name}</span>
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Messages */}
           <div style={{
