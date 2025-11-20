@@ -65,6 +65,123 @@ export default function Affiliation() {
                         margin: '30px auto 0'
                     }}>🚀 Rejoindre le Programme Amazon Influenceur</button>
                 </a>
+                
+                <h3 style={{ marginTop: '50px', marginBottom: '20px', color: '#667eea' }}>📚 Ressources pour Réussir</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginTop: '20px' }}>
+                    <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '12px', border: '2px solid #e9ecef' }}>
+                        <h4 style={{ color: '#667eea', marginBottom: '15px' }}>🧮 Outils E-commerce</h4>
+                        <p style={{ fontSize: '0.95em', marginBottom: '15px' }}>Calculateurs TVA, commissions, profits pour optimiser vos revenus</p>
+                        <button onClick={() => router.push('/bibliotheque/outils')} style={{
+                            padding: '10px 20px',
+                            background: '#667eea',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            width: '100%'
+                        }}>Accéder aux Outils →</button>
+                    </div>
+                    
+                    <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '12px', border: '2px solid #e9ecef' }}>
+                        <h4 style={{ color: '#667eea', marginBottom: '15px' }}>⚖️ Réglementation</h4>
+                        <p style={{ fontSize: '0.95em', marginBottom: '15px' }}>RGPD, TVA internationale, conformité légale e-commerce</p>
+                        <button onClick={() => router.push('/bibliotheque/reglementation')} style={{
+                            padding: '10px 20px',
+                            background: '#667eea',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            width: '100%'
+                        }}>En savoir plus →</button>
+                    </div>
+                    
+                    <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '12px', border: '2px solid #e9ecef' }}>
+                        <h4 style={{ color: '#667eea', marginBottom: '15px' }}>📰 Actualités E-commerce</h4>
+                        <p style={{ fontSize: '0.95em', marginBottom: '15px' }}>Dernières tendances, stratégies marketing, conseils d&apos;experts</p>
+                        <button onClick={() => router.push('/bibliotheque/actu')} style={{
+                            padding: '10px 20px',
+                            background: '#667eea',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            width: '100%'
+                        }}>Lire les actualités →</button>
+                    </div>
+                </div>
+                
+                <h3 style={{ marginTop: '50px', marginBottom: '20px', color: '#667eea' }}>🌍 Marchés Internationaux</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginTop: '20px' }}>
+                    <div style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', padding: '25px', borderRadius: '12px', cursor: 'pointer' }} onClick={() => router.push('/bibliotheque/pays/fr')}>
+                        <h4 style={{ margin: '0 0 10px 0' }}>🇫🇷 France</h4>
+                        <p style={{ fontSize: '0.9em', margin: 0 }}>Ressources, TVA, réglementations françaises</p>
+                    </div>
+                    
+                    <div style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white', padding: '25px', borderRadius: '12px', cursor: 'pointer' }} onClick={() => router.push('/bibliotheque/pays/guadeloupe')}>
+                        <h4 style={{ margin: '0 0 10px 0' }}>🇬🇵 Guadeloupe</h4>
+                        <p style={{ fontSize: '0.9em', margin: 0 }}>Spécificités DOM-TOM, culture locale</p>
+                    </div>
+                    
+                    <div style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', color: 'white', padding: '25px', borderRadius: '12px', cursor: 'pointer' }} onClick={() => router.push('/bibliotheque/pays/martinique')}>
+                        <h4 style={{ margin: '0 0 10px 0' }}>🇲🇶 Martinique</h4>
+                        <p style={{ fontSize: '0.9em', margin: 0 }}>Guide complet Martinique, ressources</p>
+                    </div>
+                    
+                    <div style={{ background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', color: 'white', padding: '25px', borderRadius: '12px', cursor: 'pointer' }} onClick={() => router.push('/bibliotheque/pays/guyane')}>
+                        <h4 style={{ margin: '0 0 10px 0' }}>🇬🇫 Guyane</h4>
+                        <p style={{ fontSize: '0.9em', margin: 0 }}>Opportunités e-commerce Guyane française</p>
+                    </div>
+                </div>
+                
+                <h3 style={{ marginTop: '50px', marginBottom: '20px', color: '#667eea' }}>👨‍🏫 Formation & Support Pédagogique</h3>
+                <div style={{ background: '#fff3cd', padding: '25px', borderRadius: '12px', border: '2px solid #ffc107' }}>
+                    <h4 style={{ color: '#856404', marginBottom: '15px' }}>Ressources pour Enseignants & Formateurs</h4>
+                    <p style={{ fontSize: '1.05em', marginBottom: '20px' }}>Guides pédagogiques, supports de cours, exercices pratiques pour enseigner le e-commerce et l&apos;affiliation Amazon.</p>
+                    <button onClick={() => router.push('/bibliotheque/prof')} style={{
+                        padding: '12px 30px',
+                        background: '#ffc107',
+                        color: '#000',
+                        border: 'none',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        fontSize: '1.05em'
+                    }}>📖 Accéder aux ressources pédagogiques →</button>
+                </div>
+                
+                <h3 style={{ marginTop: '50px', marginBottom: '20px', color: '#667eea' }}>📚 Culture & Histoire</h3>
+                <div style={{ background: '#d1ecf1', padding: '25px', borderRadius: '12px', border: '2px solid #17a2b8' }}>
+                    <h4 style={{ color: '#0c5460', marginBottom: '15px' }}>Histoire Africaine & Outremer</h4>
+                    <p style={{ fontSize: '1.05em', marginBottom: '20px' }}>Découvrez l&apos;histoire et la culture des territoires français d&apos;outremer, patrimoine africain et diaspora.</p>
+                    <button onClick={() => router.push('/bibliotheque/histoire')} style={{
+                        padding: '12px 30px',
+                        background: '#17a2b8',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        fontWeight: 'bold',
+                        fontSize: '1.05em'
+                    }}>🌍 Explorer l&apos;histoire →</button>
+                </div>
+                
+                <div style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', borderRadius: '15px', textAlign: 'center' }}>
+                    <h3 style={{ margin: '0 0 15px 0' }}>📧 Besoin d&apos;aide ?</h3>
+                    <p style={{ fontSize: '1.1em', marginBottom: '20px' }}>Notre équipe est disponible 24/7 pour répondre à vos questions</p>
+                    <a href="mailto:influenceur@reussitess.fr" style={{ textDecoration: 'none' }}>
+                        <button style={{
+                            padding: '12px 30px',
+                            background: 'white',
+                            color: '#667eea',
+                            border: 'none',
+                            borderRadius: '25px',
+                            cursor: 'pointer',
+                            fontWeight: 'bold',
+                            fontSize: '1.1em'
+                        }}>✉️ influenceur@reussitess.fr</button>
+                    </a>
+                </div>
             </div>
         </div>
     </>);
