@@ -73,17 +73,17 @@ export default function Home() {
                 transition: 'all 0.3s ease'
               }}
             >
-              🚀 ACCÉDER AUX 24 BOUTIQUES AMAZON
+              🚀 ACCÉDER AUX 26 BOUTIQUES AMAZON
             </a>
           </div>
 
           <div className="hero-stats">
             <div className="stat">
-              <span className="number">24</span>
+              <span className="number">26</span>
               <span className="label">Boutiques Amazon</span>
             </div>
             <div className="stat">
-              <span className="number">13</span>
+              <span className="number">14</span>
               <span className="label">Pays</span>
             </div>
             <div className="stat">
