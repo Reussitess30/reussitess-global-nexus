@@ -3,9 +3,9 @@ import HeroSection from '../components/HeroSection'
 import Link from 'next/link'
 
 export default function Home() {
-  // VRAIS LIENS AMAZON D'AFFILIATION - 24 boutiques (13 Personnel + 11 Influenceur)
+  // VRAIS LIENS AMAZON D'AFFILIATION - 26 boutiques (14 Personnel + 12 Influenceur)
   const boutiques = [
-    // Boutiques Personnelles (13) - amourguadeloupe
+    // Boutiques Personnelles (14) - amourguadeloupe - AVEC Brésil
     { nom: "🇺🇸 [Personnel] États-Unis", lien: "https://www.amazon.com/shop/amourguadeloupe" },
     { nom: "🇮🇹 [Personnel] Italie", lien: "https://www.amazon.it/shop/amourguadeloupe" },
     { nom: "🇫🇷 [Personnel] France", lien: "https://www.amazon.fr/shop/amourguadeloupe" },
@@ -19,8 +19,9 @@ export default function Home() {
     { nom: "🇬🇧 [Personnel] Royaume-Uni", lien: "https://www.amazon.co.uk/shop/amourguadeloupe" },
     { nom: "🇦🇺 [Personnel] Australie", lien: "https://www.amazon.com.au/shop/amourguadeloupe" },
     { nom: "🇧🇪 [Personnel] Belgique", lien: "https://www.amazon.com.be/shop/amourguadeloupe" },
+    { nom: "🇧🇷 [Personnel] Brésil", lien: "https://www.amazon.com.br/shop/amourguadeloupe" },
 
-    // Boutiques Influenceurs (11) - influencer-fb942837 (PAS France ni Brésil)
+    // Boutiques Influenceurs (12) - influencer-fb942837 - SANS France ni Brésil
     { nom: "🇦🇺 [Influenceur] Australie", lien: "https://www.amazon.com.au/shop/influencer-fb942837" },
     { nom: "🇺🇸 [Influenceur] États-Unis", lien: "https://www.amazon.com/shop/influencer-fb942837" },
     { nom: "🇬🇧 [Influenceur] Royaume-Uni", lien: "https://www.amazon.co.uk/shop/influencer-fb942837" },
@@ -31,7 +32,8 @@ export default function Home() {
     { nom: "🇪🇸 [Influenceur] Espagne", lien: "https://www.amazon.es/shop/influencer-fb942837" },
     { nom: "🇩🇪 [Influenceur] Allemagne", lien: "https://www.amazon.de/shop/influencer-fb942837" },
     { nom: "🇨🇦 [Influenceur] Canada", lien: "https://www.amazon.ca/shop/influencer-fb942837" },
-    { nom: "🇳🇱 [Influenceur] Pays-Bas", lien: "https://www.amazon.nl/shop/influencer-fb942837" }
+    { nom: "🇳🇱 [Influenceur] Pays-Bas", lien: "https://www.amazon.nl/shop/influencer-fb942837" },
+    { nom: "🇳🇿 [Influenceur] Nouvelle-Zélande", lien: "https://www.amazon.co.nz/shop/influencer-fb942837" }
   ]
 
   return (
