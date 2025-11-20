@@ -31,28 +31,28 @@ export function TranslationProvider({ children }) {
     fr: {
       home: "Accueil",
       boutiques: "Boutiques",
-      welcome: "Bienvenue sur Reussitess Global Nexus",
+      welcome: "Bienvenue sur REUSSITESS® Global Nexus",
       start: "Commencer",
       visitStore: "Visiter la Boutique"
     },
     en: {
       home: "Home", 
       boutiques: "Stores",
-      welcome: "Welcome to Reussitess Global Nexus",
+      welcome: "Welcome to REUSSITESS® Global Nexus",
       start: "Get Started",
       visitStore: "Visit Store"
     },
     es: {
       home: "Inicio",
       boutiques: "Tiendas", 
-      welcome: "Bienvenido a Reussitess Global Nexus",
+      welcome: "Bienvenido a REUSSITESS® Global Nexus",
       start: "Comenzar",
       visitStore: "Visitar Tienda"
     },
     de: {
       home: "Startseite",
       boutiques: "Geschäfte",
-      welcome: "Willkommen bei Reussitess Global Nexus", 
+      welcome: "Willkommen bei REUSSITESS® Global Nexus", 
       start: "Starten",
       visitStore: "Geschäft besuchen"
     }

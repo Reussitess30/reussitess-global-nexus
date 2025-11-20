@@ -6,15 +6,15 @@ export default function MentionsLegales() {
 
   const contenus = {
     fr: {
-      titre: "Mentions Légales - Reussitess Global Nexus",
+      titre: "Mentions Légales - REUSSITESS® Global Nexus",
       sections: [
         {
           titre: "📄 Informations Générales",
-          contenu: "Reussitess Global Nexus est une plateforme e-commerce globale connectant 42 boutiques Amazon à travers 14 pays."
+          contenu: "REUSSITESS® Global Nexus est une plateforme e-commerce globale connectant 26 boutiques Amazon à travers 14 pays."
         },
         {
           titre: "🏢 Éditeur",
-          contenu: "Réseau Reussitess Global - Hub Central d'E-commerce Mondial"
+          contenu: "Réseau REUSSITESS® Global - Hub Central d'E-commerce Mondial"
         },
         {
           titre: "🌍 Hébergement",
@@ -26,7 +26,7 @@ export default function MentionsLegales() {
         },
         {
           titre: "🔒 Propriété Intellectuelle",
-          contenu: "Reussitess® est une marque déposée. Tous droits réservés sur le contenu et la plateforme."
+          contenu: "REUSSITESS® est une marque déposée. Tous droits réservés sur le contenu et la plateforme."
         },
         {
           titre: "📞 Contact",
@@ -35,15 +35,15 @@ export default function MentionsLegales() {
       ]
     },
     en: {
-      titre: "Legal Notice - Reussitess Global Nexus", 
+      titre: "Legal Notice - REUSSITESS® Global Nexus", 
       sections: [
         {
           titre: "📄 General Information",
-          contenu: "Reussitess Global Nexus is a global e-commerce platform connecting 42 Amazon stores across 14 countries."
+          contenu: "REUSSITESS® Global Nexus is a global e-commerce platform connecting 26 Amazon stores across 14 countries."
         },
         {
           titre: "🏢 Publisher",
-          contenu: "Reussitess Global Network - Global E-commerce Central Hub"
+          contenu: "REUSSITESS® Global Network - Global E-commerce Central Hub"
         },
         {
           titre: "🌍 Hosting",
@@ -64,15 +64,15 @@ export default function MentionsLegales() {
       ]
     },
     es: {
-      titre: "Aviso Legal - Reussitess Global Nexus",
+      titre: "Aviso Legal - REUSSITESS® Global Nexus",
       sections: [
         {
           titre: "📄 Información General",
-          contenu: "Reussitess Global Nexus es una plataforma global de e-commerce que conecta 42 tiendas Amazon en 14 países."
+          contenu: "REUSSITESS® Global Nexus es una plataforma global de e-commerce que conecta 26 tiendas Amazon en 14 países."
         },
         {
           titre: "🏢 Editor",
-          contenu: "Red Global Reussitess - Centro Central de E-commerce Global"
+          contenu: "Red Global REUSSITESS® - Centro Central de E-commerce Global"
         },
         {
           titre: "🌍 Alojamiento",

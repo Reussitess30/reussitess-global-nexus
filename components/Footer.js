@@ -37,7 +37,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <p>
-          <strong>Reussitess30</strong> — <a href="mailto:influenceur@reussitess.fr">influenceur@reussitess.fr</a> | © 2025 Reussitess Global Nexus
+          <strong>REUSSITESS®30</strong> — <a href="mailto:influenceur@reussitess.fr">influenceur@reussitess.fr</a> | © 2025 REUSSITESS® Global Nexus
         </p>
         <div className="social-links">
           <a href="https://www.instagram.com/reussitess30" target="_blank" rel="noopener noreferrer">Instagram</a>

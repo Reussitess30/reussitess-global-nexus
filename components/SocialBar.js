@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function SocialBar() {
     const [isOpen, setIsOpen] = useState(false);
     const url = typeof window !== 'undefined' ? window.location.href : '';
-    const title = "Reussitess® Global Nexus - La référence mondiale e-commerce Amazon";
+    const title = "REUSSITESS® Global Nexus - La référence mondiale e-commerce Amazon";
     
     const socials = [
         { name: 'Facebook', icon: '📘', color: '#1877f2', link: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },

@@ -6,15 +6,15 @@ export default function APropos() {
       <section className="section bg-white">
         <div className="container">
           <div className="text-center mb-12">
-            <h1>À Propos de Reussitess©GlobalNexus</h1>
+            <h1>À Propos de REUSSITESS® GlobalNexus</h1>
             <p className="text-xl">Votre Passerelle Vers l'Excellence Mondiale</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="card">
-              <h2>Bienvenue dans l'univers de Reussitess©GlobalNexus</h2>
+              <h2>Bienvenue dans l'univers de REUSSITESS® GlobalNexus</h2>
               <p className="mb-4">
-                Le hub central de votre écosystème mondial. Conçue pour les membres du réseau Reussitess®, 
+                Le hub central de votre écosystème mondial. Conçue pour les membres du réseau REUSSITESS®, 
                 notre application PWA vous offre un accès inédit à 26 boutiques Amazon réparties dans 
                 14 pays et 5 continents, le tout avec une disponibilité 24h/24 et 7j/7.
               </p>
@@ -35,7 +35,7 @@ export default function APropos() {
                 </div>
                 <div className="feature-item">
                   <strong>🚀 Inscription Facile</strong>
-                  <p>Rejoignez rapidement le réseau exclusif Reussitess® Global</p>
+                  <p>Rejoignez rapidement le réseau exclusif REUSSITESS® Global</p>
                 </div>
                 <div className="feature-item">
                   <strong>🏪 Boutiques Mondiales</strong>
@@ -48,7 +48,7 @@ export default function APropos() {
               </div>
 
               <p className="text-center premium-text">
-                Reussitess©GlobalNexus est votre partenaire essentiel pour naviguer et prospérer 
+                REUSSITESS® GlobalNexus est votre partenaire essentiel pour naviguer et prospérer 
                 au sein de notre écosystème d'excellence et d'innovation. Téléchargez-la dès aujourd'hui 
                 pour débloquer un monde d'opportunités et rejoignez le réseau mondial des entrepreneurs du succès.
               </p>

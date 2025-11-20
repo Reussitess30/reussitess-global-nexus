@@ -15,7 +15,7 @@ export default function Layout({ children }) {
       <header className="header">
         <nav>
           <div className="logo">
-            🌍 Reussitess Global Nexus
+            🌍 REUSSITESS® Global Nexus
           </div>
           <div className="nav-links">
             <Link href="/">🏠 Accueil</Link>
@@ -35,7 +35,7 @@ export default function Layout({ children }) {
           <div className="footer-content">
             <div className="footer-section">
               <h4>🌐 Réseau Global</h4>
-              <p>42 boutiques • 14 pays • 5 continents</p>
+              <p>26 boutiques • 14 pays • 5 continents</p>
             </div>
             <div className="footer-section">
               <h4>📞 Support</h4>
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 Reussitess Global Nexus. Tous droits réservés.</p>
+            <p>&copy; 2024 REUSSITESS® Global Nexus. Tous droits réservés.</p>
             <p>🚀 Développé avec Next.js • PWA • SEO Optimisé</p>
           </div>
         </div>

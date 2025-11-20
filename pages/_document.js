@@ -5,18 +5,18 @@ export default function Document() {
     <Html lang="fr">
       <Head>
         {/* SEO Essentiel */}
-        <meta name="description" content="Reussitess Global Nexus - Hub central de 26 boutiques Amazon dans 14 pays. E-commerce global, analytics temps réel, programme affiliation." />
+        <meta name="description" content="REUSSITESS® Global Nexus - Hub central de 26 boutiques Amazon dans 14 pays. E-commerce global, analytics temps réel, programme affiliation." />
         <meta name="keywords" content="e-commerce, boutiques Amazon, affiliation, analytics, global, 14 pays, 26 boutiques" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Reussitess Global Nexus - 26 Boutiques Amazon • 14 Pays" />
+        <meta property="og:title" content="REUSSITESS® Global Nexus - 26 Boutiques Amazon • 14 Pays" />
         <meta property="og:description" content="Hub e-commerce global connectant 26 boutiques Amazon à travers 14 pays avec analytics temps réel." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/og-image.jpg" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Reussitess Global Nexus" />
+        <meta name="twitter:title" content="REUSSITESS® Global Nexus" />
         <meta name="twitter:description" content="26 boutiques Amazon • 14 pays • E-commerce global" />
         
         {/* PWA */}
@@ -37,7 +37,7 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Reussitess Global Nexus",
+              "name": "REUSSITESS® Global Nexus",
               "description": "Hub e-commerce global de boutiques Amazon",
               "url": "https://reussitess-global-nexus-jfgk.vercel.app",
               "numberOfEmployees": "26",

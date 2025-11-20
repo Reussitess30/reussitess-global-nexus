@@ -6,7 +6,7 @@ export default function France() {
 
     return (<>
         <Head>
-            <title>🇫🇷 France - Bibliothèque Mondiale Reussitess®</title>
+            <title>🇫🇷 France - Bibliothèque Mondiale REUSSITESS®</title>
         </Head>
 
         <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '20px' }}>

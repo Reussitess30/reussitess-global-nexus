@@ -41,7 +41,7 @@ export default function PWAApp() {
     return (<>
         <Head>
             <title>📱 Application PWA - Reussitess® Global Nexus</title>
-            <meta name="description" content="Installez l'app Reussitess pour un accès hors ligne et une expérience optimale" />
+            <meta name="description" content="Installez l'app REUSSITESS® pour un accès hors ligne et une expérience optimale" />
         </Head>
 
         <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '20px' }}>
@@ -83,7 +83,7 @@ export default function PWAApp() {
                             <div style={{ fontSize: '4em', marginBottom: '15px' }}>✅</div>
                             <h2 style={{ fontSize: '2em', margin: '0 0 10px 0' }}>Application installée !</h2>
                             <p style={{ fontSize: '1.2em', margin: 0, opacity: 0.9 }}>
-                                Vous pouvez maintenant utiliser Reussitess hors ligne
+                                Vous pouvez maintenant utiliser REUSSITESS® hors ligne
                             </p>
                         </div>
                     ) : isInstallable ? (

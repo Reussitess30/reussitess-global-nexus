@@ -8,10 +8,10 @@ export default function BotAssistant() {
   const [input, setInput] = useState('')
 
   const greetings = [
-    "Bonjour ! Je suis votre assistant Reussitess Global Nexus 🌍",
-    "Hello! I'm your Reussitess Global Nexus assistant 🌍", 
-    "¡Hola! Soy tu asistente de Reussitess Global Nexus 🌍",
-    "Hallo! Ich bin Ihr Reussitess Global Nexus-Assistent 🌍"
+    "Bonjour ! Je suis votre assistant REUSSITESS® Global Nexus 🌍",
+    "Hello! I'm your REUSSITESS® Global Nexus assistant 🌍", 
+    "¡Hola! Soy tu asistente de REUSSITESS® Global Nexus 🌍",
+    "Hallo! Ich bin Ihr REUSSITESS® Global Nexus-Assistent 🌍"
   ]
 
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function BotAssistant() {
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <h3 style={{margin: 0}}>Assistant Reussitess</h3>
+            <h3 style={{margin: 0}}>Assistant REUSSITESS®</h3>
             <button 
               onClick={() => setIsOpen(false)}
               style={{
