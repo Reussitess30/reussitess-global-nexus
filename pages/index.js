@@ -1,6 +1,131 @@
+import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
 import Layout from '../components/Layout'
 
 export default function Home() {
+  const router = useRouter()
+  const { locale } = router
+
+  // Multilingual content
+  const content = {
+    fr: {
+      title: "RÉUSSITESS GLOBAL NEXUS",
+      subtitle: "Accès Direct à Nos 26 Boutiques Amazon",
+      guadeloupe: "Guadeloupe",
+      guadeloupeSubtitle: "Terre de Champions",
+      cta: "🚀 ACCÉDER AUX 26 BOUTIQUES AMAZON",
+      shopLabel: "🛍️ Visiter la Boutique",
+      affiliation: "Lien d'affiliation sécurisé",
+      howItWorks: "COMMENT ÇA FONCTIONNE ?",
+      step1Title: "Cliquez",
+      step1Desc: "Choisissez une boutique Amazon",
+      step2Title: "Achetez",
+      step2Desc: "Faites vos achats normalement",
+      step3Title: "Gagnez",
+      step3Desc: "Je reçois une commission",
+      myStores: "MES BOUTIQUES AMAZON",
+      seoTitle: "Réussitess Global Nexus - 26 Boutiques Amazon Mondiales",
+      seoDescription: "Accédez à nos 26 boutiques Amazon dans 14 pays. Programme d'affiliation international avec livraison mondiale.",
+    },
+    en: {
+      title: "REUSSITESS GLOBAL NEXUS",
+      subtitle: "Direct Access to Our 26 Amazon Stores",
+      guadeloupe: "Guadeloupe",
+      guadeloupeSubtitle: "Land of Champions",
+      cta: "🚀 ACCESS 26 AMAZON STORES",
+      shopLabel: "🛍️ Visit Store",
+      affiliation: "Secure affiliate link",
+      howItWorks: "HOW IT WORKS?",
+      step1Title: "Click",
+      step1Desc: "Choose an Amazon store",
+      step2Title: "Buy",
+      step2Desc: "Shop normally",
+      step3Title: "Earn",
+      step3Desc: "I receive a commission",
+      myStores: "MY AMAZON STORES",
+      seoTitle: "Reussitess Global Nexus - 26 Global Amazon Stores",
+      seoDescription: "Access our 26 Amazon stores across 14 countries. International affiliate program with worldwide delivery.",
+    },
+    es: {
+      title: "REUSSITESS GLOBAL NEXUS",
+      subtitle: "Acceso Directo a Nuestras 26 Tiendas Amazon",
+      guadeloupe: "Guadalupe",
+      guadeloupeSubtitle: "Tierra de Campeones",
+      cta: "🚀 ACCEDER A 26 TIENDAS AMAZON",
+      shopLabel: "🛍️ Visitar Tienda",
+      affiliation: "Enlace de afiliado seguro",
+      howItWorks: "¿CÓMO FUNCIONA?",
+      step1Title: "Haz clic",
+      step1Desc: "Elige una tienda Amazon",
+      step2Title: "Compra",
+      step2Desc: "Compra normalmente",
+      step3Title: "Gana",
+      step3Desc: "Recibo una comisión",
+      myStores: "MIS TIENDAS AMAZON",
+      seoTitle: "Reussitess Global Nexus - 26 Tiendas Amazon Globales",
+      seoDescription: "Accede a nuestras 26 tiendas Amazon en 14 países. Programa de afiliados internacional con entrega mundial.",
+    },
+    de: {
+      title: "REUSSITESS GLOBAL NEXUS",
+      subtitle: "Direkter Zugang zu unseren 26 Amazon-Shops",
+      guadeloupe: "Guadeloupe",
+      guadeloupeSubtitle: "Land der Champions",
+      cta: "🚀 ZUGRIFF AUF 26 AMAZON-SHOPS",
+      shopLabel: "🛍️ Shop besuchen",
+      affiliation: "Sicherer Affiliate-Link",
+      howItWorks: "WIE FUNKTIONIERT ES?",
+      step1Title: "Klicken",
+      step1Desc: "Wählen Sie einen Amazon-Shop",
+      step2Title: "Kaufen",
+      step2Desc: "Normal einkaufen",
+      step3Title: "Verdienen",
+      step3Desc: "Ich erhalte eine Provision",
+      myStores: "MEINE AMAZON-SHOPS",
+      seoTitle: "Reussitess Global Nexus - 26 Globale Amazon-Shops",
+      seoDescription: "Greifen Sie auf unsere 26 Amazon-Shops in 14 Ländern zu. Internationales Partnerprogramm mit weltweiter Lieferung.",
+    },
+    it: {
+      title: "REUSSITESS GLOBAL NEXUS",
+      subtitle: "Accesso Diretto ai Nostri 26 Negozi Amazon",
+      guadeloupe: "Guadalupa",
+      guadeloupeSubtitle: "Terra di Campioni",
+      cta: "🚀 ACCEDI AI 26 NEGOZI AMAZON",
+      shopLabel: "🛍️ Visita Negozio",
+      affiliation: "Link affiliato sicuro",
+      howItWorks: "COME FUNZIONA?",
+      step1Title: "Clicca",
+      step1Desc: "Scegli un negozio Amazon",
+      step2Title: "Acquista",
+      step2Desc: "Fai acquisti normalmente",
+      step3Title: "Guadagna",
+      step3Desc: "Ricevo una commissione",
+      myStores: "I MIEI NEGOZI AMAZON",
+      seoTitle: "Reussitess Global Nexus - 26 Negozi Amazon Globali",
+      seoDescription: "Accedi ai nostri 26 negozi Amazon in 14 paesi. Programma di affiliazione internazionale con consegna mondiale.",
+    },
+    pt: {
+      title: "REUSSITESS GLOBAL NEXUS",
+      subtitle: "Acesso Direto às Nossas 26 Lojas Amazon",
+      guadeloupe: "Guadalupe",
+      guadeloupeSubtitle: "Terra de Campeões",
+      cta: "🚀 ACESSAR 26 LOJAS AMAZON",
+      shopLabel: "🛍️ Visitar Loja",
+      affiliation: "Link de afiliado seguro",
+      howItWorks: "COMO FUNCIONA?",
+      step1Title: "Clique",
+      step1Desc: "Escolha uma loja Amazon",
+      step2Title: "Compre",
+      step2Desc: "Compre normalmente",
+      step3Title: "Ganhe",
+      step3Desc: "Recebo uma comissão",
+      myStores: "MINHAS LOJAS AMAZON",
+      seoTitle: "Reussitess Global Nexus - 26 Lojas Amazon Globais",
+      seoDescription: "Acesse nossas 26 lojas Amazon em 14 países. Programa de afiliados internacional com entrega mundial.",
+    },
+  }
+
+  const t = content[locale] || content.fr
+
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
   const boutiques = [
     // Boutiques Personnelles (14)
@@ -36,17 +161,27 @@ export default function Home() {
 
   return (
     <Layout>
+      <NextSeo
+        title={t.seoTitle}
+        description={t.seoDescription}
+        openGraph={{
+          title: t.seoTitle,
+          description: t.seoDescription,
+          type: 'website',
+          locale: locale,
+        }}
+      />
       <div className="hero">
         <div className="container">
-          <h1>RÉUSSITESS GLOBAL NEXUS</h1>
+          <h1>{t.title}</h1>
           <p className="subtitle">
-            Accès Direct à Nos 26 Boutiques Amazon
+            {t.subtitle}
           </p>
           
           {/* Carte Guadeloupe */}
           <div className="guadeloupe-card">
-            <div className="guadeloupe-title">Guadeloupe</div>
-            <div className="guadeloupe-subtitle">Terre de Champions</div>
+            <div className="guadeloupe-title">{t.guadeloupe}</div>
+            <div className="guadeloupe-subtitle">{t.guadeloupeSubtitle}</div>
           </div>
 
           {/* Bouton Principal */}
@@ -68,7 +203,7 @@ export default function Home() {
                 transition: 'all 0.3s ease'
               }}
             >
-              🚀 ACCÉDER AUX 26 BOUTIQUES AMAZON
+              {t.cta}
             </a>
           </div>
 
@@ -102,7 +237,7 @@ export default function Home() {
             backgroundClip: 'text',
             marginBottom: '3rem'
           }}>
-            MES BOUTIQUES AMAZON
+            {t.myStores}
           </h2>
           
           <div style={{
@@ -142,7 +277,7 @@ export default function Home() {
                   onMouseOver="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(16, 185, 129, 0.4)'"
                   onMouseOut="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
                 >
-                  🛍️ Visiter la Boutique
+                  {t.shopLabel}
                 </a>
                 <div style={{
                   marginTop: '1rem',
@@ -150,7 +285,7 @@ export default function Home() {
                   opacity: '0.7',
                   color: '#fbbf24'
                 }}>
-                  Lien d'affiliation sécurisé
+                  {t.affiliation}
                 </div>
               </div>
             ))}
@@ -173,7 +308,7 @@ export default function Home() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            COMMENT ÇA FONCTIONNE ?
+            {t.howItWorks}
           </h2>
           <div style={{
             display: 'grid',
@@ -184,18 +319,18 @@ export default function Home() {
           }}>
             <div>
               <div style={{fontSize: '3rem', marginBottom: '1rem'}}>1️⃣</div>
-              <h3 style={{color: '#f59e0b', marginBottom: '1rem'}}>Cliquez</h3>
-              <p>Choisissez une boutique Amazon</p>
+              <h3 style={{color: '#f59e0b', marginBottom: '1rem'}}>{t.step1Title}</h3>
+              <p>{t.step1Desc}</p>
             </div>
             <div>
               <div style={{fontSize: '3rem', marginBottom: '1rem'}}>2️⃣</div>
-              <h3 style={{color: '#3b82f6', marginBottom: '1rem'}}>Achetez</h3>
-              <p>Faites vos achats normalement</p>
+              <h3 style={{color: '#3b82f6', marginBottom: '1rem'}}>{t.step2Title}</h3>
+              <p>{t.step2Desc}</p>
             </div>
             <div>
               <div style={{fontSize: '3rem', marginBottom: '1rem'}}>3️⃣</div>
-              <h3 style={{color: '#10b981', marginBottom: '1rem'}}>Gagnez</h3>
-              <p>Je reçois une commission</p>
+              <h3 style={{color: '#10b981', marginBottom: '1rem'}}>{t.step3Title}</h3>
+              <p>{t.step3Desc}</p>
             </div>
           </div>
         </section>
