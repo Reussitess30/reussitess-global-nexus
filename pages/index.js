@@ -6,34 +6,34 @@ export default function Home() {
   // VRAIS LIENS AMAZON D'AFFILIATION - 26 boutiques (14 Personnel + 12 Influenceur)
   const boutiques = [
     // Boutiques Personnelles (14) - amourguadeloupe - AVEC Brésil
-    { nom: "🇺🇸 [Personnel] États-Unis", lien: "https://www.amazon.com/shop/amourguadeloupe" },
-    { nom: "🇮🇹 [Personnel] Italie", lien: "https://www.amazon.it/shop/amourguadeloupe" },
-    { nom: "🇫🇷 [Personnel] France", lien: "https://www.amazon.fr/shop/amourguadeloupe" },
-    { nom: "🇪🇸 [Personnel] Espagne", lien: "https://www.amazon.es/shop/amourguadeloupe" },
-    { nom: "🇩🇪 [Personnel] Allemagne", lien: "https://www.amazon.de/shop/amourguadeloupe" },
-    { nom: "🇨🇦 [Personnel] Canada", lien: "https://www.amazon.ca/shop/amourguadeloupe" },
-    { nom: "🇮🇳 [Personnel] Inde", lien: "https://www.amazon.in/shop/amourguadeloupe" },
-    { nom: "🇳🇱 [Personnel] Pays-Bas", lien: "https://www.amazon.nl/shop/amourguadeloupe" },
-    { nom: "🇸🇪 [Personnel] Suède", lien: "https://www.amazon.se/shop/amourguadeloupe" },
-    { nom: "🇸🇬 [Personnel] Singapour", lien: "https://www.amazon.sg/shop/amourguadeloupe" },
-    { nom: "🇬🇧 [Personnel] Royaume-Uni", lien: "https://www.amazon.co.uk/shop/amourguadeloupe" },
-    { nom: "🇦🇺 [Personnel] Australie", lien: "https://www.amazon.com.au/shop/amourguadeloupe" },
-    { nom: "🇧🇪 [Personnel] Belgique", lien: "https://www.amazon.com.be/shop/amourguadeloupe" },
-    { nom: "🇧🇷 [Personnel] Brésil", lien: "https://www.amazon.com.br/shop/amourguadeloupe" },
+    { nom: "🇺🇸 [Personnel] États-Unis", lien: "https://www.amazon.com/shop/amourguadeloupe", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇮🇹 [Personnel] Italie", lien: "https://www.amazon.it/shop/amourguadeloupe", lang: "it", btnText: "Visita il Negozio", secureText: "Link di affiliazione sicuro" },
+    { nom: "🇫🇷 [Personnel] France", lien: "https://www.amazon.fr/shop/amourguadeloupe", lang: "fr", btnText: "Visiter la Boutique", secureText: "Lien d'affiliation sécurisé" },
+    { nom: "🇪🇸 [Personnel] Espagne", lien: "https://www.amazon.es/shop/amourguadeloupe", lang: "es", btnText: "Visitar la Tienda", secureText: "Enlace de afiliación seguro" },
+    { nom: "🇩🇪 [Personnel] Allemagne", lien: "https://www.amazon.de/shop/amourguadeloupe", lang: "de", btnText: "Shop Besuchen", secureText: "Sicherer Affiliate-Link" },
+    { nom: "🇨🇦 [Personnel] Canada", lien: "https://www.amazon.ca/shop/amourguadeloupe", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇮🇳 [Personnel] Inde", lien: "https://www.amazon.in/shop/amourguadeloupe", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇳🇱 [Personnel] Pays-Bas", lien: "https://www.amazon.nl/shop/amourguadeloupe", lang: "nl", btnText: "Bezoek de Winkel", secureText: "Beveiligde affiliate link" },
+    { nom: "🇸🇪 [Personnel] Suède", lien: "https://www.amazon.se/shop/amourguadeloupe", lang: "sv", btnText: "Besök Butiken", secureText: "Säker affiliate-länk" },
+    { nom: "🇸🇬 [Personnel] Singapour", lien: "https://www.amazon.sg/shop/amourguadeloupe", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇬🇧 [Personnel] Royaume-Uni", lien: "https://www.amazon.co.uk/shop/amourguadeloupe", lang: "en", btnText: "Visit Shop", secureText: "Secure affiliate link" },
+    { nom: "🇦🇺 [Personnel] Australie", lien: "https://www.amazon.com.au/shop/amourguadeloupe", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇧🇪 [Personnel] Belgique", lien: "https://www.amazon.com.be/shop/amourguadeloupe", lang: "fr", btnText: "Visiter la Boutique", secureText: "Lien d'affiliation sécurisé" },
+    { nom: "🇧🇷 [Personnel] Brésil", lien: "https://www.amazon.com.br/shop/amourguadeloupe", lang: "pt", btnText: "Visitar a Loja", secureText: "Link de afiliado seguro" },
 
     // Boutiques Influenceurs (12) - influencer-fb942837 - SANS France ni Brésil
-    { nom: "🇦🇺 [Influenceur] Australie", lien: "https://www.amazon.com.au/shop/influencer-fb942837" },
-    { nom: "🇺🇸 [Influenceur] États-Unis", lien: "https://www.amazon.com/shop/influencer-fb942837" },
-    { nom: "🇬🇧 [Influenceur] Royaume-Uni", lien: "https://www.amazon.co.uk/shop/influencer-fb942837" },
-    { nom: "🇮🇳 [Influenceur] Inde", lien: "https://www.amazon.in/shop/influencer-fb942837" },
-    { nom: "🇸🇪 [Influenceur] Suède", lien: "https://www.amazon.se/shop/influencer-fb942837" },
-    { nom: "🇸🇬 [Influenceur] Singapour", lien: "https://www.amazon.sg/shop/influencer-fb942837" },
-    { nom: "🇧🇪 [Influenceur] Belgique", lien: "https://www.amazon.com.be/shop/influencer-fb942837" },
-    { nom: "🇪🇸 [Influenceur] Espagne", lien: "https://www.amazon.es/shop/influencer-fb942837" },
-    { nom: "🇩🇪 [Influenceur] Allemagne", lien: "https://www.amazon.de/shop/influencer-fb942837" },
-    { nom: "🇨🇦 [Influenceur] Canada", lien: "https://www.amazon.ca/shop/influencer-fb942837" },
-    { nom: "🇳🇱 [Influenceur] Pays-Bas", lien: "https://www.amazon.nl/shop/influencer-fb942837" },
-    { nom: "🇳🇿 [Influenceur] Nouvelle-Zélande", lien: "https://www.amazon.co.nz/shop/influencer-fb942837" }
+    { nom: "🇦🇺 [Influenceur] Australie", lien: "https://www.amazon.com.au/shop/influencer-fb942837", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇺🇸 [Influenceur] États-Unis", lien: "https://www.amazon.com/shop/influencer-fb942837", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇬🇧 [Influenceur] Royaume-Uni", lien: "https://www.amazon.co.uk/shop/influencer-fb942837", lang: "en", btnText: "Visit Shop", secureText: "Secure affiliate link" },
+    { nom: "🇮🇳 [Influenceur] Inde", lien: "https://www.amazon.in/shop/influencer-fb942837", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇸🇪 [Influenceur] Suède", lien: "https://www.amazon.se/shop/influencer-fb942837", lang: "sv", btnText: "Besök Butiken", secureText: "Säker affiliate-länk" },
+    { nom: "🇸🇬 [Influenceur] Singapour", lien: "https://www.amazon.sg/shop/influencer-fb942837", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇧🇪 [Influenceur] Belgique", lien: "https://www.amazon.com.be/shop/influencer-fb942837", lang: "fr", btnText: "Visiter la Boutique", secureText: "Lien d'affiliation sécurisé" },
+    { nom: "🇪🇸 [Influenceur] Espagne", lien: "https://www.amazon.es/shop/influencer-fb942837", lang: "es", btnText: "Visitar la Tienda", secureText: "Enlace de afiliación seguro" },
+    { nom: "🇩🇪 [Influenceur] Allemagne", lien: "https://www.amazon.de/shop/influencer-fb942837", lang: "de", btnText: "Shop Besuchen", secureText: "Sicherer Affiliate-Link" },
+    { nom: "🇨🇦 [Influenceur] Canada", lien: "https://www.amazon.ca/shop/influencer-fb942837", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" },
+    { nom: "🇳🇱 [Influenceur] Pays-Bas", lien: "https://www.amazon.nl/shop/influencer-fb942837", lang: "nl", btnText: "Bezoek de Winkel", secureText: "Beveiligde affiliate link" },
+    { nom: "🇳🇿 [Influenceur] Nouvelle-Zélande", lien: "https://www.amazon.co.nz/shop/influencer-fb942837", lang: "en", btnText: "Visit Store", secureText: "Secure affiliate link" }
   ]
 
   return (
@@ -146,7 +146,7 @@ export default function Home() {
                     width: '100%'
                   }}
                 >
-                  🛍️ Visiter la Boutique
+                  🛍️ {boutique.btnText}
                 </a>
                 <div style={{
                   marginTop: '1rem',
@@ -154,7 +154,7 @@ export default function Home() {
                   opacity: '0.7',
                   color: '#fbbf24'
                 }}>
-                  Lien d&apos;affiliation sécurisé
+                  🔒 {boutique.secureText}
                 </div>
               </div>
             ))}
