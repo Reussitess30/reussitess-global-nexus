@@ -43,9 +43,9 @@ export default function Home() {
 
       <div className="hero" id="fonctionnement">
         <div className="container">
-          <h1>RÉUSSITESS GLOBAL NEXUS</h1>
+          <h1>REUSSITESS® GLOBAL NEXUS</h1>
           <p className="subtitle">
-            Accès Direct à Nos 24 Boutiques Amazon
+            Accès Direct à Nos 26 Boutiques Amazon
           </p>
           
           {/* Carte Guadeloupe */}
