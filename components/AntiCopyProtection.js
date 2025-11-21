@@ -21,28 +21,38 @@ export default function AntiCopyProtection() {
 
     // Désactiver la sélection de texte pour les liens d'affiliation uniquement
     const handleSelectStart = (e) => {
-      if (e.target.tagName === 'A' && e.target.href) {
-        const href = e.target.href.toLowerCase()
-        const amazonDomains = [
-          'amazon.com', 'amazon.fr', 'amazon.de', 'amazon.co.uk',
-          'amazon.it', 'amazon.es', 'amazon.ca', 'amazon.in',
-          'amazon.nl', 'amazon.se', 'amazon.sg', 'amazon.com.au',
-          'amazon.com.be', 'amazon.com.br'
-        ]
-        if (amazonDomains.some(domain => href.includes(domain))) {
-          e.preventDefault()
-          return false
+      if (e.target.tagName.toLowerCase() === 'a' && e.target.href) {
+        try {
+          const url = new URL(e.target.href)
+          const hostname = url.hostname.toLowerCase()
+          const amazonDomains = [
+            'amazon.com', 'amazon.fr', 'amazon.de', 'amazon.co.uk',
+            'amazon.it', 'amazon.es', 'amazon.ca', 'amazon.in',
+            'amazon.nl', 'amazon.se', 'amazon.sg', 'amazon.com.au',
+            'amazon.com.be', 'amazon.com.br',
+            'www.amazon.com', 'www.amazon.fr', 'www.amazon.de', 'www.amazon.co.uk',
+            'www.amazon.it', 'www.amazon.es', 'www.amazon.ca', 'www.amazon.in',
+            'www.amazon.nl', 'www.amazon.se', 'www.amazon.sg', 'www.amazon.com.au',
+            'www.amazon.com.be', 'www.amazon.com.br'
+          ]
+          if (amazonDomains.includes(hostname)) {
+            e.preventDefault()
+            return false
+          }
+        } catch (err) {
+          // Invalid URL, allow selection
         }
       }
     }
 
     // Désactiver les raccourcis clavier dangereux (sauf Ctrl+S pour accessibilité)
     const handleKeyDown = (e) => {
+      const key = e.key.toLowerCase()
       // Ctrl+C, Ctrl+X, F12, DevTools shortcuts
       if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'u')) ||
-        e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))
+        (e.ctrlKey && (key === 'c' || key === 'x' || key === 'u')) ||
+        key === 'f12' ||
+        (e.ctrlKey && e.shiftKey && (key === 'i' || key === 'j' || key === 'c'))
       ) {
         e.preventDefault()
         console.warn('🔒 Action bloquée - Protection activée')
