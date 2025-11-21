@@ -65,14 +65,16 @@ Implémenté dans `components/AntiCopyProtection.js` :
 #### Protections Actives :
 - ✅ **Clic droit désactivé** - Prévient le vol de contenu
 - ✅ **Copie/Coller bloquée** - Ctrl+C, Ctrl+X bloqués
-- ✅ **Sélection de texte limitée** - Protection des liens Amazon
+- ✅ **Sélection de texte limitée** - Protection ciblée des liens Amazon uniquement
 - ✅ **DevTools bloquées** - F12, Ctrl+Shift+I/J/C désactivés
 - ✅ **Glisser-déposer désactivé** - Pour images et liens
-- ✅ **CSS de protection** - user-select: none appliqué
-- ✅ **Ctrl+S bloqué** - Empêche la sauvegarde de page
+- ✅ **CSS de protection ciblée** - user-select: none uniquement sur liens Amazon
 - ✅ **Ctrl+U bloqué** - Empêche l'affichage du code source
 
-#### Exceptions :
+#### Accessibilité Préservée :
+- ✅ **Ctrl+S autorisé** - Sauvegarde de page pour accessibilité
+- ✅ **Sélection de texte autorisée** - Sur tout le contenu sauf liens Amazon
+- ✅ **Lecteurs d'écran compatibles** - Pas de blocage global de sélection
 - ✅ Inputs et textareas restent fonctionnels
 - ✅ Les liens Amazon restent cliquables
 
