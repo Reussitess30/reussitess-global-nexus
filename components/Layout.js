@@ -1,18 +1,11 @@
 import Link from 'next/link'
-import { useEffect } from 'react'
 import AffiliateDisclaimer from './AffiliateDisclaimer'
+import AntiCopyProtection from './AntiCopyProtection'
 
 export default function Layout({ children }) {
-  useEffect(() => {
-    const protectContent = () => {
-      document.addEventListener('copy', (e) => e.preventDefault())
-      document.addEventListener('contextmenu', (e) => e.preventDefault())
-    }
-    protectContent()
-  }, [])
-
   return (
     <>
+      <AntiCopyProtection />
       <header className="header">
         <nav>
           <div className="logo">
