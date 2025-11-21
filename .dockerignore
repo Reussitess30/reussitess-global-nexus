@@ -1,0 +1,40 @@
+# Fichiers à ignorer lors du build Docker
+# Réduit la taille de l'image et accélère le build
+
+# Dépendances
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build Next.js
+.next
+out
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+
+# Système
+.DS_Store
+
+# Tests
+coverage
+.nyc_output
+
+# Documentation
+README.md
+CHANGELOG.md
+
+# Fichiers temporaires
+*.log
+tmp
+temp
+
+# Environnement local
+.env.local
+.env.*.local

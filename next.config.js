@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: 'standalone', // Requis pour Docker et Cloud Run
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com'],
   },

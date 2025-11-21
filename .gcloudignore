@@ -1,0 +1,49 @@
+# Fichiers à ignorer lors du déploiement sur Google Cloud
+# Optimise le transfert et le build
+
+# Dépendances Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Fichiers Next.js
+.next/
+out/
+
+# Fichiers de cache
+.cache/
+*.log
+
+# Fichiers de test
+coverage/
+.nyc_output/
+
+# Fichiers IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers Git
+.git/
+.gitignore
+.gitattributes
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+
+# Fichiers de configuration locale
+.env.local
+.env.*.local
