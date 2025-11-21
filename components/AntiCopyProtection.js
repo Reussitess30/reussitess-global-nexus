@@ -21,9 +21,18 @@ export default function AntiCopyProtection() {
 
     // Désactiver la sélection de texte pour les liens d'affiliation uniquement
     const handleSelectStart = (e) => {
-      if (e.target.tagName === 'A' && e.target.href.includes('amazon')) {
-        e.preventDefault()
-        return false
+      if (e.target.tagName === 'A' && e.target.href) {
+        const href = e.target.href.toLowerCase()
+        const amazonDomains = [
+          'amazon.com', 'amazon.fr', 'amazon.de', 'amazon.co.uk',
+          'amazon.it', 'amazon.es', 'amazon.ca', 'amazon.in',
+          'amazon.nl', 'amazon.se', 'amazon.sg', 'amazon.com.au',
+          'amazon.com.be', 'amazon.com.br'
+        ]
+        if (amazonDomains.some(domain => href.includes(domain))) {
+          e.preventDefault()
+          return false
+        }
       }
     }
 
@@ -43,7 +52,8 @@ export default function AntiCopyProtection() {
 
     // Désactiver le glisser-déposer
     const handleDragStart = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'IMG') {
+      const tagName = e.target.tagName.toLowerCase()
+      if (tagName === 'a' || tagName === 'img') {
         e.preventDefault()
         return false
       }
@@ -60,13 +70,24 @@ export default function AntiCopyProtection() {
     // Ajouter une protection CSS limitée pour ne pas impacter l'accessibilité
     styleElement = document.createElement('style')
     styleElement.textContent = `
-      a[href*="amazon"] {
+      a[href*="amazon.com"],
+      a[href*="amazon.fr"],
+      a[href*="amazon.de"],
+      a[href*="amazon.co.uk"],
+      a[href*="amazon.it"],
+      a[href*="amazon.es"],
+      a[href*="amazon.ca"],
+      a[href*="amazon.in"],
+      a[href*="amazon.nl"],
+      a[href*="amazon.se"],
+      a[href*="amazon.sg"],
+      a[href*="amazon.com.au"],
+      a[href*="amazon.com.be"],
+      a[href*="amazon.com.br"] {
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-      }
-      a[href*="amazon"] {
         pointer-events: auto;
         cursor: pointer;
       }
