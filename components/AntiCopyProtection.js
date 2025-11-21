@@ -1,9 +1,29 @@
 'use client'
 import { useEffect } from 'react'
 
+// Liste centralisée des domaines Amazon légitimes
+const AMAZON_DOMAINS = [
+  'amazon.com', 'amazon.fr', 'amazon.de', 'amazon.co.uk',
+  'amazon.it', 'amazon.es', 'amazon.ca', 'amazon.in',
+  'amazon.nl', 'amazon.se', 'amazon.sg', 'amazon.com.au',
+  'amazon.com.be', 'amazon.com.br'
+]
+
 export default function AntiCopyProtection() {
   useEffect(() => {
     let styleElement = null
+
+    // Vérifier si une URL pointe vers un domaine Amazon légitime
+    const isAmazonDomain = (url) => {
+      try {
+        const hostname = new URL(url).hostname.toLowerCase()
+        return AMAZON_DOMAINS.some(domain => 
+          hostname === domain || hostname === `www.${domain}`
+        )
+      } catch {
+        return false
+      }
+    }
 
     // Désactiver le clic droit
     const handleContextMenu = (e) => {
@@ -22,25 +42,9 @@ export default function AntiCopyProtection() {
     // Désactiver la sélection de texte pour les liens d'affiliation uniquement
     const handleSelectStart = (e) => {
       if (e.target.tagName.toLowerCase() === 'a' && e.target.href) {
-        try {
-          const url = new URL(e.target.href)
-          const hostname = url.hostname.toLowerCase()
-          const amazonDomains = [
-            'amazon.com', 'amazon.fr', 'amazon.de', 'amazon.co.uk',
-            'amazon.it', 'amazon.es', 'amazon.ca', 'amazon.in',
-            'amazon.nl', 'amazon.se', 'amazon.sg', 'amazon.com.au',
-            'amazon.com.be', 'amazon.com.br',
-            'www.amazon.com', 'www.amazon.fr', 'www.amazon.de', 'www.amazon.co.uk',
-            'www.amazon.it', 'www.amazon.es', 'www.amazon.ca', 'www.amazon.in',
-            'www.amazon.nl', 'www.amazon.se', 'www.amazon.sg', 'www.amazon.com.au',
-            'www.amazon.com.be', 'www.amazon.com.br'
-          ]
-          if (amazonDomains.includes(hostname)) {
-            e.preventDefault()
-            return false
-          }
-        } catch (err) {
-          // Invalid URL, allow selection
+        if (isAmazonDomain(e.target.href)) {
+          e.preventDefault()
+          return false
         }
       }
     }
@@ -77,23 +81,16 @@ export default function AntiCopyProtection() {
     document.addEventListener('keydown', handleKeyDown)
     document.addEventListener('dragstart', handleDragStart)
 
+    // Générer les sélecteurs CSS dynamiquement
+    const amazonSelectors = AMAZON_DOMAINS.flatMap(domain => [
+      `a[href*="${domain}"]`,
+      `a[href*="www.${domain}"]`
+    ]).join(',\n      ')
+
     // Ajouter une protection CSS limitée pour ne pas impacter l'accessibilité
     styleElement = document.createElement('style')
     styleElement.textContent = `
-      a[href*="amazon.com"],
-      a[href*="amazon.fr"],
-      a[href*="amazon.de"],
-      a[href*="amazon.co.uk"],
-      a[href*="amazon.it"],
-      a[href*="amazon.es"],
-      a[href*="amazon.ca"],
-      a[href*="amazon.in"],
-      a[href*="amazon.nl"],
-      a[href*="amazon.se"],
-      a[href*="amazon.sg"],
-      a[href*="amazon.com.au"],
-      a[href*="amazon.com.be"],
-      a[href*="amazon.com.br"] {
+      ${amazonSelectors} {
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
