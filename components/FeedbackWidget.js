@@ -97,7 +97,7 @@ export default function FeedbackWidget() {
                           type="button"
                           className={`star ${formData.rating >= star ? 'active' : ''}`}
                           onClick={() => setFormData(prev => ({ ...prev, rating: star }))}
-                          aria-label={`${star} étoile${star > 1 ? 's' : ''}`}
+                          aria-label={`Note de ${star} étoile${star > 1 ? 's' : ''}`}
                         >
                           ★
                         </button>
@@ -159,6 +159,7 @@ export default function FeedbackWidget() {
           right: 0;
           bottom: 0;
           background: rgba(0, 0, 0, 0.7);
+          -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
           display: flex;
           align-items: center;
@@ -169,6 +170,7 @@ export default function FeedbackWidget() {
 
         .feedback-modal {
           background: rgba(30, 30, 30, 0.95);
+          -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 20px;
