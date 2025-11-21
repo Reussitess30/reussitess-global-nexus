@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
+import AffiliateDisclaimer from './AffiliateDisclaimer'
 
 export default function Layout({ children }) {
   useEffect(() => {
@@ -29,6 +30,8 @@ export default function Layout({ children }) {
       </header>
       
       <main>{children}</main>
+
+      <AffiliateDisclaimer />
       
       <footer className="footer">
         <div className="container">
@@ -47,7 +50,8 @@ export default function Layout({ children }) {
             </div>
             <div className="footer-section">
               <h4>⚖️ Légal</h4>
-              <Link href="/mentions-legales">Mentions Légales</Link>
+              <Link href="/mentions-legales">Mentions Légales</Link><br/>
+              <Link href="/politique-confidentialite">Politique de Confidentialité</Link>
             </div>
           </div>
           <div className="footer-bottom">
