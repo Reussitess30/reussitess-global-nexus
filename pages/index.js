@@ -177,6 +177,27 @@ export default function Home() {
             className="btn-secondary">
               🤝 Programme Affiliation
             </Link>
+
+            <a 
+              href="https://reussitess-global-nexus-jfgk-git-copilo-3f98a8-porinus-projects.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                color: 'white',
+                padding: '1.2rem 3rem',
+                borderRadius: '50px',
+                textDecoration: 'none',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                boxShadow: '0 8px 25px rgba(245, 87, 108, 0.4)',
+                transition: 'all 0.3s ease',
+                display: 'inline-block',
+                border: '2px solid rgba(255, 255, 255, 0.3)'
+              }}
+              className="btn-alternative">
+              ✨ Version Alternative
+            </a>
           </div>
 
           {/* Scroll indicator */}

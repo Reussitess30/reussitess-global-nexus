@@ -83,6 +83,20 @@ export default function Home() {
               <h3 style={{ fontSize: '1.2rem', fontWeight: '600', margin: '0' }}>Affiliation</h3>
               <p style={{ fontSize: '0.9rem', margin: '0.5rem 0 0 0', opacity: 0.9 }}>Programme partenaire</p>
             </Link>
+
+            <a 
+              href="https://reussitess-global-nexus-jfgk-git-copilo-3f98a8-porinus-projects.vercel.app/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hub-card"
+              style={{
+                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                border: '2px solid rgba(255, 255, 255, 0.3)'
+              }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>✨</div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '600', margin: '0' }}>Version Alternative</h3>
+              <p style={{ fontSize: '0.9rem', margin: '0.5rem 0 0 0', opacity: 0.9 }}>Interface simplifiée</p>
+            </a>
           </div>
         </div>
       </div>
