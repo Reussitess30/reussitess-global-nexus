@@ -20,7 +20,7 @@ export default function Home() {
     { nom: "🇧🇷 [Personnel] Brésil", lien: "https://www.amazon.com.br/shop/amourguadeloupe" },
 
     // Boutiques Influenceurs (12)
-    { nom: "🇦🇺 [Influenceur] Australie", lien: "https://www.amazon.com.au/shop/influencer-fb942837" },
+    { nom: "🇦🇺 [Influenceur] Australie", lien: "https://www.amazon.com.au/shop/amourguadeloupe" },
     { nom: "🇺🇸 [Influenceur] États-Unis", lien: "https://www.amazon.com/shop/influencer-fb942837" },
     { nom: "🇬🇧 [Influenceur] Royaume-Uni", lien: "https://www.amazon.co.uk/shop/influencer-fb942837" },
     { nom: "🇮🇳 [Influenceur] Inde", lien: "https://www.amazon.in/shop/influencer-fb942837" },
