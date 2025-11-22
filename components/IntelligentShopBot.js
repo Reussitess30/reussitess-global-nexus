@@ -6,6 +6,7 @@ export default function IntelligentShopBot() {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [language, setLanguage] = useState('fr')
+  const [isSpeaking, setIsSpeaking] = useState(false)
 
   // BASE DE DONNÉES MONDIALE COMPLÈTE DU PROJET
   const globalDatabase = {
@@ -102,6 +103,197 @@ export default function IntelligentShopBot() {
       'Amérique': ['États-Unis', 'Canada', 'Brésil'],
       'Asie': ['Inde', 'Singapour'],
       'Océanie': ['Australie']
+    },
+
+    // CONTENU COMPLET DE L'APPLICATION - BASE DE CONNAISSANCE ENRICHIE
+    applicationContent: {
+      // Page À Propos
+      aPropos: {
+        titre: "REUSSITESS® GlobalNexus - Votre Passerelle Vers l'Excellence Mondiale",
+        description: "Hub central de l'écosystème mondial REUSSITESS®",
+        details: "Application PWA offrant un accès inédit à 26 boutiques Amazon réparties dans 14 pays et 5 continents, disponible 24h/24 et 7j/7",
+        fonctionnalites: [
+          "🌍 Accès Universel - Connectez-vous instantanément à nos 26 boutiques Amazon partenaires à travers le monde",
+          "📊 Tableau de Bord Intuitif - Suivez vos activités et gérez votre plateforme sécurisée avec facilité",
+          "🔒 Connexion Sécurisée - Accédez à votre espace personnel protégé pour une expérience sans souci",
+          "🚀 Inscription Facile - Rejoignez rapidement le réseau exclusif REUSSITESS® Global",
+          "🏪 Boutiques Mondiales - Explorez les opportunités dans 14 pays différents",
+          "📱 Application PWA - Installez notre application pour un accès rapide, même hors ligne"
+        ],
+        mission: "Partenaire essentiel pour naviguer et prospérer au sein de notre écosystème d'excellence et d'innovation"
+      },
+
+      // Histoire de l'Afrique - Contenu complet
+      histoireAfrique: {
+        titre: "Histoire Complète de l'Afrique",
+        berceau: {
+          description: "L'Afrique est le berceau de l'humanité",
+          decouvertes: [
+            "Lucy (3,2 millions d'années) - Éthiopie",
+            "Empreintes de Laetoli - Tanzanie",
+            "Plus anciennes traces d'hominidés en Afrique de l'Est"
+          ]
+        },
+        civilisations: [
+          { nom: "Égypte Ancienne", periode: "3100 av. J.-C.", caracteristiques: "Pyramides, pharaons, hiéroglyphes" },
+          { nom: "Royaume de Koush", periode: "1070 av. J.-C.", caracteristiques: "Nubie, actuel Soudan" },
+          { nom: "Empire du Ghana", periode: "300-1200", caracteristiques: "Contrôle du commerce de l'or" },
+          { nom: "Empire du Mali", periode: "1235-1670", caracteristiques: "Tombouctou, centre de savoir" },
+          { nom: "Empire Songhaï", periode: "1464-1591", caracteristiques: "Apogée de l'Afrique de l'Ouest" },
+          { nom: "Royaume du Bénin", periode: "1180-1897", caracteristiques: "Arts et bronze" },
+          { nom: "Empire du Zimbabwe", periode: "1220-1450", caracteristiques: "Grand Zimbabwe" },
+          { nom: "Royaume d'Éthiopie", caracteristiques: "Seul pays jamais colonisé" }
+        ],
+        traite: {
+          description: "Traite transatlantique (XVIe-XIXe siècle)",
+          victimes: "12,5 millions d'Africains déportés vers les Amériques",
+          colonisation: "Conférence de Berlin (1884-1885) - Partage de l'Afrique entre puissances européennes"
+        },
+        independances: {
+          periode: "Années 1960 - Grandes indépendances africaines",
+          afrique_moderne: "54 pays, plus de 1,3 milliard d'habitants, 17% de la population mondiale"
+        },
+        personnalites: [
+          "Nelson Mandela - Lutte contre l'apartheid, Prix Nobel de la Paix",
+          "Patrice Lumumba - Premier ministre du Congo indépendant",
+          "Thomas Sankara - Président du Burkina Faso, révolutionnaire",
+          "Wangari Maathai - Première femme africaine Prix Nobel de la Paix",
+          "Cheikh Anta Diop - Historien et anthropologue sénégalais"
+        ]
+      },
+
+      // Culture Guadeloupéenne - Contenu complet
+      cultureGuadeloupe: {
+        titre: "Culture et Patrimoine Guadeloupéen",
+        description: "Terre de Champions - Archipel des Caraïbes",
+        population: "385 000 habitants",
+        identite: "Mélange unique de cultures africaine, européenne, indienne et caraïbe",
+        culture: {
+          langue: "Créole guadeloupéen, patrimoine vivant",
+          musique: [
+            "Gwoka (inscrit au patrimoine UNESCO 2014)",
+            "Zouk",
+            "Compas"
+          ],
+          danse: ["Quadrille", "Haute-Taille", "danses traditionnelles"],
+          litterature: ["Maryse Condé (Prix Nobel alternatif)", "Simone Schwarz-Bart"],
+          gastronomie: ["Bokit", "colombo", "accras", "ti-punch"]
+        },
+        histoire: [
+          { periode: "Précolombienne", evenement: "Peuplée par les Arawaks puis les Caraïbes" },
+          { annee: "1493", evenement: "Découverte par Christophe Colomb" },
+          { annee: "1635", evenement: "Colonisation française" },
+          { annee: "1848", evenement: "Abolition de l'esclavage grâce à Victor Schoelcher" },
+          { annee: "1946", evenement: "Devient département français" }
+        ],
+        personnalites: [
+          "Maryse Condé - Écrivaine, Prix Nobel alternatif de littérature",
+          "Lilian Thuram - Champion du monde de football 1998",
+          "Gerty Archimède - Première femme avocat noire de France",
+          "Thierry Henry - Légende du football français",
+          "Georges Othily - Premier médaillé olympique guadeloupéen"
+        ],
+        unesco: "Le Gwoka est inscrit au patrimoine culturel immatériel de l'UNESCO depuis 2014. Cette musique et danse traditionnelle est née de la résistance des esclaves africains",
+        geographie: [
+          "Basse-Terre - Volcanique, forêt tropicale, La Soufrière (1467m)",
+          "Grande-Terre - Calcaire, plages de sable blanc",
+          "Marie-Galante - L'île aux cent moulins",
+          "Les Saintes - Baie classée plus belle du monde",
+          "La Désirade - Îlet Petite-Terre"
+        ]
+      },
+
+      // Patrimoine Martiniquais - Contenu complet
+      patrimoineMartinique: {
+        titre: "Patrimoine Martiniquais",
+        surnom: "Madinina - L'île aux fleurs",
+        population: "360 000 habitants",
+        culture: {
+          musique: "Bèlè - Musique et danse traditionnelle",
+          litterature: [
+            "Aimé Césaire - Fondateur de la Négritude",
+            "Frantz Fanon - Psychiatre et essayiste",
+            "Édouard Glissant - Poète et philosophe",
+            "Patrick Chamoiseau - Prix Goncourt"
+          ]
+        },
+        histoire: [
+          { evenement: "Éruption de la Montagne Pelée", annee: "1902", details: "30 000 victimes à Saint-Pierre" },
+          { evenement: "Devient département français", annee: "1946" }
+        ],
+        personnalites: [
+          "Aimé Césaire - Poète, écrivain, homme politique",
+          "Frantz Fanon - Psychiatre et essayiste",
+          "Édouard Glissant - Poète et philosophe",
+          "Patrick Chamoiseau - Écrivain, Prix Goncourt 1992",
+          "Joséphine de Beauharnais - Impératrice des Français",
+          "Thierry Omeyer - Champion du monde de handball"
+        ],
+        patrimoine: [
+          "Bibliothèque Schoelcher - Architecture unique",
+          "Saint-Pierre - Ruines de l'ancienne capitale",
+          "Montagne Pelée - Volcan actif",
+          "AOC Rhum Agricole Martinique - Seul rhum au monde avec AOC depuis 1996"
+        ],
+        aoc_rhum: "La Martinique est la seule région au monde dont le rhum bénéficie d'une AOC (Appellation d'Origine Contrôlée) depuis 1996"
+      },
+
+      // Fonctionnalités techniques
+      fonctionnalitesTechniques: {
+        securite: {
+          score: "92/100 (augmentation de 38/100)",
+          headers: [
+            "X-Frame-Options: DENY",
+            "X-XSS-Protection",
+            "HSTS avec preload",
+            "Permissions-Policy bloquant FLoC",
+            "CSP strict avec whitelist Amazon"
+          ],
+          compliance: ["Amazon Operating Agreement", "FTC regulations", "RGPD"]
+        },
+        protection: {
+          anticopy: "Bloque clic droit, copie/coller, DevTools (F12, Ctrl+Shift+I/J/C)",
+          accessibilite: "Ctrl+S activé, sélection texte pour lecteurs d'écran, inputs fonctionnels",
+          domaines_amazon: "Validation URL avec parsing exact des domaines Amazon"
+        },
+        bot_intelligent: {
+          langues: 6,
+          supports: ["Français", "English", "Español", "Deutsch", "Português", "Italiano"],
+          acces_donnees: "Accès à la totalité des données du concept REUSSITESS®",
+          prononciation: "Réussi-Tess"
+        },
+        globe3d: {
+          technologie: "Three.js + React Three Fiber",
+          fonctionnalites: [
+            "Visualisation 3D Terre rotative",
+            "26 boutiques géolocalisées",
+            "Lignes de connexion animées",
+            "Marqueurs pulsants cliquables",
+            "Modal détails boutiques",
+            "Auto-rotation",
+            "OrbitControls (drag, zoom)"
+          ]
+        },
+        pwa: {
+          installation: "Installable sur tous appareils",
+          offline: "Fonctionne hors ligne",
+          notifications: "Push notifications",
+          performance: "Chargement rapide"
+        }
+      },
+
+      // Réseau REUSSITESS®
+      reseau: {
+        statistiques: {
+          total_boutiques: 26,
+          boutiques_personnel: 14,
+          boutiques_influenceur: 12,
+          pays: 14,
+          continents: 5
+        },
+        mission: "Connecter les acheteurs du monde entier avec des produits de qualité via Amazon",
+        valeurs: ["Excellence", "Innovation", "Accessibilité", "Sécurité", "Diversité culturelle"]
+      }
     }
   }
 
@@ -260,6 +452,82 @@ export default function IntelligentShopBot() {
     }
   }
 
+  // FONCTION DE LECTURE VOCALE EN 6 LANGUES
+  const voiceLanguages = {
+    fr: 'fr-FR',
+    en: 'en-US',
+    es: 'es-ES',
+    de: 'de-DE',
+    pt: 'pt-PT',
+    it: 'it-IT'
+  }
+
+  const speakText = (text) => {
+    // Arrêter toute lecture en cours
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel()
+      setIsSpeaking(false)
+      return
+    }
+
+    // Vérifier le support de la synthèse vocale
+    if (!('speechSynthesis' in window)) {
+      alert('Désolé, votre navigateur ne supporte pas la lecture vocale.')
+      return
+    }
+
+    setIsSpeaking(true)
+    const utterance = new SpeechSynthesisUtterance(text)
+    utterance.lang = voiceLanguages[language]
+    utterance.rate = 0.9 // Vitesse de lecture
+    utterance.pitch = 1 // Ton de la voix
+    utterance.volume = 1 // Volume
+
+    utterance.onend = () => setIsSpeaking(false)
+    utterance.onerror = () => setIsSpeaking(false)
+
+    window.speechSynthesis.speak(utterance)
+  }
+
+  // Fonction pour lire tout le contenu de l'application
+  const readAllContent = () => {
+    const allContent = `
+Bienvenue dans REUSSITESS Global Nexus. ${globalDatabase.applicationContent.aPropos.description}.
+
+${globalDatabase.applicationContent.aPropos.fonctionnalites.join('. ')}.
+
+Histoire de l'Afrique: ${globalDatabase.applicationContent.histoireAfrique.berceau.description}. 
+${globalDatabase.applicationContent.histoireAfrique.berceau.decouvertes.join('. ')}.
+
+Civilisations africaines majeures: ${globalDatabase.applicationContent.histoireAfrique.civilisations.map(c => c.nom).join(', ')}.
+
+Personnalités africaines: ${globalDatabase.applicationContent.histoireAfrique.personnalites.join('. ')}.
+
+Culture Guadeloupéenne: ${globalDatabase.applicationContent.cultureGuadeloupe.description}. 
+Population: ${globalDatabase.applicationContent.cultureGuadeloupe.population}. 
+${globalDatabase.applicationContent.cultureGuadeloupe.identite}.
+
+${globalDatabase.applicationContent.cultureGuadeloupe.unesco}.
+
+Personnalités guadeloupéennes: ${globalDatabase.applicationContent.cultureGuadeloupe.personnalites.join('. ')}.
+
+Patrimoine Martiniquais: ${globalDatabase.applicationContent.patrimoineMartinique.surnom}. 
+Population: ${globalDatabase.applicationContent.patrimoineMartinique.population}.
+
+${globalDatabase.applicationContent.patrimoineMartinique.aoc_rhum}.
+
+Personnalités martiniquaises: ${globalDatabase.applicationContent.patrimoineMartinique.personnalites.join('. ')}.
+
+Réseau REUSSITESS: ${globalDatabase.amazonShops.stats.total} boutiques Amazon dans ${globalDatabase.amazonShops.stats.countries} pays sur ${globalDatabase.amazonShops.stats.continents} continents.
+
+Sécurité: Score de ${globalDatabase.applicationContent.fonctionnalitesTechniques.securite.score}.
+
+Merci de votre visite sur REUSSITESS Global Nexus!
+    `.trim()
+
+    speakText(allContent)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!input.trim()) return
@@ -395,7 +663,7 @@ export default function IntelligentShopBot() {
                 ×
               </button>
             </div>
-            <div style={{ display: 'flex', gap: '6px', marginTop: '10px' }}>
+            <div style={{ display: 'flex', gap: '6px', marginTop: '10px', flexWrap: 'wrap' }}>
               {['fr', 'en', 'es', 'de', 'pt', 'it'].map(lang => (
                 <button
                   key={lang}
@@ -416,6 +684,38 @@ export default function IntelligentShopBot() {
                   {lang}
                 </button>
               ))}
+            </div>
+            
+            {/* Bouton de lecture vocale */}
+            <div style={{ marginTop: '10px' }}>
+              <button
+                onClick={readAllContent}
+                style={{
+                  width: '100%',
+                  background: isSpeaking ? 'rgba(239, 68, 68, 0.3)' : 'rgba(255,255,255,0.25)',
+                  border: '2px solid rgba(255,255,255,0.8)',
+                  color: 'white',
+                  padding: '10px',
+                  borderRadius: '10px',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  fontWeight: '700',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  transition: 'all 0.3s'
+                }}
+                onMouseOver={(e) => {
+                  if (!isSpeaking) e.currentTarget.style.background = 'rgba(255,255,255,0.35)'
+                }}
+                onMouseOut={(e) => {
+                  if (!isSpeaking) e.currentTarget.style.background = 'rgba(255,255,255,0.25)'
+                }}
+              >
+                {isSpeaking ? '⏸️ Arrêter la Lecture' : '🔊 Écouter Tout le Contenu'}
+                <span style={{ fontSize: '10px', opacity: 0.9 }}>({language.toUpperCase()})</span>
+              </button>
             </div>
           </div>
 
@@ -444,17 +744,53 @@ export default function IntelligentShopBot() {
                     {msg.text}
                   </div>
                 ) : (
-                  <div style={{ maxWidth: '95%' }}>
+                  <div style={{ maxWidth: '95%', width: '100%' }}>
                     {msg.text && (
-                      <div style={{
-                        background: 'white',
-                        padding: '12px 16px',
-                        borderRadius: '16px 16px 16px 4px',
-                        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                        whiteSpace: 'pre-line',
-                        lineHeight: '1.6'
-                      }}>
-                        {msg.text}
+                      <div style={{ position: 'relative' }}>
+                        <div style={{
+                          background: 'white',
+                          padding: '12px 16px',
+                          borderRadius: '16px 16px 16px 4px',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                          whiteSpace: 'pre-line',
+                          lineHeight: '1.6',
+                          paddingRight: '45px'
+                        }}>
+                          {msg.text}
+                        </div>
+                        {/* Bouton de lecture pour ce message */}
+                        <button
+                          onClick={() => speakText(msg.text)}
+                          style={{
+                            position: 'absolute',
+                            top: '10px',
+                            right: '10px',
+                            background: 'linear-gradient(135deg, #10b981, #3b82f6)',
+                            border: 'none',
+                            color: 'white',
+                            width: '28px',
+                            height: '28px',
+                            borderRadius: '50%',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 2px 6px rgba(16, 185, 129, 0.4)',
+                            transition: 'all 0.2s'
+                          }}
+                          onMouseOver={(e) => {
+                            e.currentTarget.style.transform = 'scale(1.1)'
+                            e.currentTarget.style.boxShadow = '0 3px 8px rgba(16, 185, 129, 0.6)'
+                          }}
+                          onMouseOut={(e) => {
+                            e.currentTarget.style.transform = 'scale(1)'
+                            e.currentTarget.style.boxShadow = '0 2px 6px rgba(16, 185, 129, 0.4)'
+                          }}
+                          title={`Écouter en ${language.toUpperCase()}`}
+                        >
+                          🔊
+                        </button>
                       </div>
                     )}
                     {msg.shops && msg.shops.map((shop, i) => renderShopCard(shop, i))}
