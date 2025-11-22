@@ -3,37 +3,55 @@ import BotAssistant from '../components/BotAssistant'
 import Link from 'next/link'
 
 export default function Home() {
+  // Traductions par pays
+  const translations = {
+    "🇺🇸": { btn: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+    "🇬🇧": { btn: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+    "🇦🇺": { btn: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+    "🇮🇳": { btn: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+    "🇸🇬": { btn: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+    "🇫🇷": { btn: "Visiter la Boutique", disclaimer: "En tant qu'affiliée, je gagne des commissions sur certains produits" },
+    "🇧🇪": { btn: "Visiter la Boutique", disclaimer: "En tant qu'affiliée, je gagne des commissions sur certains produits" },
+    "🇮🇹": { btn: "Visita il Negozio", disclaimer: "Come affiliata, guadagno commissioni su alcuni prodotti" },
+    "🇪🇸": { btn: "Visitar la Tienda", disclaimer: "Como afiliada, gano comisiones en ciertos productos" },
+    "🇩🇪": { btn: "Shop Besuchen", disclaimer: "Als Partner verdiene ich an qualifizierten Käufen" },
+    "🇳🇱": { btn: "Bezoek de Winkel", disclaimer: "Als partner verdien ik commissie op bepaalde producten" },
+    "🇸🇪": { btn: "Besök Butiken", disclaimer: "Som partner tjänar jag provision på vissa produkter" },
+    "🇨🇦": { btn: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+    "🇧🇷": { btn: "Visite a Loja", disclaimer: "Como afiliada, ganho comissões em certos produtos" }
+  }
+
   // VRAIS LIENS AMAZON D'AFFILIATION
   const boutiques = [
     // Boutiques Personnelles (14)
-    { nom: "🇺🇸 États-Unis", type: "Personnel", lien: "https://www.amazon.com/shop/amourguadeloupe" },
-    { nom: "🇮🇹 Italie", type: "Personnel", lien: "https://www.amazon.it/shop/amourguadeloupe" },
-    { nom: "🇫🇷 France", type: "Personnel", lien: "https://www.amazon.fr/shop/amourguadeloupe" },
-    { nom: "🇪🇸 Espagne", type: "Personnel", lien: "https://www.amazon.es/shop/amourguadeloupe" },
-    { nom: "🇩🇪 Allemagne", type: "Personnel", lien: "https://www.amazon.de/shop/amourguadeloupe" },
-    { nom: "🇨🇦 Canada", type: "Personnel", lien: "https://www.amazon.ca/shop/amourguadeloupe" },
-    { nom: "🇮🇳 Inde", type: "Personnel", lien: "https://www.amazon.in/shop/amourguadeloupe" },
-    { nom: "🇳🇱 Pays-Bas", type: "Personnel", lien: "https://www.amazon.nl/shop/amourguadeloupe" },
-    { nom: "🇸🇪 Suède", type: "Personnel", lien: "https://www.amazon.se/shop/amourguadeloupe" },
-    { nom: "🇸🇬 Singapour", type: "Personnel", lien: "https://www.amazon.sg/shop/amourguadeloupe" },
-    { nom: "🇬🇧 Royaume-Uni", type: "Personnel", lien: "https://www.amazon.co.uk/shop/amourguadeloupe" },
-    { nom: "🇦🇺 Australie", type: "Personnel", lien: "https://www.amazon.com.au/shop/amourguadeloupe" },
-    { nom: "🇧🇪 Belgique", type: "Personnel", lien: "https://www.amazon.com.be/shop/amourguadeloupe" },
-    { nom: "🇧🇷 Brésil", type: "Personnel", lien: "https://www.amazon.com.br/shop/amourguadeloupe" },
+    { flag: "🇺🇸", nom: "États-Unis", type: "Personnel", lien: "https://www.amazon.com/shop/amourguadeloupe" },
+    { flag: "🇮🇹", nom: "Italie", type: "Personnel", lien: "https://www.amazon.it/shop/amourguadeloupe" },
+    { flag: "🇫🇷", nom: "France", type: "Personnel", lien: "https://www.amazon.fr/shop/amourguadeloupe" },
+    { flag: "🇪🇸", nom: "Espagne", type: "Personnel", lien: "https://www.amazon.es/shop/amourguadeloupe" },
+    { flag: "🇩🇪", nom: "Allemagne", type: "Personnel", lien: "https://www.amazon.de/shop/amourguadeloupe" },
+    { flag: "🇨🇦", nom: "Canada", type: "Personnel", lien: "https://www.amazon.ca/shop/amourguadeloupe" },
+    { flag: "🇮🇳", nom: "Inde", type: "Personnel", lien: "https://www.amazon.in/shop/amourguadeloupe" },
+    { flag: "🇳🇱", nom: "Pays-Bas", type: "Personnel", lien: "https://www.amazon.nl/shop/amourguadeloupe" },
+    { flag: "🇸🇪", nom: "Suède", type: "Personnel", lien: "https://www.amazon.se/shop/amourguadeloupe" },
+    { flag: "🇸🇬", nom: "Singapour", type: "Personnel", lien: "https://www.amazon.sg/shop/amourguadeloupe" },
+    { flag: "🇬🇧", nom: "Royaume-Uni", type: "Personnel", lien: "https://www.amazon.co.uk/shop/amourguadeloupe" },
+    { flag: "🇦🇺", nom: "Australie", type: "Personnel", lien: "https://www.amazon.com.au/shop/amourguadeloupe" },
+    { flag: "🇧🇪", nom: "Belgique", type: "Personnel", lien: "https://www.amazon.com.be/shop/amourguadeloupe" },
+    { flag: "🇧🇷", nom: "Brésil", type: "Personnel", lien: "https://www.amazon.com.br/shop/amourguadeloupe" },
 
     // Boutiques Influenceurs (12)
-    { nom: "🇦🇺 Australie", type: "Influenceur", lien: "https://www.amazon.com.au/shop/influencer-fb942837" },
-    { nom: "🇺🇸 États-Unis", type: "Influenceur", lien: "https://www.amazon.com/shop/influencer-fb942837" },
-    { nom: "🇬🇧 Royaume-Uni", type: "Influenceur", lien: "https://www.amazon.co.uk/shop/influencer-fb942837" },
-    { nom: "🇮🇳 Inde", type: "Influenceur", lien: "https://www.amazon.in/shop/influencer-fb942837" },
-    { nom: "🇸🇪 Suède", type: "Influenceur", lien: "https://www.amazon.se/shop/influencer-fb942837" },
-    { nom: "🇸🇬 Singapour", type: "Influenceur", lien: "https://www.amazon.sg/shop/influencer-fb942837" },
-    { nom: "🇧🇪 Belgique", type: "Influenceur", lien: "https://www.amazon.com.be/shop/influencer-fb942837" },
-    { nom: "🇪🇸 Espagne", type: "Influenceur", lien: "https://www.amazon.es/shop/influencer-fb942837" },
-    { nom: "🇩🇪 Allemagne", type: "Influenceur", lien: "https://www.amazon.de/shop/influencer-fb942837" },
-    { nom: "🇨🇦 Canada", type: "Influenceur", lien: "https://www.amazon.ca/shop/influencer-fb942837" },
-    { nom: "🇳🇱 Pays-Bas", type: "Influenceur", lien: "https://www.amazon.nl/shop/influencer-fb942837" },
-    { nom: "🇫🇷 France", type: "Influenceur", lien: "https://www.amazon.fr/shop/influencer-fb942837" }
+    { flag: "🇦🇺", nom: "Australie", type: "Influenceur", lien: "https://www.amazon.com.au/shop/influencer-fb942837" },
+    { flag: "🇺🇸", nom: "États-Unis", type: "Influenceur", lien: "https://www.amazon.com/shop/influencer-fb942837" },
+    { flag: "🇬🇧", nom: "Royaume-Uni", type: "Influenceur", lien: "https://www.amazon.co.uk/shop/influencer-fb942837" },
+    { flag: "🇮🇳", nom: "Inde", type: "Influenceur", lien: "https://www.amazon.in/shop/influencer-fb942837" },
+    { flag: "🇸🇪", nom: "Suède", type: "Influenceur", lien: "https://www.amazon.se/shop/influencer-fb942837" },
+    { flag: "🇸🇬", nom: "Singapour", type: "Influenceur", lien: "https://www.amazon.sg/shop/influencer-fb942837" },
+    { flag: "🇧🇪", nom: "Belgique", type: "Influenceur", lien: "https://www.amazon.com.be/shop/influencer-fb942837" },
+    { flag: "🇪🇸", nom: "Espagne", type: "Influenceur", lien: "https://www.amazon.es/shop/influencer-fb942837" },
+    { flag: "🇩🇪", nom: "Allemagne", type: "Influenceur", lien: "https://www.amazon.de/shop/influencer-fb942837" },
+    { flag: "🇨🇦", nom: "Canada", type: "Influenceur", lien: "https://www.amazon.ca/shop/influencer-fb942837" },
+    { flag: "🇳🇱", nom: "Pays-Bas", type: "Influenceur", lien: "https://www.amazon.nl/shop/influencer-fb942837" },
+    { flag: "🇫🇷", nom: "France", type: "Influenceur", lien: "https://www.amazon.fr/shop/influencer-fb942837" }
   ]
 
   return (
@@ -266,7 +284,7 @@ export default function Home() {
                   fontSize: '1.3rem',
                   fontWeight: '600'
                 }}>
-                  {boutique.nom}
+                  {boutique.flag} {boutique.nom}
                 </h3>
                 <a 
                   href={boutique.lien} 
@@ -285,15 +303,16 @@ export default function Home() {
                     fontSize: '1rem'
                   }}
                   className="boutique-btn">
-                  🛍️ Visiter la Boutique
+                  🛍️ {translations[boutique.flag]?.btn || 'Visiter la Boutique'}
                 </a>
                 <div style={{
                   marginTop: '0.8rem',
                   fontSize: '0.75rem',
                   opacity: '0.7',
-                  color: '#fbbf24'
+                  color: '#fbbf24',
+                  lineHeight: '1.4'
                 }}>
-                  🔒 Lien d'affiliation sécurisé
+                  🔒 {translations[boutique.flag]?.disclaimer || 'En tant qu\'affiliée, je gagne des commissions sur certains produits'}
                 </div>
               </div>
             ))}
@@ -331,7 +350,7 @@ export default function Home() {
                   fontSize: '1.3rem',
                   fontWeight: '600'
                 }}>
-                  {boutique.nom}
+                  {boutique.flag} {boutique.nom}
                 </h3>
                 <a 
                   href={boutique.lien} 
@@ -350,15 +369,16 @@ export default function Home() {
                     fontSize: '1rem'
                   }}
                   className="boutique-btn">
-                  🛍️ Visiter la Boutique
+                  🛍️ {translations[boutique.flag]?.btn || 'Visiter la Boutique'}
                 </a>
                 <div style={{
                   marginTop: '0.8rem',
                   fontSize: '0.75rem',
                   opacity: '0.7',
-                  color: '#fbbf24'
+                  color: '#fbbf24',
+                  lineHeight: '1.4'
                 }}>
-                  🔒 Lien d'affiliation sécurisé
+                  🔒 {translations[boutique.flag]?.disclaimer || 'En tant qu\'affiliée, je gagne des commissions sur certains produits'}
                 </div>
               </div>
             ))}
