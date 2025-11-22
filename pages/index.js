@@ -1,6 +1,42 @@
 import Layout from '../components/Layout'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showPWAPrompt, setShowPWAPrompt] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
+
+  useEffect(() => {
+    // Check if already installed
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      setIsInstalled(true);
+    }
+
+    // Listen for install prompt
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowPWAPrompt(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallPWA = async () => {
+    if (!deferredPrompt) return;
+    
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    
+    if (outcome === 'accepted') {
+      setIsInstalled(true);
+      setShowPWAPrompt(false);
+    }
+    setDeferredPrompt(null);
+  };
+
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
   const boutiques = [
     // Boutiques Personnelles (14)
@@ -36,6 +72,185 @@ export default function Home() {
 
   return (
     <Layout>
+      {/* PWA Installation Banner */}
+      {showPWAPrompt && !isInstalled && (
+        <div style={{
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          color: 'white',
+          padding: '1rem 2rem',
+          textAlign: 'center',
+          position: 'sticky',
+          top: 0,
+          zIndex: 1000,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '1.2rem', fontWeight: '600' }}>
+              📱 Installez notre app pour un accès hors ligne
+            </span>
+            <button 
+              onClick={handleInstallPWA}
+              style={{
+                background: 'white',
+                color: '#667eea',
+                border: 'none',
+                padding: '0.75rem 2rem',
+                borderRadius: '25px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+                transition: 'transform 0.2s'
+              }}
+              onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+              onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              Installer maintenant
+            </button>
+            <button 
+              onClick={() => setShowPWAPrompt(false)}
+              style={{
+                background: 'transparent',
+                color: 'white',
+                border: '2px solid white',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '25px',
+                cursor: 'pointer',
+                fontSize: '0.9rem'
+              }}
+            >
+              Plus tard
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Hub Central - Quick Access Dashboard */}
+      <div style={{
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%)',
+        padding: '2rem 0',
+        marginBottom: '2rem'
+      }}>
+        <div className="container">
+          <h2 style={{
+            color: 'white',
+            textAlign: 'center',
+            fontSize: '2rem',
+            marginBottom: '1.5rem',
+            fontWeight: '700'
+          }}>
+            🏢 HUB CENTRAL - Accès Rapide
+          </h2>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1.5rem',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          }}>
+            <Link href="/analytics" style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '1.5rem',
+              textAlign: 'center',
+              textDecoration: 'none',
+              color: 'white',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.3)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>📊</div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '600', margin: '0' }}>Dashboard</h3>
+              <p style={{ fontSize: '0.9rem', margin: '0.5rem 0 0 0', opacity: 0.9 }}>Analytics & Stats</p>
+            </Link>
+
+            <Link href="/pwa-app" style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '1.5rem',
+              textAlign: 'center',
+              textDecoration: 'none',
+              color: 'white',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.3)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>📱</div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '600', margin: '0' }}>Application</h3>
+              <p style={{ fontSize: '0.9rem', margin: '0.5rem 0 0 0', opacity: 0.9 }}>Installer l'app PWA</p>
+            </Link>
+
+            <Link href="/bibliotheque" style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '1.5rem',
+              textAlign: 'center',
+              textDecoration: 'none',
+              color: 'white',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.3)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>📚</div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '600', margin: '0' }}>Bibliothèque</h3>
+              <p style={{ fontSize: '0.9rem', margin: '0.5rem 0 0 0', opacity: 0.9 }}>Guides & Ressources</p>
+            </Link>
+
+            <Link href="/affiliation" style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '16px',
+              padding: '1.5rem',
+              textAlign: 'center',
+              textDecoration: 'none',
+              color: 'white',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.3)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🤝</div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '600', margin: '0' }}>Affiliation</h3>
+              <p style={{ fontSize: '0.9rem', margin: '0.5rem 0 0 0', opacity: 0.9 }}>Programme partenaire</p>
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="hero">
         <div className="container">
           <h1>REUSSITESS® GLOBAL NEXUS</h1>
