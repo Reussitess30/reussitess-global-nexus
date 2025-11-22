@@ -239,17 +239,32 @@ export default function BotAssistant() {
       {isOpen && (
         <div style={{
           position: 'fixed',
-          bottom: '90px',
-          right: '20px',
-          width: '380px',
-          height: '550px',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 'min(600px, 90vw)',
+          height: 'min(700px, 85vh)',
           background: 'white',
-          borderRadius: '15px',
-          boxShadow: '0 8px 40px rgba(0,0,0,0.2)',
+          borderRadius: '20px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
           display: 'flex',
           flexDirection: 'column',
-          zIndex: 1000
+          zIndex: 9999
         }}>
+          {/* Overlay dark background */}
+          <div 
+            onClick={() => setIsOpen(false)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(0, 0, 0, 0.5)',
+              zIndex: -1
+            }}
+          />
+          
           {/* Header */}
           <div style={{
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
