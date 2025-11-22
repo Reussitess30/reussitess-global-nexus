@@ -2,12 +2,14 @@ import Link from 'next/link'
 import AffiliateDisclaimer from './AffiliateDisclaimer'
 import AntiCopyProtection from './AntiCopyProtection'
 import FeedbackWidget from './FeedbackWidget'
+import IntelligentShopBot from './IntelligentShopBot'
 
 export default function Layout({ children }) {
   return (
     <>
       <AntiCopyProtection />
       <FeedbackWidget />
+      <IntelligentShopBot />
       <header className="header">
         <nav>
           <div className="logo">
