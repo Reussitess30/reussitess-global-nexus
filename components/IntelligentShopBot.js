@@ -108,42 +108,42 @@ export default function IntelligentShopBot() {
   // Traductions multilingues
   const translations = {
     fr: {
-      greeting: "👋 Bonjour! Je suis l'Assistant Intelligent REUSSITESS®.\n\n🧠 J'AI ACCÈS À LA TOTALITÉ DES DONNÉES DE VOTRE CONCEPT:\n• 26 boutiques Amazon mondiales\n• 14 pays sur 5 continents\n• Toutes les informations sur chaque pays\n• Devises, langues, populations\n• Culture Guadeloupe & DOM-TOM\n• Sécurité et conformité du projet\n\nJe peux répondre à TOUTES vos questions sur le réseau REUSSITESS®!",
+      greeting: "👋 Bienvenue au Hub REUSSITESS® - Un lieu où la connaissance est présente!\n\nJe suis votre Assistant Intelligent REUSSITESS® (prononcé: Réussi-Tess).\n\n🧠 J'AI ACCÈS À LA TOTALITÉ DES DONNÉES DE VOTRE CONCEPT:\n• 26 boutiques Amazon mondiales\n• 14 pays sur 5 continents\n• Toutes les informations sur chaque pays\n• Devises, langues, populations\n• Culture Guadeloupe & DOM-TOM\n• Sécurité et conformité du projet\n\n✨ Cultivez-vous, faites des achats qui vous plaisent dans mes boutiques Amazon!\n\nJe peux répondre à TOUTES vos questions sur le réseau REUSSITESS®.\n\nMerci de votre visite et au revoir! 🌟",
       placeholder: "Posez n'importe quelle question...",
       visitShop: "Visiter la boutique",
       personal: "Boutique Personnelle",
       influencer: "Boutique Influenceur"
     },
     en: {
-      greeting: "👋 Hello! I'm the REUSSITESS® Intelligent Assistant.\n\n🧠 I HAVE ACCESS TO ALL YOUR CONCEPT DATA:\n• 26 global Amazon shops\n• 14 countries across 5 continents\n• All information about each country\n• Currencies, languages, populations\n• Guadeloupe culture & DOM-TOM\n• Project security and compliance\n\nI can answer ALL your questions about the REUSSITESS® network!",
+      greeting: "👋 Welcome to the REUSSITESS® Hub - A place where knowledge is present!\n\nI'm your REUSSITESS® Intelligent Assistant (pronounced: Réussi-Tess).\n\n🧠 I HAVE ACCESS TO ALL YOUR CONCEPT DATA:\n• 26 global Amazon shops\n• 14 countries across 5 continents\n• All information about each country\n• Currencies, languages, populations\n• Guadeloupe culture & DOM-TOM\n• Project security and compliance\n\n✨ Educate yourself, shop for what you love in my Amazon stores!\n\nI can answer ALL your questions about the REUSSITESS® network.\n\nThank you for visiting and goodbye! 🌟",
       placeholder: "Ask any question...",
       visitShop: "Visit shop",
       personal: "Personal Shop",
       influencer: "Influencer Shop"
     },
     es: {
-      greeting: "👋 ¡Hola! Soy el Asistente Inteligente REUSSITESS®.\n\n🧠 TENGO ACCESO A TODOS LOS DATOS DE SU CONCEPTO:\n• 26 tiendas Amazon globales\n• 14 países en 5 continentes\n• Toda la información sobre cada país\n• Monedas, idiomas, poblaciones\n• Cultura Guadalupe & DOM-TOM\n• Seguridad y cumplimiento del proyecto\n\n¡Puedo responder TODAS sus preguntas sobre la red REUSSITESS®!",
+      greeting: "👋 ¡Bienvenido al Hub REUSSITESS® - Un lugar donde el conocimiento está presente!\n\nSoy su Asistente Inteligente REUSSITESS® (pronunciado: Réussi-Tess).\n\n🧠 TENGO ACCESO A TODOS LOS DATOS DE SU CONCEPTO:\n• 26 tiendas Amazon globales\n• 14 países en 5 continentes\n• Toda la información sobre cada país\n• Monedas, idiomas, poblaciones\n• Cultura Guadalupe & DOM-TOM\n• Seguridad y cumplimiento del proyecto\n\n✨ ¡Cultívese, compre lo que le gusta en mis tiendas Amazon!\n\n¡Puedo responder TODAS sus preguntas sobre la red REUSSITESS®!\n\n¡Gracias por su visita y hasta luego! 🌟",
       placeholder: "Haga cualquier pregunta...",
       visitShop: "Visitar tienda",
       personal: "Tienda Personal",
       influencer: "Tienda Influencer"
     },
     de: {
-      greeting: "👋 Hallo! Ich bin der REUSSITESS® Intelligente Assistent.\n\n🧠 ICH HABE ZUGRIFF AUF ALLE IHRE KONZEPTDATEN:\n• 26 globale Amazon-Shops\n• 14 Länder auf 5 Kontinenten\n• Alle Informationen über jedes Land\n• Währungen, Sprachen, Bevölkerungen\n• Guadeloupe-Kultur & DOM-TOM\n• Projektsicherheit und Compliance\n\nIch kann ALLE Ihre Fragen zum REUSSITESS®-Netzwerk beantworten!",
+      greeting: "👋 Willkommen im REUSSITESS® Hub - Ein Ort, wo Wissen vorhanden ist!\n\nIch bin Ihr REUSSITESS® Intelligenter Assistent (ausgesprochen: Réussi-Tess).\n\n🧠 ICH HABE ZUGRIFF AUF ALLE IHRE KONZEPTDATEN:\n• 26 globale Amazon-Shops\n• 14 Länder auf 5 Kontinenten\n• Alle Informationen über jedes Land\n• Währungen, Sprachen, Bevölkerungen\n• Guadeloupe-Kultur & DOM-TOM\n• Projektsicherheit und Compliance\n\n✨ Bilden Sie sich weiter, kaufen Sie, was Ihnen in meinen Amazon-Shops gefällt!\n\nIch kann ALLE Ihre Fragen zum REUSSITESS®-Netzwerk beantworten!\n\nDanke für Ihren Besuch und auf Wiedersehen! 🌟",
       placeholder: "Stellen Sie eine beliebige Frage...",
       visitShop: "Shop besuchen",
       personal: "Persönlicher Shop",
       influencer: "Influencer-Shop"
     },
     pt: {
-      greeting: "👋 Olá! Sou o Assistente Inteligente REUSSITESS®.\n\n🧠 TENHO ACESSO A TODOS OS DADOS DO SEU CONCEITO:\n• 26 lojas Amazon globais\n• 14 países em 5 continentes\n• Todas as informações sobre cada país\n• Moedas, idiomas, populações\n• Cultura Guadalupe & DOM-TOM\n• Segurança e conformidade do projeto\n\nPosso responder TODAS as suas perguntas sobre a rede REUSSITESS®!",
+      greeting: "👋 Bem-vindo ao Hub REUSSITESS® - Um lugar onde o conhecimento está presente!\n\nSou seu Assistente Inteligente REUSSITESS® (pronunciado: Réussi-Tess).\n\n🧠 TENHO ACESSO A TODOS OS DADOS DO SEU CONCEITO:\n• 26 lojas Amazon globais\n• 14 países em 5 continentes\n• Todas as informações sobre cada país\n• Moedas, idiomas, populações\n• Cultura Guadalupe & DOM-TOM\n• Segurança e conformidade do projeto\n\n✨ Cultive-se, compre o que você gosta nas minhas lojas Amazon!\n\nPosso responder TODAS as suas perguntas sobre a rede REUSSITESS®!\n\nObrigado pela sua visita e até logo! 🌟",
       placeholder: "Faça qualquer pergunta...",
       visitShop: "Visitar loja",
       personal: "Loja Pessoal",
       influencer: "Loja Influenciador"
     },
     it: {
-      greeting: "👋 Ciao! Sono l'Assistente Intelligente REUSSITESS®.\n\n🧠 HO ACCESSO A TUTTI I DATI DEL TUO CONCETTO:\n• 26 negozi Amazon globali\n• 14 paesi su 5 continenti\n• Tutte le informazioni su ogni paese\n• Valute, lingue, popolazioni\n• Cultura Guadalupa & DOM-TOM\n• Sicurezza e conformità del progetto\n\nPosso rispondere a TUTTE le tue domande sulla rete REUSSITESS®!",
+      greeting: "👋 Benvenuto al Hub REUSSITESS® - Un luogo dove la conoscenza è presente!\n\nSono il tuo Assistente Intelligente REUSSITESS® (pronunciato: Réussi-Tess).\n\n🧠 HO ACCESSO A TUTTI I DATI DEL TUO CONCETTO:\n• 26 negozi Amazon globali\n• 14 paesi su 5 continenti\n• Tutte le informazioni su ogni paese\n• Valute, lingue, popolazioni\n• Cultura Guadalupa & DOM-TOM\n• Sicurezza e conformità del progetto\n\n✨ Coltivati, fai acquisti che ti piacciono nei miei negozi Amazon!\n\nPosso rispondere a TUTTE le tue domande sulla rete REUSSITESS®!\n\nGrazie per la tua visita e arrivederci! 🌟",
       placeholder: "Fai qualsiasi domanda...",
       visitShop: "Visita il negozio",
       personal: "Negozio Personale",
