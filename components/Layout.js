@@ -3,6 +3,7 @@ import AffiliateDisclaimer from './AffiliateDisclaimer'
 import AntiCopyProtection from './AntiCopyProtection'
 import FeedbackWidget from './FeedbackWidget'
 import IntelligentShopBot from './IntelligentShopBot'
+import VisitorCounter from './VisitorCounter'
 
 export default function Layout({ children }) {
   return (
@@ -10,6 +11,7 @@ export default function Layout({ children }) {
       <AntiCopyProtection />
       <FeedbackWidget />
       <IntelligentShopBot />
+      <VisitorCounter />
       <header className="header">
         <nav>
           <div className="logo">

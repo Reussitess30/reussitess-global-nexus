@@ -19,6 +19,12 @@ export default function Bibliotheque() {
       color: '#f59e0b'
     },
     {
+      title: '⚖️ Droit & Savoir des Pays',
+      description: 'Systèmes juridiques, droits fondamentaux, structures gouvernementales et savoirs culturels des 14 pays du réseau',
+      link: '/bibliotheque/droit-pays',
+      color: '#06b6d4'
+    },
+    {
       title: '📰 Actualités & Évolutions',
       description: 'Actualités du secteur, évolutions du marché, faits marquants internationaux',
       link: '/bibliotheque/actu',
