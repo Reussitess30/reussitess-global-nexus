@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import AffiliateDisclaimer from './AffiliateDisclaimer'
 import FeedbackWidget from './FeedbackWidget'
-import PWAInstallBanner from './PWAInstallBanner'
 
 export default function Layout({ children }) {
   useEffect(() => {
@@ -15,8 +14,6 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <PWAInstallBanner />
-      
       <header className="header">
         <nav>
           <div className="logo">
