@@ -241,11 +241,14 @@ export default function BotAssistantVocal() {
   // Message de bienvenue au démarrage
   useEffect(() => {
     setMessages([{ text: t.greeting, isBot: true }]);
-    // Dire le message de bienvenue à l'ouverture
-    if (isOpen && voiceEnabled) {
-      setTimeout(() => speak(t.greeting), 500);
+  }, [language]);
+
+  // Dire le message de bienvenue seulement à l'ouverture initiale
+  useEffect(() => {
+    if (isOpen && voiceEnabled && messages.length > 0) {
+      setTimeout(() => speak(messages[0].text), 500);
     }
-  }, [language, isOpen]);
+  }, [isOpen]);
 
   // Fonction pour parler (synthèse vocale)
   const speak = (text) => {
@@ -281,7 +284,7 @@ export default function BotAssistantVocal() {
       recognitionRef.current.start();
       setIsListening(true);
     } catch (error) {
-      console.log('Reconnaissance vocale déjà en cours');
+      console.error('Erreur reconnaissance vocale:', error);
     }
   };
 
@@ -307,7 +310,8 @@ export default function BotAssistantVocal() {
 
   // Obtenir info pays
   const getCountryInfo = (countryKey, lang) => {
-    const country = completeDatabase.countries[countryKey];
+    const normalizedKey = countryKey.toLowerCase();
+    const country = completeDatabase.countries[normalizedKey];
     if (!country) return null;
     
     const name = country.name[lang] || country.name['en'];
@@ -347,7 +351,9 @@ export default function BotAssistantVocal() {
     const newLang = detectLanguage(userInput);
     if (newLang && newLang !== language) {
       setLanguage(newLang);
-      return translations[newLang].languageChanged;
+      // Utiliser les traductions de la nouvelle langue
+      const newTranslations = translations[newLang];
+      return newTranslations.languageChanged;
     }
     
     // Salutations
@@ -423,7 +429,7 @@ export default function BotAssistantVocal() {
       if (voiceEnabled) {
         speak(botResponse);
       }
-    }, 800);
+    }, 500);
   };
 
   const langFlags = {

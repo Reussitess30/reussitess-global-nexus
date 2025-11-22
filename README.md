@@ -32,7 +32,6 @@
 - United States (amazon.com)
 - Canada (amazon.ca)
 - Brazil (amazon.com.br)
-- Mexico (amazon.com.mx)
 
 **Europe** 🇪🇺
 - France (amazon.fr)
@@ -43,17 +42,11 @@
 - Netherlands (amazon.nl)
 - Sweden (amazon.se)
 - Belgium (amazon.com.be)
-- Poland (amazon.pl)
 
 **Asia-Pacific** 🌏
 - India (amazon.in)
 - Singapore (amazon.sg)
 - Australia (amazon.com.au)
-- Japan (amazon.co.jp)
-
-**Middle East** 🕌
-- United Arab Emirates (amazon.ae)
-- Saudi Arabia (amazon.sa)
 
 ## ✨ Features
 
