@@ -16,6 +16,9 @@ export default function Layout({ children }) {
 
   return (
     <>
+      {/* Fixed Top Disclaimer Banner - First Element */}
+      <AffiliateDisclaimer />
+      
       <header className="header">
         <nav>
           <div className="logo">
