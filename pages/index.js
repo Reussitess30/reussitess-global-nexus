@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import BotAssistant from '../components/BotAssistant'
+import BotAssistantVocal from '../components/BotAssistantVocal'
 import Link from 'next/link'
 
 export default function Home() {
@@ -309,8 +309,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Bot Assistant - Toujours visible en bas à droite */}
-      <BotAssistant />
+      {/* Bot Assistant Vocal - Toujours visible en bas à droite */}
+      <BotAssistantVocal />
 
       <style jsx>{`
         @keyframes float {
