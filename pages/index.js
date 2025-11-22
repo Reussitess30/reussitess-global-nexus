@@ -1,4 +1,11 @@
 import Layout from '../components/Layout'
+import dynamic from 'next/dynamic'
+
+// Chargement dynamique du globe 3D (client-side only)
+const InteractiveGlobe = dynamic(
+  () => import('../components/InteractiveGlobe'),
+  { ssr: false, loading: () => <div style={{ height: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)', borderRadius: '20px' }}><p style={{ color: 'white', fontSize: '18px' }}>🌍 Chargement du globe interactif...</p></div> }
+)
 
 export default function Home() {
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
@@ -87,6 +94,30 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Globe Interactif 3D */}
+      <div className="container" style={{ marginTop: '4rem', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h2 style={{
+            fontSize: '2.5rem',
+            fontWeight: '800',
+            background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            color: '#3b82f6',
+            marginBottom: '1rem'
+          }}>
+            🌍 Notre Réseau Mondial en 3D
+          </h2>
+          <p style={{ fontSize: '1.1rem', color: '#64748b', maxWidth: '700px', margin: '0 auto' }}>
+            Explorez nos 26 boutiques Amazon réparties sur 5 continents. 
+            Cliquez sur un point pour découvrir chaque boutique !
+          </p>
+        </div>
+        
+        <InteractiveGlobe shops={boutiques} />
       </div>
 
       {/* Section Boutiques */}
