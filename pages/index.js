@@ -31,7 +31,7 @@ export default function Home() {
     { nom: "🇨🇦 [Influenceur] Canada", lien: "https://www.amazon.ca/shop/influencer-fb942837" },
     { nom: "🇳🇱 [Influenceur] Pays-Bas", lien: "https://www.amazon.nl/shop/influencer-fb942837" },
     { nom: "🇫🇷 [Influenceur] France", lien: "https://www.amazon.fr/shop/influencer-fb942837" },
-    { nom: "🇦🇺 [Influenceur] Australie", lien: "https://www.amazon.com.au/shop/amourguadeloupe" }
+    { nom: "🇦🇺 [Influenceur] Australie", lien: "https://www.amazon.com.au/shop/influencer-fb942837" }
   ]
 
   return (
