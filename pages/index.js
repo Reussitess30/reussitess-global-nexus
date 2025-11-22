@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import dynamic from 'next/dynamic'
+import { useState, useEffect } from 'react'
 
 // Chargement dynamique du globe 3D (client-side only)
 const InteractiveGlobe = dynamic(
@@ -8,6 +9,48 @@ const InteractiveGlobe = dynamic(
 )
 
 export default function Home() {
+  const [deferredPrompt, setDeferredPrompt] = useState(null)
+  const [isInstallable, setIsInstallable] = useState(false)
+
+  useEffect(() => {
+    // Capture l'événement beforeinstallprompt
+    const handler = (e) => {
+      e.preventDefault()
+      setDeferredPrompt(e)
+      setIsInstallable(true)
+    }
+
+    window.addEventListener('beforeinstallprompt', handler)
+
+    // Vérifier si l'app est déjà installée
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      setIsInstallable(false)
+    }
+
+    return () => window.removeEventListener('beforeinstallprompt', handler)
+  }, [])
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) {
+      // Pour iOS Safari ou si déjà installé
+      alert('📱 Pour installer sur iOS:\n1. Tapez sur le bouton Partager\n2. Sélectionnez "Ajouter à l\'écran d\'accueil"')
+      return
+    }
+
+    // Afficher le prompt d'installation
+    deferredPrompt.prompt()
+    
+    // Attendre la réponse de l'utilisateur
+    const { outcome } = await deferredPrompt.userChoice
+    
+    if (outcome === 'accepted') {
+      console.log('L\'utilisateur a accepté l\'installation')
+    }
+    
+    // Reset le prompt
+    setDeferredPrompt(null)
+    setIsInstallable(false)
+  }
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
   const boutiques = [
     // Boutiques Personnelles (14)
@@ -56,8 +99,48 @@ export default function Home() {
             <div className="guadeloupe-subtitle">Terre de Champions</div>
           </div>
 
-          {/* Bouton Principal */}
-          <div style={{margin: '3rem 0'}}>
+          {/* Boutons Principaux */}
+          <div style={{margin: '3rem 0', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center'}}>
+            {/* Bouton Télécharger l'Application */}
+            {isInstallable && (
+              <button
+                onClick={handleInstallClick}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.75rem',
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+                  color: 'white',
+                  padding: '1.5rem 3rem',
+                  borderRadius: '50px',
+                  border: 'none',
+                  fontSize: '1.3rem',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                  boxShadow: '0 10px 30px rgba(16, 185, 129, 0.4)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-3px)'
+                  e.target.style.boxShadow = '0 15px 40px rgba(16, 185, 129, 0.6)'
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0)'
+                  e.target.style.boxShadow = '0 10px 30px rgba(16, 185, 129, 0.4)'
+                }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                📱 TÉLÉCHARGER L'APPLICATION WEB
+              </button>
+            )}
+            
+            {/* Bouton Accéder aux Boutiques */}
             <a 
               href="#boutiques" 
               className="btn-principal"
