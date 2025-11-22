@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import AffiliateDisclaimer from './AffiliateDisclaimer'
 import AntiCopyProtection from './AntiCopyProtection'
+import FeedbackWidget from './FeedbackWidget'
 
 export default function Layout({ children }) {
   return (
     <>
       <AntiCopyProtection />
+      <FeedbackWidget />
       <header className="header">
         <nav>
           <div className="logo">
