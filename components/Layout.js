@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import AffiliateDisclaimer from './AffiliateDisclaimer'
 import FeedbackWidget from './FeedbackWidget'
+import VisitorCounter from './VisitorCounter'
 
 export default function Layout({ children }) {
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function Layout({ children }) {
 
       <AffiliateDisclaimer />
       <FeedbackWidget />
+      <VisitorCounter />
       
       <footer className="footer">
         <div className="container">
