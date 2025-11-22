@@ -3,19 +3,29 @@ import { useState } from 'react'
 
 export default function FeedbackWidget() {
   const [isOpen, setIsOpen] = useState(false)
-  const [feedback, setFeedback] = useState('')
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    rating: 5
+  })
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // For now, just log the feedback (can be integrated with a backend later)
-    console.log('Feedback submitted:', feedback)
-    setIsSubmitted(true)
+    // In a real application, this would send data to a backend
+    console.log('Feedback submitted:', formData)
+    setSubmitted(true)
     setTimeout(() => {
       setIsOpen(false)
-      setIsSubmitted(false)
-      setFeedback('')
+      setSubmitted(false)
+      setFormData({ name: '', email: '', message: '', rating: 5 })
     }, 2000)
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
   return (
@@ -41,15 +51,46 @@ export default function FeedbackWidget() {
               ✕
             </button>
             
-            {!isSubmitted ? (
+            {!submitted ? (
               <>
                 <h3>Votre Avis</h3>
                 <p>Aidez-nous à améliorer votre expérience</p>
                 <form onSubmit={handleSubmit}>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Votre nom"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Votre email"
+                    required
+                  />
+                  <div className="rating-container">
+                    <label>Note :</label>
+                    <select
+                      name="rating"
+                      value={formData.rating}
+                      onChange={handleChange}
+                    >
+                      <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                      <option value="4">⭐⭐⭐⭐ Très bien</option>
+                      <option value="3">⭐⭐⭐ Bien</option>
+                      <option value="2">⭐⭐ Moyen</option>
+                      <option value="1">⭐ Faible</option>
+                    </select>
+                  </div>
                   <textarea
-                    value={feedback}
-                    onChange={(e) => setFeedback(e.target.value)}
-                    placeholder="Partagez vos commentaires..."
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Votre message..."
                     required
                     rows="4"
                   />
@@ -95,7 +136,9 @@ export default function FeedbackWidget() {
           position: fixed;
           bottom: 90px;
           right: 20px;
-          width: 320px;
+          width: 360px;
+          max-height: 80vh;
+          overflow-y: auto;
           background: white;
           border-radius: 16px;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -155,20 +198,39 @@ export default function FeedbackWidget() {
           gap: 12px;
         }
 
-        .feedback-content textarea {
+        .feedback-content input,
+        .feedback-content textarea,
+        .feedback-content select {
           width: 100%;
           padding: 12px;
           border: 2px solid #e5e7eb;
           border-radius: 8px;
           font-family: inherit;
           font-size: 14px;
-          resize: vertical;
           transition: border-color 0.2s;
         }
 
-        .feedback-content textarea:focus {
+        .feedback-content textarea {
+          resize: vertical;
+        }
+
+        .feedback-content input:focus,
+        .feedback-content textarea:focus,
+        .feedback-content select:focus {
           outline: none;
           border-color: #3b82f6;
+        }
+
+        .rating-container {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .rating-container label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #374151;
         }
 
         .feedback-submit {
