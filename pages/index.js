@@ -1,42 +1,7 @@
 import Layout from '../components/Layout'
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Home() {
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showPWAPrompt, setShowPWAPrompt] = useState(false);
-  const [isInstalled, setIsInstalled] = useState(false);
-
-  useEffect(() => {
-    // Check if already installed
-    if (window.matchMedia('(display-mode: standalone)').matches) {
-      setIsInstalled(true);
-    }
-
-    // Listen for install prompt
-    const handler = (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-      setShowPWAPrompt(true);
-    };
-
-    window.addEventListener('beforeinstallprompt', handler);
-    return () => window.removeEventListener('beforeinstallprompt', handler);
-  }, []);
-
-  const handleInstallPWA = async () => {
-    if (!deferredPrompt) return;
-    
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    
-    if (outcome === 'accepted') {
-      setIsInstalled(true);
-      setShowPWAPrompt(false);
-    }
-    setDeferredPrompt(null);
-  };
-
   // VRAIS LIENS AMAZON D'AFFILIATION de votre ancienne appli
   const boutiques = [
     // Boutiques Personnelles (14)
@@ -72,38 +37,6 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* PWA Installation Banner */}
-      {showPWAPrompt && !isInstalled && (
-        <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          color: 'white',
-          padding: '1rem 2rem',
-          textAlign: 'center',
-          position: 'sticky',
-          top: 0,
-          zIndex: 1000,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '1.2rem', fontWeight: '600' }}>
-              📱 Installez notre app pour un accès hors ligne
-            </span>
-            <button 
-              onClick={handleInstallPWA}
-              className="pwa-install-btn"
-            >
-              Installer maintenant
-            </button>
-            <button 
-              onClick={() => setShowPWAPrompt(false)}
-              className="pwa-later-btn"
-            >
-              Plus tard
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Hub Central - Quick Access Dashboard */}
       <div style={{
         background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%)',
@@ -311,38 +244,6 @@ export default function Home() {
         .btn-principal:hover {
           transform: translateY(-3px);
           box-shadow: 0 20px 40px rgba(225, 29, 72, 0.6);
-        }
-
-        .pwa-install-btn {
-          background: white;
-          color: #667eea;
-          border: none;
-          padding: 0.75rem 2rem;
-          border-radius: 25px;
-          font-weight: bold;
-          cursor: pointer;
-          font-size: 1rem;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-          transition: transform 0.2s;
-        }
-
-        .pwa-install-btn:hover {
-          transform: scale(1.05);
-        }
-
-        .pwa-later-btn {
-          background: transparent;
-          color: white;
-          border: 2px solid white;
-          padding: 0.75rem 1.5rem;
-          border-radius: 25px;
-          cursor: pointer;
-          font-size: 0.9rem;
-          transition: all 0.2s;
-        }
-
-        .pwa-later-btn:hover {
-          background: rgba(255, 255, 255, 0.1);
         }
 
         .hub-card {
