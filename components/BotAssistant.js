@@ -170,6 +170,7 @@ export default function BotAssistant() {
 
   useEffect(() => {
     setMessages([{ text: t.greeting, isBot: true }])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language])
 
   const detectLanguage = (input) => {

@@ -1,128 +1,116 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
-export default function BotAssistantVocal() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState([])
-  const [input, setInput] = useState('')
-  const [language, setLanguage] = useState('fr') // fr, en, es, de, it, pt
-  const [isListening, setIsListening] = useState(false)
-  const [isSpeaking, setIsSpeaking] = useState(false)
-  const [voiceEnabled, setVoiceEnabled] = useState(true)
+// BASE DE DONNÉES COMPLÈTE - TOUTES LES BOUTIQUES ET INFORMATIONS
+const completeDatabase = {
+  // 26 BOUTIQUES AMAZON (14 Personnelles + 12 Influenceurs)
+  amazonStores: {
+    personal: [
+      { country: '🇺🇸 États-Unis', name: 'USA', link: 'amazon.com/shop/amourguadeloupe', flag: '🇺🇸' },
+      { country: '🇮🇹 Italie', name: 'Italy', link: 'amazon.it/shop/amourguadeloupe', flag: '🇮🇹' },
+      { country: '🇫🇷 France', name: 'France', link: 'amazon.fr/shop/amourguadeloupe', flag: '🇫🇷' },
+      { country: '🇪🇸 Espagne', name: 'Spain', link: 'amazon.es/shop/amourguadeloupe', flag: '🇪🇸' },
+      { country: '🇩🇪 Allemagne', name: 'Germany', link: 'amazon.de/shop/amourguadeloupe', flag: '🇩🇪' },
+      { country: '🇨🇦 Canada', name: 'Canada', link: 'amazon.ca/shop/amourguadeloupe', flag: '🇨🇦' },
+      { country: '🇮🇳 Inde', name: 'India', link: 'amazon.in/shop/amourguadeloupe', flag: '🇮🇳' },
+      { country: '🇳🇱 Pays-Bas', name: 'Netherlands', link: 'amazon.nl/shop/amourguadeloupe', flag: '🇳🇱' },
+      { country: '🇸🇪 Suède', name: 'Sweden', link: 'amazon.se/shop/amourguadeloupe', flag: '🇸🇪' },
+      { country: '🇸🇬 Singapour', name: 'Singapore', link: 'amazon.sg/shop/amourguadeloupe', flag: '🇸🇬' },
+      { country: '🇬🇧 Royaume-Uni', name: 'UK', link: 'amazon.co.uk/shop/amourguadeloupe', flag: '🇬🇧' },
+      { country: '🇦🇺 Australie', name: 'Australia', link: 'amazon.com.au/shop/amourguadeloupe', flag: '🇦🇺' },
+      { country: '🇧🇪 Belgique', name: 'Belgium', link: 'amazon.com.be/shop/amourguadeloupe', flag: '🇧🇪' },
+      { country: '🇧🇷 Brésil', name: 'Brazil', link: 'amazon.com.br/shop/amourguadeloupe', flag: '🇧🇷' }
+    ],
+    influencer: [
+      { country: '🇦🇺 Australie', name: 'Australia', link: 'amazon.com.au/shop/influencer-fb942837', flag: '🇦🇺' },
+      { country: '🇺🇸 États-Unis', name: 'USA', link: 'amazon.com/shop/influencer-fb942837', flag: '🇺🇸' },
+      { country: '🇬🇧 Royaume-Uni', name: 'UK', link: 'amazon.co.uk/shop/influencer-fb942837', flag: '🇬🇧' },
+      { country: '🇮🇳 Inde', name: 'India', link: 'amazon.in/shop/influencer-fb942837', flag: '🇮🇳' },
+      { country: '🇸🇪 Suède', name: 'Sweden', link: 'amazon.se/shop/influencer-fb942837', flag: '🇸🇪' },
+      { country: '🇸🇬 Singapour', name: 'Singapore', link: 'amazon.sg/shop/influencer-fb942837', flag: '🇸🇬' },
+      { country: '🇧🇪 Belgique', name: 'Belgium', link: 'amazon.com.be/shop/influencer-fb942837', flag: '🇧🇪' },
+      { country: '🇪🇸 Espagne', name: 'Spain', link: 'amazon.es/shop/influencer-fb942837', flag: '🇪🇸' },
+      { country: '🇩🇪 Allemagne', name: 'Germany', link: 'amazon.de/shop/influencer-fb942837', flag: '🇩🇪' },
+      { country: '🇨🇦 Canada', name: 'Canada', link: 'amazon.ca/shop/influencer-fb942837', flag: '🇨🇦' },
+      { country: '🇳🇱 Pays-Bas', name: 'Netherlands', link: 'amazon.nl/shop/influencer-fb942837', flag: '🇳🇱' },
+      { country: '🇫🇷 France', name: 'France', link: 'amazon.fr/shop/influencer-fb942837', flag: '🇫🇷' }
+    ]
+  },
   
-  const recognitionRef = useRef(null)
-  const synthRef = useRef(null)
-
-  // BASE DE DONNÉES COMPLÈTE - TOUTES LES BOUTIQUES ET INFORMATIONS
-  const completeDatabase = {
-    // 26 BOUTIQUES AMAZON (14 Personnelles + 12 Influenceurs)
-    amazonStores: {
-      personal: [
-        { country: '🇺🇸 États-Unis', name: 'USA', link: 'amazon.com/shop/amourguadeloupe', flag: '🇺🇸' },
-        { country: '🇮🇹 Italie', name: 'Italy', link: 'amazon.it/shop/amourguadeloupe', flag: '🇮🇹' },
-        { country: '🇫🇷 France', name: 'France', link: 'amazon.fr/shop/amourguadeloupe', flag: '🇫🇷' },
-        { country: '🇪🇸 Espagne', name: 'Spain', link: 'amazon.es/shop/amourguadeloupe', flag: '🇪🇸' },
-        { country: '🇩🇪 Allemagne', name: 'Germany', link: 'amazon.de/shop/amourguadeloupe', flag: '🇩🇪' },
-        { country: '🇨🇦 Canada', name: 'Canada', link: 'amazon.ca/shop/amourguadeloupe', flag: '🇨🇦' },
-        { country: '🇮🇳 Inde', name: 'India', link: 'amazon.in/shop/amourguadeloupe', flag: '🇮🇳' },
-        { country: '🇳🇱 Pays-Bas', name: 'Netherlands', link: 'amazon.nl/shop/amourguadeloupe', flag: '🇳🇱' },
-        { country: '🇸🇪 Suède', name: 'Sweden', link: 'amazon.se/shop/amourguadeloupe', flag: '🇸🇪' },
-        { country: '🇸🇬 Singapour', name: 'Singapore', link: 'amazon.sg/shop/amourguadeloupe', flag: '🇸🇬' },
-        { country: '🇬🇧 Royaume-Uni', name: 'UK', link: 'amazon.co.uk/shop/amourguadeloupe', flag: '🇬🇧' },
-        { country: '🇦🇺 Australie', name: 'Australia', link: 'amazon.com.au/shop/amourguadeloupe', flag: '🇦🇺' },
-        { country: '🇧🇪 Belgique', name: 'Belgium', link: 'amazon.com.be/shop/amourguadeloupe', flag: '🇧🇪' },
-        { country: '🇧🇷 Brésil', name: 'Brazil', link: 'amazon.com.br/shop/amourguadeloupe', flag: '🇧🇷' }
-      ],
-      influencer: [
-        { country: '🇦🇺 Australie', name: 'Australia', link: 'amazon.com.au/shop/influencer-fb942837', flag: '🇦🇺' },
-        { country: '🇺🇸 États-Unis', name: 'USA', link: 'amazon.com/shop/influencer-fb942837', flag: '🇺🇸' },
-        { country: '🇬🇧 Royaume-Uni', name: 'UK', link: 'amazon.co.uk/shop/influencer-fb942837', flag: '🇬🇧' },
-        { country: '🇮🇳 Inde', name: 'India', link: 'amazon.in/shop/influencer-fb942837', flag: '🇮🇳' },
-        { country: '🇸🇪 Suède', name: 'Sweden', link: 'amazon.se/shop/influencer-fb942837', flag: '🇸🇪' },
-        { country: '🇸🇬 Singapour', name: 'Singapore', link: 'amazon.sg/shop/influencer-fb942837', flag: '🇸🇬' },
-        { country: '🇧🇪 Belgique', name: 'Belgium', link: 'amazon.com.be/shop/influencer-fb942837', flag: '🇧🇪' },
-        { country: '🇪🇸 Espagne', name: 'Spain', link: 'amazon.es/shop/influencer-fb942837', flag: '🇪🇸' },
-        { country: '🇩🇪 Allemagne', name: 'Germany', link: 'amazon.de/shop/influencer-fb942837', flag: '🇩🇪' },
-        { country: '🇨🇦 Canada', name: 'Canada', link: 'amazon.ca/shop/influencer-fb942837', flag: '🇨🇦' },
-        { country: '🇳🇱 Pays-Bas', name: 'Netherlands', link: 'amazon.nl/shop/influencer-fb942837', flag: '🇳🇱' },
-        { country: '🇫🇷 France', name: 'France', link: 'amazon.fr/shop/influencer-fb942837', flag: '🇫🇷' }
-      ]
+  // INFORMATIONS SUR LES 14 PAYS
+  countries: {
+    usa: { 
+      name: { fr: 'États-Unis', en: 'United States', es: 'Estados Unidos', de: 'Vereinigte Staaten', it: 'Stati Uniti', pt: 'Estados Unidos' },
+      pop: '331M', vat: 'Variable', currency: '$', amazon: 'Amazon.com', continent: 'Amérique'
     },
-    
-    // INFORMATIONS SUR LES 14 PAYS
-    countries: {
-      usa: { 
-        name: { fr: 'États-Unis', en: 'United States', es: 'Estados Unidos', de: 'Vereinigte Staaten', it: 'Stati Uniti', pt: 'Estados Unidos' },
-        pop: '331M', vat: 'Variable', currency: '$', amazon: 'Amazon.com', continent: 'Amérique'
-      },
-      france: { 
-        name: { fr: 'France', en: 'France', es: 'Francia', de: 'Frankreich', it: 'Francia', pt: 'França' },
-        pop: '67.7M', vat: '20%', currency: '€', amazon: 'Amazon.fr', continent: 'Europe'
-      },
-      uk: { 
-        name: { fr: 'Royaume-Uni', en: 'United Kingdom', es: 'Reino Unido', de: 'Vereinigtes Königreich', it: 'Regno Unito', pt: 'Reino Unido' },
-        pop: '67M', vat: '20%', currency: '£', amazon: 'Amazon.co.uk', continent: 'Europe'
-      },
-      germany: { 
-        name: { fr: 'Allemagne', en: 'Germany', es: 'Alemania', de: 'Deutschland', it: 'Germania', pt: 'Alemanha' },
-        pop: '83M', vat: '19%', currency: '€', amazon: 'Amazon.de', continent: 'Europe'
-      },
-      spain: { 
-        name: { fr: 'Espagne', en: 'Spain', es: 'España', de: 'Spanien', it: 'Spagna', pt: 'Espanha' },
-        pop: '47M', vat: '21%', currency: '€', amazon: 'Amazon.es', continent: 'Europe'
-      },
-      italy: { 
-        name: { fr: 'Italie', en: 'Italy', es: 'Italia', de: 'Italien', it: 'Italia', pt: 'Itália' },
-        pop: '60M', vat: '22%', currency: '€', amazon: 'Amazon.it', continent: 'Europe'
-      },
-      canada: { 
-        name: { fr: 'Canada', en: 'Canada', es: 'Canadá', de: 'Kanada', it: 'Canada', pt: 'Canadá' },
-        pop: '38M', vat: '5-15%', currency: '$', amazon: 'Amazon.ca', continent: 'Amérique'
-      },
-      brazil: { 
-        name: { fr: 'Brésil', en: 'Brazil', es: 'Brasil', de: 'Brasilien', it: 'Brasile', pt: 'Brasil' },
-        pop: '214M', vat: '17%', currency: 'R$', amazon: 'Amazon.com.br', continent: 'Amérique'
-      },
-      india: { 
-        name: { fr: 'Inde', en: 'India', es: 'India', de: 'Indien', it: 'India', pt: 'Índia' },
-        pop: '1.4B', vat: '18%', currency: '₹', amazon: 'Amazon.in', continent: 'Asie'
-      },
-      australia: { 
-        name: { fr: 'Australie', en: 'Australia', es: 'Australia', de: 'Australien', it: 'Australia', pt: 'Austrália' },
-        pop: '26M', vat: '10%', currency: '$', amazon: 'Amazon.com.au', continent: 'Océanie'
-      },
-      netherlands: { 
-        name: { fr: 'Pays-Bas', en: 'Netherlands', es: 'Países Bajos', de: 'Niederlande', it: 'Paesi Bassi', pt: 'Holanda' },
-        pop: '17M', vat: '21%', currency: '€', amazon: 'Amazon.nl', continent: 'Europe'
-      },
-      sweden: { 
-        name: { fr: 'Suède', en: 'Sweden', es: 'Suecia', de: 'Schweden', it: 'Svezia', pt: 'Suécia' },
-        pop: '10M', vat: '25%', currency: 'kr', amazon: 'Amazon.se', continent: 'Europe'
-      },
-      singapore: { 
-        name: { fr: 'Singapour', en: 'Singapore', es: 'Singapur', de: 'Singapur', it: 'Singapore', pt: 'Singapura' },
-        pop: '5.7M', vat: '8%', currency: '$', amazon: 'Amazon.sg', continent: 'Asie'
-      },
-      belgium: { 
-        name: { fr: 'Belgique', en: 'Belgium', es: 'Bélgica', de: 'Belgien', it: 'Belgio', pt: 'Bélgica' },
-        pop: '11.5M', vat: '21%', currency: '€', amazon: 'Amazon.com.be', continent: 'Europe'
-      }
+    france: { 
+      name: { fr: 'France', en: 'France', es: 'Francia', de: 'Frankreich', it: 'Francia', pt: 'França' },
+      pop: '67.7M', vat: '20%', currency: '€', amazon: 'Amazon.fr', continent: 'Europe'
     },
-    
-    // SECTIONS DU SITE
-    sections: {
-      hubCentral: { icon: '🏢', pages: ['Dashboard', 'Application PWA', 'Bibliothèque', 'Affiliation'] },
-      bibliotheque: { icon: '📚', content: ['Histoire Afrique', 'Histoire Caraïbes', 'DOM-TOM', 'Ressources Prof'] },
-      analytics: { icon: '📊', features: ['Statistiques', 'Visiteurs', 'Performance'] },
-      affiliation: { icon: '🤝', info: 'Programme Partenaires Amazon - 26 boutiques' },
-      outils: { icon: '🧮', tools: ['Calculateur TVA', 'Simulateur Marges', 'Commissions Amazon'] },
-      contact: { icon: '📧', type: 'Formulaire de contact' }
+    uk: { 
+      name: { fr: 'Royaume-Uni', en: 'United Kingdom', es: 'Reino Unido', de: 'Vereinigtes Königreich', it: 'Regno Unito', pt: 'Reino Unido' },
+      pop: '67M', vat: '20%', currency: '£', amazon: 'Amazon.co.uk', continent: 'Europe'
+    },
+    germany: { 
+      name: { fr: 'Allemagne', en: 'Germany', es: 'Alemania', de: 'Deutschland', it: 'Germania', pt: 'Alemanha' },
+      pop: '83M', vat: '19%', currency: '€', amazon: 'Amazon.de', continent: 'Europe'
+    },
+    spain: { 
+      name: { fr: 'Espagne', en: 'Spain', es: 'España', de: 'Spanien', it: 'Spagna', pt: 'Espanha' },
+      pop: '47M', vat: '21%', currency: '€', amazon: 'Amazon.es', continent: 'Europe'
+    },
+    italy: { 
+      name: { fr: 'Italie', en: 'Italy', es: 'Italia', de: 'Italien', it: 'Italia', pt: 'Itália' },
+      pop: '60M', vat: '22%', currency: '€', amazon: 'Amazon.it', continent: 'Europe'
+    },
+    canada: { 
+      name: { fr: 'Canada', en: 'Canada', es: 'Canadá', de: 'Kanada', it: 'Canada', pt: 'Canadá' },
+      pop: '38M', vat: '5-15%', currency: '$', amazon: 'Amazon.ca', continent: 'Amérique'
+    },
+    brazil: { 
+      name: { fr: 'Brésil', en: 'Brazil', es: 'Brasil', de: 'Brasilien', it: 'Brasile', pt: 'Brasil' },
+      pop: '214M', vat: '17%', currency: 'R$', amazon: 'Amazon.com.br', continent: 'Amérique'
+    },
+    india: { 
+      name: { fr: 'Inde', en: 'India', es: 'India', de: 'Indien', it: 'India', pt: 'Índia' },
+      pop: '1.4B', vat: '18%', currency: '₹', amazon: 'Amazon.in', continent: 'Asie'
+    },
+    australia: { 
+      name: { fr: 'Australie', en: 'Australia', es: 'Australia', de: 'Australien', it: 'Australia', pt: 'Austrália' },
+      pop: '26M', vat: '10%', currency: '$', amazon: 'Amazon.com.au', continent: 'Océanie'
+    },
+    netherlands: { 
+      name: { fr: 'Pays-Bas', en: 'Netherlands', es: 'Países Bajos', de: 'Niederlande', it: 'Paesi Bassi', pt: 'Holanda' },
+      pop: '17M', vat: '21%', currency: '€', amazon: 'Amazon.nl', continent: 'Europe'
+    },
+    sweden: { 
+      name: { fr: 'Suède', en: 'Sweden', es: 'Suecia', de: 'Schweden', it: 'Svezia', pt: 'Suécia' },
+      pop: '10M', vat: '25%', currency: 'kr', amazon: 'Amazon.se', continent: 'Europe'
+    },
+    singapore: { 
+      name: { fr: 'Singapour', en: 'Singapore', es: 'Singapur', de: 'Singapur', it: 'Singapore', pt: 'Singapura' },
+      pop: '5.7M', vat: '8%', currency: '$', amazon: 'Amazon.sg', continent: 'Asie'
+    },
+    belgium: { 
+      name: { fr: 'Belgique', en: 'Belgium', es: 'Bélgica', de: 'Belgien', it: 'Belgio', pt: 'Bélgica' },
+      pop: '11.5M', vat: '21%', currency: '€', amazon: 'Amazon.com.be', continent: 'Europe'
     }
-  };
+  },
+  
+  // SECTIONS DU SITE
+  sections: {
+    hubCentral: { icon: '🏢', pages: ['Dashboard', 'Application PWA', 'Bibliothèque', 'Affiliation'] },
+    bibliotheque: { icon: '📚', content: ['Histoire Afrique', 'Histoire Caraïbes', 'DOM-TOM', 'Ressources Prof'] },
+    analytics: { icon: '📊', features: ['Statistiques', 'Visiteurs', 'Performance'] },
+    affiliation: { icon: '🤝', info: 'Programme Partenaires Amazon - 26 boutiques' },
+    outils: { icon: '🧮', tools: ['Calculateur TVA', 'Simulateur Marges', 'Commissions Amazon'] },
+    contact: { icon: '📧', type: 'Formulaire de contact' }
+  }
+};
 
-  // TRADUCTIONS COMPLÈTES POUR 6 LANGUES
-  const translations = {
+// TRADUCTIONS COMPLÈTES POUR 6 LANGUES
+const translations = {
     fr: {
       greeting: "👋 Bonjour ! Bienvenue sur mon hub ! Je suis votre assistant vocal intelligent !\n\n🎤 Je vous écoute et je vous réponds à voix haute !\n\n🌍 Je parle 6 langues : Français, Anglais, Espagnol, Allemand, Italien et Portugais !\n\n🛒 Je connais toutes nos 26 boutiques Amazon dans 14 pays !\n\n💡 Posez-moi n'importe quelle question sur notre hub, nos boutiques, ou nos services !",
       help: "🤔 Je peux vous aider avec :\n\n🛒 **26 Boutiques Amazon** : 14 boutiques personnelles + 12 boutiques influenceur dans 14 pays\n\n🌍 **14 Pays** : USA, France, UK, Allemagne, Espagne, Italie, Canada, Brésil, Inde, Australie, Pays-Bas, Suède, Singapour, Belgique\n\n📚 **Sections** : Hub Central, Bibliothèque, Analytics, Affiliation, Outils, Contact\n\n💰 **Informations** : TVA, population, monnaie, marketplace Amazon par pays\n\n🗣️ **Langues** : Dites 'English', 'Español', 'Deutsch', 'Italiano' ou 'Português' pour changer",
@@ -191,6 +179,18 @@ export default function BotAssistantVocal() {
     }
   };
 
+export default function BotAssistantVocal() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [messages, setMessages] = useState([])
+  const [input, setInput] = useState('')
+  const [language, setLanguage] = useState('fr') // fr, en, es, de, it, pt
+  const [isListening, setIsListening] = useState(false)
+  const [isSpeaking, setIsSpeaking] = useState(false)
+  const [voiceEnabled, setVoiceEnabled] = useState(true)
+  
+  const recognitionRef = useRef(null)
+  const synthRef = useRef(null)
+
   const t = translations[language];
 
   // INITIALISATION DE LA RECONNAISSANCE VOCALE ET SYNTHÈSE VOCALE
@@ -236,11 +236,13 @@ export default function BotAssistantVocal() {
         synthRef.current = window.speechSynthesis;
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
   // Message de bienvenue au démarrage
   useEffect(() => {
     setMessages([{ text: t.greeting, isBot: true }]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
   // Dire le message de bienvenue seulement à l'ouverture initiale
@@ -248,10 +250,11 @@ export default function BotAssistantVocal() {
     if (isOpen && voiceEnabled && messages.length > 0) {
       setTimeout(() => speak(messages[0].text), 500);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   // Fonction pour parler (synthèse vocale)
-  const speak = (text) => {
+  const speak = useCallback((text) => {
     if (!voiceEnabled || !synthRef.current) return;
     
     // Arrêter toute synthèse en cours
@@ -275,7 +278,7 @@ export default function BotAssistantVocal() {
     utterance.onerror = () => setIsSpeaking(false);
     
     synthRef.current.speak(utterance);
-  };
+  }, [voiceEnabled, language]);
 
   // Démarrer l'écoute vocale
   const startListening = () => {
@@ -309,7 +312,7 @@ export default function BotAssistantVocal() {
   };
 
   // Obtenir info pays
-  const getCountryInfo = (countryKey, lang) => {
+  const getCountryInfo = useCallback((countryKey, lang) => {
     const normalizedKey = countryKey.toLowerCase();
     const country = completeDatabase.countries[normalizedKey];
     if (!country) return null;
@@ -319,10 +322,10 @@ export default function BotAssistantVocal() {
     const currencyLabel = lang === 'fr' ? 'Monnaie' : lang === 'en' ? 'Currency' : lang === 'es' ? 'Moneda' : lang === 'it' ? 'Valuta' : lang === 'pt' ? 'Moeda' : 'Währung';
     
     return `🌍 **${name}**\n📊 Population: ${country.pop}\n💰 ${vatLabel}: ${country.vat}\n💵 ${currencyLabel}: ${country.currency}\n🛒 ${country.amazon}\n🌎 Continent: ${country.continent}`;
-  };
+  }, []);
 
   // Obtenir liste des boutiques par pays
-  const getStoresByCountry = (countryName) => {
+  const getStoresByCountry = useCallback((countryName) => {
     const lowerCountry = countryName.toLowerCase();
     const personalStores = completeDatabase.amazonStores.personal.filter(store => 
       store.country.toLowerCase().includes(lowerCountry) || store.name.toLowerCase().includes(lowerCountry)
@@ -341,10 +344,10 @@ export default function BotAssistantVocal() {
       result += `✅ Boutique influenceur: ${influencerStores[0].link}`;
     }
     return result;
-  };
+  }, []);
 
   // Logique de réponse du bot
-  const getBotResponse = (userInput) => {
+  const getBotResponse = useCallback((userInput) => {
     const lowerInput = userInput.toLowerCase();
     
     // Détection changement de langue
@@ -408,10 +411,10 @@ export default function BotAssistantVocal() {
     
     // Réponse par défaut
     return t.help;
-  };
-
+  }, [language, t, getStoresByCountry, getCountryInfo]);
+  
   // Envoyer un message
-  const handleSend = (textToSend = null) => {
+  const handleSend = useCallback((textToSend = null) => {
     const messageText = textToSend || input;
     if (!messageText.trim()) return;
 
@@ -430,7 +433,7 @@ export default function BotAssistantVocal() {
         speak(botResponse);
       }
     }, 500);
-  };
+  }, [input, voiceEnabled, getBotResponse, speak]);
 
   const langFlags = {
     fr: '🇫🇷',
