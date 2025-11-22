@@ -141,6 +141,13 @@ export default function IntelligentShopBot() {
       visitShop: "Visitar loja",
       personal: "Loja Pessoal",
       influencer: "Loja Influenciador"
+    },
+    it: {
+      greeting: "👋 Ciao! Sono l'Assistente Intelligente REUSSITESS®.\n\n🧠 HO ACCESSO A TUTTI I DATI DEL TUO CONCETTO:\n• 26 negozi Amazon globali\n• 14 paesi su 5 continenti\n• Tutte le informazioni su ogni paese\n• Valute, lingue, popolazioni\n• Cultura Guadalupa & DOM-TOM\n• Sicurezza e conformità del progetto\n\nPosso rispondere a TUTTE le tue domande sulla rete REUSSITESS®!",
+      placeholder: "Fai qualsiasi domanda...",
+      visitShop: "Visita il negozio",
+      personal: "Negozio Personale",
+      influencer: "Negozio Influencer"
     }
   }
 
@@ -389,7 +396,7 @@ export default function IntelligentShopBot() {
               </button>
             </div>
             <div style={{ display: 'flex', gap: '6px', marginTop: '10px' }}>
-              {['fr', 'en', 'es', 'de', 'pt'].map(lang => (
+              {['fr', 'en', 'es', 'de', 'pt', 'it'].map(lang => (
                 <button
                   key={lang}
                   onClick={() => setLanguage(lang)}
