@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default function PWAInstallBanner() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showPrompt, setShowPrompt] = useState(true); // Toujours visible par défaut !
+  const [showPrompt, setShowPrompt] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
@@ -13,18 +13,20 @@ export default function PWAInstallBanner() {
       return;
     }
 
-    // Vérifier si l'utilisateur a déjà fermé la bannière (optionnel)
+    // Vérifier si l'utilisateur a déjà fermé la bannière
     const dismissed = localStorage.getItem('pwa-banner-dismissed');
     if (dismissed === 'true') {
       setShowPrompt(false);
       return;
     }
 
+    // Sinon, afficher la bannière
+    setShowPrompt(true);
+
     // Écouter l'événement d'installation
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      // Bannière déjà visible, pas besoin de changer showPrompt
     };
 
     window.addEventListener('beforeinstallprompt', handler);
