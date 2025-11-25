@@ -15,11 +15,27 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'DENY', // Empêche le clickjacking
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            value: 'nosniff', // Empêche le MIME sniffing
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Content-Security-Policy',
+            // Note: 'unsafe-inline' et 'unsafe-eval' sont nécessaires pour Next.js et React
+            // Next.js utilise des scripts inline pour l'hydratation et le Hot Module Replacement
+            // Les composants avec styled-jsx nécessitent 'unsafe-inline' pour les styles
+            // Pour une sécurité maximale en production, envisager l'utilisation de nonces
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.amazon.*; frame-ancestors 'none';",
           },
         ],
       },
