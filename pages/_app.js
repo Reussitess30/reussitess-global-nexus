@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import BotAssistant from '../components/BotAssistant'
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -7,51 +8,50 @@ function MyApp({ Component, pageProps }) {
       e.preventDefault();
       return false;
     };
-    
+
     // Désactiver sélection de texte
     const handleSelectStart = (e) => {
       e.preventDefault();
       return false;
     };
-    
+
     // Désactiver copie
     const handleCopy = (e) => {
       e.preventDefault();
       return false;
     };
-    
-    // Désactiver raccourcis clavier (avec exceptions pour l'accessibilité)
+
+    // Désactiver raccourcis clavier
     const handleKeyDown = (e) => {
-      // Bloquer F12 et outils développeur
+      // Bloquer F12
       if (e.key === 'F12') {
         e.preventDefault();
         return false;
       }
-      
-      // Bloquer Ctrl+Shift+I (outils développeur)
+
+      // Bloquer Ctrl+Shift+I
       if (e.ctrlKey && e.shiftKey && e.key === 'I') {
         e.preventDefault();
         return false;
       }
-      
-      // Bloquer Ctrl+U (voir source)
+
+      // Bloquer Ctrl+U
       if (e.ctrlKey && e.key === 'u') {
         e.preventDefault();
         return false;
       }
-      
-      // Bloquer Ctrl+S (sauvegarder)
+
+      // Bloquer Ctrl+S
       if (e.ctrlKey && e.key === 's') {
         e.preventDefault();
         return false;
       }
-      
-      // Bloquer Ctrl+C (copier) sauf dans les champs de formulaire
-      // pour permettre aux utilisateurs de copier leurs propres données
+
+      // Bloquer Ctrl+C sauf dans formulaires
       if (e.ctrlKey && e.key === 'c') {
         const target = e.target;
-        const isFormField = target.tagName === 'INPUT' || 
-                           target.tagName === 'TEXTAREA' || 
+        const isFormField = target.tagName === 'INPUT' ||
+                           target.tagName === 'TEXTAREA' ||
                            target.isContentEditable;
         if (!isFormField) {
           e.preventDefault();
@@ -73,7 +73,12 @@ function MyApp({ Component, pageProps }) {
     };
   }, []);
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+      <BotAssistant />
+    </>
+  )
 }
 
 export default MyApp
