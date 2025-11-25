@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
+import AffiliateDisclaimer from './AffiliateDisclaimer'
+import FeedbackWidget from './FeedbackWidget'
+import VisitorCounter from './VisitorCounter'
+import BotAssistant from './BotAssistant'
 
 export default function Layout({ children }) {
   useEffect(() => {
@@ -12,6 +16,9 @@ export default function Layout({ children }) {
 
   return (
     <>
+      {/* Fixed Top Disclaimer Banner - First Element */}
+      <AffiliateDisclaimer />
+      
       <header className="header">
         <nav>
           <div className="logo">
@@ -29,6 +36,11 @@ export default function Layout({ children }) {
       </header>
       
       <main>{children}</main>
+
+      <AffiliateDisclaimer />
+      <FeedbackWidget />
+      <VisitorCounter />
+      <BotAssistant />
       
       <footer className="footer">
         <div className="container">
@@ -47,7 +59,8 @@ export default function Layout({ children }) {
             </div>
             <div className="footer-section">
               <h4>⚖️ Légal</h4>
-              <Link href="/mentions-legales">Mentions Légales</Link>
+              <Link href="/mentions-legales">Mentions Légales</Link><br/>
+              <Link href="/politique-confidentialite">Politique de Confidentialité</Link>
             </div>
           </div>
           <div className="footer-bottom">
