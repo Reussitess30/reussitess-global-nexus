@@ -102,7 +102,6 @@ export default function MentionsLegales() {
         <div className="container">
           <div className="text-center mb-8">
             <h1>{contenu.titre}</h1>
-            
             {/* Sélecteur de langue */}
             <div className="language-selector">
               <button 
@@ -134,6 +133,24 @@ export default function MentionsLegales() {
               </div>
             ))}
           </div>
+
+          {/* Ajout du bloc Identité légale + Affiliation Amazon */}
+          <div className="card legal-section mt-8">
+            <h3 style={{ color: "#764ba2", marginBottom: "12px" }}>Identité de l’éditeur</h3>
+            <ul style={{ fontSize: "1.05rem", opacity: 0.85, listStyle: "none", paddingLeft: 0 }}>
+              <li><strong>SIRET :</strong> 44469979700031</li>
+              <li><strong>Nom :</strong> Porinus Rony Roger</li>
+              <li><strong>Adresse :</strong> 40 résidence les Monbins, 97113 Gourbeyre, Guadeloupe, France</li>
+            </ul>
+          </div>
+          <div className="card legal-section mt-8">
+            <h3 style={{ color: "#764ba2", marginBottom: "12px" }}>Affiliation Amazon</h3>
+            <p style={{ fontSize: "1rem", opacity: 0.85 }}>
+              Reussitess® Global Nexus participe au Programme Partenaires Amazon EU.
+              En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises.
+            </p>
+          </div>
+          {/* Fin ajout obligatoire */}
 
           <div className="text-center mt-8">
             <p className="text-sm text-gray-600">
