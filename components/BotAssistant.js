@@ -9,13 +9,11 @@ const BotAssistant = () => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Détection automatique de la langue du navigateur
   useEffect(() => {
     const browserLang = navigator.language.split('-')[0];
-    const supportedLangs = ['en', 'fr', 'de', 'es', 'it', 'pt', 'nl', 'sv', 'hi', 'ja'];
+    const supportedLangs = ['en', 'fr', 'de', 'es', 'it', 'pt'];
     setLanguage(supportedLangs.includes(browserLang) ? browserLang : 'en');
 
-    // Message de bienvenue initial
     const welcomeMessage = getTranslation('welcome');
     setMessages([{
       id: 1,
@@ -25,12 +23,10 @@ const BotAssistant = () => {
     }]);
   }, []);
 
-  // Auto-scroll vers le bas
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-  // Focus sur l'input quand le chat s'ouvre
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
@@ -41,12 +37,10 @@ const BotAssistant = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Base de connaissances multilingue
   const translations = {
     en: {
       welcome: "👋 Hello! I'm your REUSSITESS® shopping assistant. How can I help you today?",
       placeholder: "Type your message...",
-      send: "Send",
       typing: "Bot is typing...",
       quickReplies: ["Find products", "Best sellers", "Countries", "Help"],
       countries: "🌍 We cover 14 countries with 26 Amazon stores: USA, Canada, UK, France, Germany, Italy, Spain, Brazil, India, Australia, Netherlands, Sweden, Singapore, Belgium.",
@@ -54,96 +48,91 @@ const BotAssistant = () => {
       error: "Sorry, I didn't understand. Try: 'help', 'countries', or 'find products'",
       products: "🛍️ What type of product are you looking for? (electronics, fashion, home, books, etc.)",
       bestSellers: "⭐ Our best sellers include electronics, fashion items, home essentials, and books. Which category interests you?",
-      boutiques: "🏪 We have:\n• 14 Personal Boutiques (curated collections)\n• 12 Influencer Boutiques (trending picks)\nWhich would you like to explore?",
+      boutiques: "🏪 We have:\n• 14 Personal Boutiques\n• 12 Influencer Boutiques\nWhich would you like to explore?",
       electronics: "📱 Popular electronics:\n• Smartphones & Tablets\n• Laptops & Computers\n• Audio & Headphones\n• Smart Home Devices\n• Gaming Consoles",
       fashion: "👔 Fashion categories:\n• Men's Clothing\n• Women's Clothing\n• Shoes & Accessories\n• Jewelry & Watches\n• Bags & Luggage",
       home: "🏠 Home essentials:\n• Furniture & Decor\n• Kitchen & Dining\n• Bedding & Bath\n• Garden & Outdoor\n• Tools & Home Improvement",
       books: "📚 Book categories:\n• Bestsellers\n• Fiction & Literature\n• Non-Fiction\n• Educational\n• E-books & Audiobooks"
     },
     fr: {
-      welcome: "👋 Bonjour ! Je suis votre assistant shopping REUSSITESS®. Comment puis-je vous aider aujourd'hui ?",
+      welcome: "👋 Bonjour ! Je suis votre assistant shopping REUSSITESS®. Comment puis-je vous aider ?",
       placeholder: "Tapez votre message...",
-      send: "Envoyer",
       typing: "Le bot écrit...",
       quickReplies: ["Trouver produits", "Meilleures ventes", "Pays", "Aide"],
       countries: "🌍 Nous couvrons 14 pays avec 26 boutiques Amazon : USA, Canada, UK, France, Allemagne, Italie, Espagne, Brésil, Inde, Australie, Pays-Bas, Suède, Singapour, Belgique.",
-      help: "Je peux vous aider à :\n✓ Trouver des produits dans 26 boutiques Amazon\n✓ Comparer les prix dans différents pays\n✓ Recommander les meilleures ventes\n✓ Naviguer dans nos boutiques\n✓ Répondre aux questions sur les achats Amazon",
+      help: "Je peux vous aider à :\n✓ Trouver des produits dans 26 boutiques Amazon\n✓ Comparer les prix\n✓ Recommander les meilleures ventes\n✓ Naviguer dans nos boutiques",
       error: "Désolé, je n'ai pas compris. Essayez : 'aide', 'pays', ou 'trouver produits'",
       products: "🛍️ Quel type de produit recherchez-vous ? (électronique, mode, maison, livres, etc.)",
-      bestSellers: "⭐ Nos meilleures ventes incluent l'électronique, la mode, les essentiels maison et les livres. Quelle catégorie vous intéresse ?",
-      boutiques: "🏪 Nous avons :\n• 14 Boutiques Personnelles (collections soignées)\n• 12 Boutiques Influenceurs (sélections tendance)\nLaquelle souhaitez-vous explorer ?",
-      electronics: "📱 Électronique populaire :\n• Smartphones & Tablettes\n• Ordinateurs portables\n• Audio & Casques\n• Maison intelligente\n• Consoles de jeux",
-      fashion: "👔 Catégories mode :\n• Vêtements homme\n• Vêtements femme\n• Chaussures & Accessoires\n• Bijoux & Montres\n• Sacs & Bagages",
-      home: "🏠 Essentiels maison :\n• Meubles & Décoration\n• Cuisine & Salle à manger\n• Literie & Bain\n• Jardin & Extérieur\n• Outils & Bricolage",
-      books: "📚 Catégories livres :\n• Best-sellers\n• Fiction & Littérature\n• Non-fiction\n• Éducatif\n• E-books & Livres audio"
+      bestSellers: "⭐ Nos meilleures ventes : électronique, mode, maison et livres. Quelle catégorie vous intéresse ?",
+      boutiques: "🏪 Nous avons :\n• 14 Boutiques Personnelles\n• 12 Boutiques Influenceurs\nLaquelle souhaitez-vous explorer ?",
+      electronics: "📱 Électronique populaire :\n• Smartphones & Tablettes\n• Ordinateurs\n• Audio & Casques\n• Maison intelligente\n• Consoles de jeux",
+      fashion: "👔 Mode :\n• Vêtements homme\n• Vêtements femme\n• Chaussures & Accessoires\n• Bijoux & Montres\n• Sacs & Bagages",
+      home: "🏠 Maison :\n• Meubles & Décoration\n• Cuisine\n• Literie & Bain\n• Jardin\n• Outils & Bricolage",
+      books: "📚 Livres :\n• Best-sellers\n• Fiction & Littérature\n• Non-fiction\n• Éducatif\n• E-books & Livres audio"
     },
     de: {
-      welcome: "👋 Hallo! Ich bin Ihr REUSSITESS® Einkaufsassistent. Wie kann ich Ihnen heute helfen?",
+      welcome: "👋 Hallo! Ich bin Ihr REUSSITESS® Einkaufsassistent. Wie kann ich helfen?",
       placeholder: "Nachricht eingeben...",
-      send: "Senden",
       typing: "Bot schreibt...",
       quickReplies: ["Produkte finden", "Bestseller", "Länder", "Hilfe"],
-      countries: "🌍 Wir decken 14 Länder mit 26 Amazon-Shops ab: USA, Kanada, UK, Frankreich, Deutschland, Italien, Spanien, Brasilien, Indien, Australien, Niederlande, Schweden, Singapur, Belgien.",
-      help: "Ich kann Ihnen helfen:\n✓ Produkte in 26 Amazon-Shops finden\n✓ Preise in verschiedenen Ländern vergleichen\n✓ Bestseller empfehlen\n✓ Durch unsere Boutiquen navigieren\n✓ Fragen zum Amazon-Shopping beantworten",
-      error: "Entschuldigung, ich habe das nicht verstanden. Versuchen Sie: 'Hilfe', 'Länder' oder 'Produkte finden'",
-      products: "🛍️ Welche Art von Produkt suchen Sie? (Elektronik, Mode, Haus, Bücher, etc.)",
-      bestSellers: "⭐ Unsere Bestseller umfassen Elektronik, Mode, Haushaltsartikel und Bücher. Welche Kategorie interessiert Sie?",
-      boutiques: "🏪 Wir haben:\n• 14 Persönliche Boutiquen (kuratierte Sammlungen)\n• 12 Influencer-Boutiquen (Trendauswahl)\nWelche möchten Sie erkunden?",
-      electronics: "📱 Beliebte Elektronik:\n• Smartphones & Tablets\n• Laptops & Computer\n• Audio & Kopfhörer\n• Smart Home Geräte\n• Spielkonsolen",
-      fashion: "👔 Mode-Kategorien:\n• Herrenbekleidung\n• Damenbekleidung\n• Schuhe & Accessoires\n• Schmuck & Uhren\n• Taschen & Gepäck",
-      home: "🏠 Haushaltsartikel:\n• Möbel & Deko\n• Küche & Esszimmer\n• Bettwäsche & Bad\n• Garten & Outdoor\n• Werkzeuge & Heimwerken",
-      books: "📚 Buch-Kategorien:\n• Bestseller\n• Belletristik\n• Sachbücher\n• Bildung\n• E-Books & Hörbücher"
+      countries: "🌍 Wir decken 14 Länder mit 26 Amazon-Shops ab.",
+      help: "Ich kann helfen:\n✓ Produkte finden\n✓ Preise vergleichen\n✓ Bestseller empfehlen",
+      error: "Entschuldigung, nicht verstanden. Versuchen Sie: 'Hilfe', 'Länder'",
+      products: "🛍️ Welche Art von Produkt suchen Sie?",
+      bestSellers: "⭐ Unsere Bestseller: Elektronik, Mode, Haus, Bücher.",
+      boutiques: "🏪 Wir haben:\n• 14 Persönliche Boutiquen\n• 12 Influencer-Boutiquen",
+      electronics: "📱 Elektronik:\n• Smartphones\n• Laptops\n• Audio\n• Smart Home\n• Gaming",
+      fashion: "👔 Mode:\n• Herrenbekleidung\n• Damenbekleidung\n• Schuhe\n• Schmuck\n• Taschen",
+      home: "🏠 Haus:\n• Möbel\n• Küche\n• Bad\n• Garten\n• Werkzeuge",
+      books: "📚 Bücher:\n• Bestseller\n• Fiktion\n• Sachbücher\n• Bildung"
     },
     es: {
-      welcome: "👋 ¡Hola! Soy tu asistente de compras REUSSITESS®. ¿Cómo puedo ayudarte hoy?",
+      welcome: "👋 ¡Hola! Soy tu asistente de compras REUSSITESS®. ¿Cómo puedo ayudarte?",
       placeholder: "Escribe tu mensaje...",
-      send: "Enviar",
       typing: "Bot está escribiendo...",
       quickReplies: ["Buscar productos", "Más vendidos", "Países", "Ayuda"],
-      countries: "🌍 Cubrimos 14 países con 26 tiendas Amazon: USA, Canadá, UK, Francia, Alemania, Italia, España, Brasil, India, Australia, Países Bajos, Suecia, Singapur, Bélgica.",
-      help: "Puedo ayudarte a:\n✓ Encontrar productos en 26 tiendas Amazon\n✓ Comparar precios en diferentes países\n✓ Recomendar los más vendidos\n✓ Navegar por nuestras boutiques\n✓ Responder preguntas sobre compras Amazon",
-      error: "Lo siento, no entendí. Prueba: 'ayuda', 'países' o 'buscar productos'",
-      products: "🛍️ ¿Qué tipo de producto buscas? (electrónica, moda, hogar, libros, etc.)",
-      bestSellers: "⭐ Nuestros más vendidos incluyen electrónica, moda, artículos para el hogar y libros. ¿Qué categoría te interesa?",
-      boutiques: "🏪 Tenemos:\n• 14 Boutiques Personales (colecciones curadas)\n• 12 Boutiques de Influencers (selecciones tendencia)\n¿Cuál te gustaría explorar?",
-      electronics: "📱 Electrónica popular:\n• Smartphones & Tablets\n• Portátiles & Computadoras\n• Audio & Auriculares\n• Dispositivos Smart Home\n• Consolas de juegos",
-      fashion: "👔 Categorías de moda:\n• Ropa de hombre\n• Ropa de mujer\n• Zapatos & Accesorios\n• Joyería & Relojes\n• Bolsos & Equipaje",
-      home: "🏠 Artículos para el hogar:\n• Muebles & Decoración\n• Cocina & Comedor\n• Ropa de cama & Baño\n• Jardín & Exterior\n• Herramientas & Bricolaje",
-      books: "📚 Categorías de libros:\n• Bestsellers\n• Ficción & Literatura\n• No ficción\n• Educativos\n• E-books & Audiolibros"
+      countries: "🌍 Cubrimos 14 países con 26 tiendas Amazon.",
+      help: "Puedo ayudarte a:\n✓ Encontrar productos\n✓ Comparar precios\n✓ Recomendar más vendidos",
+      error: "Lo siento, no entendí. Prueba: 'ayuda', 'países'",
+      products: "🛍️ ¿Qué tipo de producto buscas?",
+      bestSellers: "⭐ Nuestros más vendidos: electrónica, moda, hogar, libros.",
+      boutiques: "🏪 Tenemos:\n• 14 Boutiques Personales\n• 12 Boutiques Influencers",
+      electronics: "📱 Electrónica:\n• Smartphones\n• Portátiles\n• Audio\n• Smart Home\n• Consolas",
+      fashion: "👔 Moda:\n• Ropa hombre\n• Ropa mujer\n• Zapatos\n• Joyería\n• Bolsos",
+      home: "🏠 Hogar:\n• Muebles\n• Cocina\n• Baño\n• Jardín\n• Herramientas",
+      books: "📚 Libros:\n• Bestsellers\n• Ficción\n• No ficción\n• Educativos"
     },
     it: {
-      welcome: "👋 Ciao! Sono il tuo assistente shopping REUSSITESS®. Come posso aiutarti oggi?",
+      welcome: "👋 Ciao! Sono il tuo assistente shopping REUSSITESS®. Come posso aiutarti?",
       placeholder: "Scrivi il tuo messaggio...",
-      send: "Invia",
       typing: "Bot sta scrivendo...",
       quickReplies: ["Trova prodotti", "Più venduti", "Paesi", "Aiuto"],
-      countries: "🌍 Copriamo 14 paesi con 26 negozi Amazon: USA, Canada, UK, Francia, Germania, Italia, Spagna, Brasile, India, Australia, Paesi Bassi, Svezia, Singapore, Belgio.",
-      help: "Posso aiutarti a:\n✓ Trovare prodotti in 26 negozi Amazon\n✓ Confrontare prezzi in diversi paesi\n✓ Raccomandare i più venduti\n✓ Navigare nelle nostre boutique\n✓ Rispondere a domande sugli acquisti Amazon",
-      error: "Scusa, non ho capito. Prova: 'aiuto', 'paesi' o 'trova prodotti'",
-      products: "🛍️ Che tipo di prodotto cerchi? (elettronica, moda, casa, libri, ecc.)",
-      bestSellers: "⭐ I nostri più venduti includono elettronica, moda, articoli per la casa e libri. Quale categoria ti interessa?",
-      boutiques: "🏪 Abbiamo:\n• 14 Boutique Personali (collezioni curate)\n• 12 Boutique Influencer (selezioni tendenza)\nQuale vorresti esplorare?",
-      electronics: "📱 Elettronica popolare:\n• Smartphone & Tablet\n• Laptop & Computer\n• Audio & Cuffie\n• Dispositivi Smart Home\n• Console di gioco",
-      fashion: "👔 Categorie moda:\n• Abbigliamento uomo\n• Abbigliamento donna\n• Scarpe & Accessori\n• Gioielli & Orologi\n• Borse & Bagagli",
-      home: "🏠 Articoli per la casa:\n• Mobili & Decorazioni\n• Cucina & Sala da pranzo\n• Biancheria & Bagno\n• Giardino & Esterno\n• Attrezzi & Fai da te",
-      books: "📚 Categorie libri:\n• Bestseller\n• Narrativa & Letteratura\n• Saggistica\n• Educativi\n• E-book & Audiolibri"
+      countries: "🌍 Copriamo 14 paesi con 26 negozi Amazon.",
+      help: "Posso aiutarti a:\n✓ Trovare prodotti\n✓ Confrontare prezzi\n✓ Raccomandare più venduti",
+      error: "Scusa, non ho capito. Prova: 'aiuto', 'paesi'",
+      products: "🛍️ Che tipo di prodotto cerchi?",
+      bestSellers: "⭐ I nostri più venduti: elettronica, moda, casa, libri.",
+      boutiques: "🏪 Abbiamo:\n• 14 Boutique Personali\n• 12 Boutique Influencer",
+      electronics: "📱 Elettronica:\n• Smartphone\n• Laptop\n• Audio\n• Smart Home\n• Console",
+      fashion: "👔 Moda:\n• Abbigliamento uomo\n• Abbigliamento donna\n• Scarpe\n• Gioielli\n• Borse",
+      home: "🏠 Casa:\n• Mobili\n• Cucina\n• Bagno\n• Giardino\n• Attrezzi",
+      books: "📚 Libri:\n• Bestseller\n• Narrativa\n• Saggistica\n• Educativi"
     },
     pt: {
-      welcome: "👋 Olá! Sou seu assistente de compras REUSSITESS®. Como posso ajudá-lo hoje?",
+      welcome: "👋 Olá! Sou seu assistente de compras REUSSITESS®. Como posso ajudar?",
       placeholder: "Digite sua mensagem...",
-      send: "Enviar",
       typing: "Bot está digitando...",
       quickReplies: ["Buscar produtos", "Mais vendidos", "Países", "Ajuda"],
-      countries: "🌍 Cobrimos 14 países com 26 lojas Amazon: EUA, Canadá, UK, França, Alemanha, Itália, Espanha, Brasil, Índia, Austrália, Holanda, Suécia, Singapura, Bélgica.",
-      help: "Posso ajudá-lo a:\n✓ Encontrar produtos em 26 lojas Amazon\n✓ Comparar preços em diferentes países\n✓ Recomendar os mais vendidos\n✓ Navegar em nossas boutiques\n✓ Responder perguntas sobre compras Amazon",
-      error: "Desculpe, não entendi. Tente: 'ajuda', 'países' ou 'buscar produtos'",
-      products: "🛍️ Que tipo de produto você procura? (eletrônicos, moda, casa, livros, etc.)",
-      bestSellers: "⭐ Nossos mais vendidos incluem eletrônicos, moda, itens para casa e livros. Qual categoria te interessa?",
-      boutiques: "🏪 Temos:\n• 14 Boutiques Pessoais (coleções curadas)\n• 12 Boutiques de Influenciadores (seleções tendência)\nQual você gostaria de explorar?",
-      electronics: "📱 Eletrônicos populares:\n• Smartphones & Tablets\n• Laptops & Computadores\n• Áudio & Fones\n• Dispositivos Smart Home\n• Consoles de jogos",
-      fashion: "👔 Categorias de moda:\n• Roupas masculinas\n• Roupas femininas\n• Sapatos & Acessórios\n• Joias & Relógios\n• Bolsas & Bagagem",
-      home: "🏠 Itens para casa:\n• Móveis & Decoração\n• Cozinha & Jantar\n• Cama & Banho\n• Jardim & Externo\n• Ferramentas & Reformas",
-      books: "📚 Categorias de livros:\n• Bestsellers\n• Ficção & Literatura\n• Não-ficção\n• Educacionais\n• E-books & Audiolivros"
+      countries: "🌍 Cobrimos 14 países com 26 lojas Amazon.",
+      help: "Posso ajudar a:\n✓ Encontrar produtos\n✓ Comparar preços\n✓ Recomendar mais vendidos",
+      error: "Desculpe, não entendi. Tente: 'ajuda', 'países'",
+      products: "🛍️ Que tipo de produto procura?",
+      bestSellers: "⭐ Nossos mais vendidos: eletrônicos, moda, casa, livros.",
+      boutiques: "🏪 Temos:\n• 14 Boutiques Pessoais\n• 12 Boutiques Influenciadores",
+      electronics: "📱 Eletrônicos:\n• Smartphones\n• Laptops\n• Áudio\n• Smart Home\n• Consoles",
+      fashion: "👔 Moda:\n• Roupas masculinas\n• Roupas femininas\n• Sapatos\n• Joias\n• Bolsas",
+      home: "🏠 Casa:\n• Móveis\n• Cozinha\n• Banho\n• Jardim\n• Ferramentas",
+      books: "📚 Livros:\n• Bestsellers\n• Ficção\n• Não-ficção\n• Educacionais"
     }
   };
 
@@ -151,7 +140,6 @@ const BotAssistant = () => {
     return translations[language]?.[key] || translations['en'][key] || '';
   };
 
-  // Analyse intelligente des messages
   const analyzeMessage = (message) => {
     const lowerMsg = message.toLowerCase();
     
@@ -170,7 +158,7 @@ const BotAssistant = () => {
       return { intent: 'help', confidence: 0.9 };
     }
 
-    const productKeywords = ['find', 'search', 'looking for', 'product', 'trouver', 'cherche', 'buscar', 'producto', 'produit'];
+    const productKeywords = ['find', 'search', 'looking', 'product', 'trouver', 'cherche', 'buscar'];
     if (productKeywords.some(k => lowerMsg.includes(k))) {
       return { intent: 'products', confidence: 0.8 };
     }
@@ -188,7 +176,7 @@ const BotAssistant = () => {
       }
     }
 
-    const bestSellerKeywords = ['best', 'popular', 'top', 'meilleur', 'mejor', 'migliore'];
+    const bestSellerKeywords = ['best', 'popular', 'top', 'meilleur', 'mejor'];
     if (bestSellerKeywords.some(k => lowerMsg.includes(k))) {
       return { intent: 'bestSellers', confidence: 0.8 };
     }
@@ -269,7 +257,8 @@ const BotAssistant = () => {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 animate-pulse-slow"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50"
+        style={{ animation: 'pulse-slow 2s infinite' }}
         aria-label="Open chat assistant"
       >
         {isOpen ? (
@@ -284,7 +273,7 @@ const BotAssistant = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50 border border-gray-200 animate-slide-up">
+        <div className="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50 border border-gray-200" style={{ animation: 'slide-up 0.3s ease-out' }}>
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
@@ -315,7 +304,8 @@ const BotAssistant = () => {
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
+                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                style={{ animation: 'fade-in 0.3s ease-out' }}
               >
                 <div
                   className={`max-w-[80%] rounded-2xl px-4 py-3 ${
@@ -333,7 +323,7 @@ const BotAssistant = () => {
             ))}
             
             {isTyping && (
-              <div className="flex justify-start animate-fade-in">
+              <div className="flex justify-start" style={{ animation: 'fade-in 0.3s ease-out' }}>
                 <div className="bg-white rounded-2xl px-4 py-3 shadow-md">
                   <div className="flex space-x-2">
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
@@ -416,18 +406,6 @@ const BotAssistant = () => {
           50% {
             box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
           }
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.3s ease-out;
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.3s ease-out;
-        }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 2s infinite;
         }
       `}</style>
     </>
