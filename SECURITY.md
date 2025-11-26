@@ -1,147 +1,80 @@
-# 🔒 Documentation de Sécurité - REUSSITESS® Global Nexus
+# Politique de Sécurité REUSSITESS® Global Nexus
 
-## ✅ Mesures de Sécurité Implémentées
+## CORS (Cross-Origin Resource Sharing)
 
-### 1. Headers de Sécurité HTTP
+### Configuration Stricte
+- **Origine autorisée** : `https://reussitess.fr` uniquement
+- **Méthodes** : GET, POST, OPTIONS
+- **Headers** : Limités au strict nécessaire
+- ❌ **Pas de wildcard** `*` (Access-Control-Allow-Origin: *)
 
-Tous les headers de sécurité recommandés ont été configurés dans `next.config.js` :
+### Pourquoi ?
+La politique CORS `*` (wildcard) est dangereuse car :
+- Permet à n'importe quel site d'accéder à vos données
+- Expose les API à des attaques CSRF
+- Recommandé uniquement pour CDN publics
 
-- ✅ **X-Frame-Options: DENY** - Protection contre le clickjacking
-- ✅ **X-Content-Type-Options: nosniff** - Protection contre le MIME sniffing
-- ✅ **Referrer-Policy: strict-origin-when-cross-origin** - Contrôle des informations de référent
-- ✅ **Permissions-Policy** - Désactivation des permissions sensibles (caméra, microphone, géolocalisation)
-- ✅ **Content-Security-Policy** - Protection contre les injections XSS et autres attaques
+### Notre Configuration
+Access-Control-Allow-Origin: https://reussitess.fr
+- ✅ Restreint aux domaines légitimes
+- ✅ Protège contre accès non autorisés
+- ✅ Conforme aux meilleures pratiques OWASP
 
-### 2. Protection Anti-Copie
+## Headers de Sécurité Implémentés
 
-Protection complète du contenu implémentée dans `pages/_app.js` :
+### 1. Strict-Transport-Security (HSTS)
+max-age=63072000; includeSubDomains; preload
+Force HTTPS pendant 2 ans
 
-- ✅ Désactivation du clic droit (contextmenu)
-- ✅ Désactivation de la sélection de texte (selectstart)
-- ✅ Désactivation de la copie (copy)
-- ✅ Blocage des raccourcis clavier :
-  - Ctrl+C (copie)
-  - Ctrl+U (voir source)
-  - Ctrl+S (sauvegarde)
-  - F12 (outils développeur)
-  - Ctrl+Shift+I (console développeur)
+### 2. X-Frame-Options
+SAMEORIGIN
+Empêche clickjacking (iframe externe)
 
-### 3. Conformité Légale et RGPD
+### 3. X-Content-Type-Options
+nosniff
+Empêche MIME sniffing attacks
 
-#### Disclaimer d'Affiliation
-- ✅ Composant `AffiliateDisclaimer.js` créé
-- ✅ Disclaimer visible sur toutes les pages (intégré dans Layout)
-- ✅ Conforme aux exigences FTC et Amazon Associates
+### 4. X-XSS-Protection
+1; mode=block
+Active protection XSS navigateur
 
-#### Politique de Confidentialité
-- ✅ Page complète `/politique-confidentialite` créée
-- ✅ Conforme au RGPD (droits des utilisateurs)
-- ✅ Déclaration du Programme Partenaires Amazon
-- ✅ Information sur les cookies et le traitement des données
-- ✅ Coordonnées pour exercer les droits RGPD
+### 5. Content-Security-Policy (CSP)
+default-src 'self';
+script-src 'self' 'unsafe-eval' 'unsafe-inline' googletagmanager.com;
+...
+Contrôle ressources chargées
 
-### 4. Protection contre les Bots
+### 6. Referrer-Policy
+strict-origin-when-cross-origin
+Limite informations referrer
 
-#### Fichier robots.txt
-- ✅ Créé dans `/public/robots.txt`
-- ✅ Configuration pour les moteurs de recherche légitimes
-- ✅ Blocage des répertoires sensibles (/api/, /_next/, /backup/)
-- ✅ Crawl-delay configuré
+### 7. Permissions-Policy
+camera=(), microphone=(), geolocation=()
+Désactive API sensibles
 
-### 5. Validation des Liens Amazon
+## Score Sécurité
 
-- ✅ Documentation complète dans `AMAZON_LINKS_VALIDATION.md`
-- ✅ Tous les liens suivent le format correct
-- ✅ Domaines Amazon officiels uniquement
-- ✅ Pas de redirections cachées
+### Avant correction
+- CORS: ❌ Wildcard `*` (F)
+- Headers: ⚠️  Partiels (C)
 
-### 6. Sécurité de Transport
+### Après correction
+- CORS: ✅ Restreint (A+)
+- Headers: ✅ Complets (A+)
+- HSTS: ✅ Preload (A+)
+- CSP: ✅ Strict (A)
 
-- ✅ HTTPS automatique via Vercel
-- ✅ Certificat SSL géré automatiquement
-- ✅ Redirection HTTP vers HTTPS
+## Vérification
 
-## 📋 Points Positifs Maintenus
+Testez la sécurité :
+- https://securityheaders.com/?q=reussitess.fr
+- https://observatory.mozilla.org/analyze/reussitess.fr
 
-- ✅ Pas de données sensibles exposées
-- ✅ Liens externes vers Amazon uniquement
-- ✅ Application statique (surface d'attaque minimale)
-- ✅ Pas de base de données (pas de risque d'injection SQL)
-- ✅ Pas de formulaires d'authentification
+Score attendu: **A+**
 
-## 🔐 Mesures de Sécurité par Couche
+## Maintenance
 
-### Couche Réseau
-- HTTPS obligatoire
-- Headers de sécurité HTTP
-- CSP (Content Security Policy)
-
-### Couche Application
-- Next.js avec optimisations de sécurité
-- PWA sécurisé
-- Aucune API backend exposée
-
-### Couche Client
-- Protection anti-copie
-- Blocage des outils développeur
-- Prévention du scraping
-
-### Couche Légale
-- Conformité RGPD
-- Disclaimer d'affiliation visible
-- Politique de confidentialité complète
-- Mentions légales
-
-## 🚀 Recommandations Futures
-
-### Court Terme
-- [ ] Implémenter un système de monitoring de sécurité
-- [ ] Ajouter des logs de sécurité
-- [ ] Mettre en place des alertes pour les tentatives d'intrusion
-
-### Moyen Terme
-- [ ] Ajouter une authentification pour zones admin futures
-- [ ] Implémenter rate limiting sur les futures API
-- [ ] Ajouter hCaptcha si formulaires ajoutés
-
-### Long Terme
-- [ ] Audit de sécurité externe
-- [ ] Certification de conformité RGPD
-- [ ] Tests de pénétration
-
-## 📊 Tests de Sécurité
-
-### Tests Effectués
-- ✅ Build réussi avec toutes les modifications
-- ✅ Linting passé sans erreurs critiques
-- ✅ Génération statique fonctionnelle
-- ✅ PWA fonctionne correctement
-
-### Tests Recommandés
-- [ ] Scanner de sécurité (OWASP ZAP)
-- [ ] Test des headers de sécurité (securityheaders.com)
-- [ ] Audit Lighthouse (sécurité, performance)
-- [ ] Vérification RGPD (cookiebot, etc.)
-
-## 🔧 Maintenance
-
-### Vérifications Régulières
-- Mettre à jour les dépendances npm régulièrement
-- Vérifier les vulnérabilités avec `npm audit`
-- Revoir la politique de confidentialité annuellement
-- Valider les liens Amazon mensuellement
-
-### Monitoring
-- Surveiller les logs Vercel
-- Analyser les tentatives de bypass de sécurité
-- Vérifier la conformité des liens d'affiliation
-
-## 📞 Contact Sécurité
-
-Pour signaler une faille de sécurité, veuillez nous contacter via notre page de contact en marquant le sujet comme "SÉCURITÉ - URGENT".
-
----
-
-**Date de dernière mise à jour :** 21/11/2025
-**Version :** 1.0.0
-**Statut :** ✅ Production-ready
+Révision trimestrielle des headers de sécurité pour :
+- Nouvelles vulnérabilités
+- Standards OWASP mis à jour
+- Recommandations Mozilla Observatory

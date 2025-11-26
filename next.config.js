@@ -1,95 +1,105 @@
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development'
-});
-
-module.exports = withPWA({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    domains: ['m.media-amazon.com', 'images-na.ssl-images-amazon.com'],
-  },
+  
+  // Headers de sécurité optimaux
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/:path*',
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY',
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://reussitess.fr, https://www.reussitess.fr, https://reussitess-global-nexus-jfgk.vercel.app'
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS'
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com https://static.cloudflareinsights.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "img-src 'self' data: https: blob:",
-              "font-src 'self' data: https://fonts.gstatic.com",
-              "connect-src 'self' https://vercel.live https://va.vercel-insights.com https://cloudflareinsights.com https://*.amazon.com https://*.amazon.co.uk https://*.amazon.de https://*.amazon.fr https://*.amazon.it https://*.amazon.es https://*.amazon.ca https://*.amazon.com.br https://*.amazon.in https://*.amazon.com.au https://*.amazon.nl https://*.amazon.se https://*.amazon.sg https://*.amazon.com.be",
-              "frame-src 'self' https://vercel.live",
-              "worker-src 'self' blob:",
-              "object-src 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-              "frame-ancestors 'none'",
-              "block-all-mixed-content",
-              "upgrade-insecure-requests"
-            ].join('; ')
-          },
-          {
-            key: 'Permissions-Policy',
-            value: [
-              'camera=()',
-              'microphone=()',
-              'geolocation=()',
-              'interest-cohort=()',
-              'payment=()',
-              'usb=()',
-              'magnetometer=()',
-              'gyroscope=()',
-              'accelerometer=()',
-              'ambient-light-sensor=()',
-              'autoplay=()',
-              'encrypted-media=()',
-              'fullscreen=(self)',
-              'picture-in-picture=()',
-              'display-capture=()',
-              'document-domain=()'
-            ].join(', ')
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-Requested-With, Content-Type, Authorization'
           },
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
           },
           {
-            key: 'X-Download-Options',
-            value: 'noopen'
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload'
           },
           {
-            key: 'X-Permitted-Cross-Domain-Policies',
-            value: 'none'
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://cdn.vercel-insights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com https://api.anthropic.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
           }
-        ],
+        ]
       },
+      // Headers spécifiques pour API
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://reussitess.fr'
+          },
+          {
+            key: 'Access-Control-Allow-Credentials',
+            value: 'true'
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS'
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+          }
+        ]
+      }
     ];
   },
-});
+
+  // Configuration images optimisée
+  images: {
+    domains: [
+      'reussitess.fr',
+      'www.reussitess.fr',
+      'reussitess-global-nexus-jfgk.vercel.app'
+    ],
+    formats: ['image/avif', 'image/webp']
+  },
+
+  // Redirections
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true
+      }
+    ];
+  }
+};
+
+module.exports = nextConfig;
