@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "alias": ["reussitess.fr", "www.reussitess.fr"],
   "redirects": [
     {
-      "source": "https://www.reussitess.fr/:path*",
-      "destination": "https://reussitess.fr/:path*",
+      "source": "/www.reussitess.fr/:path*",
+      "destination": "/:path*",
       "permanent": true
     }
   ]
