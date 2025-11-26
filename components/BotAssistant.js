@@ -6,31 +6,29 @@ const BotAssistant = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [currentLang, setCurrentLang] = useState('fr');
   const [isTyping, setIsTyping] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const messagesEndRef = useRef(null);
 
   // Langues disponibles avec drapeaux
   const languages = {
-    fr: { flag: '🇫🇷', name: 'Français' },
-    en: { flag: '🇬🇧', name: 'English' },
-    es: { flag: '🇪🇸', name: 'Español' },
-    de: { flag: '🇩🇪', name: 'Deutsch' },
-    it: { flag: '🇮🇹', name: 'Italiano' },
-    pt: { flag: '🇵🇹', name: 'Português' },
-    ar: { flag: '🇸🇦', name: 'العربية' },
-    zh: { flag: '🇨🇳', name: '中文' }
+    fr: { flag: '🇫🇷', name: 'Français', voice: 'fr-FR' },
+    en: { flag: '🇬🇧', name: 'English', voice: 'en-US' },
+    es: { flag: '🇪🇸', name: 'Español', voice: 'es-ES' },
+    de: { flag: '🇩🇪', name: 'Deutsch', voice: 'de-DE' },
+    it: { flag: '🇮🇹', name: 'Italiano', voice: 'it-IT' },
+    pt: { flag: '🇵🇹', name: 'Português', voice: 'pt-PT' },
+    ar: { flag: '🇸🇦', name: 'العربية', voice: 'ar-SA' },
+    zh: { flag: '🇨🇳', name: '中文', voice: 'zh-CN' }
   };
 
   // Base de connaissances COMPLÈTE
   const knowledgeBase = {
-    // BOUTIQUES
     boutiques: {
       total: 26,
       pays: ['France', 'USA', 'Allemagne', 'Italie', 'Espagne', 'Canada', 'UK', 'Australie', 'Brésil', 'Belgique', 'Pays-Bas', 'Suède', 'Singapour', 'Inde'],
       types: ['14 boutiques personnelles', '12 boutiques influenceurs'],
-      url: 'https://reussitess-global-nexus-jfgk.vercel.app/'
+      url: 'https://reussitess.fr'
     },
-
-    // BIBLIOTHÈQUE - 37 PAGES
     bibliotheque: {
       total: 37,
       regions: {
@@ -102,8 +100,6 @@ const BotAssistant = () => {
         }
       }
     },
-
-    // ASTUCES
     astuces: {
       sections: [
         {
@@ -202,6 +198,36 @@ const BotAssistant = () => {
     }
   };
 
+  // Fonction Text-to-Speech
+  const speakText = (text) => {
+    // Arrêter la lecture en cours
+    window.speechSynthesis.cancel();
+    
+    setIsSpeaking(true);
+    
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = languages[currentLang].voice;
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+    utterance.volume = 1.0;
+    
+    utterance.onend = () => {
+      setIsSpeaking(false);
+    };
+    
+    utterance.onerror = () => {
+      setIsSpeaking(false);
+    };
+    
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // Arrêter la lecture
+  const stopSpeaking = () => {
+    window.speechSynthesis.cancel();
+    setIsSpeaking(false);
+  };
+
   // Obtenir salutation selon heure
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -216,22 +242,18 @@ const BotAssistant = () => {
   const generateResponse = (input) => {
     const lowerInput = input.toLowerCase();
 
-    // Salutations
     if (/^(bonjour|salut|hello|hi|hola|ciao|ola|مرحبا|你好)$/i.test(lowerInput)) {
       return `${getGreeting()} ${greetings[currentLang].welcome}`;
     }
 
-    // Au revoir
     if (/^(au revoir|bye|adios|ciao|tchau|وداعا|再见)$/i.test(lowerInput)) {
       return greetings[currentLang].goodbye;
     }
 
-    // Boutiques
     if (lowerInput.includes('boutique') || lowerInput.includes('shop') || lowerInput.includes('store')) {
       return `🛍️ REUSSITESS® Global Nexus compte ${knowledgeBase.boutiques.total} boutiques Amazon dans ${knowledgeBase.boutiques.pays.length} pays :\n\n${knowledgeBase.boutiques.pays.join(', ')}\n\nDont ${knowledgeBase.boutiques.types.join(' et ')}.\n\n🔗 Accès : ${knowledgeBase.boutiques.url}`;
     }
 
-    // Bibliothèque
     if (lowerInput.includes('bibliothèque') || lowerInput.includes('library') || lowerInput.includes('cultura')) {
       let response = `📚 Notre bibliothèque mondiale contient ${knowledgeBase.bibliotheque.total} pages détaillées :\n\n`;
       Object.entries(knowledgeBase.bibliotheque.regions).forEach(([region, data]) => {
@@ -241,19 +263,14 @@ const BotAssistant = () => {
     }
 
     // Recherche pays spécifique
-    Object.entries(knowledgeBase.bibliotheque.regions).forEach(([region, data]) => {
-      data.pays.forEach(pays => {
+    for (const [region, data] of Object.entries(knowledgeBase.bibliotheque.regions)) {
+      for (const pays of data.pays) {
         if (lowerInput.includes(pays.nom.toLowerCase())) {
-          return `🌍 ${pays.nom}\n\n` +
-                 `📍 Capitale : ${pays.capitale}\n` +
-                 `👥 Population : ${pays.pop}\n\n` +
-                 `🏛️ Patrimoine :\n${pays.patrimoine.map(p => `• ${p}`).join('\n')}\n\n` +
-                 `🔗 Plus d'infos : /bibliotheque`;
+          return `🌍 ${pays.nom}\n\n📍 Capitale : ${pays.capitale}\n👥 Population : ${pays.pop}\n\n🏛️ Patrimoine :\n${pays.patrimoine.map(p => `• ${p}`).join('\n')}\n\n🔗 Plus d'infos : /bibliotheque`;
         }
-      });
-    });
+      }
+    }
 
-    // Astuces
     if (lowerInput.includes('astuce') || lowerInput.includes('tip') || lowerInput.includes('conseil')) {
       let response = '💡 Nos sections d\'astuces :\n\n';
       knowledgeBase.astuces.sections.forEach(section => {
@@ -262,60 +279,39 @@ const BotAssistant = () => {
       return response + '\n🔗 Détails : /astuces';
     }
 
-    // Amazon
     if (lowerInput.includes('amazon') || lowerInput.includes('deal') || lowerInput.includes('promo')) {
       return `🛒 Astuces Amazon Pro :\n\n${knowledgeBase.astuces.sections[0].tips.map(t => `✅ ${t}`).join('\n')}\n\n🔗 Plus : /astuces`;
     }
 
-    // Business
     if (lowerInput.includes('business') || lowerInput.includes('gagner') || lowerInput.includes('money') || lowerInput.includes('revenu')) {
       return `💼 Business rentables 2025 :\n\n${knowledgeBase.astuces.sections[1].rentables.map(b => `💰 ${b}`).join('\n')}\n\n🔗 Détails : /astuces`;
     }
 
-    // Influenceurs
     if (lowerInput.includes('influenceur') || lowerInput.includes('influencer') || lowerInput.includes('youtube') || lowerInput.includes('tiktok')) {
       return `⭐ Top Influenceurs 2025 :\n\n${knowledgeBase.astuces.sections[2].top.map(i => `🏆 ${i}`).join('\n')}\n\n🔗 Plus : /astuces`;
     }
 
-    // IA
     if (lowerInput.includes('ia') || lowerInput.includes('ai') || lowerInput.includes('intelligence') || lowerInput.includes('chatgpt')) {
       return `🤖 Gagner avec IA :\n\n${knowledgeBase.astuces.sections[3].methodes.map(m => `💡 ${m}`).join('\n')}\n\n🔗 Guide complet : /astuces`;
     }
 
-    // Santé naturelle
     if (lowerInput.includes('santé') || lowerInput.includes('remède') || lowerInput.includes('plante') || lowerInput.includes('health')) {
       return `🌿 Remèdes & Plantes :\n\n${knowledgeBase.astuces.sections[4].remedes.slice(0,3).map(r => `✅ ${r}`).join('\n')}\n\n${knowledgeBase.astuces.sections[5].plantes.slice(0,3).map(p => `🍃 ${p}`).join('\n')}\n\n🔗 Complet : /astuces`;
     }
 
-    // Aide
     if (lowerInput.includes('aide') || lowerInput.includes('help') || lowerInput.includes('?')) {
-      return `❓ Je peux vous aider sur :\n\n` +
-             `🛍️ Nos 26 boutiques Amazon\n` +
-             `📚 Bibliothèque 37 pages culturelles\n` +
-             `💡 Astuces Amazon, business, IA\n` +
-             `⭐ Influenceurs et revenus\n` +
-             `🌿 Remèdes naturels et plantes\n` +
-             `🗺️ Informations pays spécifiques\n\n` +
-             `Posez-moi n'importe quelle question !`;
+      return `❓ Je peux vous aider sur :\n\n🛍️ Nos 26 boutiques Amazon\n📚 Bibliothèque 37 pages culturelles\n💡 Astuces Amazon, business, IA\n⭐ Influenceurs et revenus\n🌿 Remèdes naturels et plantes\n🗺️ Informations pays spécifiques\n\nPosez-moi n'importe quelle question !`;
     }
 
-    // Réponse par défaut
-    return `🤔 Je n'ai pas bien compris. Essayez :\n\n` +
-           `• "boutiques" pour nos 26 shops Amazon\n` +
-           `• "bibliothèque" pour les 37 pages culturelles\n` +
-           `• "astuces" pour nos conseils\n` +
-           `• Nom d'un pays (ex: "Sénégal", "Vietnam")\n` +
-           `• "aide" pour plus d'options`;
+    return `🤔 Je n'ai pas bien compris. Essayez :\n\n• "boutiques" pour nos 26 shops Amazon\n• "bibliothèque" pour les 37 pages culturelles\n• "astuces" pour nos conseils\n• Nom d'un pays (ex: "Sénégal", "Vietnam")\n• "aide" pour plus d'options`;
   };
 
-  // Initialisation avec message de bienvenue
+  // Initialisation
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setTimeout(() => {
-        setMessages([{
-          type: 'bot',
-          text: `${getGreeting()}\n\n${greetings[currentLang].welcome}`
-        }]);
+        const welcomeMsg = `${getGreeting()}\n\n${greetings[currentLang].welcome}`;
+        setMessages([{ type: 'bot', text: welcomeMsg }]);
       }, 300);
     }
   }, [isOpen]);
@@ -335,8 +331,9 @@ const BotAssistant = () => {
     setIsTyping(true);
 
     setTimeout(() => {
-      const botResponse = { type: 'bot', text: generateResponse(inputMessage) };
-      setMessages(prev => [...prev, botResponse]);
+      const botResponse = generateResponse(inputMessage);
+      const botMsg = { type: 'bot', text: botResponse };
+      setMessages(prev => [...prev, botMsg]);
       setIsTyping(false);
     }, 800);
   };
@@ -354,7 +351,7 @@ const BotAssistant = () => {
         </button>
       )}
 
-      {/* Fenêtre chat GRANDE */}
+      {/* Fenêtre chat GRANDE avec TTS */}
       {isOpen && (
         <div className="fixed bottom-8 right-8 z-50 bg-white rounded-3xl shadow-2xl flex flex-col" style={{ width: '450px', height: '700px' }}>
           
@@ -365,7 +362,7 @@ const BotAssistant = () => {
                 <div className="text-4xl">🤖</div>
                 <div>
                   <h3 className="text-2xl font-bold">Assistant REUSSITESS®</h3>
-                  <p className="text-sm opacity-90">Intelligent • Autonome • Multilingue</p>
+                  <p className="text-sm opacity-90">Intelligent • Vocal • Multilingue</p>
                 </div>
               </div>
               <button
@@ -400,14 +397,41 @@ const BotAssistant = () => {
                 key={idx}
                 className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div
-                  className={`max-w-[80%] p-4 rounded-2xl text-base whitespace-pre-wrap ${
-                    msg.type === 'user'
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                      : 'bg-white text-gray-800 shadow-md'
-                  }`}
-                >
-                  {msg.text}
+                <div className="flex flex-col gap-2 max-w-[80%]">
+                  <div
+                    className={`p-4 rounded-2xl text-base whitespace-pre-wrap ${
+                      msg.type === 'user'
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                        : 'bg-white text-gray-800 shadow-md'
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
+                  
+                  {/* Bouton vocal pour messages bot */}
+                  {msg.type === 'bot' && (
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => speakText(msg.text)}
+                        disabled={isSpeaking}
+                        className={`px-3 py-1 rounded-lg text-sm font-bold transition ${
+                          isSpeaking
+                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                            : 'bg-green-500 text-white hover:bg-green-600'
+                        }`}
+                      >
+                        {isSpeaking ? '⏸️ En cours...' : '🔊 Écouter'}
+                      </button>
+                      {isSpeaking && (
+                        <button
+                          onClick={stopSpeaking}
+                          className="px-3 py-1 rounded-lg text-sm font-bold bg-red-500 text-white hover:bg-red-600 transition"
+                        >
+                          ⏹️ Stop
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
