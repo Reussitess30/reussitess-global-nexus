@@ -1,10 +1,7 @@
 {
-  "alias": [
-    "www.reussitess.fr",
-    "reussitess.fr"
-  ],
+  "version": 2,
+  "alias": ["www.reussitess.fr", "reussitess.fr"],
   "regions": ["iad1"],
-  "buildCommand": "npm run build",
   "framework": "nextjs",
   "redirects": [
     {
@@ -25,7 +22,20 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "value": "public, max-age=0, s-maxage=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
