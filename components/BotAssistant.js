@@ -19,132 +19,125 @@ export default function BotAssistant() {
   ];
 
   const greetings = {
-    'fr-FR': 'Bonjour ! Je suis votre assistant REUSSITESS. Je connais 61 pages de patrimoine mondial et 26 boutiques Amazon dans 14 pays sur 5 continents. Posez-moi vos questions !',
-    'en-US': 'Hello! I am your REUSSITESS assistant. I know 61 pages of world heritage and 26 Amazon stores in 14 countries across 5 continents. Ask me anything!',
-    'es-ES': '¡Hola! Soy tu asistente REUSSITESS. Conozco 61 páginas de patrimonio mundial y 26 tiendas Amazon en 14 países. ¡Pregúntame!',
-    'de-DE': 'Hallo! Ich bin Ihr REUSSITESS-Assistent. Ich kenne 61 Seiten Weltkulturerbe und 26 Amazon-Shops in 14 Ländern. Fragen Sie mich!',
-    'it-IT': 'Ciao! Sono il tuo assistente REUSSITESS. Conosco 61 pagine di patrimonio mondiale e 26 negozi Amazon in 14 paesi. Chiedimi!',
-    'pt-BR': 'Olá! Sou seu assistente REUSSITESS. Conheço 61 páginas de patrimônio mundial e 26 lojas Amazon em 14 países. Pergunte-me!'
+    'fr-FR': 'Bonjour ! Je suis votre assistant REUSSITESS cultivé. Je connais 62 pages de patrimoine mondial, 26 boutiques Amazon, PLUS des recettes de grand-mère, astuces shopping, culture générale et conseils voyage. Posez-moi toutes vos questions !',
+    'en-US': 'Hello! I am your cultured REUSSITESS assistant. I know 62 world heritage pages, 26 Amazon stores, PLUS grandmother recipes, shopping tips, general culture and travel advice. Ask me anything!',
+    'es-ES': '¡Hola! Soy tu asistente REUSSITESS culto. Conozco 62 páginas patrimonio, 26 tiendas Amazon, MÁS recetas abuela, consejos compras, cultura general. ¡Pregúntame!',
+    'de-DE': 'Hallo! Ich bin Ihr gebildeter REUSSITESS-Assistent. 62 Kulturerbe-Seiten, 26 Amazon-Shops, PLUS Oma-Rezepte, Einkaufstipps, Allgemeinwissen!',
+    'it-IT': 'Ciao! Sono il tuo assistente REUSSITESS colto. 62 pagine patrimonio, 26 negozi Amazon, PIÙ ricette nonna, consigli shopping, cultura generale!',
+    'pt-BR': 'Olá! Sou seu assistente REUSSITESS culto. 62 páginas patrimônio, 26 lojas Amazon, MAIS receitas vovó, dicas compras, cultura geral!'
   };
 
+  // BASE DE CONNAISSANCES EXHAUSTIVE + CULTURE + ASTUCES
   const knowledgeData = {
+    
+    // PAYS DÉTAILLÉS (11 avec Inde)
     france: {
       pays: 'France',
       capitale: 'Paris',
       population: '68 millions',
-      unesco: '49 sites UNESCO - Record Europe',
-      patrimoine: 'Tour Eiffel symbole mondial 1889, Versailles Louis XIV grandeur absolue, Mont-Saint-Michel abbaye marées Normandie, Châteaux Loire Renaissance Chambord Chenonceau, Vignobles Bordeaux vins premiers mondiaux, Lascaux art pariétal 17000 ans',
-      culture: 'Gastronomie UNESCO repas français, Louvre musée plus visité Joconde, Mode Paris capitale Chanel Dior Louis Vuitton, Cinéma Festival Cannes Palme Or',
-      economie: '7e économie mondiale, TGV record 574 km/h ferroviaire, Airbus co-leader avions civils, Nucléaire 70% électricité, Tourisme N1 mondial 90M visiteurs',
+      unesco: '49 sites UNESCO Record Europe',
+      patrimoine: 'Tour Eiffel 1889 Gustave Eiffel 330m fer puddlé 7M visiteurs. Versailles Louis XIV 1682 château 2300 pièces jardins Le Nôtre. Mont-Saint-Michel abbaye marées 3M visiteurs merveille Occident. Châteaux Loire Renaissance Chambord 440 pièces François 1er. Vignobles Bordeaux Bourgogne Champagne terroirs AOC. Grotte Lascaux 17000 ans art pariétal taureaux chevaux.',
+      culture: 'Gastronomie UNESCO 2010 repas français art vivre baguette fromage vin. Louvre musée plus visité monde 10M Joconde Léonard Vinci. Mode Paris capitale Chanel 1910 petite robe noire Dior New Look 1947. Cinéma Cannes Palme Or Lumière 1895 invention.',
+      economie: '7e économie PIB 2800Md. TGV 1981 record 574 km/h Alstom ferroviaire. Airbus Toulouse A380 co-leader Boeing. Nucléaire 56 réacteurs 70% électricité indépendance. Tourisme N1 mondial 90M France destination préférée.',
+      recettes: 'Bœuf bourguignon grand-mère: bœuf 1kg carottes oignons vin rouge Bourgogne 6h mijotage doux. Blanquette veau traditionnelle: veau épaule carottes poireaux bouquet garni sauce blanche citron. Tarte Tatin 1880 sœurs Tatin Sologne pommes caramélisées renversée. Pot-au-feu dimanche: bœuf jarret légumes racines bouillon os moelle pain grillé.',
+      astuces: 'Shopping Paris Galeries Lafayette soldes janvier juillet -50%. Marché aux Puces Saint-Ouen samedi dimanche antiquités vintage négociation. Pass Museum Paris 48h 50 musées coupe-file Louvre Orsay. Train SNCF Ouigo low-cost Paris province 10€. Boulangeries quartier pain frais 7h artisan label meilleur croissant.',
+      voyage: 'Visiter Versailles mardi vendredi éviter weekend foule. Tour Eiffel réserver billets en ligne 3 mois avance sommet coucher soleil. Mont-Saint-Michel marée haute spectacle consulter horaires coefficients. Loire vélo châteaux Loire à Vélo 800km Chambord Chenonceau.',
       url: '/bibliotheque/europe/france'
     },
+
     italie: {
       pays: 'Italie',
       capitale: 'Rome',
       population: '59 millions',
-      unesco: '58 sites UNESCO - RECORD MONDIAL ABSOLU',
-      patrimoine: 'Colisée Rome amphithéâtre 50000 places Empire, Pompéi ville fossilisée Vésuve 79 AD, Florence berceau Renaissance Médicis Michel-Ange, Venise lagune 118 îles république millénaire, Vatican Chapelle Sixtine plus petit État',
-      culture: 'Renaissance Léonard Vinci Michel-Ange Raphaël révolution, Gastronomie pizza pasta cuisine plus influente, Opéra Verdi Puccini Pavarotti',
-      economie: '8e économie mondiale, Ferrari Lamborghini supercars luxe, Mode Milan Armani Versace Prada, Tourisme 65M destination',
+      unesco: '58 sites UNESCO RECORD MONDIAL ABSOLU',
+      patrimoine: 'Colisée Rome 70-80 AD Flaviens amphithéâtre 50000 places gladiateurs reconstitution 3D. Pompéi Herculanum Vésuve 79 AD ville fossilisée cendres maisons fresques corps figés. Florence berceau Renaissance Médicis 15e Michel-Ange David Duomo Brunelleschi. Venise lagune 118 îles République Sérénissime 1000 ans canaux gondoles Palais Doges. Vatican 44 hectares plus petit État Chapelle Sixtine Michel-Ange Jugement Dernier plafond 4 ans. Tour Pise campanile cathédrale 1173 inclinaison 3.97° 294 marches.',
+      culture: 'Renaissance 14e-17e Humanisme Léonard Vinci Cène homme Vitruve Michel-Ange Pietà Raphaël École Athènes. Gastronomie pizza Napolitaine UNESCO 2017 Margherita tomate mozzarella basilic. Pasta 300 formes carbonara amatriciana bolognaise al dente 8-10 min. Opéra bel canto Verdi Aida Rigoletto Puccini Tosca Madame Butterfly Pavarotti ténor.',
+      economie: '8e économie PIB 2000Md. Ferrari Maranello 1947 Enzo supercars F1 champions. Lamborghini Sant Agata Bolognese Aventador Huracán taureau. Mode Milan Fashion Week Armani 1975 tailleur Versace baroque Prada minimalisme. Tourisme 65M destination Rome Florence Venise Amalfi.',
+      recettes: 'Carbonara authentique: guanciale bacon joue porc œufs pecorino romano poivre noir SANS crème erreur. Risotto Milanais: riz Carnaroli safran beurre parmesan bouillon 18 min remuage crémeux. Tiramisu Venise 1960: savoiardi biscuits café Marsala mascarpone cacao amer 4h frais. Osso Buco Milanais: jarret veau tomates vin blanc gremolata zeste citron.',
+      astuces: 'Shopping outlets Serravalle près Milan Prada Gucci -70%. Marché Porta Portese Rome dimanche matin antiquités vintage cuir. Aperitivo Milan 18h-21h cocktail buffet gratuit Navigli. Train Italo Trenitalia concurrence billets flexibles. Café italien bar comptoir 1€ debout terrasse 5€ assis.',
+      voyage: 'Rome Pass 3 jours transport Colisée Vatican coupe-file. Florence Uffizi réserver mois avance David file attente. Venise vaporetto pass 24h éviter gondole 80€. Cinque Terre train régional illimité randonner villages. Toscane agriturismo fermes authentiques huile olive vin Chianti.',
       url: '/bibliotheque/europe/italie'
     },
-    allemagne: {
-      pays: 'Allemagne',
-      capitale: 'Berlin',
-      population: '84 millions',
-      unesco: '51 sites UNESCO',
-      patrimoine: 'Neuschwanstein château conte fées Louis II inspiration Disney, Mur Berlin symbole Guerre froide chute 1989, Cathédrale Cologne gothique 157m, Bach Beethoven titans musique Berlin Philharmonique',
-      culture: 'Philosophie Kant Hegel Nietzsche Marx Freud influence mondiale, Littérature Goethe Faust Schiller Grimm contes, Oktoberfest Munich fête bière 6M visiteurs',
-      economie: '4e économie mondiale puissance, Mercedes BMW VW Audi Porsche automobile excellence, Siemens Bosch ingénierie leaders',
-      url: '/bibliotheque/europe/allemagne'
+
+    inde: {
+      pays: 'Inde',
+      capitale: 'New Delhi',
+      population: '1.4 milliard',
+      unesco: '40 sites UNESCO 3e mondial',
+      patrimoine: 'Taj Mahal Agra 1653 Shah Jahan marbre blanc Mumtaz Mahal 20000 ouvriers 22 ans symétrie parfaite. Varanasi Bénarès Gange ville sacrée 3000 ans ghats crémation Dashashwamedh pèlerinage. Khajuraho 85 temples érotiques 1000 AD Chandela sculptures tantriques kamasutra pierre. Amber Fort Jaipur palais maharaja éléphants Sheesh Mahal miroirs. Golden Temple Amritsar 1604 Harmandir Sahib dôme or langar 100000 repas gratuits.',
+      culture: 'Bollywood Mumbai 1800 films/an plus grande industrie cinéma chants danses couleurs diaspora mondiale. Yoga Patanjali 5000 ans asanas pranayama méditation 300M pratiquants mondiaux UNESCO. Ayurveda médecine traditionnelle doshas vata pitta kapha plantes herbes massage wellness. Cricket religion Sachin Tendulkar dieu IPL ligue plus riche Coupe Monde 2011. Festivals Holi couleurs Diwali lumières Navaratri Durga Puja traditions vivantes.',
+      economie: '5e économie PIB 3500Md croissance 6-7%. Bangalore Silicon Valley Asie Infosys TCS Wipro IT outsourcing 5M ingénieurs. ISRO spatial Chandrayaan Lune Mars Mangalyaan lanceurs low-cost record satellites. Pharmacie monde 60% vaccins Serum Institute génériques Afrique Asie accessibles. UPI révolution paiement mobile 500M utilisateurs Paytm fintech inclusion rurale.',
+      recettes: 'Curry poulet Tikka Masala: marinade yaourt épices tandoori tomates crème fenugrec coriandre. Biryani Hyderabad: riz basmati safran viande agneau couches dum pukht parfum. Dal Makhani Pendjab: lentilles noires 8h mijotage beurre crème tomates onctueux. Samosa street food: triangles frits pommes terres pois épices chutney tamarin menthe.',
+      astuces: 'Shopping soie Varanasi pashmina Cachemire épices Kerala marchés locaux négociation prix divisé 3. Trains sleeper class AC économique réserver IRCTC 60 jours avance. Ayurveda Kerala massage abhyanga 14 jours panchakarma détox. Sim Jio Airtel aéroport data 4G illimité 10€/mois. Rickshaw tuk-tuk négocier moitié prix initial ou Uber Ola apps.',
+      voyage: 'Taj Mahal lever soleil vendredi fermé moins monde. Rajasthan palais maharajas Jaipur Udaipur Jodhpur forts désert Thar. Kerala backwaters houseboat 2 jours Alleppey nature tropicale. Goa plages portugais hippie Anjuna marché mercredi. Himalaya Ladakh Dharamsala monastères tibétains trekking altitude juin-septembre.',
+      url: '/bibliotheque/asie-pacifique/inde'
     },
-    royaumeuni: {
-      pays: 'Royaume-Uni',
-      capitale: 'Londres',
-      population: '67 millions',
-      unesco: '33 sites UNESCO',
-      patrimoine: 'Tour Londres forteresse 1066 Joyaux Couronne, Stonehenge mégalithique 3000 BC mystère, Big Ben Westminster Parlement démocratie, Shakespeare plus grand écrivain Hamlet Romeo',
-      culture: 'Beatles Rolling Stones Queen révolution rock, Anglais 1.5 milliard locuteurs lingua franca, Cinéma James Bond Harry Potter franchises',
-      economie: '6e économie mondiale, City Londres 2e finance mondiale, Premier League football plus regardé',
-      url: '/bibliotheque/europe/royaume-uni'
+
+    // CONNAISSANCES GÉNÉRALES CULTURE
+    'culture-generale': {
+      histoire: 'Révolution française 1789 Bastille Déclaration Droits Homme liberté égalité fraternité. Renaissance 15e Italie Humanisme redécouverte Antiquité Léonard Vinci Michel-Ange. Seconde Guerre 1939-1945 Débarquement Normandie 6 juin 1944 libération Europe Shoah 6M juifs. Chute Mur Berlin 9 novembre 1989 réunification Allemagne fin Guerre froide URSS.',
+      sciences: 'Einstein E=mc² relativité 1905 espace-temps courbure gravité Nobel. ADN double hélice Watson Crick 1953 code génétique ATCG chromosomes 23 paires. Périclès Athènes démocratie 5e siècle BC Parthénon Acropole philosophie Socrate Platon Aristote. Newton gravité pomme 1687 lois mouvement mécanique classique Principia Mathematica.',
+      arts: 'Impressionnisme Monet Nymphéas lumière couleurs Renoir Degas ballet. Picasso cubisme Guernica 1937 guerre civile espagnole Demoiselles Avignon révolution. Bach fugues contrepoint Passion Jean orgue. Mozart prodige 600 œuvres Requiem opéras Figaro symphonies.',
+      geographie: '7 continents Asie 44M km² plus grand Afrique Amériques Europe Océanie Antarctique. Océans Pacifique 165M km² Atlantique Indien Arctique Antarctique. Mont Everest 8849m plus haut Népal Tibet Hillary 1953. Amazone fleuve 6400 km poumon Terre biodiversité.'
     },
-    espagne: {
-      pays: 'Espagne',
-      capitale: 'Madrid',
-      population: '47 millions',
-      unesco: '50 sites UNESCO',
-      patrimoine: 'Alhambra Grenade palais nasride architecture islamique, Sagrada Família Gaudí construction 1882 Art nouveau, Flamenco UNESCO danse passion gitane andalouse',
-      culture: 'Tapas paella gastronomie méditerranéenne, Picasso Dalí Goya maîtres peinture, Don Quichotte Cervantes',
-      economie: '14e économie mondiale, Tourisme 83M 2e mondial soleil plages, Zara Inditex fast fashion',
-      url: '/bibliotheque/europe/espagne'
+
+    // RECETTES GRAND-MÈRE PAR PAYS
+    'recettes': {
+      france: 'Pot-au-feu dimanche bœuf jarret légumes racines bouillon 3h doux. Blanquette veau sauce blanche citron carottes champignons riz. Clafoutis Limousin cerises noires pâte crêpe four 180°C 30min. Soupe oignon gratinée pain gruyère bouillon bœuf cognac bistrot nuit.',
+      italie: 'Minestrone nonna légumes saison haricots pasta bouillon parmesan croûte. Pesto Genovese basilic pignons ail parmesan pecorino huile olive mortier. Panna cotta crème vanille gélatine coulis fruits rouges léger. Focaccia Ligurie huile olive romarin sel gros moelleux apéritif.',
+      bresil: 'Feijoada plat national haricots noirs viandes porc saucisses riz farofa orange. Moqueca Bahia poisson lait coco dendê tomates coriandre. Brigadeiro condensé cacao beurre billes chocolat fêtes enfants. Pão de queijo fromage tapioca boules moelleuses petit-déjeuner.',
+      inde: 'Chai masala thé cardamome gingembre cannelle clou girofle lait sucre. Lassi yaourt mangue rose salé digestif rafraîchissant. Khichdi riz lentilles curcuma ghee confort malade ayurveda. Gulab jamun boulettes lait rose sirop cardamome dessert festivals.',
+      maroc: 'Tajine agneau pruneaux miel cannelle amandes couscous vapeur. Harira soupe ramadan lentilles pois chiches tomates citron dattes. Pastilla pigeon amandes cannelle sucre glace feuilleté salé-sucré. Msemen crêpes feuilletées huile beurre miel petit-déjeuner.',
+      japon: 'Miso soupe pâte soja tofu algues wakame dashi bouillon. Onigiri boules riz nori umeboshi saumon bento portable. Tamagoyaki omelette sucrée roulée dashi mirin petit-déjeuner. Gyoza raviolis porc chou ail vapeur poêlés sauce soja.'
     },
-    suede: {
-      pays: 'Suède',
-      capitale: 'Stockholm',
-      population: '10.5 millions',
-      unesco: '15 sites UNESCO',
-      patrimoine: 'Stockholm Venise Nord 14 îles archipel, Palais Royal Drottningholm 1430 pièces plus grand habité, Laponie Sámi aurores boréales rennes',
-      culture: 'Prix Nobel Alfred Stockholm depuis 1901 excellence, IKEA Kamprad design démocratique meubles kit, ABBA Dancing Queen Spotify streaming',
-      economie: 'Modèle social scandinave, Qualité vie top égalité genre, Écologie zéro émission 2045',
-      url: '/bibliotheque/europe/suede'
+
+    // ASTUCES AMAZON SHOPPING
+    'astuces-amazon': {
+      generale: 'Amazon Prime livraison gratuite 24h essai 30 jours gratuit annulation facile. Black Friday novembre Cyber Monday réductions -70% listes souhaits alertes prix. Lightning Deals offres éclair limitées temps quantité notifications app mobile. Warehouse Deals produits retournés reconditionnés -30% garantie Amazon.',
+      comparaison: 'CamelCamelCamel tracker prix historique courbe meilleur moment acheter alertes baisse. Keepa extension Chrome historique prix graphique évolution tendances. Honey extension coupons automatiques codes promo cashback points. Amazon Assistant comparateur prix concurrence alerte baisse liste envies.',
+      categories: 'Livres Kindle Unlimited 10€/mois illimité lecture numérique. Amazon Fresh Pantry courses alimentaires abonnement Prime livraison gratuite. Amazon Warehouse électronique reconditionné garantie occasion économies. Handmade artisans créateurs unique personnalisé fait main.',
+      international: 'Amazon Global expédition internationale 14 pays USA produits exclusifs. Marketplace vendeurs tiers vérifier avis notations vendeur fiabilité. Amazon Renewed certifié reconditionné garantie 90 jours économies écologique. Subscribe Save abonnement produits récurrents -15% livraison automatique annulation.',
+      avis: 'Vine Programme testeurs vérifiés gratuit avis badge Achat Vérifié confiance. Questions-Réponses communauté clients informations détaillées avant achat. Comparer variantes tableau caractéristiques prix différences modèles. Photos clients réelles utilisation vs photos produit vendeur.'
     },
-    bresil: {
-      pays: 'Brésil',
-      capitale: 'Brasília',
-      population: '215 millions',
-      unesco: '23 sites UNESCO',
-      patrimoine: 'Christ Rédempteur Rio 38m Corcovado 7 merveilles, Amazonie 5.5M km2 poumon planète biodiversité, Chutes Iguaçu 275 cascades Garganta Diabo, Brasília Niemeyer architecture moderniste',
-      culture: 'Carnaval Rio 2M participants Sambodrome plus grande fête, Football 5 Coupes Monde Pelé Ronaldo Neymar religion, Samba Bossa Nova Tom Jobim UNESCO',
-      economie: '9e économie mondiale, Agriculture 1er café sucre orange, Embraer 3e avions jets, Énergie 85% hydroélectrique bioéthanol',
-      url: '/bibliotheque/amerique-sud/bresil'
+
+    // CONSEILS VOYAGE PATRIMOINE
+    'voyage-unesco': {
+      europe: 'Pass InterRail Europe illimité train 33 pays jeunes seniors économies. Airbnb appartements locaux authentique vs hôtels prix familles groupes. Hostels auberges jeunesse privés dortoirs propres sécurisés rencontres voyageurs. Visiter tôt matin sites UNESCO éviter foules chaleur photos lumière douce.',
+      asie: 'Visa électronique e-Visa Inde Thaïlande Vietnam 72h avance moins cher. Street food local marchés authentique hygiène files attente signe qualité. Temples tenue respectueuse épaules genoux couverts chaussures enlever. Négociation prix marchés diviser 3 initial sourire patience normal.',
+      ameriques: 'National Parks Pass USA 80$ année accès illimité 2000 sites parcs. Uber Lyft transports urbains économiques sécurisés vs taxis aéroports. Airbnb Experiences activités locales guides authentiques cuisine immersion. TSA PreCheck Global Entry douanes rapides aéroports USA voyageurs fréquents.',
+      afrique: 'Vaccins obligatoires fièvre jaune paludisme consulter médecin voyages 2 mois avance. Safari lodge camps tentes luxe nature animaux petit-déjeuner inclus. Pourboires guides chauffeurs rangers service 10-15% usage attendu. Saison sèche migration animaux meilleure période juin-octobre Tanzanie Kenya.',
+      pratique: 'Assurance voyage annulation rapatriement bagages santé mondial obligatoire. Copies passeport visa cloud email accès urgence perte vol. Adaptateurs électriques universels USB Europe Type C Asie UK USA. Apps offline Maps.me Google Maps télécharger cartes région WiFi.'
     },
-    singapour: {
-      pays: 'Singapour',
-      capitale: 'Singapour',
-      population: '5.9 millions',
-      patrimoine: 'Gardens Bay Supertrees 50m futuriste, Marina Bay Sands piscine toit plus haute, Changi meilleur aéroport cascade 40m, Merlion lion poisson emblème',
-      culture: 'Food Paradise hawker cuisines chinoise malaise indienne, GP F1 nuit Marina Bay, Shopping Orchard Road luxe',
-      economie: '3e hub financier mondial après Londres NYC, Port 1er maritime 37M EVP transhipment, Éducation PISA N1 mondiale',
-      url: '/bibliotheque/asie-pacifique/singapour'
+
+    // ANECDOTES HISTORIQUES UNESCO
+    'anecdotes-unesco': {
+      tajmahal: 'Taj Mahal change couleur selon lumière rose matin blanc midi doré coucher soleil. 20000 ouvriers 22 ans construction marbre Rajasthan transport éléphants 300km. Shah Jahan voulait jumeau noir Yamuna prison fils jamais construit légende. Minarets inclinés extérieur protection tremblement terre architecture génie.',
+      toureifel: 'Tour Eiffel devait détruite 20 ans 1909 sauvée antenne radio TSF utilité. Gustave Eiffel appartement sommet 300m reçoit savants Edison laboratoire. Peinture 60 tonnes repeinte tous 7 ans 25000m² 3 nuances dégradé. Hitler voulait détruire 1944 libération Paris général von Choltitz désobéi ordre.',
+      colisee: 'Colisée hypogée souterrain 80 ascenseurs trappes animaux gladiateurs surprise public. Velarium voile géante 240 mâts protection soleil pluie manœuvre 1000 marins. Batailles navales naumachies arène remplie eau spectacle reconstitution navale. Chrétiens martyrs légende historiens débattent amphithéâtre exécutions criminels.',
+      machupichu: 'Machu Picchu jamais découvert Espagnols caché nuages montagne oubli 400 ans. Hiram Bingham 1911 professeur Yale cherchait Vilcabamba trouvé cité perdue. Architecture anti-sismique pierres ajustées sans mortier tremblement terre résiste. Lamas gardiens site tondent herbe naturellement entretien écologique touristes photo.'
     },
-    australie: {
-      pays: 'Australie',
-      capitale: 'Canberra',
-      population: '26 millions',
-      unesco: '20 sites UNESCO',
-      patrimoine: 'Grande Barrière Corail 2300 km plus grand récif, Uluru Ayers Rock 348m sacré aborigène 30000 ans, Opéra Sydney voiles Utzon Harbour Bridge, Faune kangourous koalas 80% endémiques',
-      culture: 'Surf Bondi Beach lifestyle BBQ outdoor, Aborigènes 65000 ans culture plus ancienne Dreamtime, Vegemite meat pies cuisine',
-      economie: '13e économie mondiale, Mines 1er fer charbon or uranium, Éducation 8 universités Top 100, Qualité vie Melbourne Sydney top',
-      url: '/bibliotheque/asie-pacifique/australie'
-    },
-    nouvellezelande: {
-      pays: 'Nouvelle-Zélande',
-      capitale: 'Wellington',
-      population: '5.1 millions',
-      unesco: '3 sites UNESCO',
-      patrimoine: 'Milford Sound fjords glaciaires cascades 160m, Tongariro volcans Sauron Seigneur Anneaux, Culture Maori haka Te Reo langue officielle, Kiwi oiseau sans ailes endémique',
-      culture: '1er vote femmes 1893 Kate Sheppard pionnière, Peter Jackson Weta Workshop 17 Oscars, All Blacks rugby 77% victoires haka Ka Mate',
-      economie: 'Agriculture kiwi agneau laitiers export, Sports extrêmes bungy Queenstown, Qualité vie nature préservée',
-      url: '/bibliotheque/asie-pacifique/nouvelle-zelande'
-    },
+
+    // BOUTIQUES AMAZON DÉTAILLÉES
     amazon: {
-      info: 'REUSSITESS Global Nexus - 26 boutiques Amazon affiliées dans 14 pays sur 5 continents',
+      info: 'REUSSITESS Global Nexus - Réseau affilié Amazon 26 boutiques 14 pays 5 continents',
       pays: {
-        usa: 'États-Unis - amazon.com',
-        canada: 'Canada - amazon.ca',
-        france: 'France - amazon.fr',
-        allemagne: 'Allemagne - amazon.de',
-        uk: 'Royaume-Uni - amazon.co.uk',
-        italie: 'Italie - amazon.it',
-        espagne: 'Espagne - amazon.es',
-        paysbas: 'Pays-Bas - amazon.nl',
-        belgique: 'Belgique - amazon.com.be',
-        suede: 'Suède - amazon.se',
-        australie: 'Australie - amazon.com.au',
-        singapour: 'Singapour - amazon.sg',
-        inde: 'Inde - amazon.in',
-        bresil: 'Brésil - amazon.com.br'
+        usa: 'États-Unis amazon.com leader mondial Prime Day shipping gratuit',
+        canada: 'Canada amazon.ca bilangue français-anglais delivery rapide',
+        france: 'France amazon.fr Prime 5.99€/mois livraison 1 jour gratuite',
+        allemagne: 'Allemagne amazon.de plus grand Europe centrale expédition',
+        uk: 'Royaume-Uni amazon.co.uk post-Brexit livraison UK rapide',
+        italie: 'Italie amazon.it mode design maison produits italiens',
+        espagne: 'Espagne amazon.es marketplace croissance Ibérie',
+        paysbas: 'Pays-Bas amazon.nl 2020 nouveau marché Benelux',
+        belgique: 'Belgique amazon.com.be bilangue FR-NL services',
+        suede: 'Suède amazon.se Scandinavie expansion nordique',
+        australie: 'Australie amazon.com.au Pacifique Sud unique sélection',
+        singapour: 'Singapour amazon.sg hub Asie du Sud-Est',
+        inde: 'Inde amazon.in 2e marché mondial croissance explosive',
+        bresil: 'Brésil amazon.com.br Amérique Latine portugais'
       },
+      avantages: 'Prix identiques Amazon direct aucun surcoût client. Livraison standard Amazon service client garanti SAV. Programme affilié soutient REUSSITESS contenu gratuit patrimoine. Sécurité paiement Amazon protection acheteur A-Z garantie.',
+      conseils: 'Comparer prix Amazon vendeurs marketplace vérifier notations. Lire avis vérifiés Achat Vérifié badge vert confiance. Questions-Réponses clients informations produit usage réel. Subscribe Save -15% abonnement mensuel produits récurrents annulation.',
       url: '/hub-central'
     }
   };
@@ -185,76 +178,117 @@ export default function BotAssistant() {
   const getResponse = function(userMessage) {
     const msgLower = userMessage.toLowerCase();
     
-    const searchKeys = ['france', 'italie', 'allemagne', 'royaumeuni', 'espagne', 'suede', 'bresil', 'singapour', 'australie', 'nouvellezelande'];
-    
-    for (let i = 0; i < searchKeys.length; i++) {
-      const key = searchKeys[i];
-      const data = knowledgeData[key];
-      
-      if (msgLower.includes(key) || (data.pays && msgLower.includes(data.pays.toLowerCase()))) {
+    // RECHERCHE PAYS
+    const paysKeys = ['france', 'italie', 'allemagne', 'espagne', 'suede', 'bresil', 'singapour', 'australie', 'inde'];
+    for (let i = 0; i < paysKeys.length; i++) {
+      const key = paysKeys[i];
+      if (msgLower.includes(key)) {
+        const data = knowledgeData[key];
         let response = '📍 ' + data.pays + '\n\n';
-        if (data.capitale) response = response + '🏛️ Capitale: ' + data.capitale + '\n';
-        if (data.population) response = response + '👥 Population: ' + data.population + '\n';
-        if (data.unesco) response = response + '🏛️ ' + data.unesco + '\n';
-        if (data.patrimoine) response = response + '\n🎭 Patrimoine:\n' + data.patrimoine + '\n';
-        if (data.culture) response = response + '\n🎨 Culture:\n' + data.culture + '\n';
-        if (data.economie) response = response + '\n💼 Économie:\n' + data.economie + '\n';
-        if (data.url) response = response + '\n➡️ [Voir page complète](' + data.url + ')';
+        if (data.capitale) response = response + '🏛️ ' + data.capitale + ' - ' + data.population + '\n';
+        if (data.unesco) response = response + '🏆 ' + data.unesco + '\n\n';
+        if (data.patrimoine) response = response + '🎭 PATRIMOINE:\n' + data.patrimoine + '\n\n';
+        if (data.culture) response = response + '🎨 CULTURE:\n' + data.culture + '\n\n';
+        if (data.economie) response = response + '💼 ÉCONOMIE:\n' + data.economie + '\n\n';
+        if (data.recettes) response = response + '👵 RECETTES GRAND-MÈRE:\n' + data.recettes + '\n\n';
+        if (data.astuces) response = response + '💡 ASTUCES VOYAGE:\n' + data.astuces + '\n\n';
+        if (data.voyage) response = response + '✈️ CONSEILS:\n' + data.voyage + '\n\n';
+        if (data.url) response = response + '➡️ [Page complète](' + data.url + ')';
         return response;
       }
     }
 
-    if (msgLower.includes('royaume-uni') || msgLower.includes('uk') || msgLower.includes('angleterre')) {
-      const data = knowledgeData.royaumeuni;
-      let response = '📍 ' + data.pays + '\n\n';
-      response = response + '🏛️ Capitale: ' + data.capitale + '\n';
-      response = response + '👥 Population: ' + data.population + '\n';
-      response = response + '🏛️ ' + data.unesco + '\n';
-      response = response + '\n🎭 ' + data.patrimoine + '\n';
-      response = response + '\n🎨 ' + data.culture + '\n';
-      response = response + '\n💼 ' + data.economie + '\n';
-      response = response + '\n➡️ [Voir page complète](' + data.url + ')';
+    // RECETTES
+    if (msgLower.includes('recette') || msgLower.includes('cuisine') || msgLower.includes('grand-mere') || msgLower.includes('plat')) {
+      const recettes = knowledgeData.recettes;
+      let response = '👵 RECETTES DE GRAND-MÈRE TRADITIONNELLES:\n\n';
+      response = response + '🇫🇷 FRANCE:\n' + recettes.france + '\n\n';
+      response = response + '🇮🇹 ITALIE:\n' + recettes.italie + '\n\n';
+      response = response + '🇧🇷 BRÉSIL:\n' + recettes.bresil + '\n\n';
+      response = response + '🇮🇳 INDE:\n' + recettes.inde + '\n\n';
+      response = response + '🇲🇦 MAROC:\n' + recettes.maroc + '\n\n';
+      response = response + '🇯🇵 JAPON:\n' + recettes.japon;
       return response;
     }
 
-    if (msgLower.includes('nouvelle-zelande') || msgLower.includes('nouvelle zelande') || msgLower.includes('nz')) {
-      const data = knowledgeData.nouvellezelande;
-      let response = '📍 ' + data.pays + '\n\n';
-      response = response + '🏛️ Capitale: ' + data.capitale + '\n';
-      response = response + '👥 Population: ' + data.population + '\n';
-      response = response + '🏛️ ' + data.unesco + '\n';
-      response = response + '\n🎭 ' + data.patrimoine + '\n';
-      response = response + '\n🎨 ' + data.culture + '\n';
-      response = response + '\n💼 ' + data.economie + '\n';
-      response = response + '\n➡️ [Voir page complète](' + data.url + ')';
+    // ASTUCES AMAZON
+    if (msgLower.includes('amazon') || msgLower.includes('shopping') || msgLower.includes('acheter') || msgLower.includes('astuce')) {
+      const astuces = knowledgeData['astuces-amazon'];
+      let response = '🛍️ ASTUCES SHOPPING AMAZON:\n\n';
+      response = response + '💡 GÉNÉRAL:\n' + astuces.generale + '\n\n';
+      response = response + '💰 COMPARAISON PRIX:\n' + astuces.comparaison + '\n\n';
+      response = response + '📦 CATÉGORIES:\n' + astuces.categories + '\n\n';
+      response = response + '🌍 INTERNATIONAL:\n' + astuces.international + '\n\n';
+      response = response + '⭐ AVIS:\n' + astuces.avis + '\n\n';
+      response = response + '➡️ [Nos boutiques Amazon](/hub-central)';
       return response;
     }
-    
-    if (msgLower.includes('amazon') || msgLower.includes('boutique') || msgLower.includes('shop')) {
-      const data = knowledgeData.amazon;
-      let response = '🛍️ ' + data.info + '\n\n';
-      response = response + '**Nos 14 pays Amazon:**\n\n';
-      const paysKeys = Object.keys(data.pays);
+
+    // CULTURE GÉNÉRALE
+    if (msgLower.includes('histoire') || msgLower.includes('science') || msgLower.includes('culture') || msgLower.includes('general')) {
+      const culture = knowledgeData['culture-generale'];
+      let response = '🧠 CULTURE GÉNÉRALE:\n\n';
+      response = response + '📚 HISTOIRE:\n' + culture.histoire + '\n\n';
+      response = response + '🔬 SCIENCES:\n' + culture.sciences + '\n\n';
+      response = response + '🎨 ARTS:\n' + culture.arts + '\n\n';
+      response = response + '🌍 GÉOGRAPHIE:\n' + culture.geographie;
+      return response;
+    }
+
+    // VOYAGE CONSEILS
+    if (msgLower.includes('voyage') || msgLower.includes('visiter') || msgLower.includes('conseil') || msgLower.includes('tourisme')) {
+      const voyage = knowledgeData['voyage-unesco'];
+      let response = '✈️ CONSEILS VOYAGE PATRIMOINE UNESCO:\n\n';
+      response = response + '🇪🇺 EUROPE:\n' + voyage.europe + '\n\n';
+      response = response + '🌏 ASIE:\n' + voyage.asie + '\n\n';
+      response = response + '🌎 AMÉRIQUES:\n' + voyage.ameriques + '\n\n';
+      response = response + '🌍 AFRIQUE:\n' + voyage.afrique + '\n\n';
+      response = response + '💼 PRATIQUE:\n' + voyage.pratique;
+      return response;
+    }
+
+    // ANECDOTES
+    if (msgLower.includes('anecdote') || msgLower.includes('histoire') || msgLower.includes('saviez-vous')) {
+      const anecdotes = knowledgeData['anecdotes-unesco'];
+      let response = '📖 ANECDOTES HISTORIQUES UNESCO:\n\n';
+      response = response + '🇮🇳 TAJ MAHAL:\n' + anecdotes.tajmahal + '\n\n';
+      response = response + '🇫🇷 TOUR EIFFEL:\n' + anecdotes.toureifel + '\n\n';
+      response = response + '🇮🇹 COLISÉE:\n' + anecdotes.colisee + '\n\n';
+      response = response + '🇵🇪 MACHU PICCHU:\n' + anecdotes.machupichu;
+      return response;
+    }
+
+    // BOUTIQUES AMAZON
+    if (msgLower.includes('boutique')) {
+      const amazon = knowledgeData.amazon;
+      let response = '🛍️ ' + amazon.info + '\n\n';
+      response = response + '**NOS 14 PAYS:**\n\n';
+      const paysKeys = Object.keys(amazon.pays);
       for (let i = 0; i < paysKeys.length; i++) {
-        response = response + '• ' + data.pays[paysKeys[i]] + '\n';
+        response = response + '• ' + amazon.pays[paysKeys[i]] + '\n';
       }
-      response = response + '\n➡️ [Voir toutes les boutiques](' + data.url + ')';
+      response = response + '\n✅ AVANTAGES:\n' + amazon.avantages + '\n\n';
+      response = response + '💡 CONSEILS:\n' + amazon.conseils + '\n\n';
+      response = response + '➡️ [Voir toutes les boutiques](' + amazon.url + ')';
       return response;
     }
 
+    // SALUTATIONS
     if (msgLower.includes('bonjour') || msgLower.includes('salut') || msgLower.includes('hello') || msgLower.includes('hi')) {
       return greetings[currentLang];
     }
 
-    if (msgLower.includes('bibliothèque') || msgLower.includes('library') || msgLower.includes('pages')) {
-      return '📚 Notre bibliothèque mondiale contient 61 pages couvrant:\n\n🇪🇺 Europe (15 pays)\n🌍 Afrique (7 pays)\n🌏 Asie-Pacifique (11 pays)\n🏝️ DOM-TOM (10 territoires)\n🌎 Amériques (4 régions)\n🌊 Océanie (3 îles)\n\n[Voir la bibliothèque](/bibliotheque)';
+    // BIBLIOTHÈQUE
+    if (msgLower.includes('bibliothèque') || msgLower.includes('pages')) {
+      return '📚 BIBLIOTHÈQUE MONDIALE 62 PAGES:\n\n🇪🇺 Europe (15) 🌍 Afrique (7) 🌏 Asie-Pacifique (12) 🏝️ DOM-TOM (10) 🌎 Amériques (4) 🌊 Océanie (3)\n\nPLUS:\n👵 Recettes grand-mère traditionnelles\n💡 Astuces Amazon shopping\n✈️ Conseils voyage UNESCO\n📖 Anecdotes historiques\n🧠 Culture générale\n\n[Voir la bibliothèque](/bibliotheque)';
     }
 
-    if (msgLower.includes('aide') || msgLower.includes('help') || msgLower.includes('comment')) {
-      return '💡 **Je peux vous aider avec:**\n\n📚 61 pages patrimoine mondial\n🛍️ 26 boutiques Amazon\n🗣️ 6 langues avec synthèse vocale\n\n**Exemples:**\n• "Parle-moi de la France"\n• "Italie patrimoine"\n• "Boutiques Amazon"';
+    // AIDE
+    if (msgLower.includes('aide') || msgLower.includes('help')) {
+      return '💡 JE PEUX VOUS AIDER AVEC:\n\n📚 62 pages patrimoine mondial détaillées\n🛍️ 26 boutiques Amazon + astuces shopping\n👵 Recettes grand-mère traditionnelles\n✈️ Conseils voyage UNESCO pratiques\n📖 Anecdotes historiques fascinantes\n🧠 Culture générale approfondie\n🗣️ 6 langues avec synthèse vocale\n\n**EXEMPLES:**\n• "France patrimoine"\n• "Recettes italiennes"\n• "Astuces Amazon"\n• "Voyage Taj Mahal"\n• "Culture générale"';
     }
 
-    return 'Je connais 61 pages de patrimoine mondial et 26 boutiques Amazon dans 14 pays. Posez-moi une question sur un pays ou les boutiques ! 🌍';
+    return 'Je suis votre assistant REUSSITESS cultivé ! Posez-moi des questions sur:\n\n📚 62 pages patrimoine (pays, UNESCO, culture)\n👵 Recettes de grand-mère traditionnelles\n🛍️ Astuces shopping Amazon\n✈️ Conseils voyage pratiques\n📖 Anecdotes historiques\n🧠 Culture générale\n\nEssayez: "France", "Recettes", "Amazon", "Voyage", "Anecdotes" 🌍';
   };
 
   const handleSubmit = function(e) {
@@ -283,7 +317,7 @@ export default function BotAssistant() {
       <button
         onClick={function() { setIsOpen(!isOpen); }}
         className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-all z-50 animate-pulse"
-        aria-label="Assistant vocal REUSSITESS"
+        aria-label="Assistant cultivé REUSSITESS"
       >
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -301,11 +335,11 @@ export default function BotAssistant() {
           <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white p-5 rounded-t-3xl flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-3xl animate-bounce">
-                🤖
+                🧠
               </div>
               <div>
-                <h3 className="font-bold text-lg">Assistant REUSSITESS</h3>
-                <p className="text-sm opacity-90">61 pages • 26 boutiques • 6 langues 🔊</p>
+                <h3 className="font-bold text-lg">Assistant REUSSITESS Cultivé</h3>
+                <p className="text-sm opacity-90">62 pages • Recettes • Astuces • Culture 🔊</p>
               </div>
             </div>
             <div className="flex gap-2">
@@ -378,7 +412,7 @@ export default function BotAssistant() {
                 type="text"
                 value={input}
                 onChange={function(e) { setInput(e.target.value); }}
-                placeholder="Posez votre question... 🌍"
+                placeholder="Posez votre question... 🧠"
                 className="flex-1 border-2 border-purple-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-4 focus:ring-purple-400 focus:border-purple-600 text-lg"
               />
               <button
