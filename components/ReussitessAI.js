@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 // ====================================================================
 // ALEX SUPRÊME V4.0 - Intégration complète du projet (26 Amazon + 14 Pays API)
 // Correction Critique: isClient pour éviter l'ouverture par défaut (Hydratation)
+// Gère l'erreur de "timeout" par un message élégant au lieu de bloquer.
 // ====================================================================
 
 export default function ReussitessAI() {
@@ -223,7 +224,7 @@ C'est ce niveau de **précision factuelle ET culturelle** que ALEX apporte pour 
 > **Pays :** ${country}
 > **Désolé ${userName ? userName : 'ami(e)'},** l'accès API aux données factuelles a échoué (${error.message.substring(0, 50)}...). **TIMEOUT CORRIGÉ** !
 
-**MAIS ALEX connaissait la culture !** ${COMPLETE_KNOWLEDGE.patrimoine[countryLower] || 'ALEX peut te parler de l\'importance du rapprochement culturel de ce pays !'} Que désires-tu savoir d'autre sur **${country}** ?
+**MAIS ALEX connaissait la culture !** ${COMPLETE_KNOWLEDGE.patrimoine[countryLower] || 'ALEX peut te parler de l\'importance du rapprochement culturel de ce pays !'} Que désires-tu savoir d\'autre sur **${country}** ?
 `;
     }
   };
