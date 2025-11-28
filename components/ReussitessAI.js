@@ -13,37 +13,285 @@ export default function ReussitessAI() {
   const messagesEndRef = useRef(null);
 
   const languages = [
-    { code: 'fr-FR', flag: '🇬🇵', name: 'Français' },
+    { code: 'fr-FR', flag: '🇫🇷', name: 'Français' },
     { code: 'en-US', flag: '🇺🇸', name: 'English' },
     { code: 'es-ES', flag: '🇪🇸', name: 'Español' },
     { code: 'de-DE', flag: '🇩🇪', name: 'Deutsch' },
     { code: 'it-IT', flag: '🇮🇹', name: 'Italiano' },
-    { code: 'pt-BR', flag: '🇧🇷', name: 'Português' }
+    { code: 'pt-BR', flag: '🇧🇷', name: 'Português' },
+    { code: 'ja-JP', flag: '🇯🇵', name: '日本語' },
+    { code: 'zh-CN', flag: '🇨🇳', name: '中文' }
   ];
 
   const greetings = {
-    'fr-FR': 'Bonjour ! Je suis Alex, votre assistant culturel RÉUSSITESS ! Je connais 62 pages de patrimoine mondial, 26 boutiques Amazon internationales, et 5 innovations révolutionnaires. Que puis-je vous expliquer ?',
-    'en-US': 'Hello! I am Alex, your RÉUSSITESS cultural assistant! I know 62 world heritage pages, 26 Amazon stores, and 5 revolutionary innovations. What can I explain?',
-    'es-ES': '¡Hola! Soy Alex, tu asistente cultural RÉUSSITESS! Conozco 62 páginas patrimonio mundial, 26 tiendas Amazon, y 5 innovaciones revolucionarias. ¿Qué puedo explicar?',
-    'de-DE': 'Hallo! Ich bin Alex, Ihr RÉUSSITESS Kulturassistent! Ich kenne 62 Welterbe-Seiten, 26 Amazon-Läden und 5 revolutionäre Innovationen. Was kann ich erklären?',
-    'it-IT': 'Ciao! Sono Alex, il tuo assistente culturale RÉUSSITESS! Conosco 62 pagine patrimonio mondiale, 26 negozi Amazon e 5 innovazioni rivoluzionarie. Cosa posso spiegare?',
-    'pt-BR': 'Olá! Sou Alex, seu assistente cultural RÉUSSITESS! Conheço 62 páginas patrimônio mundial, 26 lojas Amazon e 5 inovações revolucionárias. O que posso explicar?'
+    'fr-FR': 'Bonjour ! Je suis Alex, votre expert culturel mondial RÉUSSITESS ! Je connais 62 pays, 26 boutiques Amazon internationales, et je peux vous aider en 8 langues. Que voulez-vous découvrir ?',
+    'en-US': 'Hello! I am Alex, your RÉUSSITESS world cultural expert! I know 62 countries, 26 Amazon stores, and I can help in 8 languages. What would you like to discover?',
+    'es-ES': '¡Hola! Soy Alex, tu experto cultural mundial RÉUSSITESS! Conozco 62 países, 26 tiendas Amazon, y puedo ayudar en 8 idiomas. ¿Qué quieres descubrir?',
+    'de-DE': 'Hallo! Ich bin Alex, Ihr RÉUSSITESS Weltkulturexperte! Ich kenne 62 Länder, 26 Amazon-Läden, und ich kann in 8 Sprachen helfen. Was möchten Sie entdecken?',
+    'it-IT': 'Ciao! Sono Alex, il tuo esperto culturale mondiale RÉUSSITESS! Conosco 62 paesi, 26 negozi Amazon, e posso aiutare in 8 lingue. Cosa vuoi scoprire?',
+    'pt-BR': 'Olá! Sou Alex, seu especialista cultural mundial RÉUSSITESS! Conheço 62 países, 26 lojas Amazon, e posso ajudar em 8 idiomas. O que você quer descobrir?',
+    'ja-JP': 'こんにちは！私はアレックス、RÉUSSITESS世界文化エキスパートです！62カ国、26のAmazonストア、8言語でサポートできます。何を発見したいですか？',
+    'zh-CN': '你好！我是Alex，RÉUSSITESS世界文化专家！我了解62个国家，26个亚马逊商店，可以用8种语言帮助您。您想发现什么？'
   };
 
-  const KNOWLEDGE = {
-    guadeloupe: 'GUADELOUPE - Terre de Champions ! Thierry Henry (Champion Monde 1998), Teddy Riner (11 titres Monde judo), Marie-José Pérec (3 médailles OR olympiques). Gwoka musique UNESCO. 384 000 habitants, paradis caribéen !',
-    
-    france: 'FRANCE - 49 sites UNESCO ! Paris Tour Eiffel, Louvre, Versailles. Mont-Saint-Michel. Châteaux Loire. Gastronomie patrimoine mondial. 1200 fromages, vins Bordeaux Champagne.',
-    
-    italie: 'ITALIE - Record 58 sites UNESCO ! Rome Colisée, Vatican Chapelle Sixtine. Venise 118 îlots, gondoles. Florence David Renaissance. Pompéi. Pizza napolitaine, pasta, gelato.',
-    
-    allemagne: 'ALLEMAGNE - 51 sites UNESCO ! Berlin Porte Brandebourg, Mur tombé 1989. Munich Neuschwanstein château Disney. Cologne cathédrale gothique. Oktoberfest bière.',
-    
-    innovations: '5 INNOVATIONS MONDIALES : 1) Cultural DNA Match - ADN ancestral, 2) Time Machine Cultural - Voyages 3D, 3) Cultural Guardian - Alertes géo, 4) World Culture Wallet - Badges, 5) Cultural Mood Therapy - IA psychologue.',
-    
-    boutiques: '26 BOUTIQUES AMAZON : USA, France, Allemagne, Italie, Espagne, Canada, UK, Inde, Pays-Bas, Suède, Singapour, Australie, Belgique, Brésil. 14 pays, 5 continents !',
-    
-    reussitess: 'RÉUSSITESS Global Nexus - Plateforme culturelle mondiale ! 62 pages patrimoine, 26 boutiques Amazon, 5 innovations uniques. Fondé par Porinus. URL: https://reussitess-global-nexus-jfgk.vercel.app/'
+  // BASE DE CONNAISSANCES COMPLÈTE
+  const COMPLETE_KNOWLEDGE = {
+    // 26 BOUTIQUES AMAZON DÉTAILLÉES
+    boutiques: {
+      'USA': {
+        market: 'amazon.com',
+        tag_perso: 'reussitess-20',
+        tag_influencer: 'fb942837',
+        langue: 'English',
+        monnaie: 'USD $',
+        population: '335 millions',
+        categories_populaires: 'Electronics, Books, Home & Kitchen, Fashion, Toys',
+        livraison: 'Amazon Prime 1-2 days, International shipping available',
+        conseil: 'Largest Amazon marketplace, best selection and prices. Black Friday deals in November. Use price tracking tools like CamelCamelCamel.'
+      },
+      'France': {
+        market: 'amazon.fr',
+        tag_perso: 'reussitess0b-21',
+        tag_influencer: 'fb942837',
+        langue: 'Français',
+        monnaie: 'EUR €',
+        population: '68 millions',
+        categories_populaires: 'Livres, High-Tech, Cuisine & Maison, Mode, Jardin',
+        livraison: 'Amazon Prime gratuit dès 25€, Livraison rapide 24-48h',
+        conseil: 'French Days (2x/an), Black Friday, Prime Day (juillet). TVA incluse dans prix. Retours gratuits 30 jours.'
+      },
+      'Allemagne': {
+        market: 'amazon.de',
+        tag_perso: 'reussitess07-21',
+        tag_influencer: 'fb942837',
+        langue: 'Deutsch',
+        monnaie: 'EUR €',
+        population: '84 millions',
+        categories_populaires: 'Elektronik, Bücher, Küche & Haushalt, Sport, Auto',
+        livraison: 'Amazon Prime kostenlos, Versand 1-3 Tage',
+        conseil: 'Größter europäischer Markt. Cyber Monday, Prime Day. Sehr guter Kundenservice. Qualitätsprodukte.'
+      },
+      'Italie': {
+        market: 'amazon.it',
+        tag_perso: 'reussitess06-21',
+        tag_influencer: 'fb942837',
+        langue: 'Italiano',
+        monnaie: 'EUR €',
+        population: '59 millions',
+        categories_populaires: 'Elettronica, Libri, Casa e cucina, Moda, Sport',
+        livraison: 'Amazon Prime gratuito, Consegna 1-3 giorni',
+        conseil: 'Prime Day luglio, Black Friday novembre. Prodotti italiani autentici. Gastronomia italiana.'
+      },
+      'Espagne': {
+        market: 'amazon.es',
+        tag_perso: 'reussitess0c-21',
+        tag_influencer: 'fb942837',
+        langue: 'Español',
+        monnaie: 'EUR €',
+        population: '48 millions',
+        categories_populaires: 'Electrónica, Libros, Hogar y cocina, Moda, Deportes',
+        livraison: 'Amazon Prime gratis, Envío 1-3 días',
+        conseil: 'Prime Day julio, Black Friday. Productos españoles auténticos. Gastronomía española. El Corte Inglés alternativa.'
+      },
+      'Canada': {
+        market: 'amazon.ca',
+        tag_perso: 'reussitess0e-20',
+        tag_influencer: 'fb942837',
+        langue: 'English/Français',
+        monnaie: 'CAD $',
+        population: '39 millions',
+        categories_populaires: 'Electronics, Books, Home, Fashion, Sports & Outdoors',
+        livraison: 'Amazon Prime free shipping, Delivery 2-5 days',
+        conseil: 'Bilingual marketplace. Boxing Day December 26. Prime Day. Watch exchange rates CAD/USD. Outdoor gear popular.'
+      },
+      'UK': {
+        market: 'amazon.co.uk',
+        tag_perso: 'reussitess0d-21',
+        tag_influencer: 'fb942837',
+        langue: 'English',
+        monnaie: 'GBP £',
+        population: '68 millions',
+        categories_populaires: 'Electronics, Books, Home & Garden, Fashion, Toys',
+        livraison: 'Amazon Prime free delivery, Next day available',
+        conseil: 'Major European marketplace. Black Friday, Prime Day, Boxing Day. Check Brexit import duties for EU buyers.'
+      },
+      'Inde': {
+        market: 'amazon.in',
+        tag_perso: 'reussitess01-21',
+        tag_influencer: 'fb942837',
+        langue: 'English/Hindi',
+        monnaie: 'INR ₹',
+        population: '1.4 milliards',
+        categories_populaires: 'Electronics, Fashion, Home, Books, Groceries',
+        livraison: 'Amazon Prime free delivery, 1-5 days depending location',
+        conseil: 'Huge market! Great Deals during Diwali (October), Republic Day (January). Cash on Delivery available. Local brands.'
+      },
+      'Pays-Bas': {
+        market: 'amazon.nl',
+        tag_perso: 'reussitess08-21',
+        tag_influencer: 'fb942837',
+        langue: 'Nederlands',
+        monnaie: 'EUR €',
+        population: '18 millions',
+        categories_populaires: 'Elektronica, Boeken, Huis & Tuin, Mode, Speelgoed',
+        livraison: 'Amazon Prime gratis, Bezorging 1-3 dagen',
+        conseil: 'Launched 2020. Growing marketplace. Bol.com local alternative. English widely understood.'
+      },
+      'Suède': {
+        market: 'amazon.se',
+        tag_perso: 'reussitess05-21',
+        tag_influencer: 'fb942837',
+        langue: 'Svenska',
+        monnaie: 'SEK kr',
+        population: '10.5 millions',
+        categories_populaires: 'Elektronik, Böcker, Hem & Trädgård, Mode, Sport',
+        livraison: 'Amazon Prime gratis, Leverans 2-4 dagar',
+        conseil: 'Launched 2020. Komplett.se local competitor. High purchasing power. Quality products preferred.'
+      },
+      'Singapour': {
+        market: 'amazon.sg',
+        tag_perso: 'reussitess03-22',
+        tag_influencer: 'fb942837',
+        langue: 'English/中文/Malay/Tamil',
+        monnaie: 'SGD $',
+        population: '5.9 millions',
+        categories_populaires: 'Electronics, Books, Home, Fashion, Groceries',
+        livraison: 'Amazon Prime free delivery, Next day available',
+        conseil: 'Asian hub launched 2017. Lazada, Shopee competitors. English primary. High-tech products. No customs duties.'
+      },
+      'Australie': {
+        market: 'amazon.com.au',
+        tag_perso: 'reussitess0a-22',
+        tag_influencer: 'fb942837',
+        langue: 'English',
+        monnaie: 'AUD $',
+        population: '26 millions',
+        categories_populaires: 'Electronics, Books, Home, Fashion, Sports',
+        livraison: 'Amazon Prime free delivery, 1-5 days depending location',
+        conseil: 'Launched 2017. Growing market. eBay Australia competitor. Watch shipping times vast distances. Outdoor gear popular.'
+      },
+      'Belgique': {
+        market: 'amazon.com.be',
+        tag_perso: 'reussitess04-21',
+        tag_influencer: 'fb942837',
+        langue: 'Nederlands/Français',
+        monnaie: 'EUR €',
+        population: '11.6 millions',
+        categories_populaires: 'Elektronica/Électronique, Boeken/Livres, Mode, Huis/Maison',
+        livraison: 'Amazon Prime gratis/gratuit, Levering/Livraison 1-3 jours',
+        conseil: 'Bilingual marketplace. Launched 2022. Bol.com, Coolblue local alternatives. Use amazon.fr or .nl for more selection.'
+      },
+      'Brésil': {
+        market: 'amazon.com.br',
+        tag_perso: 'reussitess00-20',
+        tag_influencer: 'fb942837',
+        langue: 'Português',
+        monnaie: 'BRL R$',
+        population: '215 millions',
+        categories_populaires: 'Eletrônicos, Livros, Casa, Moda, Esportes',
+        livraison: 'Amazon Prime frete grátis, Entrega 2-7 dias',
+        conseil: 'Largest Latin American market. Black Friday huge! Watch taxes (ICMS varies by state). Mercado Livre competitor. Local payment methods.'
+      }
+    },
+
+    // RESSOURCES CULTURELLES MONDIALES
+    culture_mondiale: {
+      'UNESCO': {
+        total_sites: '1199 sites (2024)',
+        pays_record: 'Italie 58 sites, Chine 57, Allemagne 52, France 49, Espagne 49',
+        categories: 'Culturel 933, Naturel 227, Mixte 39',
+        description: 'Organisation Nations Unies pour patrimoine mondial. Protège sites exceptionnels valeur universelle. Liste 1978. Convention 194 pays. Financement préservation. Tourisme responsable.',
+        exemples_celebres: 'Grande Muraille Chine, Machu Picchu Pérou, Pyramides Égypte, Taj Mahal Inde, Venise Italie, Parc Yellowstone USA, Grande Barrière Corail Australie'
+      },
+      
+      'Langues_Mondiales': {
+        plus_parlees: '1) Anglais 1.5 milliard (378M natifs), 2) Chinois Mandarin 1.1 milliard, 3) Hindi 602M, 4) Espagnol 548M, 5) Français 280M, 6) Arabe 274M, 7) Bengali 272M, 8) Russe 258M, 9) Portugais 258M, 10) Indonésien 199M',
+        langues_officielles_ONU: 'Anglais, Français, Espagnol, Russe, Chinois, Arabe',
+        familles_linguistiques: 'Indo-européenne (Anglais, Français, Espagnol, Hindi, Russe), Sino-tibétaine (Chinois, Tibétain), Afro-asiatique (Arabe, Hébreu), Niger-Congo (Swahili, Yoruba)',
+        langues_danger: '40% des 7000 langues mondiales menacées extinction. Préservation urgente patrimoine immatériel UNESCO.'
+      },
+
+      'Religions_Mondiales': {
+        principales: 'Christianisme 2.4 milliards (31%), Islam 1.9 milliards (25%), Hindouisme 1.2 milliards (15%), Bouddhisme 520 millions (7%), Judaïsme 15 millions (0.2%)',
+        geographie: 'Christianisme: Amériques, Europe, Afrique subsaharienne. Islam: Moyen-Orient, Afrique Nord, Asie du Sud-Est. Hindouisme: Inde, Népal. Bouddhisme: Asie de l\'Est, Asie du Sud-Est',
+        patrimoine_religieux: 'Cathédrales gothiques Europe, Mosquées ottomanes, Temples hindous Inde, Temples bouddhistes Asie, Synagogues historiques, Lieux pèlerinage: Jérusalem, La Mecque, Varanasi, Lhassa, Vatican'
+      },
+
+      'Gastronomie_Mondiale': {
+        patrimoine_unesco: 'Cuisine française (2010), Diète méditerranéenne (2013), Cuisine mexicaine (2010), Cuisine japonaise Washoku (2013), Kimchi coréen (2013), Pizza napolitaine (2017)',
+        specialites_pays: 'France: Croissants, Coq au vin, Fromages. Italie: Pizza, Pasta, Gelato. Japon: Sushi, Ramen, Tempura. Chine: Dim Sum, Pékin Duck. Inde: Curry, Biryani, Naan. Mexique: Tacos, Mole. Thaïlande: Pad Thai, Tom Yum',
+        boissons: 'Vin (France, Italie, Espagne), Bière (Allemagne, Belgique, République Tchèque), Saké (Japon), Thé (Chine, Inde, Japon), Café (Brésil, Colombie, Éthiopie)',
+        marches_celebres: 'Tsukiji Tokyo, La Boqueria Barcelona, Borough Market London, Marrakech Souks, Pike Place Seattle'
+      },
+
+      'Festivals_Mondiaux': {
+        carnavals: 'Rio Janeiro Brésil (février, 2M spectateurs), Venise Italie (masques), New Orleans USA (Mardi Gras), Notting Hill London, Santa Cruz Ténérife',
+        fetes_traditionnelles: 'Oktoberfest Munich (septembre, 6M visiteurs, bière), La Tomatina Espagne (bataille tomates), Holi Inde (festival couleurs), Songkran Thaïlande (nouvel an eau), Dia de los Muertos Mexique',
+        festivals_arts: 'Cannes Film Festival France, Edinburgh Fringe UK (théâtre), Burning Man USA (art), Glastonbury UK (musique), Coachella USA, Tomorrowland Belgique (électro)',
+        celebrations_religieuses: 'Noël (25 décembre chrétiens), Ramadan/Eid (musulmans), Diwali (hindous, octobre-novembre), Hanoukka (juifs, décembre), Vesak (bouddhistes, mai)'
+      },
+
+      'Architecture_Mondiale': {
+        styles_majeurs: 'Gothique (Notre-Dame Paris, Cologne), Renaissance (Florence, Vatican), Baroque (Versailles, Vienne), Art Nouveau (Gaudi Barcelona), Modernisme (Bauhaus, Le Corbusier), Contemporain (Gehry, Zaha Hadid)',
+        merveilles_antiques: 'Pyramides Gizeh Égypte, Colisée Rome, Parthénon Athènes, Petra Jordanie, Grande Muraille Chine, Angkor Wat Cambodge, Machu Picchu Pérou',
+        gratte_ciels: 'Burj Khalifa Dubai 828m, Shanghai Tower 632m, Abraj Al-Bait Mecque 601m, Ping An Shenzhen 599m, Lotte World Seoul 555m, One World Trade NYC 541m',
+        ponts_iconiques: 'Golden Gate San Francisco, Tower Bridge London, Pont du Gard France romain, Brooklyn Bridge NYC, Viaduc Millau France 343m'
+      }
+    },
+
+    // PAYS DÉTAILLÉS (échantillon)
+    pays: {
+      'France': {
+        capitale: 'Paris',
+        population: '68 millions',
+        langue: 'Français',
+        monnaie: 'Euro EUR €',
+        unesco: '49 sites (record européen)',
+        incontournables: 'Tour Eiffel 324m Paris, Louvre musée Joconde, Versailles Galerie Glaces 357 miroirs, Mont-Saint-Michel Normandie merveille, Châteaux Loire Chambord Chenonceau, Côte d\'Azur Nice Cannes, Provence lavande, Bordeaux vignobles',
+        gastronomie: '400 fromages AOC, Vins Bordeaux Bourgogne Champagne, Croissants, Baguette, Coq au vin, Ratatouille, Crêpes',
+        culture: 'Impressionnisme Monet Renoir, Révolution 1789 Liberté Égalité Fraternité, Mode Chanel Dior, Cinéma Cannes, Littérature Victor Hugo Molière',
+        amazon_tag: 'reussitess0b-21',
+        conseil_shopping: 'Amazon.fr: Livres français, High-tech, Mode, Cuisine. Prime Day juillet, French Days 2x/an, Black Friday novembre. Livraison gratuite dès 25€.'
+      },
+
+      'Italie': {
+        capitale: 'Rome',
+        population: '59 millions',
+        langue: 'Italien',
+        monnaie: 'Euro EUR €',
+        unesco: '58 sites (RECORD MONDIAL)',
+        incontournables: 'Rome Colisée Vatican Fontaine Trevi, Venise 118 îlots gondoles Place St-Marc, Florence David Michel-Ange Uffizi Duomo, Milan cathédrale La Scala mode, Pompéi figée 79 ap JC, Côte Amalfitaine Positano, Toscane Sienne vignobles cyprès, Cinque Terre 5 villages colorés mer',
+        gastronomie: 'Pizza Napolitaine patrimoine UNESCO, Pasta carbonara amatriciana, Gelato artisanal, Risotto Milan, Tiramisu, Espresso café, Parmigiano Reggiano, Prosciutto Parme, Vins Chianti Barolo Prosecco',
+        culture: 'Renaissance Léonard Vinci Michel-Ange Raphaël, Empire Romain Julius César Auguste, Opera Verdi Puccini La Scala, Mode Armani Versace Gucci Prada, Cinéma Fellini Visconti',
+        amazon_tag: 'reussitess06-21',
+        conseil_shopping: 'Amazon.it: Produits italiens authentiques, Mode, Gastronomie, Livres. Prime Day, Black Friday. Outlets: The Mall Florence, Serravalle Milan -50%.'
+      },
+
+      'Japon': {
+        capitale: 'Tokyo',
+        population: '125 millions',
+        langue: 'Japonais',
+        monnaie: 'Yen JPY ¥',
+        unesco: '25 sites',
+        incontournables: 'Tokyo Shibuya carrefour, Shinkansen train 320 km/h, Mont Fuji 3776m sacré, Kyoto 2000 temples Kinkaku-ji doré Fushimi Inari 10000 torii, Osaka château Dotonbori néons, Hiroshima mémorial paix, Nara cerfs temple, Hakone onsen sources chaudes',
+        gastronomie: 'Sushi sashimi nigiri maki, Ramen bouillon nouilles, Tempura friture légère, Wagyu bœuf Kobe, Matcha thé vert, Saké rice wine, Yakitori brochettes, Okonomiyaki crêpe salée',
+        culture: 'Samouraï bushido katana, Geisha Kyoto kimono, Manga anime Ghibli, Sumo wrestling, Ikebana art floral, Cérémonie thé, Temples zen jardins, Haiku poésie 5-7-5',
+        conseil_shopping: 'Pas Amazon.co.jp direct. Rakuten marketplace alternative. Akihabara Tokyo électronique. 100 Yen stores. Duty-free aéroports.'
+      },
+
+      'USA': {
+        capitale: 'Washington DC',
+        population: '335 millions',
+        langue: 'English',
+        monnaie: 'Dollar USD $',
+        unesco: '24 sites',
+        incontournables: 'New York Statue Liberté Times Square Central Park, Los Angeles Hollywood Walk Fame, San Francisco Golden Gate, Las Vegas casinos, Miami Beach, Chicago architecture, Parc Yellowstone geysers, Grand Canyon Arizona, Yosemite, Hawaii volcan plages',
+        gastronomie: 'Burger frites, BBQ ribs Texas Kansas, Pizza NY Chicago deep-dish, Hot-dog, Apple pie, Cheesecake NY, Tex-Mex tacos burritos, Thanksgiving turkey, Donuts Starbucks',
+        culture: 'Hollywood cinéma Oscars, Broadway musicals NY, Jazz blues rock hip-hop, Silicon Valley tech Apple Google, NBA basketball, NFL football américain, Route 66, American Dream',
+        amazon_tag: 'reussitess-20',
+        conseil_shopping: 'Amazon.com: PLUS GRAND marketplace mondial. Électronique -30% vs Europe. Black Friday Cyber Monday novembre. Prime Day juillet. Expédition internationale. Attention frais douane import Europe.'
+      }
+    }
   };
 
   useEffect(function() {
@@ -54,27 +302,22 @@ export default function ReussitessAI() {
 
   useEffect(function() {
     if (isOpen && messages.length === 0) {
-      const welcomeMsg = greetings[currentLang];
-      setMessages([{ role: 'assistant', content: welcomeMsg }]);
+      setMessages([{ role: 'assistant', content: greetings[currentLang] }]);
     }
   }, [isOpen, currentLang, messages.length]);
 
+  // FONCTION VOCAL
   const speak = function(text) {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      console.log('Speech non supporté');
-      return;
-    }
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
     window.speechSynthesis.cancel();
     
     const cleanText = text
       .replace(/\*\*/g, '')
-      .replace(/🇬🇵|🏆|🎭|🗣️|🧠|❤️|😊|🌟|✅|🚀|💬|🔊|🎯|📚|🌍|🛍️|🍽️/g, '')
+      .replace(/[🇫🇷🇺🇸🇪🇸🇩🇪🇮🇹🇧🇷🇯🇵🇨🇳💬🗣️✅🚀📚🌍🛍️]/g, '')
       .replace(/\n/g, ' ')
-      .substring(0, 500);
+      .substring(0, 600);
 
-    console.log('🗣️ Parle:', cleanText.substring(0, 50));
-    
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = currentLang;
     utterance.rate = 0.90;
@@ -86,25 +329,11 @@ export default function ReussitessAI() {
       return v.lang.startsWith(currentLang.substring(0, 2));
     });
     
-    if (voice) {
-      utterance.voice = voice;
-      console.log('✅ Voix:', voice.name);
-    }
+    if (voice) utterance.voice = voice;
     
-    utterance.onstart = function() { 
-      setIsSpeaking(true);
-      console.log('▶️ Parle');
-    };
-    
-    utterance.onend = function() { 
-      setIsSpeaking(false);
-      console.log('⏹️ Fin');
-    };
-    
-    utterance.onerror = function(e) { 
-      setIsSpeaking(false);
-      console.error('❌ Erreur:', e.error);
-    };
+    utterance.onstart = function() { setIsSpeaking(true); };
+    utterance.onend = function() { setIsSpeaking(false); };
+    utterance.onerror = function() { setIsSpeaking(false); };
     
     window.speechSynthesis.speak(utterance);
   };
@@ -116,51 +345,194 @@ export default function ReussitessAI() {
     }
   };
 
+  // RÉPONSES INTELLIGENTES ENRICHIES
   const getResponse = function(query) {
     const q = query.toLowerCase();
     
+    // NOM
     if (q.match(/je m'appelle|mon nom|appelle moi/)) {
       const match = query.match(/(?:je m'appelle|mon nom est|appelle moi)\s+(\w+)/i);
       if (match) {
         setUserName(match[1]);
-        return 'Enchanté ' + match[1] + ' ! Je suis Alex, ravi de vous connaître ! Que puis-je vous expliquer sur la culture mondiale, les innovations, ou les boutiques RÉUSSITESS ?';
+        return 'Enchanté ' + match[1] + ' ! Je suis Alex, expert culturel RÉUSSITESS. Je peux vous aider à découvrir 62 pays, 26 boutiques Amazon internationales, et la culture mondiale en 8 langues ! Que voulez-vous explorer ?';
       }
     }
     
-    if (q.match(/guadeloupe|champion|thierry|teddy|gwoka|caribéen/)) {
-      return KNOWLEDGE.guadeloupe;
+    // BOUTIQUE SPÉCIFIQUE
+    if (q.match(/amazon|boutique|acheter|shopping|store/)) {
+      let response = '🛍️ **26 BOUTIQUES AMAZON INTERNATIONALES**\n\n';
+      
+      if (q.match(/france|français|.fr/)) {
+        const fr = COMPLETE_KNOWLEDGE.boutiques['France'];
+        response = '🇫🇷 **AMAZON FRANCE**\n\n';
+        response += 'Marché: ' + fr.market + '\n';
+        response += 'Tag affilié: ' + fr.tag_perso + '\n';
+        response += 'Population: ' + fr.population + '\n';
+        response += 'Monnaie: ' + fr.monnaie + '\n';
+        response += 'Catégories: ' + fr.categories_populaires + '\n';
+        response += 'Livraison: ' + fr.livraison + '\n\n';
+        response += '💡 **CONSEIL**: ' + fr.conseil;
+        return response;
+      }
+      
+      if (q.match(/usa|america|\.com|etats/)) {
+        const us = COMPLETE_KNOWLEDGE.boutiques['USA'];
+        response = '🇺🇸 **AMAZON USA**\n\n';
+        response += 'Market: ' + us.market + '\n';
+        response += 'Affiliate tag: ' + us.tag_perso + '\n';
+        response += 'Population: ' + us.population + '\n';
+        response += 'Currency: ' + us.monnaie + '\n';
+        response += 'Top categories: ' + us.categories_populaires + '\n';
+        response += 'Shipping: ' + us.livraison + '\n\n';
+        response += '💡 **TIP**: ' + us.conseil;
+        return response;
+      }
+      
+      if (q.match(/italie|italien|italy|\.it/)) {
+        const it = COMPLETE_KNOWLEDGE.boutiques['Italie'];
+        response = '🇮🇹 **AMAZON ITALIA**\n\n';
+        response += 'Mercato: ' + it.market + '\n';
+        response += 'Tag affiliato: ' + it.tag_perso + '\n';
+        response += 'Popolazione: ' + it.population + '\n';
+        response += 'Valuta: ' + it.monnaie + '\n';
+        response += 'Categorie: ' + it.categories_populaires + '\n';
+        response += 'Spedizione: ' + it.livraison + '\n\n';
+        response += '💡 **CONSIGLIO**: ' + it.conseil;
+        return response;
+      }
+      
+      // Liste toutes boutiques
+      response += 'USA amazon.com (335M hab) - Anglais - USD $\n';
+      response += 'France amazon.fr (68M) - Français - EUR €\n';
+      response += 'Allemagne amazon.de (84M) - Deutsch - EUR €\n';
+      response += 'Italie amazon.it (59M) - Italiano - EUR €\n';
+      response += 'Espagne amazon.es (48M) - Español - EUR €\n';
+      response += 'Canada amazon.ca (39M) - EN/FR - CAD $\n';
+      response += 'UK amazon.co.uk (68M) - English - GBP £\n';
+      response += 'Inde amazon.in (1.4B) - EN/Hindi - INR ₹\n';
+      response += 'Pays-Bas amazon.nl (18M) - Nederlands - EUR €\n';
+      response += 'Suède amazon.se (10.5M) - Svenska - SEK kr\n';
+      response += 'Singapour amazon.sg (5.9M) - EN/中文 - SGD $\n';
+      response += 'Australie amazon.com.au (26M) - English - AUD $\n';
+      response += 'Belgique amazon.com.be (11.6M) - NL/FR - EUR €\n';
+      response += 'Brésil amazon.com.br (215M) - Português - BRL R$\n\n';
+      response += 'Sur quel marché voulez-vous des détails ?';
+      return response;
     }
     
-    if (q.match(/france|paris|versailles|louvre|eiffel/)) {
-      return KNOWLEDGE.france;
+    // CULTURE MONDIALE
+    if (q.match(/unesco|patrimoine|sites|monument|culture/)) {
+      const unesco = COMPLETE_KNOWLEDGE.culture_mondiale['UNESCO'];
+      let response = '🏛️ **UNESCO PATRIMOINE MONDIAL**\n\n';
+      response += unesco.total_sites + '\n\n';
+      response += '**TOP PAYS**: ' + unesco.pays_record + '\n\n';
+      response += '**CATÉGORIES**: ' + unesco.categories + '\n\n';
+      response += '**DESCRIPTION**: ' + unesco.description + '\n\n';
+      response += '**EXEMPLES CÉLÈBRES**: ' + unesco.exemples_celebres;
+      return response;
     }
     
-    if (q.match(/italie|rome|venise|colisée|vatican|florence/)) {
-      return KNOWLEDGE.italie;
+    if (q.match(/langue|parler|linguistique/)) {
+      const lang = COMPLETE_KNOWLEDGE.culture_mondiale['Langues_Mondiales'];
+      let response = '🗣️ **LANGUES MONDIALES**\n\n';
+      response += '**PLUS PARLÉES**: ' + lang.plus_parlees + '\n\n';
+      response += '**ONU OFFICIELLES**: ' + lang.langues_officielles_ONU + '\n\n';
+      response += '**FAMILLES**: ' + lang.familles_linguistiques + '\n\n';
+      response += '⚠️ **DANGER**: ' + lang.langues_danger;
+      return response;
     }
     
-    if (q.match(/allemagne|berlin|munich|château|neuschwanstein/)) {
-      return KNOWLEDGE.allemagne;
+    if (q.match(/religion|spirituel|culte|foi/)) {
+      const rel = COMPLETE_KNOWLEDGE.culture_mondiale['Religions_Mondiales'];
+      let response = '🕌 **RELIGIONS MONDIALES**\n\n';
+      response += '**PRINCIPALES**: ' + rel.principales + '\n\n';
+      response += '**GÉOGRAPHIE**: ' + rel.geographie + '\n\n';
+      response += '**PATRIMOINE**: ' + rel.patrimoine_religieux;
+      return response;
     }
     
-    if (q.match(/innovation|technologie|dna|time machine|guardian|wallet|therapy/)) {
-      return KNOWLEDGE.innovations;
+    if (q.match(/gastronomie|cuisine|food|manger|plat/)) {
+      const gastro = COMPLETE_KNOWLEDGE.culture_mondiale['Gastronomie_Mondiale'];
+      let response = '🍽️ **GASTRONOMIE MONDIALE**\n\n';
+      response += '**UNESCO**: ' + gastro.patrimoine_unesco + '\n\n';
+      response += '**SPÉCIALITÉS**: ' + gastro.specialites_pays + '\n\n';
+      response += '**BOISSONS**: ' + gastro.boissons + '\n\n';
+      response += '**MARCHÉS**: ' + gastro.marches_celebres;
+      return response;
     }
     
-    if (q.match(/boutique|amazon|shopping|acheter|store/)) {
-      return KNOWLEDGE.boutiques;
+    if (q.match(/festival|fete|carnaval|celebration/)) {
+      const fest = COMPLETE_KNOWLEDGE.culture_mondiale['Festivals_Mondiaux'];
+      let response = '🎉 **FESTIVALS MONDIAUX**\n\n';
+      response += '**CARNAVALS**: ' + fest.carnavals + '\n\n';
+      response += '**FÊTES TRADITIONNELLES**: ' + fest.fetes_traditionnelles + '\n\n';
+      response += '**ARTS**: ' + fest.festivals_arts + '\n\n';
+      response += '**RELIGIEUX**: ' + fest.celebrations_religieuses;
+      return response;
     }
     
-    if (q.match(/réussitess|reussitess|projet|plateforme|porinus/)) {
-      return KNOWLEDGE.reussitess;
+    if (q.match(/architecture|construction|batiment|monument/)) {
+      const archi = COMPLETE_KNOWLEDGE.culture_mondiale['Architecture_Mondiale'];
+      let response = '🏗️ **ARCHITECTURE MONDIALE**\n\n';
+      response += '**STYLES**: ' + archi.styles_majeurs + '\n\n';
+      response += '**MERVEILLES ANTIQUES**: ' + archi.merveilles_antiques + '\n\n';
+      response += '**GRATTE-CIELS**: ' + archi.gratte_ciels + '\n\n';
+      response += '**PONTS**: ' + archi.ponts_iconiques;
+      return response;
     }
     
-    if (q.match(/qui es|présente|alex/)) {
-      return 'Je suis Alex, assistant culturel RÉUSSITESS ! Je connais 62 pages patrimoine mondial (France, Italie, Allemagne, Guadeloupe...), 26 boutiques Amazon internationales, et 5 innovations mondiales uniques. Je parle 6 langues. Mon objectif : vous faire découvrir la richesse culturelle mondiale !';
+    // PAYS SPÉCIFIQUES
+    if (q.match(/france|paris|versailles/)) {
+      const fr = COMPLETE_KNOWLEDGE.pays['France'];
+      let response = '🇫🇷 **FRANCE**\n\n';
+      response += 'Capitale: ' + fr.capitale + ' • ' + fr.population + '\n';
+      response += 'UNESCO: ' + fr.unesco + '\n\n';
+      response += '**INCONTOURNABLES**: ' + fr.incontournables + '\n\n';
+      response += '**GASTRONOMIE**: ' + fr.gastronomie + '\n\n';
+      response += '**CULTURE**: ' + fr.culture + '\n\n';
+      response += '🛍️ **AMAZON**: ' + fr.conseil_shopping;
+      return response;
     }
     
+    if (q.match(/italie|rome|venise|florence/)) {
+      const it = COMPLETE_KNOWLEDGE.pays['Italie'];
+      let response = '🇮🇹 **ITALIE - RECORD 58 UNESCO !**\n\n';
+      response += 'Capitale: ' + it.capitale + ' • ' + it.population + '\n';
+      response += 'UNESCO: ' + it.unesco + '\n\n';
+      response += '**INCONTOURNABLES**: ' + it.incontournables + '\n\n';
+      response += '**GASTRONOMIE**: ' + it.gastronomie + '\n\n';
+      response += '**CULTURE**: ' + it.culture + '\n\n';
+      response += '🛍️ **AMAZON**: ' + it.conseil_shopping;
+      return response;
+    }
+    
+    if (q.match(/japon|tokyo|kyoto|japonais/)) {
+      const jp = COMPLETE_KNOWLEDGE.pays['Japon'];
+      let response = '🇯🇵 **JAPON**\n\n';
+      response += 'Capitale: ' + jp.capitale + ' • ' + jp.population + '\n';
+      response += 'UNESCO: ' + jp.unesco + '\n\n';
+      response += '**INCONTOURNABLES**: ' + jp.incontournables + '\n\n';
+      response += '**GASTRONOMIE**: ' + jp.gastronomie + '\n\n';
+      response += '**CULTURE**: ' + jp.culture + '\n\n';
+      response += '🛍️ **SHOPPING**: ' + jp.conseil_shopping;
+      return response;
+    }
+    
+    if (q.match(/usa|america|new york|los angeles/)) {
+      const us = COMPLETE_KNOWLEDGE.pays['USA'];
+      let response = '🇺🇸 **USA**\n\n';
+      response += 'Capital: ' + us.capitale + ' • ' + us.population + '\n';
+      response += 'UNESCO: ' + us.unesco + '\n\n';
+      response += '**MUST-SEE**: ' + us.incontournables + '\n\n';
+      response += '**FOOD**: ' + us.gastronomie + '\n\n';
+      response += '**CULTURE**: ' + us.culture + '\n\n';
+      response += '🛍️ **AMAZON**: ' + us.conseil_shopping;
+      return response;
+    }
+    
+    // DÉFAUT
     const name = userName ? userName + ', ' : '';
-    return name + 'je peux vous aider avec : GUADELOUPE Terre de Champions, FRANCE 49 UNESCO, ITALIE 58 UNESCO record, ALLEMAGNE châteaux, 5 INNOVATIONS mondiales, 26 BOUTIQUES Amazon, Culture patrimoine mondial. Que voulez-vous découvrir ?';
+    return name + 'je suis Alex, expert RÉUSSITESS ! Je peux vous aider avec:\n\n🌍 **62 PAYS**: France, Italie, Japon, USA...\n🛍️ **26 BOUTIQUES Amazon** internationales\n🏛️ **UNESCO** 1199 sites patrimoine\n🗣️ **LANGUES** mondiales\n🍽️ **GASTRONOMIE** internationale\n🎉 **FESTIVALS** mondiaux\n🏗️ **ARCHITECTURE** emblématique\n\nQue voulez-vous découvrir ?';
   };
 
   const handleSubmit = function(e) {
@@ -190,7 +562,7 @@ export default function ReussitessAI() {
       }
       
       setIsLoading(false);
-    }, 500);
+    }, 600);
   };
 
   const speakLastMessage = function() {
@@ -226,62 +598,52 @@ export default function ReussitessAI() {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-32 right-8 w-[650px] h-[850px] bg-white rounded-3xl shadow-2xl flex flex-col border-4 border-purple-600">
+        <div className="fixed bottom-32 right-8 w-[700px] h-[900px] bg-white rounded-3xl shadow-2xl flex flex-col border-4 border-purple-600">
           
           <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white p-6 rounded-t-3xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-5xl shadow-lg">
-                  👨
+                  🌍
                 </div>
                 <div>
-                  <h3 className="font-bold text-2xl">Alex</h3>
-                  <p className="text-sm opacity-95">Assistant Culturel RÉUSSITESS</p>
+                  <h3 className="font-bold text-2xl">Alex Expert Mondial</h3>
+                  <p className="text-sm opacity-95">RÉUSSITESS • 62 Pays • 26 Amazon • 8 Langues</p>
                   <div className="flex items-center gap-2 mt-1">
                     <button
                       onClick={function() { setAutoSpeak(!autoSpeak); }}
-                      className="text-xs bg-white/20 px-3 py-1 rounded-full hover:bg-white/30"
+                      className="text-xs bg-white/20 px-2 py-1 rounded-full hover:bg-white/30"
                     >
-                      {autoSpeak ? '🔊 Auto' : '🔇 Off'}
+                      {autoSpeak ? '🔊' : '🔇'}
                     </button>
                     <button
                       onClick={speakLastMessage}
-                      className="text-xs bg-white/20 px-3 py-1 rounded-full hover:bg-white/30"
+                      className="text-xs bg-white/20 px-2 py-1 rounded-full hover:bg-white/30"
                     >
                       🔁
                     </button>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-3">
-                {isSpeaking && (
-                  <button 
-                    onClick={stopSpeaking} 
-                    className="hover:bg-white/20 p-3 rounded-xl text-2xl"
-                  >
-                    🛑
-                  </button>
-                )}
-                <button 
-                  onClick={function() { setIsOpen(false); stopSpeaking(); }} 
-                  className="hover:bg-white/20 p-3 rounded-xl text-2xl font-bold"
-                >
-                  ✕
-                </button>
-              </div>
+              <button 
+                onClick={function() { setIsOpen(false); stopSpeaking(); }} 
+                className="hover:bg-white/20 p-2 rounded-xl text-2xl"
+              >
+                ✕
+              </button>
             </div>
           </div>
 
-          <div className="p-4 border-b-2 flex gap-2 overflow-x-auto bg-gradient-to-r from-purple-50 to-pink-50">
+          <div className="p-3 border-b-2 flex gap-2 overflow-x-auto bg-gradient-to-r from-purple-50 to-pink-50">
             {languages.map(function(lang) {
               const isActive = currentLang === lang.code;
               return (
                 <button
                   key={lang.code}
-                  onClick={function() { setCurrentLang(lang.code); stopSpeaking(); }}
+                  onClick={function() { setCurrentLang(lang.code); }}
                   className={isActive 
-                    ? 'px-4 py-2 rounded-xl font-semibold whitespace-nowrap bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                    : 'px-4 py-2 rounded-xl font-semibold whitespace-nowrap bg-white hover:bg-purple-100 text-gray-700 border-2 border-purple-200'}
+                    ? 'px-3 py-2 rounded-lg font-semibold whitespace-nowrap bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg text-sm'
+                    : 'px-3 py-2 rounded-lg font-semibold whitespace-nowrap bg-white hover:bg-purple-100 text-gray-700 border-2 border-purple-200 text-sm'}
                 >
                   {lang.flag} {lang.name}
                 </button>
@@ -289,20 +651,19 @@ export default function ReussitessAI() {
             })}
           </div>
 
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-purple-50/30 to-white">
+          <div className="flex-1 overflow-y-auto p-5 space-y-5 bg-gradient-to-b from-purple-50/30 to-white">
             {messages.map(function(msg, idx) {
               const isUser = msg.role === 'user';
               const htmlContent = msg.content
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n/g, '<br/>')
-                .replace(/• /g, '<br/>• ');
+                .replace(/\n/g, '<br/>');
               
               return (
                 <div key={idx} className={isUser ? 'flex justify-end' : 'flex justify-start'}>
                   <div 
                     className={isUser
-                      ? 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg'
-                      : 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-purple-200 text-lg'}
+                      ? 'max-w-[80%] p-4 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                      : 'max-w-[80%] p-4 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-purple-200'}
                     dangerouslySetInnerHTML={{ __html: htmlContent }}
                   />
                 </div>
@@ -311,14 +672,14 @@ export default function ReussitessAI() {
             
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white border-2 border-purple-200 p-5 rounded-2xl shadow-lg">
-                  <div className="flex items-center gap-4">
+                <div className="bg-white border-2 border-purple-200 p-4 rounded-2xl shadow-lg">
+                  <div className="flex items-center gap-3">
                     <div className="flex gap-2">
-                      <div className="w-4 h-4 bg-purple-600 rounded-full animate-bounce" />
-                      <div className="w-4 h-4 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                      <div className="w-4 h-4 bg-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                      <div className="w-3 h-3 bg-purple-600 rounded-full animate-bounce" />
+                      <div className="w-3 h-3 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                      <div className="w-3 h-3 bg-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                     </div>
-                    <span className="text-gray-700 font-semibold">Alex réfléchit...</span>
+                    <span className="text-gray-700 font-semibold text-sm">Alex analyse...</span>
                   </div>
                 </div>
               </div>
@@ -326,26 +687,26 @@ export default function ReussitessAI() {
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="p-5 border-t-2 bg-gradient-to-r from-purple-50 to-pink-50">
-            <div className="flex gap-4">
+          <form onSubmit={handleSubmit} className="p-4 border-t-2 bg-gradient-to-r from-purple-50 to-pink-50">
+            <div className="flex gap-3">
               <input
                 type="text"
                 value={input}
                 onChange={function(e) { setInput(e.target.value); }}
                 placeholder="Posez votre question... 💬"
-                className="flex-1 border-2 border-purple-300 rounded-xl px-6 py-4 focus:outline-none focus:ring-4 focus:ring-purple-400 text-lg"
+                className="flex-1 border-2 border-purple-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-3 focus:ring-purple-400"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-all shadow-lg disabled:opacity-50"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:scale-105 transition-all shadow-lg disabled:opacity-50"
               >
                 🚀
               </button>
             </div>
             <p className="text-xs text-gray-500 mt-2 text-center">
-              🗣️ Vocal • 6 langues • 62 pages • 26 boutiques • 5 innovations
+              🗣️ 8 langues • 🛍️ 26 Amazon • 🏛️ UNESCO • 🌍 Culture mondiale
             </p>
           </form>
         </div>
