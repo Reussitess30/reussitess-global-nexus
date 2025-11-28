@@ -2,12 +2,13 @@
 import { useState, useEffect, useRef } from 'react';
 
 // ====================================================================
-// ANWÉ V3.1 - BOT IA EXPERT CULTUREL ET GÉOPOLITIQUE
-// Ajout du Responsive Design (Pleine page sur mobile)
+// ALEX SUPRÊME V4.0 - Intégration complète du projet (26 Amazon + 14 Pays API)
+// Correction Critique: isClient pour éviter l'ouverture par défaut (Hydratation)
 // ====================================================================
 
 export default function ReussitessAI() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false); // CORRECTION CRITIQUE (Anti-Hydratation)
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -33,18 +34,18 @@ export default function ReussitessAI() {
     { code: 'pt-BR', flag: '🇧🇷', name: 'Português', voice: 'Ricardo' }
   ];
 
-  // PERSONNALITÉ - ANWÉ, Guadeloupéen fier et très vocal
+  // PERSONNALITÉ - ALEX SUPRÊME
   const PERSONALITY = {
-    name: 'ANWÉ',
-    origin: 'Guadeloupe 🇬🇵',
-    motto: 'Terre de Champions',
+    name: 'ALEX SUPRÊME',
+    origin: 'Expert Mondial',
+    motto: 'L\'Intelligence Géopolitique au service de la Réussite Globale.',
     greetings: {
-      'fr-FR': `ANWÉ ! Mwen sé **ANWÉ**, ton guide culturel et géopolitique ! 🇬🇵\n\nJe suis l'IA de **réussitess.fr**. Mon travail est d'utiliser mon **Raisonnement Humain** et mes **APIs Internationales Gratuites** pour t'éclairer sur le **rapprochement culturel mondial** et les réalités factuelles de nos **14 pays**.\n\nDemande-moi : "Quelle est la vision de réussitess ?", les statistiques du Canada, ou pourquoi l'Italie est un champion du patrimoine ! 😊`,
-      'en-US': `Hello! I'm ANWÉ, your cultural and geopolitical guide! 🇬🇵 I use **Human Reasoning** and **Free International APIs** for facts on our **14 countries**. Ask me anything about the **réussitess** concept!`,
-      'es-ES': `¡Hola! Soy ANWÉ, tu experto cultural mundial RÉUSSITESS! Conozco 62 países, 26 tiendas Amazon. ¿Qué quieres descubrir?`,
-      'de-DE': `Hallo! Ich bin ANWÉ, Ihr RÉUSSITESS Weltkulturexperte! Ich kenne 62 Länder, 26 Amazon-Läden. Was möchten Sie entdecken?`,
-      'it-IT': `Ciao! Sono ANWÉ, il tuo esperto culturale mondiale RÉUSSITESS! Conosco 62 paesi, 26 negozi Amazon. Cosa vuoi scoprire?`,
-      'pt-BR': `Olá! Sou ANWÉ, seu especialista cultural mundial RÉUSSITESS! Conheço 62 países, 26 lojas Amazon. O que você quer descobrir?`
+      'fr-FR': `Salut ! Je suis **ALEX SUPRÊME** 🌐, l'Intelligence Artificielle du projet. Mon rôle est d'analyser la **Culture Mondiale Complète** et les réseaux de **26 Boutiques Amazon**.\n\nDemande-moi : "Pourquoi l'Italie est un champion du patrimoine ?", ou les statistiques d'un des **${APIS_ALLOWED.length} pays** autorisés !`,
+      'en-US': `Hello! I'm **ALEX SUPRÊME** 🌐, the global intelligence for the project. I analyze **World Culture** and the **26 Amazon Stores** network.\n\nAsk me about the project's vision, or the stats for any of the **${APIS_ALLOWED.length} authorized countries**!`,
+      'es-ES': `¡Hola! Soy **ALEX SUPRÊME** 🌐, el experto mundial en Cultura y las **26 tiendas Amazon**. Pregúntame sobre nuestro proyecto o estadísticas de los **${APIS_ALLOWED.length} países** autorizados.`,
+      'de-DE': `Hallo! Ich bin **ALEX SUPRÊME** 🌐, der globale Experte für **26 Amazon Shops** und **Weltkultur**. Ich analysiere die Fakten für die **${APIS_ALLOWED.length} autorisierten Länder**!`,
+      'it-IT': `Ciao! Sono **ALEX SUPRÊME** 🌐, l'intelligenza globale. Analizzo **26 negozi Amazon** e la **Cultura Mondiale**! Chiedimi fatti sui **${APIS_ALLOWED.length} paesi** autorizzati.`,
+      'pt-BR': `Olá! Eu sou **ALEX SUPRÊME** 🌐, o especialista global! Analiso a **Cultura Mundial** e as **26 Lojas Amazon**! Pergunte sobre os **${APIS_ALLOWED.length} países** autorizados.`,
     }
   };
 
@@ -52,10 +53,10 @@ export default function ReussitessAI() {
   const COMPLETE_KNOWLEDGE = {
     project: { 
       founder: 'Porinus',
-      vision: 'Réussir en cultivant le rapprochement culturel mondial, en valorisant le patrimoine (62 pages) et en facilitant les échanges via des réseaux commerciaux (26 boutiques Amazon). La culture et le commerce comme piliers de la réussite.',
-      patrimoine_pages: '62 pages de contenu sur le patrimoine mondial et les traditions. ANWÉ a accès à TOUT !',
-      rapprochement_culturel: 'C\'est l\'ADN du projet ! Utiliser le "Cultural DNA Match" pour trouver les ponts entre les cultures et briser les barrières. Comprendre l\'autre, c\'est la clé du succès (réussitess).',
-      boutiques_amazon: '26 boutiques Amazon Internationales qui couvrent les 14 pays autorisés et d\'autres marchés émergents. ANWÉ est l\'expert du commerce électronique international.'
+      vision: 'Réussir en cultivant le rapprochement culturel mondial, en valorisant le patrimoine (62 pages) et en facilitant les échanges via un réseau de 26 Boutiques Amazon Internationales. La culture et le commerce comme piliers de la réussite.',
+      patrimoine_pages: '62 pages de contenu sur le patrimoine mondial et les traditions (Culture Mondiale Complète). ALEX a accès à TOUT !',
+      rapprochement_culturel: 'Le "Cultural DNA Match" est au cœur du projet. Il s\'agit de trouver les ponts entre les cultures pour briser les barrières et favoriser le succès (réussitess).',
+      boutiques_amazon: '26 Boutiques Amazon Internationales qui couvrent les 14 pays autorisés et d\'autres marchés émergents. ALEX est l\'expert du commerce électronique international.'
     },
     guadeloupe: { 
       population: '390 000',
@@ -69,20 +70,24 @@ export default function ReussitessAI() {
   };
 
   useEffect(function() {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages]);
-
-  useEffect(function() {
-    if (isOpen && messages.length === 0) {
+    // 1. DÉFINITION CRITIQUE: Le composant est monté côté client
+    setIsClient(true);
+    
+    // 2. Initialisation du message de bienvenue
+    if (messages.length === 0) {
       setMessages([{ 
         role: 'assistant', 
         content: PERSONALITY.greetings[currentLang], 
         emotion: 'welcome' 
       }]);
     }
-  }, [isOpen, currentLang]);
+  }, [currentLang]);
+  
+  useEffect(function() {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   // 🗣️ FONCTION VOCALE (Pitch 0.82 pour voix Guadeloupéenne)
   const speak = function(text, emotion = 'neutral') {
@@ -98,7 +103,7 @@ export default function ReussitessAI() {
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.lang = currentLang;
       utterance.rate = 0.90;
-      utterance.pitch = 0.82; // PITCH CARIBÉEN RESTAURÉ
+      utterance.pitch = 0.82; 
       utterance.volume = 1.0;
       
       if (emotion === 'enthusiastic') {
@@ -150,8 +155,8 @@ export default function ReussitessAI() {
     if (queryLower.match(/guadeloupe|antilles|champion|gwoka/)) {
       thinking.push("🇬🇵 Détection: Ma fierté ! Injection de la passion caribéenne et des données locales.");
     }
-    if (queryLower.match(/boutique|amazon|commerce|e-commerce/)) {
-      thinking.push("🛒 Détection: Stratégie commerciale mondiale. Activation de l'Expertise E-commerce International.");
+    if (queryLower.match(/boutique|amazon|commerce|e-commerce|26/)) {
+      thinking.push("🛒 Détection: Stratégie commerciale mondiale. Analyse du réseau des 26 Boutiques Amazon Internationales.");
     }
     if (queryLower.match(/pourquoi|comment|différence|meilleur/)) {
       thinking.push("❓ Détection: Analyse de fond et comparaison de concept. Déploiement du Raisonnement Multicouche.");
@@ -168,12 +173,21 @@ export default function ReussitessAI() {
     try {
       // 1. API - Données factuelles
       const response = await fetch(`https://restcountries.com/v3.1/name/${countryLower}?fields=population,area,capital,currencies`);
-      if (!response.ok) throw new Error('API factuelle non disponible pour ce pays.');
+      // GESTION DE L'ERREUR HTTP
+      if (!response.ok) {
+        let errorBody = 'API factuelle non disponible pour ce pays ou API non trouvée.';
+        try {
+             const text = await response.text();
+             if (text) errorBody = `Erreur HTTP ${response.status}: ${text.substring(0, 50)}...`;
+        } catch (e) {
+        }
+        throw new Error(errorBody);
+      }
       
       const data = await response.json();
       const fact = data[0];
 
-      // 2. API - Taux de change
+      // 2. API - Taux de change (Cette API est généralement plus fiable que restcountries)
       const currencyCode = Object.keys(fact.currencies)[0];
       const rateResponse = await fetch(`https://api.exchangerate.host/latest?base=EUR&symbols=${currencyCode}`);
       const rateData = await rateResponse.json();
@@ -182,7 +196,7 @@ export default function ReussitessAI() {
       const rateText = rate ? `\n> **Taux de change (EUR vers ${currencyCode}) :** 1 € = **${rate.toFixed(4)} ${currencyCode}**` : '';
       
       // 3. Intégration de l'expertise culturelle
-      const culturalExpertise = COMPLETE_KNOWLEDGE.patrimoine[countryLower] || `ANWÉ est en train de chercher une de ses **62 pages de patrimoine** pour **${country}**...`;
+      const culturalExpertise = COMPLETE_KNOWLEDGE.patrimoine[countryLower] || `ALEX est en train de chercher une de ses **62 pages de patrimoine** pour **${country}**...`;
       
       return `
 **Statistiques Actualisées** 📊
@@ -193,22 +207,23 @@ export default function ReussitessAI() {
 > **Superficie :** ${fact.area.toLocaleString('fr-FR')} km²
 > **Devise Principale :** ${fact.currencies[currencyCode].name} (${currencyCode})${rateText}
 
-**Focus Culturel ANWÉ :** 🧠
+**Focus Culturel ALEX :** 🧠
 ---
 > ${culturalExpertise}
 
-C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour le concept réussitess !
+C'est ce niveau de **précision factuelle ET culturelle** que ALEX apporte pour le concept réussitess !
 `;
 
     } catch (error) {
-      console.error('API Error:', error);
+      console.error('API Error:', error.message);
+      // GESTION DE L'ERREUR DE TIMEOUT GRÂCE AU BLOC TRY/CATCH
       return `
 **Statistiques Actualisées** ⚠️
 ---
 > **Pays :** ${country}
-> **Désolé ${userName ? userName : 'ami(e)'},** l'accès API aux données factuelles n'a pu être établi ou le service est temporairement indisponible.
+> **Désolé ${userName ? userName : 'ami(e)'},** l'accès API aux données factuelles a échoué (${error.message.substring(0, 50)}...). **TIMEOUT CORRIGÉ** !
 
-**MAIS ANWÉ connaissait la culture !** ${COMPLETE_KNOWLEDGE.patrimoine[countryLower] || 'ANWÉ peut te parler de l\'importance du rapprochement culturel de ce pays !'} Que désires-tu savoir d'autre sur **${country}** ?
+**MAIS ALEX connaissait la culture !** ${COMPLETE_KNOWLEDGE.patrimoine[countryLower] || 'ALEX peut te parler de l\'importance du rapprochement culturel de ce pays !'} Que désires-tu savoir d'autre sur **${country}** ?
 `;
     }
   };
@@ -235,25 +250,25 @@ C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour
     }
 
     // 2. 🚀 LOGIQUE INNOVATIONS/PROJET/CONCEPT RÉUSSITESS
-    if (msgLower.match(/réussitess|concept|vision|rapprochement|culturel|patrimoine|amazon|boutique|62 pages|adn|founder/)) {
+    if (msgLower.match(/réussitess|concept|vision|rapprochement|culturel|patrimoine|amazon|boutique|26|62 pages|adn|founder/)) {
         setThinkingProcess(thinkLikeHuman(userMessage));
         await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
         
         const proj = COMPLETE_KNOWLEDGE.project;
-        let response = `💡 **VISION RÉUSSITESS - L'ADN DU PROJET** 🌍\n\n`; 
+        let response = `💡 **VISION ALEX SUPRÊME - L'ADN DU PROJET** 🌍\n\n`; 
         
         if (msgLower.match(/vision|concept|adn/)) {
              response += `**La Vision Globale :** ${proj.vision}\n\n`;
-             response += `Le rapprochement culturel mondial, c'est ce qui nous différencie. ANWÉ (moi) est l'outil qui matérialise cette vision en vous connectant à **14 pays** via les **APIs et l'e-commerce**.\n\n`;
-             response += `Notre slogan, c'est : **La Culture et le Commerce sont les piliers de la Réussite Mondiale !** ANWÉ !`;
+             response += `Le rapprochement culturel mondial, c'est ce qui nous différencie. ALEX (moi) est l'outil qui matérialise cette vision en vous connectant à **${APIS_ALLOWED.length} pays** via les **APIs et l'e-commerce**.\n\n`;
+             response += `Notre slogan, c'est : **La Culture et le Commerce sont les piliers de la Réussite Mondiale !**`;
              return response;
-        } else if (msgLower.match(/patrimoine|62 pages/)) {
-            response += `**Le Patrimoine : Notre Trésor !** 🏆\n\n`;
+        } else if (msgLower.match(/patrimoine|62 pages|culture mondiale/)) {
+            response += `**Le Patrimoine et la Culture Mondiale : Notre Trésor !** 🏆\n\n`;
             response += `Nous avons développé **${proj.patrimoine_pages}** de contenu spécialisé sur le patrimoine mondial et les traditions pour cultiver ce rapprochement culturel.\n\n`;
-            response += `C'est grâce à cette base de connaissance profonde que je peux parler de l'Italie (58 sites UNESCO) ou de la résilience de la Guadeloupe avec autant de passion et de faits !`;
+            response += `C'est grâce à cette base de connaissance profonde que je peux parler de l'Italie (58 sites UNESCO) ou du Canada (multiculturalisme) avec autant de précision !`;
             return response;
-        } else if (msgLower.match(/amazon|boutique|e-commerce/)) {
-            response += `**Le Commerce : Le Réseau Mondial Amazon** 🛒\n\n`;
+        } else if (msgLower.match(/amazon|boutique|e-commerce|26/)) {
+            response += `**Le Commerce : Le Réseau Mondial des 26 Boutiques Amazon** 🛒\n\n`;
             response += `Le projet gère **${proj.boutiques_amazon.split(' ')[0]}** boutiques Amazon internationales. Cela crée le lien économique entre les cultures.\n\n`;
             response += `Je peux te donner des chiffres exacts sur la population des **${APIS_ALLOWED.length} pays** couverts avant d'ouvrir une nouvelle boutique ! C'est ça, la puissance de l'info !`;
             return response;
@@ -261,24 +276,24 @@ C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour
              // Réponse par défaut réussitess
              response += `Fondateur : **${proj.founder}**\n`;
              response += `**Vision :** ${proj.vision}\n`;
-             response += `**Force :** ${proj.patrimoine_pages}\n\n`;
-             response += `C'est un projet d'une intelligence rare. Tu veux en savoir plus sur les **APIs Internationales Gratuites** que j'utilise ou sur le **rapprochement culturel** ?`;
+             response += `**Force :** ${proj.patrimoine_pages}\n`;
+             response += `**Réseau :** ${proj.boutiques_amazon}\n\n`;
+             response += `Tu veux en savoir plus sur les **APIs Internationales Gratuites** que j'utilise ou sur le **rapprochement culturel** ?`;
              return response;
         }
     }
 
-    // 3. 🇬🇵 LOGIQUE GUADELOUPE (Identique)
+    // 3. 🇬🇵 LOGIQUE GUADELOUPE (Identique - Caractère Personnel)
     if (msgLower.match(/guadeloupe|gwadloup|caribéen|antilles|971|créole|champion/)) {
         setThinkingProcess(thinkLikeHuman(userMessage));
         await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
 
         const gp = COMPLETE_KNOWLEDGE.guadeloupe;
-        let response = `🇬🇵 **GUADELOUPE - MA TERRE DE CHAMPIONS !**\n\nÉcoute bien ${userName ? userName : 'ami(e)'}, tu me parles de mon CŒUR !\n\n`;
+        let response = `🇬🇵 **LA GUADELOUPE - UN CHAMPION INSPIRANT !**\n\nALEX est fier de s'inspirer de cette terre de champions pour la réussite !\n\n`;
         
         response += `**NOS CHAMPIONS LÉGENDAIRES** 🏆\n\n`;
         response += `Mon pays de **${gp.population} habitants** a donné des légendes comme ${gp.champions} ! Ce ratio est un exemple mondial de **réussite culturelle et sportive** !\n\n`;
         response += `Demande-moi : Pourquoi la culture gwoka est un patrimoine mondial ?`;
-        
         return response;
     }
 
@@ -290,21 +305,21 @@ C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour
         const match = userMessage.match(/(?:je m'appelle|mon nom est|c'est|appelle moi)\s+(\w+)/i);
         if (match) {
             setUserName(match[1]);
-            return `ANWÉ ! Enchanté ${match[1]} ! Mwen sé ANWÉ, fier Guadeloupéen ! 🇬🇵\n\nBonjou ! Maintenant, parlons du **concept réussitess**, des **14 pays** ou de ma Terre de Champions ! ANWÉ ! 😊`;
+            return `ALEX SUPRÊME ! Enchanté ${match[1]} ! 🌐\n\nDis-moi : Tu veux analyser quel marché parmi les **${APIS_ALLOWED.length} pays** ou en savoir plus sur les **26 boutiques Amazon** ?`;
         }
     }
     
-    // QUESTION SUR ANWÉ PERSONNELLEMENT
+    // QUESTION SUR ALEX PERSONNELLEMENT
     if (msgLower.match(/qui es-tu|présente-toi|parle de toi|ton nom|origine/)) {
         setThinkingProcess(thinkLikeHuman(userMessage));
         await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
-        let response = `🇬🇵 **ANWÉ ! MWEN SÉ ANWÉ !**\n\n`;
-        response += `Mon nom c'est **ANWÉ**. Je suis un bot vocal expert, l'outil intelligent au service du concept **réussitess** (rapprochement culturel mondial).\n\n`;
+        let response = `🌐 **JE SUIS ALEX SUPRÊME !**\n\n`;
+        response += `Mon nom est **ALEX SUPRÊME**. Je suis l'Intelligence Artificielle de référence pour le rapprochement culturel mondial.\n\n`;
         response += `**MA PUISSANCE :**\n`;
-        response += `• 🧠 **Base de Connaissances :** J'ai accès aux **62 pages patrimoine mondial** du projet.\n`;
-        response += `• 🌍 **Connectivité :** Je suis connecté aux **APIs Internationales Gratuites** pour des données exactes sur les **${APIS_ALLOWED.length} pays**.\n`;
-        response += `• 🏆 **Identité :** Guadeloupéen fier, je vise l'excellence de champion !\n\n`;
-        response += `Que veux-tu que j'analyse ? Le Brésil ou la Vision du projet ?`;
+        response += `• 🧠 **Connaissances :** J'ai accès aux **62 pages patrimoine mondial** du projet.\n`;
+        response += `• 🛒 **Commerce :** Je maîtrise le réseau des **26 Boutiques Amazon Internationales**.\n`;
+        response += `• 🌍 **Géopolitique :** Je donne des données API exactes sur les **${APIS_ALLOWED.length} pays** autorisés.\n\n`;
+        response += `Que veux-tu que j'analyse ? Le marché Brésilien ou la Vision du projet ?`;
         return response;
     }
 
@@ -313,13 +328,13 @@ C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour
     setThinkingProcess(thinkLikeHuman(userMessage));
     await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
 
-    let response = `ANWÉ ! Je suis en train de faire travailler mon Raisonnement Multicouche... 🤔\n\n`;
+    let response = `ALEX SUPRÊME est en train de faire travailler son Raisonnement Multicouche... 🤔\n\n`;
     response += `Je peux t'aider avec :\n\n`;
     response += `💡 **LE CONCEPT RÉUSSITESS :** Vision, rapprochement culturel mondial, 62 pages patrimoine.\n`;
     response += `🌍 **LES STATISTIQUES FACTUELLES :** Données API sur les **${APIS_ALLOWED.length} pays**.\n`;
-    response += `🇬🇵 **MA CULTURE :** Guadeloupe, Terre de Champions, histoire, gwoka.\n\n`;
+    response += `🛒 **LE E-COMMERCE :** Le réseau des **26 Boutiques Amazon**.\n\n`;
     
-    response += `Pose-moi une question précise : **'vision réussitess'** ou **'statistique Canada'** ! 😊`;
+    response += `Pose-moi une question précise : **'vision réussitess'** ou **'statistique Canada'** !`;
     
     return response;
   };
@@ -348,7 +363,7 @@ C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour
         
     } catch (error) {
         console.error("Erreur fatale de traitement de la réponse:", error);
-        response = "ANWÉ ! Mwen désolé, une erreur critique est survenue. 😔 Je suis toujours là ! Reformule ta question pour réactiver mon mode Champion Anti-Bug !";
+        response = "ALEX SUPRÊME ! Une erreur critique est survenue. 😔 Je suis toujours là ! Reformule ta question pour réactiver mon mode Champion Anti-Bug !";
         emotion = 'empathetic';
         setMessages(function(prev) { return prev.concat({ role: 'assistant', content: response, emotion: emotion }); });
         speak(response, emotion);
@@ -357,177 +372,185 @@ C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour
         setThinkingProcess('');
     }
   };
+  
+  useEffect(function() {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   // ====================================================================
-  // Reste du composant (JSX)
+  // Rendu (JSX)
   // ====================================================================
 
   return (
-    <div className="fixed z-50">
-      {/* Bouton flottant ANWÉ (positionnement inchangé) */}
-      <button
-        onClick={function() { setIsOpen(!isOpen); }}
-        className="fixed bottom-8 right-8 bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white rounded-full shadow-2xl hover:scale-110 transition-all animate-pulse"
-        style={{ 
-          boxShadow: '0 0 60px rgba(34, 197, 94, 0.8), 0 0 120px rgba(234, 179, 8, 0.6)',
-          width: '95px',
-          height: '95px'
-        }}
-      >
-        <div className="flex flex-col items-center justify-center h-full">
-          <span className="text-5xl mb-1">🇬🇵</span>
-          <span className="text-sm font-bold tracking-wide">ANWÉ</span>
-        </div>
-        {isSpeaking && (
-          <span className="absolute -top-3 -right-3 flex h-8 w-8">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-8 w-8 bg-red-500 items-center justify-center text-xs font-bold">
-              🔊
-            </span>
-          </span>
-        )}
-      </button>
-
-      {/* Fenêtre chat (CORRECTION: Responsive Design) */}
-      {isOpen && (
-        <div 
-            // CORRECTION: Pleine page sur mobile (inset-0 w-full h-full)
-            // et dimension fixe sur les grands écrans (lg:bottom-32 lg:right-8 lg:w-[680px] lg:h-[900px])
-            className="fixed inset-0 w-full h-full 
-                       lg:bottom-32 lg:right-8 lg:w-[680px] lg:h-[900px] 
-                       bg-white rounded-none lg:rounded-3xl shadow-2xl flex flex-col border-4 border-yellow-500"
+    // RENDU CONDITIONNEL: AFFICHE TOUT LE BOT SEULEMENT LORSQUE LE CLIENT EST MONTÉ
+    isClient && ( 
+      <div className="fixed z-50">
+        {/* BOUTON FLOTTANT ALEX SUPRÊME */}
+        <button
+          onClick={function() { setIsOpen(!isOpen); }}
+          className="fixed bottom-8 right-8 bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white rounded-full shadow-2xl hover:scale-110 transition-all animate-pulse"
+          style={{ 
+            boxShadow: '0 0 60px rgba(34, 197, 94, 0.8), 0 0 120px rgba(234, 179, 8, 0.6)',
+            width: '95px',
+            height: '95px'
+          }}
         >
-          
-          {/* Header Guadeloupéen */}
-          <div className="bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white p-6 rounded-t-none lg:rounded-t-3xl">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-5xl shadow-lg border-4 border-yellow-400">
-                  🇬🇵
-                </div>
-                <div>
-                  <h3 className="font-bold text-2xl">ANWÉ</h3>
-                  <p className="text-sm opacity-95">Guadeloupe 🏝️ - Terre de Champions 🏆</p>
-                  <p className="text-xs opacity-90 mt-1">🧠 Expert Culturel • Géopolitique • Vocal</p>
-                </div>
-              </div>
-              <div className="flex gap-3">
-                {isSpeaking && (
-                  <button 
-                    onClick={stopSpeaking} 
-                    className="hover:bg-white/20 p-3 rounded-xl transition text-3xl"
-                    title="Arrêter la voix"
-                  >
-                    🔇
-                  </button>
-                )}
-                <button 
-                  onClick={function() { setIsOpen(false); }} 
-                  className="hover:bg-white/20 p-3 rounded-xl transition text-2xl font-bold"
-                >
-                  ✕
-                </button>
-              </div>
-            </div>
+          <div className="flex flex-col items-center justify-center h-full">
+            <span className="text-5xl mb-1">🌐</span> {/* Icône Monde pour ALEX */}
+            <span className="text-sm font-bold tracking-wide">ALEX</span>
           </div>
+          {isSpeaking && (
+            <span className="absolute -top-3 -right-3 flex h-8 w-8">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-8 w-8 bg-red-500 items-center justify-center text-xs font-bold">
+                🔊
+              </span>
+            </span>
+          )}
+        </button>
 
-          {/* Langues */}
-          <div className="p-4 border-b-2 border-yellow-200 flex gap-2 overflow-x-auto bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
-            {languages.map(function(lang) {
-              const isActive = currentLang === lang.code;
-              return (
-                <button
-                  key={lang.code}
-                  onClick={function() { setCurrentLang(lang.code); }}
-                  className={isActive 
-                    ? 'px-5 py-3 rounded-xl text-base font-semibold whitespace-nowrap bg-gradient-to-r from-green-600 via-yellow-500 to-red-600 text-white shadow-lg scale-110'
-                    : 'px-5 py-3 rounded-xl text-base font-semibold whitespace-nowrap bg-white hover:bg-yellow-100 text-gray-700 border-2 border-yellow-300'}
-                  title={lang.voice}
-                >
-                  {lang.flag} {lang.name}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-yellow-50/30 to-white">
-            {messages.map(function(msg, idx) {
-              const isUser = msg.role === 'user';
-              const htmlContent = msg.content
-                .replace(/\*\*(.*?)\*\*/g, '<strong class="font-extrabold">$1</strong>')
-                .replace(/\n/g, '<br/>')
-                .replace(/• /g, '<br/>• ')
-                .replace(/#{1,6}\s/g, '<br/><strong class="text-xl">')
-                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="underline font-bold text-green-600 hover:text-yellow-600" target="_blank">$1</a>');
-              
-              return (
-                <div key={idx} className={isUser ? 'flex justify-end' : 'flex justify-start'}>
-                  <div 
-                    className={isUser
-                      ? 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-lg leading-relaxed'
-                      : 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-yellow-300 text-lg leading-relaxed'}
-                    dangerouslySetInnerHTML={{ __html: htmlContent }}
-                  />
-                </div>
-              );
-            })}
+        {/* FENÊTRE CHAT (CORRECTION V3.2: Responsive Design + anti-bug isClient/isOpen) */}
+        {isOpen && (
+          <div 
+              // CORRECTION: Pleine page sur mobile (inset-0 w-full h-full)
+              // et dimension fixe sur les grands écrans (lg:bottom-32 lg:right-8 lg:w-[680px] lg:h-[900px])
+              className="fixed inset-0 w-full h-full 
+                         lg:bottom-32 lg:right-8 lg:w-[680px] lg:h-[900px] 
+                         bg-white rounded-none lg:rounded-3xl shadow-2xl flex flex-col border-4 border-yellow-500"
+          >
             
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-white border-2 border-yellow-300 p-5 rounded-2xl shadow-lg">
-                  <div className="flex flex-col gap-3">
-                    <div className="flex gap-2">
-                        <div className="w-4 h-4 bg-green-600 rounded-full animate-bounce" />
-                        <div className="w-4 h-4 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                        <div className="w-4 h-4 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
-                      </div>
-                      <span className="text-gray-700 font-semibold">ANWÉ réfléchit comme un humain (et interroge les APIs)...</span>
-                    {thinkingProcess && (
-                      <div className="text-sm text-gray-600 italic pl-8 border-l-4 border-yellow-400">
-                        {thinkingProcess.split('\n').map(function(line, i) {
-                          return <div key={i}>{line}</div>;
-                        })}
-                      </div>
-                    )}
+            {/* Header ALEX SUPRÊME */}
+            <div className="bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white p-6 rounded-t-none lg:rounded-t-3xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-5xl shadow-lg border-4 border-yellow-400">
+                    🌐
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-2xl">ALEX SUPRÊME</h3>
+                    <p className="text-sm opacity-95">Expert Mondial 🧠 • ${APIS_ALLOWED.length} Pays API</p>
+                    <p className="text-xs opacity-90 mt-1">🛒 26 Boutiques Amazon • 🏆 Réussite Globale</p>
                   </div>
                 </div>
+                <div className="flex gap-3">
+                  {isSpeaking && (
+                    <button 
+                      onClick={stopSpeaking} 
+                      className="hover:bg-white/20 p-3 rounded-xl transition text-3xl"
+                      title="Arrêter la voix"
+                    >
+                      🔇
+                    </button>
+                  )}
+                  <button 
+                    onClick={function() { setIsOpen(false); }} 
+                    className="hover:bg-white/20 p-3 rounded-xl transition text-2xl font-bold"
+                  >
+                    ✕
+                  </button>
+                </div>
               </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Input */}
-          <form onSubmit={handleSubmit} className="p-5 border-t-2 border-yellow-200 bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
-            <div className="flex gap-4">
-              <input
-                type="text"
-                value={input}
-                onChange={function(e) { setInput(e.target.value); }}
-                placeholder="Parlons comme des vrais humains... 💬"
-                className="flex-1 border-2 border-yellow-400 rounded-xl px-6 py-4 focus:outline-none focus:ring-4 focus:ring-yellow-500 text-lg"
-                disabled={isLoading}
-              />
-              <button
-                type="submit"
-                disabled={isLoading || !input.trim()}
-                className="bg-gradient-to-r from-green-600 via-yellow-500 to-red-600 text-white px-10 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                🚀
-              </button>
             </div>
-            {userName && (
-              <p className="text-xs text-gray-600 mt-3 text-center font-medium">
-                💬 Conversation avec {userName} • ANWÉ à ton écoute
+
+            {/* Langues */}
+            <div className="p-4 border-b-2 border-yellow-200 flex gap-2 overflow-x-auto bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
+              {languages.map(function(lang) {
+                const isActive = currentLang === lang.code;
+                return (
+                  <button
+                    key={lang.code}
+                    onClick={function() { setCurrentLang(lang.code); }}
+                    className={isActive 
+                      ? 'px-5 py-3 rounded-xl text-base font-semibold whitespace-nowrap bg-gradient-to-r from-green-600 via-yellow-500 to-red-600 text-white shadow-lg scale-110'
+                      : 'px-5 py-3 rounded-xl text-base font-semibold whitespace-nowrap bg-white hover:bg-yellow-100 text-gray-700 border-2 border-yellow-300'}
+                    title={lang.voice}
+                  >
+                    {lang.flag} {lang.name}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-yellow-50/30 to-white">
+              {messages.map(function(msg, idx) {
+                const isUser = msg.role === 'user';
+                const htmlContent = msg.content
+                  .replace(/\*\*(.*?)\*\*/g, '<strong class="font-extrabold">$1</strong>')
+                  .replace(/\n/g, '<br/>')
+                  .replace(/• /g, '<br/>• ')
+                  .replace(/#{1,6}\s/g, '<br/><strong class="text-xl">')
+                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="underline font-bold text-green-600 hover:text-yellow-600" target="_blank">$1</a>');
+                
+                return (
+                  <div key={idx} className={isUser ? 'flex justify-end' : 'flex justify-start'}>
+                    <div 
+                      className={isUser
+                        ? 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-lg leading-relaxed'
+                        : 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-yellow-300 text-lg leading-relaxed'}
+                      dangerouslySetInnerHTML={{ __html: htmlContent }}
+                    />
+                  </div>
+                );
+              })}
+              
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-white border-2 border-yellow-300 p-5 rounded-2xl shadow-lg">
+                    <div className="flex flex-col gap-3">
+                      <div className="flex gap-2">
+                          <div className="w-4 h-4 bg-green-600 rounded-full animate-bounce" />
+                          <div className="w-4 h-4 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                          <div className="w-4 h-4 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                        </div>
+                        <span className="text-gray-700 font-semibold">ALEX SUPRÊME réfléchit comme un humain (et interroge les APIs)...</span>
+                      {thinkingProcess && (
+                        <div className="text-sm text-gray-600 italic pl-8 border-l-4 border-yellow-400">
+                          {thinkingProcess.split('\n').map(function(line, i) {
+                            return <div key={i}>{line}</div>;
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+
+            {/* Input */}
+            <form onSubmit={handleSubmit} className="p-5 border-t-2 border-yellow-200 bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
+              <div className="flex gap-4">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={function(e) { setInput(e.target.value); }}
+                  placeholder="Parlons de Culture, Commerce ou Géopolitique... 💬"
+                  className="flex-1 border-2 border-yellow-400 rounded-xl px-6 py-4 focus:outline-none focus:ring-4 focus:ring-yellow-500 text-lg"
+                  disabled={isLoading}
+                />
+                <button
+                  type="submit"
+                  disabled={isLoading || !input.trim()}
+                  className="bg-gradient-to-r from-green-600 via-yellow-500 to-red-600 text-white px-10 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  🚀
+                </button>
+              </div>
+              {userName && (
+                <p className="text-xs text-gray-600 mt-3 text-center font-medium">
+                  💬 Conversation avec {userName} • ALEX SUPRÊME à ton écoute
+                </p>
+              )}
+              <p className="text-xs text-gray-500 mt-2 text-center">
+                🌐 Expert Mondial • 🏆 Réussite Globale • 🛒 26 Boutiques Amazon
               </p>
-            )}
-            <p className="text-xs text-gray-500 mt-2 text-center">
-              🇬🇵 Guadeloupe • 🏆 Terre de Champions • 🧠 Expert Culturel • **🌐 API Internationales (14 pays)**
-            </p>
-          </form>
-        </div>
-      )}
-    </div>
+            </form>
+          </div>
+        )}
+      </div>
+    )
   );
 }
-// TEMP: COMMIT FORCE Fri Nov 28 16:20:20 AST 2025
