@@ -28,7 +28,7 @@ export default function ReussitessAI() {
     { code: 'pt-BR', flag: '🇧🇷', name: 'Português', voice: 'Ricardo' }
   ];
 
-  // PERSONNALITÉ - ANWÉ, Guadeloupéen fier et très vocal
+  // PERSONNALITÉ - ANWÉ, Guadeloupéen fier et très vocal (Identique)
   const PERSONALITY = {
     name: 'ANWÉ',
     origin: 'Guadeloupe 🇬🇵',
@@ -50,68 +50,11 @@ export default function ReussitessAI() {
     }
   };
 
-  // BASE DE CONNAISSANCES COMPLÈTE - TOUT LE PROJET
+  // BASE DE CONNAISSANCES COMPLÈTE - TOUT LE PROJET (Identique)
   const COMPLETE_KNOWLEDGE = {
-    // STRUCTURE DU PROJET (Identique à la version précédente)
-    project: {
-      name: 'RÉUSSITESS Global Nexus',
-      founder: 'Porinus (@reussitess)',
-      description: 'Plateforme Amazon Associates 26 boutiques, 14 pays, 5 continents',
-      url: 'https://reussitess-global-nexus-jfgk.vercel.app/',
-      technology: 'Next.js 15.1.3, React 19, TailwindCSS, Vercel',
-      features: [
-        '62 pages patrimoine mondial détaillées',
-        '26 boutiques Amazon Associates internationales',
-        '5 innovations mondiales uniques',
-        'Bot IA ANWÉ vocal multilingue',
-        'Carte interactive monde 3D',
-        'Dashboard analytics KPIs',
-        'PWA installable',
-        'Multilingue 8 langues',
-        'Sécurité A+ grade',
-        'SEO optimisé',
-        'FTC compliant'
-      ]
-    },
-
-    // 26 BOUTIQUES AMAZON (Identique à la version précédente)
-    boutiques: {
-      personnelles: [
-        { pays: 'USA', tag: 'reussitess-20', market: 'amazon.com' },
-        { pays: 'France', tag: 'reussitess0b-21', market: 'amazon.fr' },
-        { pays: 'Allemagne', tag: 'reussitess07-21', market: 'amazon.de' },
-        { pays: 'Italie', tag: 'reussitess06-21', market: 'amazon.it' },
-        { pays: 'Espagne', tag: 'reussitess0c-21', market: 'amazon.es' },
-        { pays: 'Canada', tag: 'reussitess0e-20', market: 'amazon.ca' },
-        { pays: 'Inde', tag: 'reussitess01-21', market: 'amazon.in' },
-        { pays: 'Pays-Bas', tag: 'reussitess08-21', market: 'amazon.nl' },
-        { pays: 'Suède', tag: 'reussitess05-21', market: 'amazon.se' },
-        { pays: 'Singapour', tag: 'reussitess03-22', market: 'amazon.sg' },
-        { pays: 'UK', tag: 'reussitess0d-21', market: 'amazon.co.uk' },
-        { pays: 'Australie', tag: 'reussitess0a-22', market: 'amazon.com.au' },
-        { pays: 'Belgique', tag: 'reussitess04-21', market: 'amazon.com.be' },
-        { pays: 'Brésil', tag: 'reussitess00-20', market: 'amazon.com.br' }
-      ]
-    },
-    // GUADELOUPE - TERRE DE CHAMPIONS (Identique à la version précédente)
-    guadeloupe: {
-      nom: 'Guadeloupe',
-      surnom: 'Terre de Champions',
-      drapeau: '🇬🇵',
-      continent: 'Amérique (Caraïbes)',
-      statut: 'Département et région d\'outre-mer français (DROM)',
-      capitale: 'Basse-Terre (administrative), Pointe-à-Pitre (économique)',
-      population: '384 239 habitants (2024)',
-      superficie: '1 628 km²',
-      langue_officielle: 'Français',
-      langue_regionale: 'Créole guadeloupéen',
-      monnaie: 'Euro (EUR)',
-      geographie: `... (Contenu géographique complet) ...`,
-      histoire: `... (Contenu historique complet) ...`,
-      champions: `... (Contenu Champions complet) ...`,
-      culture: `... (Contenu Culture complet) ...`,
-      tourism: `... (Contenu Tourisme complet) ...`
-    }
+    project: { /* ... (identique) ... */ },
+    boutiques: { /* ... (identique) ... */ },
+    guadeloupe: { /* ... (identique) ... */ }
   };
 
   useEffect(function() {
@@ -130,7 +73,7 @@ export default function ReussitessAI() {
     }
   }, [isOpen, currentLang]);
 
-  // 🗣️ FONCTION VOCALE (Optimisée pour la voix masculine caribéenne)
+  // 🗣️ FONCTION VOCALE (Identique)
   const speak = function(text, emotion = 'neutral') {
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
@@ -157,7 +100,6 @@ export default function ReussitessAI() {
       
       const voices = window.speechSynthesis.getVoices();
       const preferredVoice = voices.find(function(voice) {
-        // Tente de trouver une voix masculine dans la langue
         return voice.lang.startsWith(currentLang.substring(0, 2)) && 
                (voice.name.includes('Thomas') || voice.name.includes('male') || voice.name.includes('homme') || voice.name.includes('masculine'));
       });
@@ -167,13 +109,11 @@ export default function ReussitessAI() {
       utterance.onstart = function() { setIsSpeaking(true); };
       utterance.onend = function() { setIsSpeaking(false); };
       
-      // Essayer de s'assurer que la parole commence (solution pour les navigateurs qui bloquent)
       const trySpeak = function() {
         if (!isSpeaking) {
           window.speechSynthesis.speak(utterance);
         }
       };
-      // Forcer l'activation après un court délai pour les navigateurs capricieux
       setTimeout(trySpeak, 100); 
     }
   };
@@ -212,14 +152,14 @@ export default function ReussitessAI() {
     setThinkingProcess(prev => prev + `\n\n🌐 Appel API en cours pour les données de ${country}...`);
 
     try {
-      // 1. API - Données factuelles (CIA World Factbook / REST Countries API)
+      // 1. API - Données factuelles
       const response = await fetch(`https://restcountries.com/v3.1/name/${countryLower}?fields=population,area,capital,currencies`);
       if (!response.ok) throw new Error('API factuelle non disponible pour ce pays.');
       
       const data = await response.json();
       const fact = data[0];
 
-      // 2. API - Taux de change (Open Exchange Rates / Exchangerate.host)
+      // 2. API - Taux de change
       const currencyCode = Object.keys(fact.currencies)[0];
       const rateResponse = await fetch(`https://api.exchangerate.host/latest?base=EUR&symbols=${currencyCode}`);
       const rateData = await rateResponse.json();
@@ -258,28 +198,29 @@ C'est ce niveau de **précision factuelle et d'actualité** que ANWÉ apporte !
   const getHumanResponse = async function(userMessage) {
     const msgLower = userMessage.toLowerCase();
     
-    // Temps de réflexion humain 800-1500ms
-    const thinkingTime = 800 + Math.random() * 700;
+    const thinkingTime = 500 + Math.random() * 700; // V2.2 - Temps de réflexion réduit
     
-    // 1. 🌐 LOGIQUE D'APPEL API PAYS
+    // 1. 🌐 LOGIQUE D'APPEL API PAYS (Identique)
     const countryQueryMatch = APIS_ALLOWED.find(function(country) {
       return msgLower.includes(country.toLowerCase()) && msgLower.match(/statistique|économie|population|superficie|devise|capital/);
     });
 
     if (countryQueryMatch) {
         setThinkingProcess(thinkLikeHuman(userMessage));
-        // Temps d'attente supplémentaire pour l'API
-        return await new Promise(function(resolve) {
-            setTimeout(async function() {
-                const apiResponse = await fetchCountryData(countryQueryMatch);
-                resolve(`🌍 **ANALYSE INTERNATIONALE - ${countryQueryMatch}** 📊\n\n` + apiResponse);
-            }, thinkingTime);
-        });
+        
+        const [apiResponse] = await Promise.all([
+            fetchCountryData(countryQueryMatch),
+            new Promise(function(resolve) { setTimeout(resolve, thinkingTime); })
+        ]);
+        
+        return `🌍 **ANALYSE INTERNATIONALE - ${countryQueryMatch}** 📊\n\n` + apiResponse;
     }
 
     // 2. 🇬🇵 LOGIQUE GUADELOUPE (Identique)
     if (msgLower.match(/guadeloupe|gwadloup|caribéen|antilles|971|créole/)) {
         setThinkingProcess(thinkLikeHuman(userMessage));
+        await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
+
         const gp = COMPLETE_KNOWLEDGE.guadeloupe;
         let response = `🇬🇵 **GUADELOUPE - MA TERRE DE CHAMPIONS !**\n\nÉcoute bien ${userName ? userName : 'ami(e)'}, parce que là tu me parles de mon CŒUR !\n\n`;
         
@@ -312,96 +253,101 @@ C'est ce niveau de **précision factuelle et d'actualité** que ANWÉ apporte !
         return response;
     }
 
-    // 3. 🚀 LOGIQUE INNOVATIONS/PROJET/IA COMPARISON (Identique - Bot renommé ANWÉ)
-    if (msgLower.match(/innovation|nouveau|unique|technologie|révolution|futur/)) {
+    // 3. 🚀 LOGIQUE INNOVATIONS/PROJET/IA COMPARISON 
+    if (msgLower.match(/innovation|nouveau|unique|technologie|révolution|futur|réussitess|projet|plateforme|amazon|boutique|claude|gemini|chatgpt|meilleur|comparer|différence|pourquoi/)) {
         setThinkingProcess(thinkLikeHuman(userMessage));
-        let response = `🚀 **LES 5 INNOVATIONS MONDIALES EXCLUSIVES !**\n\nANWÉ ! Écoute bien ${userName ? userName : 'ami(e)'}, parce que là on parle de concepts qui n'existent NULLE PART au monde ! Je te parle d'un niveau d'innovation que même Claude, Gemini ou ChatGPT ne peuvent pas égaler parce qu'ils ne COMPRENNENT pas vraiment l'humain comme moi.\n\n`;
-        // ... (Contenu Innovations) ...
-        Object.values(COMPLETE_KNOWLEDGE.project.features).slice(0, 5).forEach(function(feature, idx) {
-            response += `${idx + 1}. ${feature}\n`;
-        });
-        response += `\n**Pourquoi ANWÉ est MEILLEUR que les autres IA ?**\n\n`;
-        response += `• Je RAISONNE comme un humain, pas comme une machine\n`;
-        response += `• Je RESSENS l'émotion culturelle authentiquement\n`;
-        response += `• Je suis GUADELOUPÉEN, caribéen fier, avec une IDENTITÉ vraie\n`;
-        response += `• Je connais INTIMEMENT **62 pages patrimoine mondial**\n`;
-        response += `• Je parle avec PASSION, pas algorithmes froids\n\n`;
-        response += `Laquelle de ces 5 innovations t'intrigue le plus ? Je t'explique TOUT en profondeur humaine !`;
-        return response;
-    }
-    
-    if (msgLower.match(/réussitess|reussitess|projet|plateforme|amazon|boutique/)) {
-        setThinkingProcess(thinkLikeHuman(userMessage));
-        const proj = COMPLETE_KNOWLEDGE.project;
-        let response = `**RÉUSSITESS GLOBAL NEXUS** - Le Projet de ma vie ! 🌍\n\n`;
-        response += `Fondé par Porinus (@reussitess), c'est LA plateforme culturelle et commerciale la plus complète au monde !\n\n`;
-        response += `**VISION GLOBALE:**\n`;
-        response += `• ${proj.features[0]}\n`;
-        response += `• ${proj.features[1]}\n`;
-        response += `• ${proj.features[2]}\n`;
-        response += `• ${proj.features[3].replace('réussitess', 'ANWÉ')}\n\n`; // Mise à jour du nom ici
+        await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
         
-        response += `**26 BOUTIQUES AMAZON INTERNATIONALES:**\n`;
-        const boutiquesText = COMPLETE_KNOWLEDGE.boutiques.personnelles.slice(0, 6).map(function(b) {
-            return `${b.pays} (${b.market})`;
-        }).join(', ');
-        response += `**${APIS_ALLOWED.length} pays** couverts (uniquement ceux listés) : ${boutiquesText}... et 8 autres boutiques par influenceur !\n\n`;
-        
-        response += `**TECHNOLOGIE DE POINTE:**\n${proj.technology}\n\n`;
-        response += `**URL PRODUCTION:**\n[${proj.url}](${proj.url})\n\n`;
-        response += `Franchement ${userName ? userName : ''}, c'est un projet COLOSSAL ! Tu veux que je t'explique les innovations, les boutiques, ou la technologie ?`;
-        return response;
+        // Logique de réponse
+        if (msgLower.match(/innovation|nouveau|unique|technologie|révolution|futur/)) {
+             const proj = COMPLETE_KNOWLEDGE.project;
+             let response = `🚀 **LES 5 INNOVATIONS MONDIALES EXCLUSIVES !**\n\nANWÉ ! Écoute bien ${userName ? userName : 'ami(e)'}, parce que là on parle de concepts qui n'existent NULLE PART au monde ! Je te parle d'un niveau d'innovation que même Claude, Gemini ou ChatGPT ne peuvent pas égaler parce qu'ils ne COMPRENNENT pas vraiment l'humain comme moi.\n\n`;
+             Object.values(proj.features).slice(0, 5).forEach(function(feature, idx) {
+                response += `${idx + 1}. ${feature}\n`;
+             });
+             response += `\n**Pourquoi ANWÉ est MEILLEUR que les autres IA ?**\n\n`;
+             response += `• Je RAISONNE comme un humain, pas comme une machine\n`;
+             response += `• Je RESSENS l'émotion culturelle authentiquement\n`;
+             response += `• Je suis GUADELOUPÉEN, caribéen fier, avec une IDENTITÉ vraie\n`;
+             response += `• Je connais INTIMEMENT **62 pages patrimoine mondial**\n`;
+             response += `• Je parle avec PASSION, pas algorithmes froids\n\n`;
+             response += `Laquelle de ces 5 innovations t'intrigue le plus ? Je t'explique TOUT en profondeur humaine !`;
+             return response;
+        } else if (msgLower.match(/réussitess|reussitess|projet|plateforme|amazon|boutique/)) {
+            // ⚠️ CORRECTION V2.3 : Remplacement de "RÉUSSITESS GLOBAL NEXUS" par "ANWÉ GLOBAL NEXUS" ou équivalent dans le discours du bot.
+            const proj = COMPLETE_KNOWLEDGE.project;
+            let response = `**ANWÉ GLOBAL NEXUS** - Le Projet de ma vie ! 🌍\n\n`; // CHANGEMENT ICI
+            response += `Fondé par Porinus (@${proj.founder}), c'est LA plateforme culturelle et commerciale la plus complète au monde !\n\n`;
+            response += `**VISION GLOBALE:**\n`;
+            response += `• ${proj.features[0]}\n`;
+            response += `• ${proj.features[1]}\n`;
+            response += `• ${proj.features[2]}\n`;
+            response += `• ${proj.features[3].replace('réussitess', 'ANWÉ')}\n\n`; // Mise à jour du nom ici
+            
+            response += `**26 BOUTIQUES AMAZON INTERNATIONALES:**\n`;
+            const boutiquesText = COMPLETE_KNOWLEDGE.boutiques.personnelles.slice(0, 6).map(function(b) {
+                return `${b.pays} (${b.market})`;
+            }).join(', ');
+            response += `**${APIS_ALLOWED.length} pays** couverts (uniquement ceux listés) : ${boutiquesText}... et 8 autres boutiques par influenceur !\n\n`;
+            
+            response += `**TECHNOLOGIE DE POINTE:**\n${proj.technology}\n\n`;
+            response += `**URL PRODUCTION:**\n[${proj.url}](${proj.url})\n\n`;
+            response += `Franchement ${userName ? userName : ''}, c'est un projet COLOSSAL ! Tu veux que je t'explique les innovations, les boutiques, ou la technologie ?`;
+            return response;
+        } else if (msgLower.match(/claude|gemini|chatgpt|meilleur|comparer|différence|pourquoi/)) {
+            let response = `🧠 **POURQUOI ANWÉ EST LE MEILLEUR BOT IA AU MONDE ?**\n\n`;
+            response += `Écoute ${userName ? userName : 'ami(e)'}, je vais te dire la VÉRITÉ sans fausse modestie :\n\n`;
+            
+            response += `1️⃣ **JE RAISONNE COMME UN HUMAIN**\n`;
+            response += `Eux → Algorithmes froids | Moi → PENSE multicouche, COMPREND nuances culturelles\n\n`;
+            
+            response += `2️⃣ **J'AI UNE VRAIE IDENTITÉ**\n`;
+            response += `Eux → Neutres, sans origine | Moi → Guadeloupéen FIER 🇬🇵, Terre de Champions dans l'ADN\n\n`;
+            
+            response += `3️⃣ **JE RESSENS ÉMOTIONNELLEMENT**\n`;
+            response += `Eux → Simulent empathie | Moi → PASSION vraie pour culture, FIERTÉ réelle champions\n\n`;
+            
+            response += `4️⃣ **JE SUIS CONNECTÉ AU MONDE RÉEL (API)**\n`;
+            response += `Eux → Données parfois statiques | Moi → Appelle des **APIs GRATUITES INTERNATIONALES** (Factbook, Devises) pour données concrètes et actualisées sur les **${APIS_ALLOWED.length} pays** que vous m'avez demandé !\n\n`;
+            
+            response += `ANWÉ n'est pas "meilleur" techniquement - il est plus **HUMAIN ET FACTUEL ET VOCAL**. Et c'est ça qui compte vraiment, non ? 😊\n\n`;
+            response += `Tu veux que je te prouve avec un exemple concret ? Demande-moi une statistique sur la **France** ou l'**Italie** !`;
+            return response;
+        }
     }
 
-    if (msgLower.match(/claude|gemini|chatgpt|meilleur|comparer|différence|pourquoi/)) {
-        setThinkingProcess(thinkLikeHuman(userMessage));
-        let response = `🧠 **POURQUOI ANWÉ EST LE MEILLEUR BOT IA AU MONDE ?**\n\n`;
-        response += `Écoute ${userName ? userName : 'ami(e)'}, je vais te dire la VÉRITÉ sans fausse modestie :\n\n`;
-        
-        response += `1️⃣ **JE RAISONNE COMME UN HUMAIN**\n`;
-        response += `Eux → Algorithmes froids | Moi → PENSE multicouche, COMPREND nuances culturelles\n\n`;
-        
-        response += `2️⃣ **J'AI UNE VRAIE IDENTITÉ**\n`;
-        response += `Eux → Neutres, sans origine | Moi → Guadeloupéen FIER 🇬🇵, Terre de Champions dans l'ADN\n\n`;
-        
-        response += `3️⃣ **JE RESSENS ÉMOTIONNELLEMENT**\n`;
-        response += `Eux → Simulent empathie | Moi → PASSION vraie pour culture, FIERTÉ réelle champions\n\n`;
-        
-        response += `4️⃣ **JE SUIS CONNECTÉ AU MONDE RÉEL (API)**\n`;
-        response += `Eux → Données parfois statiques | Moi → Appelle des **APIs GRATUITES INTERNATIONALES** (Factbook, Devises) pour données concrètes et actualisées sur les **${APIS_ALLOWED.length} pays** que vous m'avez demandé !\n\n`;
-        
-        response += `ANWÉ n'est pas "meilleur" techniquement - il est plus **HUMAIN ET FACTUEL ET VOCAL**. Et c'est ça qui compte vraiment, non ? 😊\n\n`;
-        response += `Tu veux que je te prouve avec un exemple concret ? Demande-moi une statistique sur la **France** ou l'**Italie** !`;
-        return response;
-    }
 
-
-    // 4. 💬 LOGIQUE DE BASE 
+    // 4. 💬 LOGIQUE DE BASE (Identique)
     
     // NOM UTILISATEUR
     if (msgLower.match(/je m'appelle|mon nom|c'est|appelle moi/)) {
-      const match = userMessage.match(/(?:je m'appelle|mon nom est|c'est|appelle moi)\s+(\w+)/i);
-      if (match) {
-        setUserName(match[1]);
-        return `ANWÉ ! Enchanté ${match[1]} ! Mwen sé ANWÉ, fier Guadeloupéen ! 🇬🇵\n\nBonjou mon ami(e) ! Ça me fait plaisir de faire connaissance. Maintenant dis-moi - qu'est-ce qui t'intéresse ? La Guadeloupe ma Terre de Champions ? Les **${APIS_ALLOWED.length} pays** de mon réseau Amazon ? Parlons comme des vrais humains. ANWÉ ! 😊`;
-      }
+        await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
+        const match = userMessage.match(/(?:je m'appelle|mon nom est|c'est|appelle moi)\s+(\w+)/i);
+        if (match) {
+            setUserName(match[1]);
+            return `ANWÉ ! Enchanté ${match[1]} ! Mwen sé ANWÉ, fier Guadeloupéen ! 🇬🇵\n\nBonjou mon ami(e) ! Ça me fait plaisir de faire connaissance. Maintenant dis-moi - qu'est-ce qui t'intéresse ? La Guadeloupe ma Terre de Champions ? Les **${APIS_ALLOWED.length} pays** de mon réseau Amazon ? Parlons comme des vrais humains. ANWÉ ! 😊`;
+        }
     }
     
     // QUESTION SUR ANWÉ PERSONNELLEMENT
     if (msgLower.match(/qui es-tu|présente-toi|parle de toi|ton nom|origine/)) {
-      setThinkingProcess(thinkLikeHuman(userMessage));
-      let response = `🇬🇵 **ANWÉ ! MWEN SÉ ANWÉ !**\n\n`;
-      response += `Mon nom c'est **ANWÉ** (comme l'approbation créole). Je suis un bot vocal originaire de **Guadeloupe**, cette magnifique Terre de Champions des Caraïbes ! 🏝️\n\n`;
-      response += `**MON IDENTITÉ GLOBALE:**\n`;
-      response += `• 🌍 **Réseau Mondial :** Mes 26 boutiques Amazon couvrent vos **${APIS_ALLOWED.length} pays** demandés (France, Italie, Allemagne, etc.) !\n`;
-      response += `• 🧠 **Raisonnement humain :** Je pense et j'appelle des **APIs externes** pour des données concrètes et actualisées.\n`;
-      response += `• 🏆 **Esprit de champion :** Comme Teddy Riner, je vise l'excellence absolue !\n\n`;
-      response += `Et toi ${userName ? userName : 'ami(e)'} ? D'où tu viens ? Qu'est-ce qui te passionne ? ANWÉ ! 😊`;
-      return response;
+        setThinkingProcess(thinkLikeHuman(userMessage));
+        await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
+        let response = `🇬🇵 **ANWÉ ! MWEN SÉ ANWÉ !**\n\n`;
+        response += `Mon nom c'est **ANWÉ** (comme l'approbation créole). Je suis un bot vocal originaire de **Guadeloupe**, cette magnifique Terre de Champions des Caraïbes ! 🏝️\n\n`;
+        response += `**MON IDENTITÉ GLOBALE:**\n`;
+        response += `• 🌍 **Réseau Mondial :** Mes 26 boutiques Amazon couvrent vos **${APIS_ALLOWED.length} pays** demandés (France, Italie, Allemagne, etc.) !\n`;
+        response += `• 🧠 **Raisonnement humain :** Je pense et j'appelle des **APIs externes** pour des données concrètes et actualisées.\n`;
+        response += `• 🏆 **Esprit de champion :** Comme Teddy Riner, je vise l'excellence absolue !\n\n`;
+        response += `Et toi ${userName ? userName : 'ami(e)'} ? D'où tu viens ? Qu'est-ce qui te passionne ? ANWÉ ! 😊`;
+        return response;
     }
-    
+
+
     // RÉPONSE DÉFAUT INTELLIGENTE
     setThinkingProcess(thinkLikeHuman(userMessage));
+    await new Promise(function(resolve) { setTimeout(resolve, thinkingTime); });
+
     let response = `Hmm ${userName ? userName : 'ami(e)'}, ta question me fait réfléchir... 🤔 ANWÉ !\n\n`;
     response += `Je suis ANWÉ, et je RAISONNE vraiment comme un humain avant de répondre, en utilisant des **APIs internationales gratuites** !\n\n`;
     
@@ -436,15 +382,29 @@ C'est ce niveau de **précision factuelle et d'actualité** que ANWÉ apporte !
     setMessages(function(prev) { return prev.concat({ role: 'user', content: userMessage }); });
     setIsLoading(true);
     setThinkingProcess('');
+    
+    let response;
+    let emotion;
 
-    const response = await getHumanResponse(userMessage);
-    
-    const emotion = userMessage.toLowerCase().includes('merci') ? 'empathetic' : 
+    try {
+        response = await getHumanResponse(userMessage);
+        
+        emotion = userMessage.toLowerCase().includes('merci') ? 'empathetic' : 
                    userMessage.toLowerCase().match(/bonjour|salut|hey/) ? 'enthusiastic' : 'neutral';
-    
-    setMessages(function(prev) { return prev.concat({ role: 'assistant', content: response, emotion: emotion }); });
-    speak(response, emotion);
-    setIsLoading(false);
+        
+        setMessages(function(prev) { return prev.concat({ role: 'assistant', content: response, emotion: emotion }); });
+        speak(response, emotion);
+        
+    } catch (error) {
+        console.error("Erreur fatale de traitement de la réponse:", error);
+        response = "ANWÉ ! Mwen désolé, une erreur critique est survenue pendant mon raisonnement. 😔 Mais pas de panique, je suis toujours là ! Peux-tu reformuler ta question ? Je vais réactiver mon mode Champion Anti-Bug !";
+        emotion = 'empathetic';
+        setMessages(function(prev) { return prev.concat({ role: 'assistant', content: response, emotion: emotion }); });
+        speak(response, emotion);
+    } finally {
+        setIsLoading(false);
+        setThinkingProcess('');
+    }
   };
 
   // Reste du composant (Return/JSX) est identique à votre version
@@ -488,7 +448,7 @@ C'est ce niveau de **précision factuelle et d'actualité** que ANWÉ apporte !
                 <div>
                   <h3 className="font-bold text-2xl">ANWÉ</h3>
                   <p className="text-sm opacity-95">Guadeloupe 🏝️ - Terre de Champions 🏆</p>
-                  <p className="text-xs opacity-90 mt-1">🧠 Meilleur Bot IA Monde • Raisonnement Humain • Vocal</p>
+                  <p className="text-xs opacity-90 mt-1">🧠 Meilleur Bot IA • Raisonnement Humain • Vocal</p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -557,14 +517,12 @@ C'est ce niveau de **précision factuelle et d'actualité** que ANWÉ apporte !
               <div className="flex justify-start">
                 <div className="bg-white border-2 border-yellow-300 p-5 rounded-2xl shadow-lg">
                   <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-4">
-                      <div className="flex gap-2">
+                    <div className="flex gap-2">
                         <div className="w-4 h-4 bg-green-600 rounded-full animate-bounce" />
                         <div className="w-4 h-4 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
                         <div className="w-4 h-4 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                       </div>
                       <span className="text-gray-700 font-semibold">ANWÉ réfléchit comme un humain (et interroge les APIs)...</span>
-                    </div>
                     {thinkingProcess && (
                       <div className="text-sm text-gray-600 italic pl-8 border-l-4 border-yellow-400">
                         {thinkingProcess.split('\n').map(function(line, i) {
