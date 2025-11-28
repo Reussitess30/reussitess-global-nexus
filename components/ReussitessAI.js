@@ -530,3 +530,4 @@ C'est ce niveau de **précision factuelle ET culturelle** que ANWÉ apporte pour
     </div>
   );
 }
+// TEMP: COMMIT FORCE Fri Nov 28 16:20:20 AST 2025
