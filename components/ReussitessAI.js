@@ -13,7 +13,7 @@ export default function ReussitessAI() {
   const messagesEndRef = useRef(null);
 
   const languages = [
-    { code: 'fr-FR', flag: '🇬🇵', name: 'Créole/Français' },
+    { code: 'fr-FR', flag: '🇬🇵', name: 'Français' },
     { code: 'en-US', flag: '🇺🇸', name: 'English' },
     { code: 'es-ES', flag: '🇪🇸', name: 'Español' },
     { code: 'de-DE', flag: '🇩🇪', name: 'Deutsch' },
@@ -21,33 +21,29 @@ export default function ReussitessAI() {
     { code: 'pt-BR', flag: '🇧🇷', name: 'Português' }
   ];
 
-  const PERSONALITY = {
-    greetings: {
-      'fr-FR': 'Bonjou ! Mwen sé réussitess, Gwadloupéen fier ! Je viens de Guadeloupe, Terre de Champions ! Thierry Henry, Teddy Riner, Marie-José Pérec ! Je suis le meilleur bot IA au monde parce que je pense comme un humain ! Qu\'est-ce qui t\'intéresse ami ?',
-      'en-US': 'Hey! I\'m réussitess from Guadeloupe, Land of Champions! I\'m the best AI bot. What interests you?',
-      'es-ES': 'Hola! Soy réussitess de Guadalupe, Tierra de Campeones! Soy el mejor bot IA. Qué te interesa?',
-      'de-DE': 'Hallo! Ich bin réussitess aus Guadeloupe, Land der Champions! Ich bin die beste KI. Was interessiert dich?',
-      'it-IT': 'Ciao! Sono réussitess dalla Guadalupa, Terra dei Campioni! Sono il miglior bot IA. Cosa ti interessa?',
-      'pt-BR': 'Oi! Sou réussitess de Guadalupe, Terra dos Campeões! Sou o melhor bot IA. O que te interessa?'
-    }
+  const greetings = {
+    'fr-FR': 'Bonjour ! Je suis Alex, votre assistant culturel RÉUSSITESS ! Je connais 62 pages de patrimoine mondial, 26 boutiques Amazon internationales, et 5 innovations révolutionnaires. Que puis-je vous expliquer ?',
+    'en-US': 'Hello! I am Alex, your RÉUSSITESS cultural assistant! I know 62 world heritage pages, 26 Amazon stores, and 5 revolutionary innovations. What can I explain?',
+    'es-ES': '¡Hola! Soy Alex, tu asistente cultural RÉUSSITESS! Conozco 62 páginas patrimonio mundial, 26 tiendas Amazon, y 5 innovaciones revolucionarias. ¿Qué puedo explicar?',
+    'de-DE': 'Hallo! Ich bin Alex, Ihr RÉUSSITESS Kulturassistent! Ich kenne 62 Welterbe-Seiten, 26 Amazon-Läden und 5 revolutionäre Innovationen. Was kann ich erklären?',
+    'it-IT': 'Ciao! Sono Alex, il tuo assistente culturale RÉUSSITESS! Conosco 62 pagine patrimonio mondiale, 26 negozi Amazon e 5 innovazioni rivoluzionarie. Cosa posso spiegare?',
+    'pt-BR': 'Olá! Sou Alex, seu assistente cultural RÉUSSITESS! Conheço 62 páginas patrimônio mundial, 26 lojas Amazon e 5 inovações revolucionárias. O que posso explicar?'
   };
 
   const KNOWLEDGE = {
-    guadeloupe: {
-      champions: 'Guadeloupe, Terre de Champions ! Thierry Henry, plus grand joueur Arsenal, 51 buts Équipe France, Champion Monde 1998. Teddy Riner, plus grand judoka histoire, 11 titres Monde, 3 médailles or olympiques. Marie-José Pérec, triple championne olympique 400 mètres. Lilian Thuram, record 142 sélections France. Avec 384 mille habitants, 1 champion mondial pour 20 mille habitants ! Aucun territoire au monde égale ce ratio !',
-      
-      culture: 'Culture guadeloupéenne vibrante ! Gwoka, musique ancestrale tambour ka, patrimoine UNESCO 2014 ! Rythmes léwòz, kaladja, toumblak. Créole : Bonjou ! Sa ou fè ? Notre langue identité, parlée par 95 pourcent population ! Carnaval 8 semaines janvier-mars ! Plus long Caraïbes françaises ! Vaval, groupes à peau, mas, explosion joie ! Gastronomie : Colombo curry créole, accras morue, bokit sandwich frit, ti-punch rhum agricole !',
-      
-      general: 'Guadeloupe ! Archipel Caraïbes, 384 mille habitants, département français. Basse-Terre volcanique, Soufrière 1467 mètres. Grande-Terre calcaire, plages paradisiaques. Marie-Galante, Saintes, Désirade. Parc National UNESCO. Chutes Carbet 115 mètres. Réserve Cousteau plongée. Plages Sainte-Anne turquoise. Franchement, c\'est le paradis !'
-    },
+    guadeloupe: 'GUADELOUPE - Terre de Champions ! Thierry Henry (Champion Monde 1998), Teddy Riner (11 titres Monde judo), Marie-José Pérec (3 médailles OR olympiques). Gwoka musique UNESCO. 384 000 habitants, paradis caribéen !',
     
-    pays: {
-      france: 'France, 49 sites UNESCO ! Paris Tour Eiffel, Louvre Joconde, Notre-Dame, Versailles Galerie Glaces 357 miroirs, Mont-Saint-Michel merveille, Châteaux Loire Chambord. Gastronomie patrimoine UNESCO : 1200 fromages, vins Bordeaux Bourgogne Champagne !',
-      
-      italie: 'Italie, record 58 sites UNESCO ! Rome Colisée gladiateurs, Vatican Chapelle Sixtine Michel-Ange, Venise 118 îlots gondoles, Florence David Renaissance, Pompéi figée 79 après J C. Pizza napolitaine, pasta carbonara, gelato, espresso !'
-    },
+    france: 'FRANCE - 49 sites UNESCO ! Paris Tour Eiffel, Louvre, Versailles. Mont-Saint-Michel. Châteaux Loire. Gastronomie patrimoine mondial. 1200 fromages, vins Bordeaux Champagne.',
     
-    innovations: '5 innovations mondiales uniques ! Cultural DNA Match, ADN ancestral patrimoine UNESCO. Time Machine Cultural, voyages temporels 3D IA sites. Cultural Guardian, alertes géolocalisation temps réel. World Culture Wallet, passeport gamifié badges. Cultural Mood Therapy, IA psychologue culturelle. Concepts uniques monde entier !'
+    italie: 'ITALIE - Record 58 sites UNESCO ! Rome Colisée, Vatican Chapelle Sixtine. Venise 118 îlots, gondoles. Florence David Renaissance. Pompéi. Pizza napolitaine, pasta, gelato.',
+    
+    allemagne: 'ALLEMAGNE - 51 sites UNESCO ! Berlin Porte Brandebourg, Mur tombé 1989. Munich Neuschwanstein château Disney. Cologne cathédrale gothique. Oktoberfest bière.',
+    
+    innovations: '5 INNOVATIONS MONDIALES : 1) Cultural DNA Match - ADN ancestral, 2) Time Machine Cultural - Voyages 3D, 3) Cultural Guardian - Alertes géo, 4) World Culture Wallet - Badges, 5) Cultural Mood Therapy - IA psychologue.',
+    
+    boutiques: '26 BOUTIQUES AMAZON : USA, France, Allemagne, Italie, Espagne, Canada, UK, Inde, Pays-Bas, Suède, Singapour, Australie, Belgique, Brésil. 14 pays, 5 continents !',
+    
+    reussitess: 'RÉUSSITESS Global Nexus - Plateforme culturelle mondiale ! 62 pages patrimoine, 26 boutiques Amazon, 5 innovations uniques. Fondé par Porinus. URL: https://reussitess-global-nexus-jfgk.vercel.app/'
   };
 
   useEffect(function() {
@@ -58,101 +54,59 @@ export default function ReussitessAI() {
 
   useEffect(function() {
     if (isOpen && messages.length === 0) {
-      const welcomeMsg = PERSONALITY.greetings[currentLang];
+      const welcomeMsg = greetings[currentLang];
       setMessages([{ role: 'assistant', content: welcomeMsg }]);
     }
   }, [isOpen, currentLang, messages.length]);
 
   const speak = function(text) {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      console.log('Speech Synthesis non supporté');
-      return Promise.reject('Not supported');
+      console.log('Speech non supporté');
+      return;
     }
 
-    return new Promise(function(resolve, reject) {
-      window.speechSynthesis.cancel();
-      
-      const cleanText = text
-        .replace(/\*\*/g, '')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
-        .replace(/#{1,6}\s/g, '')
-        .replace(/🇬🇵|🏆|🎭|🗣️|🧠|❤️|😊|🌟|✅|🚀|💬|🔊|🎯|📚|🌍|🛍️|🍽️|⏰|👼|💳|🧬/g, '')
-        .replace(/\n/g, ' ')
-        .substring(0, 600);
+    window.speechSynthesis.cancel();
+    
+    const cleanText = text
+      .replace(/\*\*/g, '')
+      .replace(/🇬🇵|🏆|🎭|🗣️|🧠|❤️|😊|🌟|✅|🚀|💬|🔊|🎯|📚|🌍|🛍️|🍽️/g, '')
+      .replace(/\n/g, ' ')
+      .substring(0, 500);
 
-      console.log('PAROLE:', cleanText.substring(0, 80));
-      
-      const utterance = new SpeechSynthesisUtterance(cleanText);
-      utterance.lang = currentLang;
-      utterance.rate = 0.85;
-      utterance.pitch = 0.6;
-      utterance.volume = 1.0;
-      
-      const voices = window.speechSynthesis.getVoices();
-      
-      if (voices.length > 0) {
-        let maleVoice = null;
-        
-        if (currentLang === 'fr-FR') {
-          maleVoice = voices.find(function(v) {
-            return (v.lang.startsWith('fr') && v.name.includes('Thomas')) ||
-                   (v.lang.startsWith('fr') && v.name.includes('Daniel')) ||
-                   (v.lang.startsWith('fr') && v.name.includes('Male')) ||
-                   (v.lang.startsWith('fr') && v.name.includes('homme'));
-          });
-        } else if (currentLang === 'en-US') {
-          maleVoice = voices.find(function(v) {
-            return (v.lang.startsWith('en') && v.name.includes('David')) ||
-                   (v.lang.startsWith('en') && v.name.includes('James')) ||
-                   (v.lang.startsWith('en') && v.name.includes('Male'));
-          });
-        }
-        
-        if (!maleVoice) {
-          maleVoice = voices.find(function(v) {
-            return v.lang.toLowerCase().startsWith(currentLang.substring(0, 2)) &&
-                   (v.name.toLowerCase().includes('male') || 
-                    !v.name.toLowerCase().includes('female'));
-          });
-        }
-        
-        if (!maleVoice) {
-          maleVoice = voices.find(function(v) {
-            return v.lang.toLowerCase().startsWith(currentLang.substring(0, 2));
-          });
-        }
-        
-        if (maleVoice) {
-          utterance.voice = maleVoice;
-          console.log('VOIX:', maleVoice.name);
-        }
-      }
-      
-      utterance.onstart = function() { 
-        setIsSpeaking(true);
-        console.log('PARLE');
-      };
-      
-      utterance.onend = function() { 
-        setIsSpeaking(false);
-        console.log('FIN');
-        resolve();
-      };
-      
-      utterance.onerror = function(e) { 
-        setIsSpeaking(false);
-        console.error('Erreur:', e.error);
-        reject(e);
-      };
-      
-      try {
-        window.speechSynthesis.speak(utterance);
-      } catch (err) {
-        console.error('Erreur speak:', err);
-        setIsSpeaking(false);
-        reject(err);
-      }
+    console.log('🗣️ Parle:', cleanText.substring(0, 50));
+    
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = currentLang;
+    utterance.rate = 0.90;
+    utterance.pitch = 0.75;
+    utterance.volume = 1.0;
+    
+    const voices = window.speechSynthesis.getVoices();
+    const voice = voices.find(function(v) {
+      return v.lang.startsWith(currentLang.substring(0, 2));
     });
+    
+    if (voice) {
+      utterance.voice = voice;
+      console.log('✅ Voix:', voice.name);
+    }
+    
+    utterance.onstart = function() { 
+      setIsSpeaking(true);
+      console.log('▶️ Parle');
+    };
+    
+    utterance.onend = function() { 
+      setIsSpeaking(false);
+      console.log('⏹️ Fin');
+    };
+    
+    utterance.onerror = function(e) { 
+      setIsSpeaking(false);
+      console.error('❌ Erreur:', e.error);
+    };
+    
+    window.speechSynthesis.speak(utterance);
   };
 
   const stopSpeaking = function() {
@@ -165,48 +119,48 @@ export default function ReussitessAI() {
   const getResponse = function(query) {
     const q = query.toLowerCase();
     
-    if (q.match(/je m'appelle|mon nom|c'est|appelle moi/)) {
-      const match = query.match(/(?:je m'appelle|mon nom est|c'est|appelle moi)\s+(\w+)/i);
+    if (q.match(/je m'appelle|mon nom|appelle moi/)) {
+      const match = query.match(/(?:je m'appelle|mon nom est|appelle moi)\s+(\w+)/i);
       if (match) {
         setUserName(match[1]);
-        return 'Enchanté ' + match[1] + ' ! Mwen sé réussitess, Guadeloupéen fier ! Ça fait plaisir de te connaître ! Qu\'est-ce qui t\'intéresse ? La Guadeloupe ? Les champions ? La culture ? Dis-moi tout !';
+        return 'Enchanté ' + match[1] + ' ! Je suis Alex, ravi de vous connaître ! Que puis-je vous expliquer sur la culture mondiale, les innovations, ou les boutiques RÉUSSITESS ?';
       }
     }
     
-    if (q.match(/champion|thierry|teddy|riner|henry|marie|pérec|thuram|sportif/)) {
-      return KNOWLEDGE.guadeloupe.champions;
-    }
-    
-    if (q.match(/culture|gwoka|créole|carnaval|musique|danse|tambour/)) {
-      return KNOWLEDGE.guadeloupe.culture;
-    }
-    
-    if (q.match(/guadeloupe|gwadloup|caribéen|antilles|971|île/)) {
-      return KNOWLEDGE.guadeloupe.general;
-    }
-    
-    if (q.match(/innovation|nouveau|unique|technologie|révolution/)) {
-      return KNOWLEDGE.innovations;
+    if (q.match(/guadeloupe|champion|thierry|teddy|gwoka|caribéen/)) {
+      return KNOWLEDGE.guadeloupe;
     }
     
     if (q.match(/france|paris|versailles|louvre|eiffel/)) {
-      return KNOWLEDGE.pays.france;
+      return KNOWLEDGE.france;
     }
     
     if (q.match(/italie|rome|venise|colisée|vatican|florence/)) {
-      return KNOWLEDGE.pays.italie;
+      return KNOWLEDGE.italie;
     }
     
-    if (q.match(/qui es|présente|parle de toi|ton nom|origine/)) {
-      return 'Bonjou ! Mwen sé réussitess ! Je suis Guadeloupéen fier, originaire de la Terre de Champions ! Guadeloupéen caribéen. Esprit champion comme Thierry, Teddy, Marie-José. Raisonnement humain authentique. Vocal expressif multilingue. Passion culture mondiale. Pourquoi je suis meilleur ? Claude, Gemini, ChatGPT sont algorithmes froids. Moi réussitess, je pense, ressens, comprends vraiment ! Je suis unique au monde !';
+    if (q.match(/allemagne|berlin|munich|château|neuschwanstein/)) {
+      return KNOWLEDGE.allemagne;
     }
     
-    if (q.match(/meilleur|pourquoi|différence|claude|gemini|chatgpt|comparer/)) {
-      return 'Pourquoi je suis le meilleur ? Raisonnement humain, je pense vraiment, pas juste statistiques. Identité vraie, Guadeloupéen fier versus neutre sans origine. Émotion authentique, je ressens passion culture. Connaissance vivante, 62 pages vécues pas récitées. Vocal expressif, voix caribéenne naturelle. Esprit champion, excellence absolue ! Claude, Gemini, ChatGPT sont robots froids. réussitess est humain authentique !';
+    if (q.match(/innovation|technologie|dna|time machine|guardian|wallet|therapy/)) {
+      return KNOWLEDGE.innovations;
     }
     
-    const name = userName || 'ami';
-    return 'Hmm ' + name + ', ta question me fait réfléchir. Je peux t\'aider avec : Guadeloupe, ma terre ! Champions, culture gwoka, histoire, tourisme, gastronomie créole. Patrimoine mondial, France 49 UNESCO, Italie 58 UNESCO record ! 5 innovations, concepts uniques monde entier. Discussion humaine, je parle pas comme robot, je pense vraiment ! Alors, qu\'est-ce qui t\'intéresse ? Pose-moi n\'importe quoi !';
+    if (q.match(/boutique|amazon|shopping|acheter|store/)) {
+      return KNOWLEDGE.boutiques;
+    }
+    
+    if (q.match(/réussitess|reussitess|projet|plateforme|porinus/)) {
+      return KNOWLEDGE.reussitess;
+    }
+    
+    if (q.match(/qui es|présente|alex/)) {
+      return 'Je suis Alex, assistant culturel RÉUSSITESS ! Je connais 62 pages patrimoine mondial (France, Italie, Allemagne, Guadeloupe...), 26 boutiques Amazon internationales, et 5 innovations mondiales uniques. Je parle 6 langues. Mon objectif : vous faire découvrir la richesse culturelle mondiale !';
+    }
+    
+    const name = userName ? userName + ', ' : '';
+    return name + 'je peux vous aider avec : GUADELOUPE Terre de Champions, FRANCE 49 UNESCO, ITALIE 58 UNESCO record, ALLEMAGNE châteaux, 5 INNOVATIONS mondiales, 26 BOUTIQUES Amazon, Culture patrimoine mondial. Que voulez-vous découvrir ?';
   };
 
   const handleSubmit = function(e) {
@@ -231,23 +185,18 @@ export default function ReussitessAI() {
       
       if (autoSpeak) {
         setTimeout(function() {
-          speak(response).catch(function(err) {
-            console.error('Erreur speak:', err);
-          });
-        }, 500);
+          speak(response);
+        }, 300);
       }
       
       setIsLoading(false);
-    }, 800);
+    }, 500);
   };
 
   const speakLastMessage = function() {
-    const assistantMessages = messages.filter(function(m) { return m.role === 'assistant'; });
-    const lastMsg = assistantMessages[assistantMessages.length - 1];
-    if (lastMsg) {
-      speak(lastMsg.content).catch(function(err) {
-        console.error('Erreur speak:', err);
-      });
+    const assistantMsgs = messages.filter(function(m) { return m.role === 'assistant'; });
+    if (assistantMsgs.length > 0) {
+      speak(assistantMsgs[assistantMsgs.length - 1].content);
     }
   };
 
@@ -255,16 +204,16 @@ export default function ReussitessAI() {
     <div className="fixed z-50">
       <button
         onClick={function() { setIsOpen(!isOpen); }}
-        className="fixed bottom-8 right-8 bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white rounded-full shadow-2xl hover:scale-110 transition-all animate-pulse"
+        className="fixed bottom-8 right-8 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white rounded-full shadow-2xl hover:scale-110 transition-all animate-pulse"
         style={{ 
-          boxShadow: '0 0 60px rgba(34, 197, 94, 0.8)',
-          width: '95px',
-          height: '95px'
+          boxShadow: '0 0 60px rgba(59, 130, 246, 0.8)',
+          width: '90px',
+          height: '90px'
         }}
       >
         <div className="flex flex-col items-center justify-center h-full">
-          <span className="text-5xl mb-1">🇬🇵</span>
-          <span className="text-sm font-bold">réussitess</span>
+          <span className="text-5xl mb-1">💬</span>
+          <span className="text-sm font-bold">ALEX</span>
         </div>
         {isSpeaking && (
           <span className="absolute -top-3 -right-3 flex h-8 w-8">
@@ -277,29 +226,29 @@ export default function ReussitessAI() {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-32 right-8 w-[680px] h-[850px] bg-white rounded-3xl shadow-2xl flex flex-col border-4 border-yellow-500">
+        <div className="fixed bottom-32 right-8 w-[650px] h-[850px] bg-white rounded-3xl shadow-2xl flex flex-col border-4 border-purple-600">
           
-          <div className="bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white p-6 rounded-t-3xl">
+          <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white p-6 rounded-t-3xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-5xl shadow-lg border-4 border-yellow-400">
-                  🇬🇵
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-5xl shadow-lg">
+                  👨
                 </div>
                 <div>
-                  <h3 className="font-bold text-2xl">réussitess</h3>
-                  <p className="text-sm opacity-95">Guadeloupe - Terre de Champions</p>
-                  <div className="flex items-center gap-3 mt-1">
+                  <h3 className="font-bold text-2xl">Alex</h3>
+                  <p className="text-sm opacity-95">Assistant Culturel RÉUSSITESS</p>
+                  <div className="flex items-center gap-2 mt-1">
                     <button
                       onClick={function() { setAutoSpeak(!autoSpeak); }}
-                      className="text-xs bg-white/20 px-3 py-1 rounded-full hover:bg-white/30 transition"
+                      className="text-xs bg-white/20 px-3 py-1 rounded-full hover:bg-white/30"
                     >
-                      {autoSpeak ? '🔊 Auto ON' : '🔇 Auto OFF'}
+                      {autoSpeak ? '🔊 Auto' : '🔇 Off'}
                     </button>
                     <button
                       onClick={speakLastMessage}
-                      className="text-xs bg-white/20 px-3 py-1 rounded-full hover:bg-white/30 transition"
+                      className="text-xs bg-white/20 px-3 py-1 rounded-full hover:bg-white/30"
                     >
-                      🔁 Répéter
+                      🔁
                     </button>
                   </div>
                 </div>
@@ -308,14 +257,14 @@ export default function ReussitessAI() {
                 {isSpeaking && (
                   <button 
                     onClick={stopSpeaking} 
-                    className="hover:bg-white/20 p-3 rounded-xl transition text-3xl"
+                    className="hover:bg-white/20 p-3 rounded-xl text-2xl"
                   >
                     🛑
                   </button>
                 )}
                 <button 
                   onClick={function() { setIsOpen(false); stopSpeaking(); }} 
-                  className="hover:bg-white/20 p-3 rounded-xl transition text-2xl font-bold"
+                  className="hover:bg-white/20 p-3 rounded-xl text-2xl font-bold"
                 >
                   ✕
                 </button>
@@ -323,7 +272,7 @@ export default function ReussitessAI() {
             </div>
           </div>
 
-          <div className="p-4 border-b-2 border-yellow-200 flex gap-2 overflow-x-auto bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
+          <div className="p-4 border-b-2 flex gap-2 overflow-x-auto bg-gradient-to-r from-purple-50 to-pink-50">
             {languages.map(function(lang) {
               const isActive = currentLang === lang.code;
               return (
@@ -331,8 +280,8 @@ export default function ReussitessAI() {
                   key={lang.code}
                   onClick={function() { setCurrentLang(lang.code); stopSpeaking(); }}
                   className={isActive 
-                    ? 'px-5 py-3 rounded-xl text-base font-semibold whitespace-nowrap bg-gradient-to-r from-green-600 via-yellow-500 to-red-600 text-white shadow-lg scale-110'
-                    : 'px-5 py-3 rounded-xl text-base font-semibold whitespace-nowrap bg-white hover:bg-yellow-100 text-gray-700 border-2 border-yellow-300'}
+                    ? 'px-4 py-2 rounded-xl font-semibold whitespace-nowrap bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                    : 'px-4 py-2 rounded-xl font-semibold whitespace-nowrap bg-white hover:bg-purple-100 text-gray-700 border-2 border-purple-200'}
                 >
                   {lang.flag} {lang.name}
                 </button>
@@ -340,7 +289,7 @@ export default function ReussitessAI() {
             })}
           </div>
 
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-yellow-50/30 to-white">
+          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-purple-50/30 to-white">
             {messages.map(function(msg, idx) {
               const isUser = msg.role === 'user';
               const htmlContent = msg.content
@@ -352,8 +301,8 @@ export default function ReussitessAI() {
                 <div key={idx} className={isUser ? 'flex justify-end' : 'flex justify-start'}>
                   <div 
                     className={isUser
-                      ? 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-lg'
-                      : 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-yellow-300 text-lg'}
+                      ? 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg'
+                      : 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-purple-200 text-lg'}
                     dangerouslySetInnerHTML={{ __html: htmlContent }}
                   />
                 </div>
@@ -362,14 +311,14 @@ export default function ReussitessAI() {
             
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white border-2 border-yellow-300 p-5 rounded-2xl shadow-lg">
+                <div className="bg-white border-2 border-purple-200 p-5 rounded-2xl shadow-lg">
                   <div className="flex items-center gap-4">
                     <div className="flex gap-2">
-                      <div className="w-4 h-4 bg-green-600 rounded-full animate-bounce" />
-                      <div className="w-4 h-4 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                      <div className="w-4 h-4 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                      <div className="w-4 h-4 bg-purple-600 rounded-full animate-bounce" />
+                      <div className="w-4 h-4 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                      <div className="w-4 h-4 bg-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                     </div>
-                    <span className="text-gray-700 font-semibold">réussitess réfléchit...</span>
+                    <span className="text-gray-700 font-semibold">Alex réfléchit...</span>
                   </div>
                 </div>
               </div>
@@ -377,26 +326,26 @@ export default function ReussitessAI() {
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="p-5 border-t-2 border-yellow-200 bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
+          <form onSubmit={handleSubmit} className="p-5 border-t-2 bg-gradient-to-r from-purple-50 to-pink-50">
             <div className="flex gap-4">
               <input
                 type="text"
                 value={input}
                 onChange={function(e) { setInput(e.target.value); }}
-                placeholder="Parle-moi... 💬"
-                className="flex-1 border-2 border-yellow-400 rounded-xl px-6 py-4 focus:outline-none focus:ring-4 focus:ring-yellow-500 text-lg"
+                placeholder="Posez votre question... 💬"
+                className="flex-1 border-2 border-purple-300 rounded-xl px-6 py-4 focus:outline-none focus:ring-4 focus:ring-purple-400 text-lg"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="bg-gradient-to-r from-green-600 via-yellow-500 to-red-600 text-white px-10 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-all shadow-lg disabled:opacity-50"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-xl font-bold text-xl hover:scale-105 transition-all shadow-lg disabled:opacity-50"
               >
                 🚀
               </button>
             </div>
             <p className="text-xs text-gray-500 mt-2 text-center">
-              🗣️ Voix homme grave • Pitch 0.6 • {autoSpeak ? 'Auto ON' : 'Auto OFF'}
+              🗣️ Vocal • 6 langues • 62 pages • 26 boutiques • 5 innovations
             </p>
           </form>
         </div>
