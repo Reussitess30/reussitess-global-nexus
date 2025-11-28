@@ -44,7 +44,7 @@ export default function ReussitessAI() {
       'fr-FR': `Salut ! Je suis **ALEX SUPRÊME** 🌐, l'Intelligence Artificielle du projet. Mon rôle est d'analyser la **Culture Mondiale Complète** et les réseaux de **26 Boutiques Amazon**.\n\nDemande-moi : "Pourquoi l'Italie est un champion du patrimoine ?", ou les statistiques d'un des **${APIS_ALLOWED.length} pays** autorisés !`,
       'en-US': `Hello! I'm **ALEX SUPRÊME** 🌐, the global intelligence for the project. I analyze **World Culture** and the **26 Amazon Stores** network.\n\nAsk me about the project's vision, or the stats for any of the **${APIS_ALLOWED.length} authorized countries**!`,
       'es-ES': `¡Hola! Soy **ALEX SUPRÊME** 🌐, el experto mundial en Cultura y las **26 tiendas Amazon**. Pregúntame sobre nuestro proyecto o estadísticas de los **${APIS_ALLOWED.length} países** autorizados.`,
-      'de-DE': `Hallo! Ich bin **ALEX SUPRÊME** 🌐, der globale Experte für **26 Amazon Shops** und **Weltkultur**. Ich analysiere die Fakten für die **${APIS_ALLOWED.length} autorisierten Länder**!`,
+      'de-DE': `Hallo! Ich bin **ALEX SUPRÊME** 🌐, der globale Experte für **26 Amazon Shops** et **Weltkultur**. Ich analysiere die Fakten für die **${APIS_ALLOWED.length} autorisierten Länder**!`,
       'it-IT': `Ciao! Sono **ALEX SUPRÊME** 🌐, l'intelligenza globale. Analizzo **26 negozi Amazon** e la **Cultura Mondiale**! Chiedimi fatti sui **${APIS_ALLOWED.length} paesi** autorizzati.`,
       'pt-BR': `Olá! Eu sou **ALEX SUPRÊME** 🌐, o especialista global! Analiso a **Cultura Mundial** e as **26 Lojas Amazon**! Pergunte sobre os **${APIS_ALLOWED.length} países** autorizados.`,
     }
