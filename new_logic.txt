@@ -1,0 +1,6 @@
+        } else if (data.titre && data.contenu) {
+          // NOUVEAU : Logique pour lire les fiches de CONTENU GÉNÉRIQUE (Aide, Affiliation, Astuces, etc.)
+          let response = `📚 **${data.titre}**\n\n`;
+          response += data.contenu.replace(/\n/g, '<br/>');
+          if (data.url) response += `\n\n➡️ [Voir la page complète](${data.url})`;
+          return response;
