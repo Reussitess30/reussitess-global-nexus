@@ -1,0 +1,55 @@
+# Robots.txt optimisé pour Reussitess® Global Nexus
+# Dernière mise à jour: 2024
+
+# Permettre l'indexation par les moteurs de recherche légitimes
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Bloquer les scrapers et bots malveillants
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: Screaming Frog SEO Spider
+Disallow: /
+
+# Règles générales pour tous les autres bots
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /backup/
+Crawl-delay: 2
+
+# Sitemap
+Sitemap: https://reussitess-global-nexus.vercel.app/sitemap.xml
