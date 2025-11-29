@@ -16,6 +16,7 @@ export default function BotAssistant() {
 
   useEffect(() => {
     setMessages([{ text: greetings[0], isBot: true }])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSend = () => {
@@ -166,3 +167,5 @@ export default function BotAssistant() {
     </>
   )
 }
+
+
