@@ -1,4 +1,4 @@
-deimport { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function BotAssistant() {
   const [isOpen, setIsOpen] = useState(false);
