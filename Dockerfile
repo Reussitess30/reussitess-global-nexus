@@ -1,3 +1,11 @@
-git add Dockerfile
-git commit -m "Ajout du Dockerfile pour déploiement cloud"
-git push origin main
+FROM node:18
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+CMD ["npm", "start"]
