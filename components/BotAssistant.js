@@ -732,3 +732,4 @@ export default function BotAssistant() {
 // [DEBUG_FORCE] Finalisation de l'injection interactive et de contenu
 // [DEBUG_FORCE] Tentative d'injection de la logique de lecture générique
 
+
