@@ -718,7 +718,73 @@ export default function BotAssistant() {
   );
 }
 
+import { useState } from 'react';
 
+const placeholdersByLang = {
+  fr: "Pose ta question...",
+  en: "Ask your question...",
+  es: "Haz tu pregunta...",
+  de: "Stelle deine Frage...",
+  it: "Fai la tua domanda...",
+};
+
+function langFromBrowser() {
+  if (typeof window !== "undefined") {
+    return window.navigator.language.slice(0,2); // "fr", "en", ...
+  }
+  return "en";
+}
+
+export default function BotAssistant() {
+  const [message, setMessage] = useState('');
+  const [reply, setReply] = useState('');
+  const [loading, setLoading] = useState(false);
+  const lang = langFromBrowser();
+  const placeholder = placeholdersByLang[lang] || placeholdersByLang["en"];
+  const buttonLabel = {
+    fr: "Envoyer",
+    en: "Send",
+    es: "Enviar",
+    de: "Senden",
+    it: "Invia",
+  }[lang] || "Send";
+
+  async function handleSend() {
+    setLoading(true);
+    setReply('');
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message }),
+      });
+      const data = await res.json();
+      setReply(data.reply || data.error);
+    } catch (err) {
+      setReply(lang === "fr" ? "Erreur de communication avec le bot."
+        : lang === "es" ? "Error de comunicación con el bot."
+        : lang === "de" ? "Fehler bei der Verbindung mit dem Bot."
+        : "Communication error with the bot.");
+    }
+    setLoading(false);
+  }
+
+  return (
+    <div style={{ maxWidth: 500, margin: '50px auto', padding: 20, border: '1px solid #ddd', borderRadius: 8 }}>
+      <h2>ChatGPT Bot International</h2>
+      <input
+        value={message}
+        onChange={e => setMessage(e.target.value)}
+        placeholder={placeholder}
+        style={{width:"80%"}}
+      />
+      <button onClick={handleSend} disabled={loading || !message} style={{marginLeft:8}}>
+        {loading ? (lang === "fr" ? "Attends..." : "Wait...") : buttonLabel}
+      </button>
+      <div style={{marginTop:20, minHeight:40}}><b>Réponse :</b> {reply}</div>
+    </div>
+  );
+}
 
 
 
