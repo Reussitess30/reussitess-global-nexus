@@ -1,0 +1,10 @@
+{
+  "supportedCountries": [
+    "France", "Guadeloupe", "Martinique", "Suisse", "Canada", "Belgique",
+    "Espagne", "Portugal", "Rwanda", "Bénin", "Maurice", "Luxembourg",
+    "Sénégal", "Cameroun"
+  ],
+  "defaultLanguage": "fr",
+  "botName": "réussitess971",
+  "excellenceMessage": "Bienvenue au bot de la réussite globale : excellence, innovation et succes à l'infini."
+}
