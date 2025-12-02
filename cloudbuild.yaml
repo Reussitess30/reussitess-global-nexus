@@ -15,5 +15,15 @@ steps:
 
 timeout: '1600s'
 
+# Bucket de logs pour Cloud Build (requis avec service_account)
+# Remplacez avec votre bucket GCS, exemple: gs://votre-projet_cloudbuild
+logsBucket: 'gs://YOUR_PROJECT_ID_cloudbuild'
+
 options:
   machineType: 'N1_HIGHCPU_8'
+  # Option de logging pour Cloud Build
+  # Options: CLOUD_LOGGING_ONLY, GCS_ONLY, LEGACY, NONE
+  logging: CLOUD_LOGGING_ONLY
+
+# Compte de service (optionnel, décommentez et configurez si nécessaire)
+# serviceAccount: 'projects/YOUR_PROJECT_ID/serviceAccounts/YOUR_SERVICE_ACCOUNT@YOUR_PROJECT_ID.iam.gserviceaccount.com'
