@@ -6,3 +6,4 @@ out/
 .env*.local
 .vercel
 reussitess-global-nexus/
+public/reussitess971/.env
