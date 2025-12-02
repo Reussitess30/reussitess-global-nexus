@@ -6,3 +6,6 @@ out/
 .env*.local
 .vercel
 reussitess-global-nexus/
+/public/reussitess971/node_modules/
+/public/reussitess971/package-lock.json
+/public/reussitess971/package.json
