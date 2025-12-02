@@ -151,8 +151,8 @@ const quizData = {
   ]
 };
 
-// Boutiques Amazon
-const boutiques = [
+// Boutiques Amazon - Personal (14)
+const boutiquesPersonal = [
   { country: "États-Unis", flag: "🇺🇸", url: "https://www.amazon.com/shop/amourguadeloupe", cta: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
   { country: "France", flag: "🇫🇷", url: "https://www.amazon.fr/shop/amourguadeloupe", cta: "Visiter la Boutique", disclaimer: "En tant qu'affiliée, je gagne des commissions sur certains produits" },
   { country: "Allemagne", flag: "🇩🇪", url: "https://www.amazon.de/shop/amourguadeloupe", cta: "Shop Besuchen", disclaimer: "Als Partner verdiene ich an qualifizierten Käufen" },
@@ -168,6 +168,25 @@ const boutiques = [
   { country: "Belgique", flag: "🇧🇪", url: "https://www.amazon.com.be/shop/amourguadeloupe", cta: "Visiter la Boutique", disclaimer: "En tant qu'affiliée, je gagne des commissions sur certains produits" },
   { country: "Brésil", flag: "🇧🇷", url: "https://www.amazon.com.br/shop/amourguadeloupe", cta: "Visite a Loja", disclaimer: "Como afiliada, ganho comissões em certos produtos" }
 ];
+
+// Boutiques Amazon - Influencer (12)
+const boutiquesInfluencer = [
+  { country: "États-Unis ⭐", flag: "🇺🇸", url: "https://www.amazon.com/shop/influencer-fb942837", cta: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+  { country: "Royaume-Uni ⭐", flag: "🇬🇧", url: "https://www.amazon.co.uk/shop/influencer-fb942837", cta: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+  { country: "Allemagne ⭐", flag: "🇩🇪", url: "https://www.amazon.de/shop/influencer-fb942837", cta: "Shop Besuchen", disclaimer: "Als Partner verdiene ich an qualifizierten Käufen" },
+  { country: "Italie ⭐", flag: "🇮🇹", url: "https://www.amazon.it/shop/influencer-fb942837", cta: "Visita il Negozio", disclaimer: "Come affiliata, guadagno commissioni su alcuni prodotti" },
+  { country: "Espagne ⭐", flag: "🇪🇸", url: "https://www.amazon.es/shop/influencer-fb942837", cta: "Visitar la Tienda", disclaimer: "Como afiliada, gano comisiones en ciertos productos" },
+  { country: "Canada ⭐", flag: "🇨🇦", url: "https://www.amazon.ca/shop/influencer-fb942837", cta: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+  { country: "Inde ⭐", flag: "🇮🇳", url: "https://www.amazon.in/shop/influencer-fb942837", cta: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+  { country: "Australie ⭐", flag: "🇦🇺", url: "https://www.amazon.com.au/shop/influencer-fb942837", cta: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+  { country: "Pays-Bas ⭐", flag: "🇳🇱", url: "https://www.amazon.nl/shop/influencer-fb942837", cta: "Bezoek de Winkel", disclaimer: "Als partner verdien ik commissie op bepaalde producten" },
+  { country: "Suède ⭐", flag: "🇸🇪", url: "https://www.amazon.se/shop/influencer-fb942837", cta: "Besök Butiken", disclaimer: "Som partner tjänar jag provision på vissa produkter" },
+  { country: "Singapour ⭐", flag: "🇸🇬", url: "https://www.amazon.sg/shop/influencer-fb942837", cta: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
+  { country: "Belgique ⭐", flag: "🇧🇪", url: "https://www.amazon.com.be/shop/influencer-fb942837", cta: "Visiter la Boutique", disclaimer: "En tant qu'affiliée, je gagne des commissions sur certains produits" }
+];
+
+// All boutiques combined
+const boutiques = [...boutiquesPersonal, ...boutiquesInfluencer];
 
 // Messages de positivité
 const positivityMessages = [
