@@ -1,8 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
+
 - name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
 
 serviceAccount: ton-service-account@ton-projet.iam.gserviceaccount.com
-logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
