@@ -214,7 +214,7 @@ export default function Home() {
 
             {/* Nouveau bouton Version 2 ajouté */}
             <a 
-              href="/reussitess971/index.html"
+              href="/reussitess971_v2/index.html"
               target="_blank"
               rel="noopener noreferrer"
               style={{
