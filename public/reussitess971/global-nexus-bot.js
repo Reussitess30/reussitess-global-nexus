@@ -19,6 +19,9 @@ console.log('Reussitess971 Global Nexus Bot starting...');
 console.log('Environment: ' + (process.env.NODE_ENV || 'development'));
 console.log('API Key configured: Yes');
 
+// Store interval ID for cleanup
+let heartbeatInterval = null;
+
 // Main bot logic
 async function startBot() {
   try {
@@ -26,7 +29,7 @@ async function startBot() {
     console.log('Monitoring for events...');
     
     // Keep the process running
-    setInterval(() => {
+    heartbeatInterval = setInterval(() => {
       const timestamp = new Date().toISOString();
       console.log(`[${timestamp}] Bot is running...`);
     }, 60000); // Log every minute
@@ -38,15 +41,16 @@ async function startBot() {
 }
 
 // Handle graceful shutdown
-process.on('SIGINT', () => {
+function shutdown() {
   console.log('\nBot shutting down gracefully...');
+  if (heartbeatInterval) {
+    clearInterval(heartbeatInterval);
+  }
   process.exit(0);
-});
+}
 
-process.on('SIGTERM', () => {
-  console.log('\nBot shutting down gracefully...');
-  process.exit(0);
-});
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
 
 // Start the bot
 startBot().catch(error => {
