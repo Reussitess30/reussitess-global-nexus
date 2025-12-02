@@ -1,0 +1,31 @@
+import Layout from '../components/Layout'
+import BotAssistant from '../components/BotAssistant'
+
+export default function Home() {
+  return (
+    <Layout>
+      <main style={{ padding: '3rem', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>REUSSITESS® GLOBAL NEXUS</h1>
+        <p style={{ marginBottom: '1.5rem' }}>Bienvenue — clique sur le bouton pour ouvrir le mini‑projet.</p>
+
+        {/* Lien simple vers le fichier statique dans /public */}
+        <a
+          href="/reussitess971/index.html"
+          style={{
+            display: 'inline-block',
+            background: 'linear-gradient(135deg,#f093fb 0%,#f5576c 100%)',
+            color: '#fff',
+            padding: '12px 24px',
+            borderRadius: 999,
+            textDecoration: 'none',
+            fontWeight: 700
+          }}
+        >
+          🎨 OUVRIR Reussitess971
+        </a>
+      </main>
+
+      <BotAssistant />
+    </Layout>
+  )
+}
