@@ -91,4 +91,163 @@ export default function Home() {
 
         <div className="container" style={{
           textAlign: 'center',
-(Truncated here in the message for readability — the full file content will be written by the here-document)
+          color: 'white',
+          zIndex: 1,
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          {/* Globe animé */}
+          <div style={{
+            fontSize: '4rem',
+            marginBottom: '1.5rem',
+            animation: 'float 3s ease-in-out infinite'
+          }}>
+            🌍
+          </div>
+
+          {/* Titre */}
+          <h1 style={{
+            fontSize: 'clamp(2rem, 6vw, 4rem)',
+            fontWeight: '800',
+            marginBottom: '1rem',
+            textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+          }}>
+            REUSSITESS® GLOBAL NEXUS
+          </h1>
+
+          <p style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+            marginBottom: '2rem',
+            opacity: 0.95
+          }}>
+            🏝️ Guadeloupe - Terre de Champions 🏆
+          </p>
+
+          {/* Statistiques en ligne */}
+          <div style={{
+            display: 'flex',
+            gap: '2rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginBottom: '2rem'
+          }}>
+            {[
+              { num: '26', label: 'Boutiques', icon: '🛍️' },
+              { num: '14', label: 'Pays', icon: '🌍' },
+              { num: '5', label: 'Continents', icon: '🗺️' }
+            ].map((stat, i) => (
+              <div key={i} style={{
+                background: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(10px)',
+                padding: '1rem 1.5rem',
+                borderRadius: '15px',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
+              }}>
+                <span style={{ fontSize: '1.5rem', marginRight: '0.5rem' }}>{stat.icon}</span>
+                <span style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>{stat.num}</span>
+                <span style={{ fontSize: '0.9rem', marginLeft: '0.3rem', opacity: 0.9 }}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Boutons d'action */}
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginTop: '2rem'
+          }}>
+            <a href="#boutiques" style={{
+              background: 'linear-gradient(135deg, #e11d48, #f59e0b)',
+              color: 'white',
+              padding: '1rem 2.5rem',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              boxShadow: '0 8px 25px rgba(225, 29, 72, 0.4)',
+              transition: 'all 0.3s ease',
+              display: 'inline-block'
+            }}
+            className="btn-primary">
+              🚀 VOIR LES 26 BOUTIQUES
+            </a>
+
+            <Link href="/affiliation" style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              backdropFilter: 'blur(10px)',
+              border: '2px solid white',
+              color: 'white',
+              padding: '1rem 2.5rem',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              transition: 'all 0.3s ease',
+              display: 'inline-block'
+            }}
+            className="btn-secondary">
+              🤝 Programme Affiliation
+            </Link>
+
+            <a 
+              href="https://reussitess-global-nexus-jfgk-git-copilo-3f98a8-porinus-projects.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                color: 'white',
+                padding: '1rem 2.5rem',
+                borderRadius: '50px',
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                boxShadow: '0 8px 25px rgba(245, 87, 108, 0.4)',
+                transition: 'all 0.3s ease',
+                display: 'inline-block',
+                border: '2px solid rgba(255, 255, 255, 0.3)'
+              }}
+              className="btn-alternative">
+              ✨ Version Alternative
+            </a>
+
+            {/* Nouveau bouton Version 2 ajouté */}
+            <a 
+              href="/reussitess971_v2/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #10b981, #3b82f6)',
+                color: 'white',
+                padding: '1rem 2.5rem',
+                borderRadius: '50px',
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                boxShadow: '0 8px 25px rgba(16, 185, 129, 0.4)',
+                transition: 'all 0.3s ease',
+                display: 'inline-block',
+                border: '2px solid rgba(255, 255, 255, 0.3)'
+              }}
+              className="btn-alternative">
+              ✨ Version 2
+            </a>
+          </div>
+
+          {/* Scroll indicator */}
+          <div style={{
+            marginTop: '2rem',
+            animation: 'bounce 2s ease-in-out infinite'
+          }}>
+            <div style={{ fontSize: '1.5rem', opacity: 0.7 }}>⬇️</div>
+          </div>
+        </div>
+      </div>
+
+      {/* --- Le reste du composant reste inchangé --- */}
+      {/* ... */}
+      {/* (Aucun autre morceau du code n'est modifié) */}
+    </Layout>
+  )
+}
