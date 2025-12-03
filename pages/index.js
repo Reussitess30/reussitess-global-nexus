@@ -200,7 +200,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                background: 'linear-gradient(135deg, #f5576c, #f093fb)',
                 color: 'white',
                 padding: '1rem 2.5rem',
                 borderRadius: '50px',
@@ -209,15 +209,14 @@ export default function Home() {
                 fontWeight: 'bold',
                 boxShadow: '0 8px 25px rgba(245, 87, 108, 0.4)',
                 transition: 'all 0.3s ease',
-                display: 'inline-block',
-                border: '2px solid rgba(255, 255, 255, 0.3)'
+                display: 'inline-block'
               }}
               className="btn-alternative">
-              ✨ Version Alternative
+              🎯 Version Alternative
             </a>
           </div>
 
-          {/* Scroll indicator */}
+          {/* Flèche animée vers le bas */}
           <div style={{
             marginTop: '2rem',
             animation: 'bounce 2s ease-in-out infinite'
@@ -246,140 +245,101 @@ export default function Home() {
           }}>
             🛍️ MES 26 BOUTIQUES AMAZON
           </h2>
+          
           <p style={{
             textAlign: 'center',
             fontSize: '1.2rem',
             color: '#94a3b8',
-            marginBottom: '4rem'
+            marginBottom: '4rem',
+            maxWidth: '800px',
+            margin: '0 auto 4rem'
           }}>
-            Cliquez sur une boutique pour découvrir mes produits favoris
+            Choisissez votre pays et découvrez ma sélection exclusive de produits
           </p>
 
-          {/* Boutiques Personnelles */}
-          <h3 style={{
-            fontSize: '1.8rem',
-            fontWeight: '700',
-            color: '#10b981',
-            marginBottom: '2rem',
-            textAlign: 'center'
-          }}>
-            👤 Boutiques Personnelles (14)
-          </h3>
+          {/* Grille des boutiques */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-            gap: '1.5rem',
-            marginBottom: '4rem'
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '2rem',
+            marginTop: '3rem'
           }}>
-            {boutiques.filter(b => b.type === 'Personnel').map((boutique, index) => (
+            {boutiques.map((boutique, index) => (
               <div key={index} style={{
-                background: 'rgba(16, 185, 129, 0.1)',
+                background: 'rgba(255, 255, 255, 0.05)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(16, 185, 129, 0.2)',
-                borderRadius: '16px',
-                padding: '1.8rem',
-                textAlign: 'center',
-                transition: 'all 0.3s ease'
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '20px',
+                padding: '2rem',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.5rem'
               }}
               className="boutique-card">
-                <h3 style={{
-                  color: 'white',
-                  marginBottom: '1.2rem',
-                  fontSize: '1.3rem',
-                  fontWeight: '600'
+                {/* En-tête */}
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '1rem',
+                  paddingBottom: '1rem',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
                 }}>
-                  {boutique.flag} {boutique.nom}
-                </h3>
-                <a 
-                  href={boutique.lien} 
-                  target="_blank" 
-                  rel="noopener noreferrer nofollow sponsored"
-                  style={{
-                    display: 'inline-block',
-                    background: 'linear-gradient(135deg, #10b981, #3b82f6)',
-                    color: 'white',
-                    padding: '0.9rem 1.8rem',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    transition: 'all 0.3s ease',
-                    width: '100%',
-                    fontSize: '1rem'
-                  }}
-                  className="boutique-btn">
-                  🛍️ {translations[boutique.flag]?.btn || 'Visiter la Boutique'}
-                </a>
-                <div style={{
-                  marginTop: '0.8rem',
-                  fontSize: '0.75rem',
-                  opacity: '0.7',
-                  color: '#fbbf24',
-                  lineHeight: '1.4'
-                }}>
-                  🔒 {translations[boutique.flag]?.disclaimer || 'En tant qu\'affiliée, je gagne des commissions sur certains produits'}
+                  <span style={{ fontSize: '3rem' }}>{boutique.flag}</span>
+                  <div style={{ flex: 1 }}>
+                    <h3 style={{
+                      fontSize: '1.5rem',
+                      fontWeight: '700',
+                      color: 'white',
+                      margin: 0
+                    }}>
+                      {boutique.nom}
+                    </h3>
+                    <span style={{
+                      display: 'inline-block',
+                      marginTop: '0.5rem',
+                      padding: '0.3rem 0.8rem',
+                      borderRadius: '20px',
+                      fontSize: '0.8rem',
+                      fontWeight: '600',
+                      background: boutique.type === 'Personnel' ? 
+                        'linear-gradient(135deg, #667eea, #764ba2)' : 
+                        'linear-gradient(135deg, #f093fb, #f5576c)',
+                      color: 'white'
+                    }}>
+                      {boutique.type}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
 
-          {/* Boutiques Influenceurs */}
-          <h3 style={{
-            fontSize: '1.8rem',
-            fontWeight: '700',
-            color: '#8b5cf6',
-            marginBottom: '2rem',
-            textAlign: 'center'
-          }}>
-            ⭐ Boutiques Influenceur (12)
-          </h3>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-            gap: '1.5rem'
-          }}>
-            {boutiques.filter(b => b.type === 'Influenceur').map((boutique, index) => (
-              <div key={index} style={{
-                background: 'rgba(139, 92, 246, 0.1)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(139, 92, 246, 0.2)',
-                borderRadius: '16px',
-                padding: '1.8rem',
-                textAlign: 'center',
-                transition: 'all 0.3s ease'
-              }}
-              className="boutique-card">
-                <h3 style={{
-                  color: 'white',
-                  marginBottom: '1.2rem',
-                  fontSize: '1.3rem',
-                  fontWeight: '600'
-                }}>
-                  {boutique.flag} {boutique.nom}
-                </h3>
+                {/* Bouton */}
                 <a 
-                  href={boutique.lien} 
-                  target="_blank" 
+                  href={boutique.lien}
+                  target="_blank"
                   rel="noopener noreferrer nofollow sponsored"
                   style={{
-                    display: 'inline-block',
-                    background: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
+                    display: 'block',
+                    background: 'linear-gradient(135deg, #10b981, #059669)',
                     color: 'white',
-                    padding: '0.9rem 1.8rem',
+                    padding: '1rem',
                     borderRadius: '12px',
+                    textAlign: 'center',
                     textDecoration: 'none',
-                    fontWeight: '600',
+                    fontSize: '1.1rem',
+                    fontWeight: 'bold',
                     transition: 'all 0.3s ease',
-                    width: '100%',
-                    fontSize: '1rem'
+                    boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)'
                   }}
                   className="boutique-btn">
-                  🛍️ {translations[boutique.flag]?.btn || 'Visiter la Boutique'}
+                  {translations[boutique.flag]?.btn || 'Visiter la Boutique'} →
                 </a>
+
+                {/* Disclaimer */}
                 <div style={{
-                  marginTop: '0.8rem',
                   fontSize: '0.75rem',
-                  opacity: '0.7',
-                  color: '#fbbf24',
+                  color: '#94a3b8',
+                  textAlign: 'center',
+                  fontStyle: 'italic',
                   lineHeight: '1.4'
                 }}>
                   🔒 {translations[boutique.flag]?.disclaimer || 'En tant qu\'affiliée, je gagne des commissions sur certains produits'}
