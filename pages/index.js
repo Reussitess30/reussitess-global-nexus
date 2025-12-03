@@ -3,13 +3,6 @@ import BotAssistant from '../components/BotAssistant'
 import Link from 'next/link'
 
 export default function Home() {
-  return (
-    <>
-      {/* Boutons Navigation */}
-      <div style={{ position: "fixed", top: "20px", right: "20px", zIndex: 1000, display: "flex", gap: "10px" }}>
-        <a href="https://reussitess-global-pwa.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)", color: "white", textDecoration: "none", borderRadius: "25px", fontWeight: "bold", fontSize: "14px" }}>📱 PWA</a>
-        <a href="/bot-v2" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", color: "white", textDecoration: "none", borderRadius: "25px", fontWeight: "bold", fontSize: "14px" }}>🎯 Bot V2</a>
-      </div>
   // Traductions par pays
   const translations = {
     "🇺🇸": { btn: "Visit the Store", disclaimer: "As an affiliate, I earn commissions on certain products" },
