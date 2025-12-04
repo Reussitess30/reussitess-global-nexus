@@ -196,11 +196,11 @@ export default function Home() {
             </Link>
 
             <a 
-              href="https://shop.reussitess.fr/"
+              href="https://reussitess-global-nexus-jfgk-git-copilo-3f98a8-porinus-projects.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: 'linear-gradient(135deg, #f5576c 0%, #f093fb 100%)',
+                background: 'linear-gradient(135deg, #f5576c, #f093fb)',
                 color: 'white',
                 padding: '1rem 2.5rem',
                 borderRadius: '50px',
@@ -212,21 +212,30 @@ export default function Home() {
                 display: 'inline-block'
               }}
               className="btn-alternative">
-              🎮 Version 2 - Shop PWA
+              🎯 Version Alternative
             </a>
+          </div>
+
+          {/* Flèche animée vers le bas */}
+          <div style={{
+            marginTop: '2rem',
+            animation: 'bounce 2s ease-in-out infinite'
+          }}>
+            <div style={{ fontSize: '1.5rem', opacity: 0.7 }}>⬇️</div>
           </div>
         </div>
       </div>
 
-      {/* Section Boutiques Amazon */}
+      {/* Section 26 Boutiques - DIRECTEMENT VISIBLE */}
       <div id="boutiques" style={{
-        background: 'linear-gradient(180deg, #0f172a 0%, #1e293b 100%)',
-        padding: '5rem 0'
+        background: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)',
+        padding: '5rem 0',
+        minHeight: '100vh'
       }}>
         <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
           <h2 style={{
             textAlign: 'center',
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
             fontWeight: '800',
             marginBottom: '1rem',
             background: 'linear-gradient(135deg, #f59e0b 0%, #e11d48 100%)',
@@ -234,99 +243,103 @@ export default function Home() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            🛍️ NOS 26 BOUTIQUES AMAZON
+            🛍️ MES 26 BOUTIQUES AMAZON
           </h2>
-
+          
           <p style={{
             textAlign: 'center',
-            color: '#94a3b8',
             fontSize: '1.2rem',
-            marginBottom: '3rem',
+            color: '#94a3b8',
+            marginBottom: '4rem',
             maxWidth: '800px',
-            margin: '0 auto 3rem'
+            margin: '0 auto 4rem'
           }}>
-            Choisissez votre pays et découvrez nos sélections exclusives
+            Choisissez votre pays et découvrez ma sélection exclusive de produits
           </p>
 
-          {/* Grille de boutiques */}
+          {/* Grille des boutiques */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '2rem'
+            gap: '2rem',
+            marginTop: '3rem'
           }}>
             {boutiques.map((boutique, index) => (
               <div key={index} style={{
-                background: 'rgba(255, 255, 255, 0.03)',
+                background: 'rgba(255, 255, 255, 0.05)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
                 borderRadius: '20px',
                 padding: '2rem',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.5rem'
               }}
               className="boutique-card">
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
+                {/* En-tête */}
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
                   gap: '1rem',
-                  marginBottom: '1.5rem'
+                  paddingBottom: '1rem',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
                 }}>
-                  <div style={{
-                    fontSize: '3rem',
-                    lineHeight: '1'
-                  }}>
-                    {boutique.flag}
-                  </div>
+                  <span style={{ fontSize: '3rem' }}>{boutique.flag}</span>
                   <div style={{ flex: 1 }}>
                     <h3 style={{
-                      fontSize: '1.4rem',
+                      fontSize: '1.5rem',
                       fontWeight: '700',
                       color: 'white',
-                      marginBottom: '0.3rem'
+                      margin: 0
                     }}>
                       {boutique.nom}
                     </h3>
                     <span style={{
                       display: 'inline-block',
+                      marginTop: '0.5rem',
                       padding: '0.3rem 0.8rem',
                       borderRadius: '20px',
                       fontSize: '0.8rem',
                       fontWeight: '600',
-                      background: boutique.type === 'Personnel' 
-                        ? 'linear-gradient(135deg, #3b82f6, #8b5cf6)' 
-                        : 'linear-gradient(135deg, #10b981, #059669)',
+                      background: boutique.type === 'Personnel' ? 
+                        'linear-gradient(135deg, #667eea, #764ba2)' : 
+                        'linear-gradient(135deg, #f093fb, #f5576c)',
                       color: 'white'
                     }}>
-                      {boutique.type === 'Personnel' ? '👤 Personnel' : '⭐ Influenceur'}
+                      {boutique.type}
                     </span>
                   </div>
                 </div>
 
-                <a
+                {/* Bouton */}
+                <a 
                   href={boutique.lien}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow sponsored"
                   style={{
                     display: 'block',
-                    width: '100%',
-                    padding: '1rem',
-                    background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                    background: 'linear-gradient(135deg, #10b981, #059669)',
                     color: 'white',
-                    textAlign: 'center',
+                    padding: '1rem',
                     borderRadius: '12px',
+                    textAlign: 'center',
                     textDecoration: 'none',
-                    fontWeight: '600',
-                    fontSize: '1rem',
+                    fontSize: '1.1rem',
+                    fontWeight: 'bold',
                     transition: 'all 0.3s ease',
-                    marginBottom: '1rem'
+                    boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)'
                   }}
                   className="boutique-btn">
                   {translations[boutique.flag]?.btn || 'Visiter la Boutique'} →
                 </a>
 
+                {/* Disclaimer */}
                 <div style={{
-                  fontSize: '0.85rem',
+                  fontSize: '0.75rem',
                   color: '#94a3b8',
                   textAlign: 'center',
+                  fontStyle: 'italic',
                   lineHeight: '1.4'
                 }}>
                   🔒 {translations[boutique.flag]?.disclaimer || 'En tant qu\'affiliée, je gagne des commissions sur certains produits'}
