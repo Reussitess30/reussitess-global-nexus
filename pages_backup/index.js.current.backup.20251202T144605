@@ -1,0 +1,39 @@
+import Layout from '../components/Layout'
+import BotAssistant from '../components/BotAssistant'
+import React from 'react'
+
+export default function Home() {
+  const openMiniProject = () => {
+    // force un chargement complet de la page statique (évite l'interception par le router Next)
+    if (typeof window !== 'undefined') {
+      window.location.assign('/reussitess971/index.html')
+    }
+  }
+
+  return (
+    <Layout>
+      <main style={{ padding: '1rem 2.5rem', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>REUSSITESS® GLOBAL NEXUS</h1>
+        <p style={{ marginBottom: '1.5rem' }}>Clique sur le bouton pour ouvrir le mini‑projet.</p>
+
+        <button
+          onClick={openMiniProject}
+          style={{
+            display: 'inline-block',
+            background: 'linear-gradient(135deg,#3b82f6,#2563eb)',
+            color: '#fff',
+            padding: '1rem 2.5rem',
+            borderRadius: 50,
+            border: 'none',
+            cursor: 'pointer',
+            fontWeight: 700
+          }}
+        >
+          Version 2
+        </button>
+      </main>
+
+      <BotAssistant />
+    </Layout>
+  )
+}
