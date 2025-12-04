@@ -127,6 +127,55 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Boutons Version Alternative et Version 2 */}
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginTop: '3rem'
+          }}>
+            <a 
+              href="https://reussitess.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #f5576c 0%, #f093fb 100%)',
+                color: 'white',
+                padding: '1rem 2.5rem',
+                borderRadius: '50px',
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                boxShadow: '0 8px 25px rgba(245, 87, 108, 0.4)',
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              className="btn-alternative">
+              🎯 Version Alternative
+            </a>
+
+            <a 
+              href="https://shop.reussitess.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                color: 'white',
+                padding: '1rem 2.5rem',
+                borderRadius: '50px',
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                boxShadow: '0 8px 25px rgba(16, 185, 129, 0.4)',
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              className="btn-version2">
+              🎮 Version 2 - Shop PWA
+            </a>
+          </div>
         </div>
       </div>
 
@@ -284,6 +333,16 @@ export default function Home() {
         .boutique-link:hover {
           transform: translateY(-3px);
           box-shadow: 0 15px 40px rgba(245, 87, 108, 0.5);
+        }
+
+        .btn-alternative:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 12px 35px rgba(245, 87, 108, 0.5);
+        }
+
+        .btn-version2:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 12px 35px rgba(16, 185, 129, 0.5);
         }
       `}</style>
     </Layout>
