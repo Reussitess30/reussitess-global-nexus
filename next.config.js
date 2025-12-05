@@ -3,9 +3,13 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
 <<<<<<< HEAD
+<<<<<<< HEAD
   swcMinify: true,
 =======
 >>>>>>> 60c8500 (security: A+ headers via next.config.js + middleware (Vercel optimal))
+=======
+  swcMinify: true,
+>>>>>>> 52e0eb3 (security: A+ MAX 9 headers (HSTS, CSP, COEP, COOP))
   async headers() {
     return [
       {
