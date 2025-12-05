@@ -1,23 +1,15 @@
 steps:
-  # Build Next.js app
+  # Install dependencies
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
+  # Build Next.js
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
     env:
       - 'NODE_ENV=production'
       - 'NEXT_TELEMETRY_DISABLED=1'
 
-  # Deploy to Cloud Run (optionnel)
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'build'
-      - '-t'
-      - 'gcr.io/$PROJECT_ID/reussitess-global-nexus:latest'
-      - '.'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/reussitess-global-nexus:latest']
+options:
+  logging: CLOUD_LOGGING_ONLY
 
-images:
-  - 'gcr.io/$PROJECT_ID/reussitess-global-nexus:latest'
 timeout: 1800s
