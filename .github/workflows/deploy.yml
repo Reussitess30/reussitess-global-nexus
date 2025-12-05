@@ -1,20 +1,11 @@
-name: SuperBot Deploy + Cache + Google Cloud
-on: [push, pull_request]
+name: SuperBot Deploy
+on: [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      # 🔄 VERCEL DEPLOY + CACHE PURGE
       - uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID }}
-          vercel-args: '--prod --force'  # Cache bypass
-      
-      # ☁️ GOOGLE CLOUD SYNC (optionnel)
-      - uses: google-github-actions/setup-gcloud@v1
-        with:
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          vercel-args: '--prod --force'
