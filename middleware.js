@@ -3,7 +3,11 @@ import { NextResponse } from 'next/server'
 export function middleware(request) {
   const response = NextResponse.next()
   
+<<<<<<< HEAD
   // A+ Headers complets 2025
+=======
+  // Headers A+ complets
+>>>>>>> 60c8500 (security: A+ headers via next.config.js + middleware (Vercel optimal))
   response.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload')
   response.headers.set('X-Frame-Options', 'SAMEORIGIN')
   response.headers.set('X-Content-Type-Options', 'nosniff')
@@ -17,5 +21,18 @@ export function middleware(request) {
 }
 
 export const config = {
+<<<<<<< HEAD
   matcher: '/((?!api|_next/static|_next/image|favicon.ico|robots.txt).*)',
+=======
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
+>>>>>>> 60c8500 (security: A+ headers via next.config.js + middleware (Vercel optimal))
 }

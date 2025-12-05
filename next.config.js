@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+<<<<<<< HEAD
   swcMinify: true,
+=======
+>>>>>>> 60c8500 (security: A+ headers via next.config.js + middleware (Vercel optimal))
   async headers() {
     return [
       {
