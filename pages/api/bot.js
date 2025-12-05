@@ -1,70 +1,67 @@
 export default function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({error: 'POST only'});
-  
   const { message = "", country = "fr" } = req.body;
-  const vendeurResponse = amazonVendeurPro(message.toLowerCase().trim(), country);
   
-  res.json({
-    message: vendeurResponse.message,
-    strategy: vendeurResponse.strategy,
-    amazonRules: true,
-    fba: vendeurResponse.fba,
-    signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌍🛒✨"
-  });
-}
+  let response = "🌴 **SuperBot Reussitess® INFLUENCER PRO** 🛒
 
-function amazonVendeurPro(msg, country) {
-  // 🛒 STRATÉGIES VENTE PAR PAYS (Règles Amazon OFFICIELLES)
-  const strategies = {
-    fr: { fba: "FBA France → Pan-EU", sponsored: "Sponsored Products FR", seo: "mots-clés français" },
-    de: { fba: "FBA Allemagne #1 Europe", sponsored: "Sponsored DE", seo: "deutsch keywords" },
-    us: { fba: "FBA USA → Lightning Deals", sponsored: "Amazon PPC US", seo: "long-tail english" },
-    br: { fba: "FBA Brésil local", sponsored: "Sponsored BR", seo: "português BR" },
-    in: { fba: "FBA Inde low-cost", sponsored: "Amazon Pay IN", seo: "hindi keywords" }
-  };
+";
   
-  const strat = strategies[country] || strategies.fr;
-  
-  if (msg.includes("amazon") || msg.includes("boutique") || msg.includes("vente")) {
-    return {
-      message: `🛒 **26 BOUTIQUES INTERNATIONALES** réussitess971
+  // 🛒 26 BOUTIQUES AMAZON
+  if (message.toLowerCase().includes("amazon") || message.toLowerCase().includes("boutique")) {
+    response += `**${country.toUpperCase()}** - 26 Boutiques 14 pays :
+`;
+    response += "🇫🇷FR 🇮🇹IT 🇩🇪DE 🇸🇪SE | 🇸🇬SG 🇦🇺AU 🇪🇸ES 🇧🇷BR
+";
+    response += "🇬🇧UK 🇮🇳IN 🇨🇦CA 🇧🇪BE 🇳🇱NL 🇺🇸US
 
-**${country.toUpperCase()}**:
-✅ ${strat.fba}
-✅ ${strat.sponsored}
-✅ ${strat.seo}
-
-**FBA**: Amazon stocke/envoie → Prime badge !
-**Sponsored**: CPC ciblé → Top ranking
-**Règles Amazon**: ASIN unique, prix compétitifs, photos HD`,
-      strategy: strat,
-      fba: true
-    };
+";
+    response += "**FBA Pan-EU**: 1 stock Allemagne → 9 pays Europe
+";
+    response += "**Règles Amazon**: Lien affilié transparent | Paiement Amazon 100%
+";
   }
   
-  if (msg.includes("quiz")) {
-    return {
-      message: `🎯 **QUIZZ VENDEUR AMAZON**
+  // 🏝️ DOM-TOM
+  else if (message.toLowerCase().includes("dom") || message.toLowerCase().includes("guadeloupe")) {
+    response += "**DOM-TOM Amazon** depuis Gwada :
+";
+    response += "✅ **GUADELOUPE**: Amazon.fr → Prime 2-4j
+";
+    response += "✅ **MARTINIQUE**: FBA Basse-Terre stock local
+";
+    response += "✅ **GUYANE**: FBA Cayenne réduction transport
+";
+    response += "✅ **RÉUNION**: Prime 3j Océan Indien
 
-**${country.toUpperCase()}** → Quelle stratégie ?
-A) ${strat.fba}
-B) ${strat.sponsored}
-
-**Repon pou boost ventes !** 💰`,
-      strategy: strat,
-      fba: true
-    };
+";
+    response += "**Réduction 10% FBA DOM 2025** !";
   }
   
-  return {
-    message: `🌍 **SUPERBOT VENDEUR** 26 boutiques 14 pays !
+  // 🎯 Quiz
+  else if (message.toLowerCase().includes("quiz")) {
+    const quizzes = [
+      "FBA Pan-EU = ? A) 1 stock 9 pays",
+      "Amazon commission = ? A) 4-12%",
+      "Gwada livraison = ? A) Prime 2-4j"
+    ];
+    response += "🎯 **QUIZZ INFLUENCER**:
+" + quizzes[Math.floor(Math.random() * quizzes.length)];
+  }
+  
+  // 🙋‍♂️ Accueil
+  else {
+    response += "**Choisis**:
+• 'amazon de' → Allemagne FBA
+• 'dom guadeloupe' → DOM-TOM
+• 'quiz' → Test vendeur
 
-**Choisis pays**:
-🇫🇷fr 🇩🇪de 🇺🇸us 🇧🇷br 🇮🇳in
+";
+    response += "🔒 **SÉCURITÉ**: Tous liens → Amazon officiel
+Paiement Amazon SEUL !";
+  }
+  
+  response += "
 
-Di "amazon de" → Stratégie Allemagne complète !
-**FBA + Sponsored Products = Succès garanti** 🛒✨`,
-    strategy: strategies,
-    fba: true
-  };
+**réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🛒🔒🏝️✨**";
+  res.json({ message: response });
 }
