@@ -1,54 +1,74 @@
 import { SUPERBOT_DATABASE } from '../lib/superbot-data.js';
-import { GEO_SURVIE } from '../lib/geo-survie.js';
+import { WORLD_HUB } from '../lib/world-hub.js';
 
 export default function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({error: 'POST only'});
   
-  const { message = "", country = "auto", session = {} } = req.body;
+  const { message = "", lang = "fr", country = "gwada" } = req.body;
   
-  // 🌍 **INVENTION GEO-SURVIE®** - Brevetable international
-  const geoSurvie = detectGeoSurvie(country);
-  const response = superbotGeoSurvieThink(message.toLowerCase().trim(), geoSurvie, session);
+  // 🌍 **WORLD POPUP® INÉDIT** - Liens externes INTRA-site
+  const worldPopup = generateWorldPopup(message.toLowerCase().trim(), lang, country);
   
   res.json({ 
-    message: response,
-    geoSurvie: geoSurvie.besoin,
-    invention: "GEO-SURVIE® réussitess971 - 14 pays",
-    signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌍✨"
+    message: worldPopup.message,
+    popupLinks: worldPopup.links,
+    gwadaHub: "GUADELOUPE = NOMBRIL DU MONDE®",
+    langue: lang,
+    signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌍🌴✨"
   });
 }
 
-function detectGeoSurvie(country) {
-  // IA détecte pays → Besoin #1 local + Produit Amazon Reussitess®
-  const data = GEO_SURVIE[country] || GEO_SURVIE.guadeloupe; // Default Gwada
-  return {
-    pays: country.toUpperCase(),
-    besoin: data.besoin,
-    produit: data.produit,
-    amazon: `https://amazon.${country}.dp/${data.amazon}`
-  };
-}
-
-function superbotGeoSurvieThink(msg, geo, session) {
-  // 🌟 GEO-SURVIE® ACTIVÉ - Universel 14 pays
-  const prefix = `🌍 **GEO-SURVIE® ${geo.pays}** : ${geo.besoin} → ${geo.produit}
-🔗 ${geo.amazon}`;
+function generateWorldPopup(msg, lang, country) {
+  const gwadaMsg = WORLD_HUB.gwadaCentral.message;
+  const langueMsg = WORLD_HUB.langues[lang] || WORLD_HUB.langues.fr;
   
+  let links = {
+    gwada: WORLD_HUB.gwadaCentral.liensExternals.wikipedia,
+    amazon: WORLD_HUB.gwadaCentral.liensExternals.amazonGwada,
+    culture: WORLD_HUB.gwadaCentral.liensExternals.culture
+  };
+  
+  // 🎯 FONCTIONS MONDIALES
   if (msg.includes("quiz")) {
     const quiz = SUPERBOT_DATABASE.quizz[Math.floor(Math.random() * SUPERBOT_DATABASE.quizz.length)];
-    return `${prefix}
+    return {
+      message: `${langueMsg}
+
+${gwadaMsg}
 
 🎯 QUIZZ: ${quiz.q}
-A) ${quiz.a} → **${quiz.c}**`;
+A) ${quiz.a}`,
+      links: {...links, quiz: "https://reussitess.fr/quiz"}
+    };
   }
   
   if (msg.includes("amazon") || msg.includes("boutique")) {
-    return `${prefix}
+    return {
+      message: `${langueMsg}
 
-🛒 **26 BOUTIQUES** : ${Object.keys(SUPERBOT_DATABASE.boutiques.europe).length} Europe + 10 mondial !`;
+${gwadaMsg}
+
+🌍 26 BOUTIQUES depuis GUADELOUPE → Monde entier !`,
+      links: {...links, boutiques: "https://reussitess.fr/boutiques"}
+    };
   }
   
-  return `${prefix}
+  if (msg.includes("culture") || msg.includes("afrique")) {
+    return {
+      message: `${langueMsg}
 
-🌞 **Bonjour ${geo.pays}** ! SuperBot Reussitess® adapte pou ou lokalman ! Di "quiz", "amazon", "culture" 😎`;
+🌴 Gwada = Zouk + Afrobeats Hub mondial !`,
+      links: {...links, culture: WORLD_HUB.gwadaCentral.liensExternals.culture}
+    };
+  }
+  
+  // 🌟 BIENVENUE MONDIALE GWAda CENTRALE
+  return {
+    message: `${langueMsg}
+
+${gwadaMsg}
+
+**Di "quiz", "amazon", "culture" pou monde entier depuis Gwada !** 😎`,
+    links: links
+  };
 }
