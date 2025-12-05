@@ -4,71 +4,40 @@ import { WORLD_HUB } from '../lib/world-hub.js';
 export default function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({error: 'POST only'});
   
-  const { message = "", lang = "fr", country = "gwada" } = req.body;
-  
-  // 🌍 **WORLD POPUP® INÉDIT** - Liens externes INTRA-site
-  const worldPopup = generateWorldPopup(message.toLowerCase().trim(), lang, country);
+  const { message = "", lang = "fr" } = req.body;
+  const response = worldBotThink(message.toLowerCase().trim(), lang);
   
   res.json({ 
-    message: worldPopup.message,
-    popupLinks: worldPopup.links,
+    message: response,
     gwadaHub: "GUADELOUPE = NOMBRIL DU MONDE®",
-    langue: lang,
     signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌍🌴✨"
   });
 }
 
-function generateWorldPopup(msg, lang, country) {
+function worldBotThink(msg, lang) {
   const gwadaMsg = WORLD_HUB.gwadaCentral.message;
-  const langueMsg = WORLD_HUB.langues[lang] || WORLD_HUB.langues.fr;
   
-  let links = {
-    gwada: WORLD_HUB.gwadaCentral.liensExternals.wikipedia,
-    amazon: WORLD_HUB.gwadaCentral.liensExternals.amazonGwada,
-    culture: WORLD_HUB.gwadaCentral.liensExternals.culture
-  };
-  
-  // 🎯 FONCTIONS MONDIALES
   if (msg.includes("quiz")) {
     const quiz = SUPERBOT_DATABASE.quizz[Math.floor(Math.random() * SUPERBOT_DATABASE.quizz.length)];
-    return {
-      message: `${langueMsg}
+    return `${WORLD_HUB.langues[lang] || "Bonjour Gwada !"} 🌴
 
 ${gwadaMsg}
 
 🎯 QUIZZ: ${quiz.q}
-A) ${quiz.a}`,
-      links: {...links, quiz: "https://reussitess.fr/quiz"}
-    };
+A) ${quiz.a} → ${quiz.c}`;
   }
   
   if (msg.includes("amazon") || msg.includes("boutique")) {
-    return {
-      message: `${langueMsg}
+    return `${WORLD_HUB.langues[lang] || "Bonjour Gwada !"} 🌴
 
 ${gwadaMsg}
 
-🌍 26 BOUTIQUES depuis GUADELOUPE → Monde entier !`,
-      links: {...links, boutiques: "https://reussitess.fr/boutiques"}
-    };
+🌍 **26 BOUTIQUES** depuis GUADELOUPE → Monde !`;
   }
   
-  if (msg.includes("culture") || msg.includes("afrique")) {
-    return {
-      message: `${langueMsg}
-
-🌴 Gwada = Zouk + Afrobeats Hub mondial !`,
-      links: {...links, culture: WORLD_HUB.gwadaCentral.liensExternals.culture}
-    };
-  }
-  
-  // 🌟 BIENVENUE MONDIALE GWAda CENTRALE
-  return {
-    message: `${langueMsg}
+  return `${WORLD_HUB.langues[lang] || "Bonjour Gwada !"} 🌴
 
 ${gwadaMsg}
 
-**Di "quiz", "amazon", "culture" pou monde entier depuis Gwada !** 😎`,
-    links: links
-  };
+**Di "quiz" 🎯 | "amazon" 🛒 | "culture" 🌍** 😎`;
 }
