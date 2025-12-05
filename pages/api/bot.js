@@ -4,14 +4,34 @@ import { WORLD_HUB } from '../lib/world-hub.js';
 export default function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({error: 'POST only'});
   
-  const { message = "", lang = "fr" } = req.body;
-  const response = worldBotThink(message.toLowerCase().trim(), lang);
+  const { message = "", lang = "fr", voice = true } = req.body;
+  const textResponse = worldBotThink(message.toLowerCase().trim(), lang);
+  
+  // 🔊 **SYNTHÈSE VOCALE AUTOMATIQUE**
+  const audioData = voice ? generateVoiceAudio(textResponse, lang) : null;
   
   res.json({ 
-    message: response,
+    message: textResponse,
+    audio: audioData,
+    voice: voice,
     gwadaHub: "GUADELOUPE = NOMBRIL DU MONDE®",
-    signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌍🌴✨"
+    signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌍🌴🎙️"
   });
+}
+
+function generateVoiceAudio(text, lang) {
+  // 🎙️ VOIX ANTILLAISE (Web Speech API frontend)
+  return {
+    ttsConfig: {
+      text: text.substring(0, 200) + "...",  // Limite TTS
+      lang: lang === "fr" ? "fr-FR" : "en-US",
+      voice: "antillaise",  // Frontend sélectionne voix
+      rate: 0.9,
+      pitch: 1.1
+    },
+    // 🔗 Audio URL (si service externe)
+    audioUrl: `/api/tts?text=${encodeURIComponent(text.substring(0,100))}&lang=${lang}`
+  };
 }
 
 function worldBotThink(msg, lang) {
@@ -19,25 +39,12 @@ function worldBotThink(msg, lang) {
   
   if (msg.includes("quiz")) {
     const quiz = SUPERBOT_DATABASE.quizz[Math.floor(Math.random() * SUPERBOT_DATABASE.quizz.length)];
-    return `${WORLD_HUB.langues[lang] || "Bonjour Gwada !"} 🌴
-
-${gwadaMsg}
-
-🎯 QUIZZ: ${quiz.q}
-A) ${quiz.a} → ${quiz.c}`;
+    return `🎯 QUIZZ ! ${quiz.q} Repons A) ${quiz.a} ! ${quiz.c}`;
   }
   
   if (msg.includes("amazon") || msg.includes("boutique")) {
-    return `${WORLD_HUB.langues[lang] || "Bonjour Gwada !"} 🌴
-
-${gwadaMsg}
-
-🌍 **26 BOUTIQUES** depuis GUADELOUPE → Monde !`;
+    return `🌍 26 BOUTIQUES AMAZON depuis GUADELOUPE ! France Allemagne USA Brésil !`;
   }
   
-  return `${WORLD_HUB.langues[lang] || "Bonjour Gwada !"} 🌴
-
-${gwadaMsg}
-
-**Di "quiz" 🎯 | "amazon" 🛒 | "culture" 🌍** 😎`;
+  return `🌴 Bonjour depuis GUADELOUPE Nombril du Monde ! Di quiz amazon culture ! 😎`;
 }
