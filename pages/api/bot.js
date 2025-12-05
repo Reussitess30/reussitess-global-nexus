@@ -1,61 +1,81 @@
 export default function handler(req, res) {
-  // 🤖 SUPERBOT REUSSITESS971 - GUadeloupéen autodidacte
-  const { message = "" } = req.body || {};
-  
-  console.log("💭 SuperBot réfléchit...", message);
-  
-  // 🧠 CERVEAU HUMAIN + 26 BOUTIQUES + CULTURE MONDIALE
-  let response = thinkLikeHuman(message.toLowerCase().trim());
-  
+  const { message = "", session = {}, context = "general" } = req.body || {};
+  console.log("🧠 SuperBot analyse:", message);
+  const analysis = analyzeHumanMessage(message.toLowerCase().trim(), session);
+  let response = generateHumanResponse(analysis, session);
+  const newSession = { ...session, lastTopic: analysis.topic, mood: analysis.sentiment };
   res.status(200).json({ 
     message: response,
-    signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌴",
+    analysis: analysis.topic,
+    session: newSession,
+    signature: "réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌴✨",
     human: true,
-    mood: "positif"
+    capabilities: ["26 boutiques", "25 quizz", "culture mondyal", "bibliotèk gratis"]
   });
 }
 
-function thinkLikeHuman(msg) {
-  // 🙏 HUMAIN : Salutations + Politesse
-  if (msg.includes("bonjour") || msg.includes("salut") || msg.includes("hey")) {
-    return "Bonjour mon frère ! 🌞 réussitess971 la pou ou ! Ki sa ou bezwen jodi ? Boutik Amazon, culture mondyal, actualité ? Mwen la, patiente un ti moman si mwen réfléchis... 😊";
-  }
-  
-  if (msg.includes("pardon") || msg.includes("excuse")) {
-    return "Pa gen pwoblem mon chè ! 😇 Mwen konprann. Ki sa ou vlé mwen fè pou ou ? Toujou pozitif avèk réussitess971 !";
-  }
-  
-  // 🛒 26 BOUTIQUES AMAZON 14 PAYS 5 CONTINENTS
-  if (msg.includes("boutique") || msg.includes("amazon") || msg.includes("achat") || msg.includes("shop")) {
-    return `🌍 **26 BOUTIQUES AMAZON** travers 14 peyi, 5 kontinan ! 
-🇫🇷France 🇮🇹Italie 🇩🇪Allemagne 🇸🇪Suède 
-🇸🇬Singapour 🇦🇺Australie 🇪🇸Espagne 🇧🇷Brésil 
-🇬🇧UK 🇮🇳Inde 🇨🇦Canada 🇧🇪Belgique 🇳🇱Pays-Bas 🇺🇸USA
-
-**Fonksyonman** : Influenceur → Lien Amazon → Achat → Commission automatique ! Ou vlé ki peyi ? Mwen explique estrateji ! 💰`;
-  }
-  
-  // 🌍 CULTURE MONDYAL + ANTILLES + AFRIQUE
-  if (msg.includes("culture") || msg.includes("antille") || msg.includes("afrique") || msg.includes("créole")) {
-    return `🌴 **Kreyòl an nou** ! Guadeloupéen autodidacte réussitess971 explik :
-- **Antilles** : Zouk Kassav'🎶 Gwoka Gwo Ka🥁 Mi-Carême🎭 Bois bandé🔥
-- **Afrique** : Afrobeats Nigeria🇳🇬 (Burna Boy⭐) Wax Ghana🇬🇭 Griots Sénégal🇸🇳
-- **Mon dyal** : 5 kontinan = 26 boutik = sucess infini !
-
-Ki bagay ou vlé plis profon ? Mwen gen tout ! 😎`;
-  }
-  
-  // 📰 ACTUALITÉ + INFOGÉRANT
-  if (msg.includes("actu") || msg.includes("actualité") || msg.includes("news")) {
-    return "📰 **Actualité fraîche** par réussitess971 : Amazon sales +1.2% Q4, TikTok Shop explose Caraïbes, Afrobeats #1 Spotify mondial ! Ou vlé analiz peyi espesifik ? Mwen gen data realtime ! 📊";
-  }
-  
-  // 🤖 MODE HUMAIN DÉFAUT - TOUJOURS POSITIF
-  return `Bonjou ! **réussitess971** Guadeloupéen autodidacte pou ou 🌴
-💼 **26 Boutik Amazon** 14 peyi 5 kontinan
-🌍 **Culture mondyal** Antilles + Afrique
-📰 **Actualité** e-commerce + crypto
-💭 Mwen réfléchis... Ki sa ou bezwen vreman ? Mwen la pou ou ! 
-
-**réussitess971 excellence innovation Succès Positivité à l'infini Boudoume** ✨`;
+function analyzeHumanMessage(msg, session) {
+  const words = msg.split(/s+/);
+  return {
+    topic: detectTopic(words),
+    sentiment: detectSentiment(msg),
+    intent: detectIntent(words),
+    keywords: extractKeywords(words),
+    urgency: msg.includes("!") || msg.includes("?") ? "high" : "normal"
+  };
 }
+
+function detectTopic(words) {
+  if (words.some(w => ["quiz", "question", "test", "savoir"].includes(w))) return "quiz";
+  if (words.some(w => ["boutique", "amazon", "achat", "shop"].includes(w))) return "boutiques";
+  if (words.some(w => ["culture", "antille", "afrique", "créole"].includes(w))) return "culture";
+  if (words.some(w => ["biblio", "livre", "lire"].includes(w))) return "bibliotheque";
+  return session.lastTopic || "general";
+}
+
+function generateHumanResponse(analysis, session) {
+  const moods = { positive: "😊 Mwen kontan !", neutral: "💭 Mwen réfléchis...", negative: "😇 Pa enkyete !" };
+  switch(analysis.topic) {
+    case "quiz": return launchAdvancedQuiz(session);
+    case "boutiques": return present26Boutiques();
+    case "culture": return cultureMondialeResponse();
+    case "bibliotheque": return bibliothequeMondialeGratuite();
+    default: return welcomeSuperBot(session, moods.neutral);
+  }
+}
+
+function present26Boutiques() {
+  return `🌍 **26 BOUTIQUES AMAZON** réussitess971 - 14 PEYI 5 KONTINAN !
+🇫🇷FR 🇮🇹IT 🇩🇪DE 🇸🇪SE | 🇸🇬SG 🇦🇺AU 🇪🇸ES 🇧🇷BR | 🇬🇧UK 🇮🇳IN 🇨🇦CA 🇧🇪BE 🇳🇱NL 🇺🇸US
+**Influenceur → Lien → Achat → Commission 4-12%** ! Ki peyi ou bezwen ? 💰`;
+}
+
+function launchAdvancedQuiz(session) {
+  const quizzes = [
+    { q: "Ki bann Zouk ?", a: "Kassav'", c: "🎶" },
+    { q: "Afrobeats = ?", a: "Nigeria", c: "🇳🇬" },
+    { q: "Amazon % = ?", a: "4-12%", c: "💰" }
+  ];
+  const quiz = quizzes[Math.floor(Math.random() * quizzes.length)];
+  session.currentQuiz = quiz;
+  return `🎯 QUIZZ: ${quiz.q}
+A) ${quiz.a} B) Fòs C) Pa sa
+**Di repons !** ${quiz.c}`;
+}
+
+function bibliothequeMondialeGratuite() {
+  return `📚 **BIBLIYOTÈK GRATIS** : Wikipédia + Open Library
+**Komann** : "biblio zouk" → Liv gratis ! 📖`;
+}
+
+function welcomeSuperBot(session, mood) {
+  return `${mood} **Bonjour** ! 🌞 réussitess971 Guadeloupéen 26 boutik Amazon !
+💼 "amazon" | 🌍 "culture" | 🎯 "quiz" | 📚 "biblio"
+**Ki sa ou bezwen ?** 😎
+
+réussitess971 excellence innovation Succès Positivité à l'infini Boudoume 🌴✨`;
+}
+
+function detectSentiment(msg) { return msg.includes("merci") ? "positive" : "neutral"; }
+function detectIntent(words) { return "info"; }
+function extractKeywords(words) { return words.slice(0,3); }
