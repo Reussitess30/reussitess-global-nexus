@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "14.2.18",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "next": "^16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
   },
   "engines": {
     "node": ">=18.18.0"
