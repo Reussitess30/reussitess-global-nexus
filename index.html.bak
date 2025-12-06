@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="REUSSITESS® 971 - Quiz Culture Générale, Boutiques Amazon, Positivité et Motivation. Excellence, innovation, succès à l'infini boudoume!">
+  <meta name="keywords" content="quiz, culture générale, boutiques Amazon, affiliation, positivité, motivation, réussitess971">
+  <title>REUSSITESS® 971 - Quiz & Boutiques</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#7c3aed">
+</head>
+<body>
+  <!-- Bannière Partenaire Amazon -->
+  <div class="affiliate-banner">
+    <span class="banner-icon">⚠️</span>
+    <p><strong>Partenaire Amazon</strong> • En tant qu'Affiliée Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises</p>
+  </div>
+
+  <!-- Header avec Mascotte -->
+  <header class="header">
+    <nav class="nav-container">
+      <div class="logo">
+        <span class="mascotte" id="mascotte">🌟</span>
+        <span class="logo-text">REUSSITESS® 971</span>
+      </div>
+      <div class="nav-links">
+        <a href="#accueil" class="nav-link active">🏠 Accueil</a>
+        <a href="#quiz" class="nav-link">🎯 Quiz</a>
+        <a href="#boutiques" class="nav-link">🛍️ Boutiques</a>
+        <a href="#positivite" class="nav-link">✨ Positivité</a>
+        <a href="#about" class="nav-link">ℹ️ À Propos</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Section Hero -->
+  <section id="accueil" class="hero">
+    <div class="hero-content">
+      <div class="hero-mascotte">🌍</div>
+      <h1>REUSSITESS® 971</h1>
+      <p class="tagline">Excellence • Innovation • Succès à l'infini boudoume!</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">20</span>
+          <span class="stat-label">Quiz</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">26</span>
+          <span class="stat-label">Boutiques</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">14</span>
+          <span class="stat-label">Pays</span>
+        </div>
+      </div>
+      <a href="#quiz" class="cta-button">🚀 Commencer un Quiz</a>
+    </div>
+  </section>
+
+  <!-- Section Quiz -->
+  <section id="quiz" class="section quiz-section">
+    <div class="container">
+      <h2 class="section-title">🎯 Quiz Culture Générale</h2>
+      <p class="section-subtitle">Testez vos connaissances dans 20 domaines passionnants!</p>
+      
+      <div class="quiz-categories" id="quiz-categories">
+        <!-- Les catégories seront chargées dynamiquement -->
+      </div>
+
+      <!-- Zone de Quiz Active -->
+      <div id="quiz-container" class="quiz-container hidden">
+        <div class="quiz-header">
+          <h3 id="quiz-domain">Quiz</h3>
+          <span id="quiz-progress">Question 1/5</span>
+        </div>
+        <div class="quiz-question" id="quiz-question"></div>
+        <div class="quiz-answers" id="quiz-answers"></div>
+        <div class="quiz-explanation hidden" id="quiz-explanation"></div>
+        <div class="quiz-actions">
+          <button id="next-btn" class="btn-next hidden">Question Suivante →</button>
+        </div>
+        <div class="quiz-score hidden" id="quiz-score">
+          <h3>🎉 Quiz Terminé!</h3>
+          <p id="score-text"></p>
+          <button onclick="resetQuiz()" class="btn-restart">🔄 Recommencer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Boutiques -->
+  <section id="boutiques" class="section boutiques-section">
+    <div class="container">
+      <h2 class="section-title">🛍️ Mes 26 Boutiques Amazon</h2>
+      <p class="section-subtitle">Cliquez sur une boutique pour découvrir mes produits favoris</p>
+      
+      <div class="commission-message">
+        <p>💡 Pour soutenir ce projet, les achats dans nos 26 boutiques sont recommandés : en tant que partenaire Amazon, je gagne une commission, ce qui permet de continuer à mieux vous servir.</p>
+      </div>
+
+      <div class="boutiques-grid" id="boutiques-grid">
+        <!-- Les boutiques seront chargées dynamiquement -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Positivité -->
+  <section id="positivite" class="section positivite-section">
+    <div class="container">
+      <h2 class="section-title">✨ Positivité & Motivation</h2>
+      <p class="section-subtitle">Des messages pour booster votre journée!</p>
+      
+      <div class="positivite-card" id="positivite-card">
+        <div class="positivite-icon">🌟</div>
+        <p class="positivite-message" id="positivite-message">Positivité à l'infini boudoume!</p>
+        <button onclick="changeMessage()" class="btn-new-message">💫 Nouveau message</button>
+      </div>
+
+      <div class="fun-fact" id="fun-fact">
+        <h4>💡 Le saviez-vous?</h4>
+        <p id="fun-fact-text">Les leaders lisent plus de 50 livres par an.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section À Propos -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title">ℹ️ À Propos</h2>
+      <div class="about-content">
+        <div class="about-card">
+          <h3>🎯 Notre Mission</h3>
+          <p>REUSSITESS® 971 est votre hub d'excellence, d'innovation et de succès. Nous proposons des quiz enrichissants, des boutiques Amazon de qualité, et des messages de motivation pour vous accompagner vers la réussite.</p>
+        </div>
+        <div class="about-card">
+          <h3>🌍 Présence Globale</h3>
+          <p>Avec 26 boutiques Amazon dans 14 pays et 5 continents, nous connectons le monde avec des produits soigneusement sélectionnés.</p>
+        </div>
+        <div class="about-card">
+          <h3>💪 Positivité à l'infini</h3>
+          <p>Notre signature: "réussitess971 excellence innovation succes a l'infini boudoume" - un message d'espoir et de motivation pour tous!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>🌐 REUSSITESS® 971</h4>
+          <p>Excellence • Innovation • Succès</p>
+          <p class="signature">réussitess971 - positivité à l'infini boudoume!</p>
+        </div>
+        <div class="footer-section">
+          <h4>📚 Quiz</h4>
+          <p>20 domaines de culture générale</p>
+        </div>
+        <div class="footer-section">
+          <h4>🛍️ Boutiques</h4>
+          <p>26 boutiques • 14 pays • 5 continents</p>
+        </div>
+        <div class="footer-section">
+          <h4>⚖️ Mentions Légales</h4>
+          <p>Partenaire Amazon Affiliée</p>
+          <p>Commission sur achats qualifiés</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 REUSSITESS® 971. Tous droits réservés.</p>
+        <p>🚀 Propulsé par l'excellence et l'innovation</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mascotte flottante -->
+  <button class="floating-mascotte" id="floating-mascotte" onclick="showMotivation()">
+    🌟
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
