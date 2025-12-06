@@ -1010,3 +1010,10 @@ function affaires() { return "Affaires: /boutiques (26 Amazon) | /signature (REU
 function motivation() { return "Aujourd’hui: Action immédiate | Résultats suivent | Excellence REUSSITESS®"; }
 function temps() { return "Temps: Priorité #1 | Deep work 90min | Réunion <15min | Email 2x/jour"; }
 function reseau() { return "Réseau: 1 message/jour | Valeur d’abord | Suivi 7 jours | Win-win toujours"; }
+function prevention() { return "Prevention: Dormir 8h | Eau 2L/jour | Marche 30min | Respiration 4-4-6"; }
+function conseil() { return "Conseil: Gratitude journal | Meditation 5min | 3 objectifs/jour | Pause ecran 20min"; }
+function positivite() { return "Positivite: Tu es capable | Aujourd hui parfait | Succes imminent | Gratitude infinie"; }
+function entrepreneur() { return "Entrepreneur: 1 idee/jour | 1 contact reseau | Test rapide | Pivot intelligent"; }
+function astuces() { return "Astuces: Pomodoro 25min | Eisenhower matrice | 80/20 Pareto | Dire NON"; }
+function recette() { return "Recette 5min: Oeufs brouilles + avocat | Ti-punch: citron + sucre + rhum 50"; }
+function affaires() { return "Affaires: /boutiques (26 Amazon) | /signature (REUSSITESS971) | Commissions OK"; }
