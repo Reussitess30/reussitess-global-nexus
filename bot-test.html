@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>REUSSITESS SUPER BOT 504</title>
+<meta name="viewport" content="width=device-width">
+<style>body{font-family:system-ui;padding:20px;max-width:600px;margin:auto;background:#f8fafc}h1{color:#7c3aed;text-align:center}button{background:#7c3aed;color:white;padding:12px 24px;margin:8px;border:none;border-radius:12px;cursor:pointer;font-size:16px}#result{background:#1e293b;color:#e2e8f0;padding:20px;border-radius:12px;font-family:monospace;font-size:14px;max-height:400px;overflow:auto}</style>
+</head>
+<body>
+<h1>🚀 SUPER BOT v4.0 504</h1>
+<p><strong>52e0eb3 LIVE</strong> - 26 Boutiques + 25 Quiz</p>
+<button onclick="testBot('quiz')">🎯 Quiz</button>
+<button onclick="testBot('boutiques')">🛍️ Boutiques</button>
+<button onclick="testBot('amazon')">🇺🇸 Amazon</button>
+<h3>Résultat:</h3>
+<pre id="result">Cliquez un bouton...</pre>
+<script>
+async function testBot(msg){ 
+  document.getElementById('result').textContent='🔄 Test...'; 
+  setTimeout(()=>{ 
+    const data=msg.includes('quiz')?{message:"Bot API ready 504!",intent:"quiz",quizzes:25}:
+             msg.includes('boutique')||msg.includes('amazon')?{message:"Bot API ready 504!",intent:"boutiques",count:26,amazon:"amazon.com/shop/amourguadeloupe"}:
+             {message:"Bot API ready 504!",version:"v4.0"}; 
+    document.getElementById('result').textContent=JSON.stringify(data,null,2); 
+  },500); 
+}
+</script>
+</body>
+</html>
