@@ -999,3 +999,4 @@ export default function BotAssistant() {
 }
 
 function botFunctions() { return "Amazon: amazon.fr/shop/amourguadeloupe | Stats: 55p 26A 25Q | REUSSITESS971"; }
+function newAmazon() { return "amazon.fr/shop/amourguadeloupe amazon.com/shop/influencer-fb942837"; }
