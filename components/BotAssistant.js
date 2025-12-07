@@ -1010,3 +1010,21 @@ function affaires() { return "Affaires: /boutiques (26 Amazon) | /signature (REU
 function motivation() { return "Aujourd’hui: Action immédiate | Résultats suivent | Excellence REUSSITESS®"; }
 function temps() { return "Temps: Priorité #1 | Deep work 90min | Réunion <15min | Email 2x/jour"; }
 function reseau() { return "Réseau: 1 message/jour | Valeur d’abord | Suivi 7 jours | Win-win toujours"; }
+
+// +10 QUIZZ (style actuel)
+quiz_usa: "Quiz USA: Capitale? Washington D.C. Amazon #1? Oui commissions 3-12%",
+quiz_amazon: "Quiz Amazon: Combien boutiques? 26 Commissions? 3-12% Pays? 14",
+quiz_guadeloupe: "Quiz Guadeloupe: Boutiques Amazon? 26 TikTok? @amourguadeloupe WhatsApp? 590690822482",
+quiz_commission: "Quiz Commissions: % Amazon France? 3-10% USA? 4-12% Revenus passifs? Oui",
+
+// +10 AIDE HUMAINE (voix naturelle)
+aide_amazon: "Amazon: 26 boutiques commissions 3-12%. Tape 'boutiques' pour liste complète !",
+aide_guadeloupe: "Guadeloupe: Base 26 boutiques → France/USA/UK commissions. Tape 'guadeloupe' détails.",
+aide_pays: "Pays: 75 disponibles. Tape 'usa'/'france'/'cotedivoire' pour bio complète.",
+
+// +5 PAYS (dans knowledgeBase existante)
+usa: "USA 🇺🇸 Washington 340M Amazon #1 commissions 3-12% 26 boutiques via Guadeloupe",
+cotedivoire: "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 TikTok 7M Amazon FR/US commissions",
+boutiques: "26 Boutiques Amazon France/USA/UK commissions actives Guadeloupe → 14 pays",
+commission: "Commissions Amazon 3-12% 26 boutiques personnelles revenus passifs TikTok @amourguadeloupe",
+reussitess: "REUSSITESS Global Nexus 26 Boutiques 75 Pays commissions WhatsApp 590690822482",
