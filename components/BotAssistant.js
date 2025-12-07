@@ -1021,3 +1021,8 @@ if (typeof knowledgeBase !== 'undefined') {
   knowledgeBase.au_revoir = "Au revoir ! 🚀 À bientôt pour plus de succès. Commissions Amazon actives 24h panier → Réussitess971 gagne !";
   knowledgeBase.salut = "Salut ! 😊 Prêt pour l'aventure ? 26 Boutiques Amazon → Je parie vous trouverez votre bonheur !";
 }
+
+// FORCE NOUVEAU MESSAGE BONSOIR
+if (typeof knowledgeBase !== 'undefined') {
+  knowledgeBase.bonsoir = "Bonsoir ! 🌙 Nouvelle version du bot en ligne, Reussitess Global Nexus mis à jour.";
+}
