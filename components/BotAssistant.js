@@ -1069,3 +1069,26 @@ structure: "Structure: pages/index.js (26 Boutiques) pages/bibliotheque/* (75 pa
 domtom: "DOM-TOM: Guadeloupe Martinique Guyane Réunion Mayotte Nouvelle-Calédonie Polynésie Saint-Barth Saint-Martin Wallis Futuna pages/bibliotheque/dom-tom/*",
 afrique: "Afrique: Côte d'Ivoire Cameroun Madagascar Mali RDC Rwanda Sénégal pages/bibliotheque/afrique/* cacao zouglou croissance",
 pwa: "PWA installable manifest.json service worker mobile TikTok ready offline 26 Boutiques commissions Amazon"
+,
+// === SALUTATIONS HUMAINES (émotions)
+bonjour: "Bonjour ! 🌞 superBot REUSSITESS® vous souhaite une excellente journée ! Je parie vous trouverez un achat dans mes 26 boutiques qui vous plaira !",
+bonsoir: "Bonsoir ! 🌙 Merci d'être là. Guadeloupe terres de champions → Excellence Innovation succès à l'infini !",
+merci: "Merci infiniment ! 🙏 Votre confiance = ma motivation. Réussitess971 Excellence Innovation boudoume Guadeloupe !",
+au_revoir: "Au revoir ! 🚀 À bientôt pour plus de succès. Commissions Amazon actives 24h panier → Réussitess971 gagne !",
+salut: "Salut ! 😊 Prêt pour l'aventure ? 26 Boutiques Amazon → Je parie vous trouverez votre bonheur !",
+
+// === ÉMOTIONS HUMAINES
+parfait: "Parfait ! 🎯 Excellente choix. Guadeloupe terres de champions → Votre succès commence ici !",
+super: "Super ! 🔥 Réussitess971 Excellence Innovation. J'adore votre énergie !",
+bravo: "Bravo ! 👏 Guadeloupe terres de champions. Vous êtes sur la bonne voie succès à l'infini !",
+genial: "Génial ! ✨ Boudoume Guadeloupe → Excellence Innovation → 26 Boutiques commissions !",
+
+// === COMMISSIONS HUMAINES
+commission: "Commissions Amazon 3-12% ! 💰 Mettez dans panier → 24h achat = Je gagne commission ET vous économisez ! Win-win !",
+panier: "Panier Amazon 24h ! 🛒 Article dedans → Attendez 24h → Achetez = commissions Réussitess971 + Meilleure offre garantie !",
+achat: "Achat Amazon ! 🎉 Mettez panier → 24h → Achetez via mes liens = commissions Guadeloupe terres de champions !",
+
+// === MOTIVATION REUSSITESS
+reussitess971: "Réussitess971 Excellence Innovation succès à l'infini ! 🌟 Guadeloupe terres de champions boudoume 26 Boutiques Amazon !",
+boudoume: "Boudoume Guadeloupe ! 🇬🇵 Terres de champions → Excellence Innovation → Réussitess971 → Succès à l'infini !",
+champions: "Guadeloupe terres de champions ! 🏆 Réussitess971 Excellence → 26 Boutiques commissions → Votre succès commence !"
