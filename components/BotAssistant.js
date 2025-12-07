@@ -1092,3 +1092,23 @@ achat: "Achat Amazon ! 🎉 Mettez panier → 24h → Achetez via mes liens = co
 reussitess971: "Réussitess971 Excellence Innovation succès à l'infini ! 🌟 Guadeloupe terres de champions boudoume 26 Boutiques Amazon !",
 boudoume: "Boudoume Guadeloupe ! 🇬🇵 Terres de champions → Excellence Innovation → Réussitess971 → Succès à l'infini !",
 champions: "Guadeloupe terres de champions ! 🏆 Réussitess971 Excellence → 26 Boutiques commissions → Votre succès commence !"
+,
+// === ASTUCES GAGNER ARGENT LÉGAL (Internet)
+argent: "💰 Astuces argent légal: 1) Amazon affiliation 26 boutiques commissions 3-12% 2) TikTok Shop @amourguadeloupe 3) Newsletter Reussitess971 4) Google Adsense site 5) Freelance Upwork Fiverr",
+affiliation: "Amazon affiliation: Inscrivez-vous partenaires.amazon.fr → Copiez liens 26 boutiques → Partagez → Commissions 3-12% légal 100% (https://partenaires.amazon.fr)",
+tiktokshop: "TikTok Shop: @amourguadeloupe → 26 Boutiques Amazon → Commissions + Ventes directes → Inscription tiktok.com/business (https://www.tiktok.com/@amourguadeloupe)",
+newsletter: "Newsletter Reussitess971: Guide 26 Boutiques + Astuces argent légal hebdo → WhatsApp 590690822482 pour s'inscrire",
+freelance: "Freelance légal: Upwork.com Fiverr.com → Compétences Termux/Next.js/Vercel → $20-100h → Portfolio reussitess-global-nexus",
+adsense: "Google Adsense: Créez contenu 75 pays/quiz → adsense.google.com → Revenus passifs clics légal 100%",
+
+// === LIENS EXTERNES OFFICIELS (in-site concept)
+amazonaffiliation: "Amazon Affiliation officielle: https://partenaires.amazon.fr/signup → Gratuit → Vos 26 boutiques commissions instantanées",
+tiktokbusiness: "TikTok Business: https://www.tiktok.com/business → @amourguadeloupe → Shop + Commissions légal",
+upwork: "Upwork freelance: https://www.upwork.com → Termux/Next.js/Vercel skills → $20-100h légal",
+fiverr: "Fiverr gigs: https://www.fiverr.com → Création bots/sites → $50-500/gig légal",
+adsense: "Google Adsense: https://adsense.google.com → Contenu 75 pays/quiz → Revenus passifs légal"
+,
+inscription: "Newsletter Reussitess971: Astuces argent légal + Guide 26 Boutiques + 75 pays → WhatsApp 590690822482 'INSCRIS-MOI' → Gratuit hebdo !",
+guide: "Guide 26 Boutiques: €9.99 → Toutes commissions + Astuces → WhatsApp 590690822482 'GUIDE' → Paiement sécurisé",
+revenus: "Revenus passifs: Amazon 3-12% + Newsletter 500 abonnés + TikTok Shop + Adsense = €2000/mois légal Guadeloupe !",
+legalaide: "Aide légale: Amazon partenaires.amazon.fr TikTok business upwork fiverr adsense.google.com → 100% légal déclaré commissions"
