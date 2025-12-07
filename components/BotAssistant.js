@@ -1047,3 +1047,25 @@ aide_amazon: "Amazon: Liens personnels France/USA/UK commissions automatiques. T
 aide_guadeloupe: "Guadeloupe base opérations 26 Boutiques → 14 pays. TikTok @amourguadeloupe WhatsApp 590690822482.",
 aide_pays: "75 pays disponibles! Tape 'usa' 'france' 'bresil' pour biographies complètes UNESCO économie.",
 aide_commission: "Commissions Amazon 3-12% par vente via tes 26 liens. Revenus passifs Guadeloupe → monde ! 💰"
+,
+// === MOTS-CLÉS PROJET COMPLET (lit tout site)
+boutiques: "26 Boutiques Amazon personnelles France personnel/influenceur USA UK Allemagne Italie Brésil Canada commissions 3-12% liens actifs",
+amazon: "Amazon 26 boutiques commissions automatiques France/USA/UK/Allemagne/Italie/Brésil/Canada 14 pays Guadeloupe base opérations",
+quiz: "5 Quiz interactifs Amazon Art Motivation Business Cinéma Culture Découvertes Environnement Gastronomie Internet Positivité",
+bibliotheque: "Bibliothèque 75 pays Afrique Ameriques Asie-Pacifique DOM-TOM Europe Maghreb bibliotheque/afrique/cameroun cote-ivoire bibliotheque/dom-tom/guadeloupe",
+pages: "pages/index.js 26 Boutiques pages/bibliotheque/* 75 pays pages/quiz/* 5 quiz pages/a-propos pages/contact pages/legal",
+reussitess: "REUSSITESS Global Nexus 26 Boutiques 75 Pays 5 Quiz Guadeloupe TikTok @amourguadeloupe WhatsApp 590690822482 commissions",
+guadeloupe: "Guadeloupe 🇬🇵 Basse-Terre 26 Boutiques Amazon base pages/bibliotheque/dom-tom/guadeloupe TikTok amourguadeloupe WhatsApp 590690822482",
+tiktok: "TikTok @amourguadeloupe Reussitess Global Nexus 26 Boutiques commissions stories lives Guadeloupe → 14 pays",
+whatsapp: "WhatsApp 590690822482 commandes Guide 26 Boutiques questions Amazon commissions Reussitess Global Nexus",
+vercel: "Vercel https://reussitess-global-nexus-jfgk.vercel.app/ production 26 Boutiques live Sécurité A Google Cloud checkpoint 0ee50b24"
+,
+github: "GitHub Reussitess30/reussitess-global-nexus commit 0ee50b24 checkpoint sécurité Dockerfile next.config.js standalone React 19.2.1",
+nextjs: "Next.js 16 Turbopack pages/_app.js components/BotAssistant.js importé sécurité A output standalone Vercel production",
+termux: "Termux npm run build git push origin main vercel --prod deploy 60s checkpoint 0ee50b24 sécurité A",
+deploy: "Deploy: npm run build → git add . → git commit → git push origin main → vercel --prod → https://reussitess-global-nexus-jfgk.vercel.app/ live"
+,
+structure: "Structure: pages/index.js (26 Boutiques) pages/bibliotheque/* (75 pays) pages/quiz/[id].js (5 Quiz) components/BotAssistant.js (bot 🌟)",
+domtom: "DOM-TOM: Guadeloupe Martinique Guyane Réunion Mayotte Nouvelle-Calédonie Polynésie Saint-Barth Saint-Martin Wallis Futuna pages/bibliotheque/dom-tom/*",
+afrique: "Afrique: Côte d'Ivoire Cameroun Madagascar Mali RDC Rwanda Sénégal pages/bibliotheque/afrique/* cacao zouglou croissance",
+pwa: "PWA installable manifest.json service worker mobile TikTok ready offline 26 Boutiques commissions Amazon"
