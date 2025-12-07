@@ -1012,12 +1012,38 @@ function temps() { return "Temps: Priorité #1 | Deep work 90min | Réunion <15m
 function reseau() { return "Réseau: 1 message/jour | Valeur d’abord | Suivi 7 jours | Win-win toujours"; }
 
 // +10 QUIZZ (style actuel)
-usa: "USA 🇺🇸 Washington 340M Amazon #1 commissions 3-12% 26 boutiques via Guadeloupe",
-cotedivoire: "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 TikTok 7M Amazon FR/US commissions",
 boutiques: "26 Boutiques Amazon France/USA/UK commissions actives Guadeloupe → 14 pays",
 commission: "Commissions Amazon 3-12% 26 boutiques personnelles revenus passifs TikTok @amourguadeloupe",
 reussitess: "REUSSITESS Global Nexus 26 Boutiques 75 Pays commissions WhatsApp 590690822482",
 ,quiz_nouveaux: "Quiz USA Amazon Guadeloupe commissions",
 aide_nouveaux: "Aide: 26 boutiques commissions TikTok WhatsApp"
-,usa: "USA 🇺🇸 Washington 340M Amazon commissions 3-12% 26 boutiques"
-,france: "France 🇫🇷 Paris 68M Amazon.fr commissions 3-10% 26 boutiques"
+,
+usa: "USA 🇺🇸 Washington D.C. 340M 50 États 24 UNESCO Statue Liberté Grand Canyon Golden Gate Hollywood NBA Silicon Valley Apple Google Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles",
+france: "France 🇫🇷 Paris 68M 13 régions 49 UNESCO Tour Eiffel Louvre Versailles Airbus Airbus LVMH Amazon.fr commissions 3-10% 26 boutiques personnelles personnel/influenceur",
+royaumeuni: "Royaume-Uni 🇬🇧 Londres 67M 4 nations 33 UNESCO Big Ben Stonehenge Shakespeare Premier League City finance BP Shell Amazon UK commissions 4-8% 26 boutiques",
+cotedivoire: "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 mondial 3 UNESCO Cathédrale Saint-Paul Bassam colonial Zouglou Ivoirien TikTok 7M users Amazon FR/US commissions croissance +6%/an",
+canada: "Canada 🇨🇦 Ottawa 39M Toronto Niagara 20 UNESCO sirop érable hockey multiculturalisme Amazon.ca commissions 5-12% boutiques personnelles"
+,
+espagne: "Espagne 🇪🇸 Madrid 47M Real Madrid flamenco Sagrada Familia 49 UNESCO tourisme #2 mondial paella corrida Amazon.es commissions 3-9% 26 boutiques",
+italie: "Italie 🇮🇹 Rome 59M pizza pasta Vatican Colisée 58 UNESCO Renaissance Ferrari Lamborghini mode Milan Amazon.it commissions 3-8%",
+allemagne: "Allemagne 🇩🇪 Berlin 84M BMW Mercedes Mur Berlin 51 UNESCO Oktoberfest bière ingénierie Siemens Bosch Amazon.de commissions 3-7%",
+japon: "Japon 🇯🇵 Tokyo 125M sushi samouraï Tokyo Disney 25 UNESCO Toyota Sony Nintendo tech Amazon.co.jp commissions 3-8%",
+bresil: "Brésil 🇧🇷 Brasilia 216M Christ Rio Amazonie football samba 22 UNESCO Petrobras Vale 9e économie Amazon.com.br commissions 4-10%",
+mexique: "Mexique 🇲🇽 Mexico 130M tacos Chichen Itza tequila 35 UNESCO Pemex tourisme Amazon.com.mx commissions 4-9%",
+inde: "Inde 🇮🇳 New Delhi 1.4M Taj Mahal Bollywood cricket 42 UNESCO Tata Reliance tech Amazon.in commissions 4-10%",
+australie: "Australie 🇦🇺 Canberra 26M Sydney Opera kangourous Great Barrier Reef 19 UNESCO BHP Rio Tinto Amazon.com.au commissions 3-7%",
+coree_sud: "Corée du Sud 🇰🇷 Séoul 52M K-pop Samsung Hyundai BTS 15 UNESCO tech #4 mondiale Amazon via JP commissions 3-7%",
+thaïlande: "Thaïlande 🇹🇭 Bangkok 70M pad thaï temples bouddhistes 7 UNESCO tourisme #1 Asie Amazon via SG commissions 3-6%"
+,
+quiz_amazon: "Quiz Amazon: Combien boutiques actives? 26 Commissions France? 3-10% USA? 4-12%",
+quiz_boutiques: "Quiz Boutiques: Combien liens personnels? 26 Pays couverts? 14 TikTok officiel? @amourguadeloupe",
+quiz_commission: "Quiz Commissions: % moyenne Amazon? 3-12% Revenus passifs? Oui Base Guadeloupe? Oui",
+quiz_guadeloupe: "Quiz Guadeloupe: Boutiques Amazon? 26 WhatsApp commandes? 590690822482 TikTok? @amourguadeloupe",
+quiz_usa: "Quiz USA: Amazon #1 mondiale? Oui Commissions? 3-12% Capitale? Washington D.C.",
+quiz_france: "Quiz France: Amazon.fr commissions? 3-10% UNESCO? 49 Capitale? Paris Boutiques? Personnel/influenceur"
+,
+aide_boutiques: "Tes 26 Boutiques Amazon génèrent commissions 3-12%. Tape 'boutiques' pour liste complète ! 😊",
+aide_amazon: "Amazon: Liens personnels France/USA/UK commissions automatiques. Tape 'commission' pour % exacts.",
+aide_guadeloupe: "Guadeloupe base opérations 26 Boutiques → 14 pays. TikTok @amourguadeloupe WhatsApp 590690822482.",
+aide_pays: "75 pays disponibles! Tape 'usa' 'france' 'bresil' pour biographies complètes UNESCO économie.",
+aide_commission: "Commissions Amazon 3-12% par vente via tes 26 liens. Revenus passifs Guadeloupe → monde ! 💰"
