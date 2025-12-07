@@ -1011,12 +1011,6 @@ function motivation() { return "Aujourd’hui: Action immédiate | Résultats su
 function temps() { return "Temps: Priorité #1 | Deep work 90min | Réunion <15min | Email 2x/jour"; }
 function reseau() { return "Réseau: 1 message/jour | Valeur d’abord | Suivi 7 jours | Win-win toujours"; }
 
-// +10 QUIZZ (style actuel)
-boutiques: "26 Boutiques Amazon France/USA/UK commissions actives Guadeloupe → 14 pays",
-commission: "Commissions Amazon 3-12% 26 boutiques personnelles revenus passifs TikTok @amourguadeloupe",
-reussitess: "REUSSITESS Global Nexus 26 Boutiques 75 Pays commissions WhatsApp 590690822482",
-,quiz_nouveaux: "Quiz USA Amazon Guadeloupe commissions",
-aide_nouveaux: "Aide: 26 boutiques commissions TikTok WhatsApp"
 usa: "USA 🇺🇸 Washington D.C. 340M 50 États 24 UNESCO Statue Liberté Grand Canyon Golden Gate Hollywood NBA Silicon Valley Apple Google Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles",
 france: "France 🇫🇷 Paris 68M 13 régions 49 UNESCO Tour Eiffel Louvre Versailles Airbus Airbus LVMH Amazon.fr commissions 3-10% 26 boutiques personnelles personnel/influenceur",
 royaumeuni: "Royaume-Uni 🇬🇧 Londres 67M 4 nations 33 UNESCO Big Ben Stonehenge Shakespeare Premier League City finance BP Shell Amazon UK commissions 4-8% 26 boutiques",
@@ -1118,3 +1112,13 @@ quiz_commerce: "Quiz Commerce: Commissions Amazon? 3-12% Newsletter? WhatsApp 59
 newsletter: "Newsletter Reussitess971 GRATUITE ! 📧 Astuces argent + Guide 26 Boutiques + 75 pays hebdo → WhatsApp 590690822482 'INSCRIS-MOI'",
 guide26: "Guide 26 Boutiques €9.99 ! 📖 Tous liens commissions + Astuces → WhatsApp 590690822482 'GUIDE' paiement sécurisé"
 ,usa: "USA 🇺🇸 Washington 340M Amazon commissions 3-12%"
+
+// +10 QUIZZ (style actuel)
+knowledgeBase.boutiques = "26 Boutiques Amazon France/USA/UK commissions actives Guadeloupe → 14 pays";
+knowledgeBase.commission = "Commissions Amazon 3-12% 26 boutiques personnelles revenus passifs TikTok @amourguadeloupe";
+knowledgeBase.reussitess = "REUSSITESS Global Nexus 26 Boutiques 75 Pays commissions WhatsApp 590690822482";
+knowledgeBase.quiz_nouveaux = "Quiz USA Amazon Guadeloupe commissions";
+knowledgeBase.aide_nouveaux = "Aide: 26 boutiques commissions TikTok WhatsApp";
+
+// USA restauré
+knowledgeBase.usa = "USA 🇺🇸 Washington D.C. 340M habitants 50 États Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles Reussitess971."; 
