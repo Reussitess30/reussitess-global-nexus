@@ -1012,11 +1012,6 @@ function temps() { return "Temps: Priorité #1 | Deep work 90min | Réunion <15m
 function reseau() { return "Réseau: 1 message/jour | Valeur d’abord | Suivi 7 jours | Win-win toujours"; }
 
 // +10 QUIZZ (style actuel)
-aide_amazon: "Amazon: 26 boutiques commissions 3-12%. Tape 'boutiques' pour liste complète !",
-aide_guadeloupe: "Guadeloupe: Base 26 boutiques → France/USA/UK commissions. Tape 'guadeloupe' détails.",
-aide_pays: "Pays: 75 disponibles. Tape 'usa'/'france'/'cotedivoire' pour bio complète.",
-
-// +5 PAYS (dans knowledgeBase existante)
 usa: "USA 🇺🇸 Washington 340M Amazon #1 commissions 3-12% 26 boutiques via Guadeloupe",
 cotedivoire: "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 TikTok 7M Amazon FR/US commissions",
 boutiques: "26 Boutiques Amazon France/USA/UK commissions actives Guadeloupe → 14 pays",
@@ -1024,3 +1019,5 @@ commission: "Commissions Amazon 3-12% 26 boutiques personnelles revenus passifs 
 reussitess: "REUSSITESS Global Nexus 26 Boutiques 75 Pays commissions WhatsApp 590690822482",
 ,quiz_nouveaux: "Quiz USA Amazon Guadeloupe commissions",
 aide_nouveaux: "Aide: 26 boutiques commissions TikTok WhatsApp"
+,usa: "USA 🇺🇸 Washington 340M Amazon commissions 3-12% 26 boutiques"
+,france: "France 🇫🇷 Paris 68M Amazon.fr commissions 3-10% 26 boutiques"
