@@ -1010,18 +1010,6 @@ function affaires() { return "Affaires: /boutiques (26 Amazon) | /signature (REU
 function motivation() { return "Aujourd’hui: Action immédiate | Résultats suivent | Excellence REUSSITESS®"; }
 function temps() { return "Temps: Priorité #1 | Deep work 90min | Réunion <15min | Email 2x/jour"; }
 function reseau() { return "Réseau: 1 message/jour | Valeur d’abord | Suivi 7 jours | Win-win toujours"; }
-
-usa: "USA 🇺🇸 Washington D.C. 340M 50 États 24 UNESCO Statue Liberté Grand Canyon Golden Gate Hollywood NBA Silicon Valley Apple Google Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles",
-france: "France 🇫🇷 Paris 68M 13 régions 49 UNESCO Tour Eiffel Louvre Versailles Airbus Airbus LVMH Amazon.fr commissions 3-10% 26 boutiques personnelles personnel/influenceur",
-royaumeuni: "Royaume-Uni 🇬🇧 Londres 67M 4 nations 33 UNESCO Big Ben Stonehenge Shakespeare Premier League City finance BP Shell Amazon UK commissions 4-8% 26 boutiques",
-cotedivoire: "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 mondial 3 UNESCO Cathédrale Saint-Paul Bassam colonial Zouglou Ivoirien TikTok 7M users Amazon FR/US commissions croissance +6%/an",
-canada: "Canada 🇨🇦 Ottawa 39M Toronto Niagara 20 UNESCO sirop érable hockey multiculturalisme Amazon.ca commissions 5-12% boutiques personnelles"
-espagne: "Espagne 🇪🇸 Madrid 47M Real Madrid flamenco Sagrada Familia 49 UNESCO tourisme #2 mondial paella corrida Amazon.es commissions 3-9% 26 boutiques",
-italie: "Italie 🇮🇹 Rome 59M pizza pasta Vatican Colisée 58 UNESCO Renaissance Ferrari Lamborghini mode Milan Amazon.it commissions 3-8%",
-allemagne: "Allemagne 🇩🇪 Berlin 84M BMW Mercedes Mur Berlin 51 UNESCO Oktoberfest bière ingénierie Siemens Bosch Amazon.de commissions 3-7%",
-japon: "Japon 🇯🇵 Tokyo 125M sushi samouraï Tokyo Disney 25 UNESCO Toyota Sony Nintendo tech Amazon.co.jp commissions 3-8%",
-bresil: "Brésil 🇧🇷 Brasilia 216M Christ Rio Amazonie football samba 22 UNESCO Petrobras Vale 9e économie Amazon.com.br commissions 4-10%",
-mexique: "Mexique 🇲🇽 Mexico 130M tacos Chichen Itza tequila 35 UNESCO Pemex tourisme Amazon.com.mx commissions 4-9%",
 inde: "Inde 🇮🇳 New Delhi 1.4M Taj Mahal Bollywood cricket 42 UNESCO Tata Reliance tech Amazon.in commissions 4-10%",
 australie: "Australie 🇦🇺 Canberra 26M Sydney Opera kangourous Great Barrier Reef 19 UNESCO BHP Rio Tinto Amazon.com.au commissions 3-7%",
 coree_sud: "Corée du Sud 🇰🇷 Séoul 52M K-pop Samsung Hyundai BTS 15 UNESCO tech #4 mondiale Amazon via JP commissions 3-7%",
@@ -1122,3 +1110,20 @@ knowledgeBase.aide_nouveaux = "Aide: 26 boutiques commissions TikTok WhatsApp";
 
 // USA restauré
 knowledgeBase.usa = "USA 🇺🇸 Washington D.C. 340M habitants 50 États Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles Reussitess971."; 
+
+// BIOGRAPHIES PAYS (ajout radical propre)
+if (typeof knowledgeBase !== 'undefined') {
+  knowledgeBase.usa = "USA 🇺🇸 Washington D.C. 340M 50 États 24 UNESCO Statue Liberté Grand Canyon Golden Gate Hollywood NBA Silicon Valley Apple Google Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles";
+  knowledgeBase.france = "France 🇫🇷 Paris 68M 13 régions 49 UNESCO Tour Eiffel Louvre Versailles Airbus LVMH Amazon.fr commissions 3-10% 26 boutiques personnelles personnel/influenceur";
+  knowledgeBase.royaumeuni = "Royaume-Uni 🇬🇧 Londres 67M 4 nations 33 UNESCO Big Ben Stonehenge Shakespeare Premier League City finance BP Shell Amazon UK commissions 4-8% 26 boutiques";
+  knowledgeBase.cotedivoire = "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 mondial 3 UNESCO Cathédrale Saint-Paul Bassam colonial Zouglou TikTok 7M users Amazon FR/US commissions croissance +6%/an";
+  knowledgeBase.canada = "Canada 🇨🇦 Ottawa 39M Toronto Niagara 20 UNESCO sirop érable hockey multiculturalisme Amazon.ca commissions 5-12% boutiques personnelles";
+}
+
+if (typeof knowledgeBase !== 'undefined') {
+  knowledgeBase.usa = "USA 🇺🇸 Washington D.C. 340M 50 États 24 UNESCO Statue Liberté Grand Canyon Golden Gate Hollywood NBA Silicon Valley Apple Google Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles";
+  knowledgeBase.france = "France 🇫🇷 Paris 68M 13 régions 49 UNESCO Tour Eiffel Louvre Versailles Airbus LVMH Amazon.fr commissions 3-10% 26 boutiques personnelles personnel/influenceur";
+  knowledgeBase.royaumeuni = "Royaume-Uni 🇬🇧 Londres 67M 4 nations 33 UNESCO Big Ben Stonehenge Shakespeare Premier League City finance BP Shell Amazon UK commissions 4-8% 26 boutiques";
+  knowledgeBase.cotedivoire = "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 mondial 3 UNESCO Cathédrale Saint-Paul Bassam colonial Zouglou TikTok 7M users Amazon FR/US commissions croissance +6%/an";
+  knowledgeBase.canada = "Canada 🇨🇦 Ottawa 39M Toronto Niagara 20 UNESCO sirop érable hockey multiculturalisme Amazon.ca commissions 5-12% boutiques personnelles";
+}
