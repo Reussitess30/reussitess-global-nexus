@@ -1026,3 +1026,8 @@ if (typeof knowledgeBase !== 'undefined') {
 if (typeof knowledgeBase !== 'undefined') {
   knowledgeBase.bonsoir = "Bonsoir ! 🌙 Nouvelle version du bot en ligne, Reussitess Global Nexus mis à jour.";
 }
+
+// OPTION 1 BOT (forcée)
+if (typeof knowledgeBase !== 'undefined') {
+  knowledgeBase.option1 = "Option 1 : Accès direct à tes 26 Boutiques Amazon Reussitess Global Nexus (France, USA, UK, Guadeloupe → 14 pays).";
+}
