@@ -11,3 +11,5 @@ const botStrings = {
   salut: "Salut ! 😊 Prêt pour l'aventure ? Découvre mes 26 boutiques Amazon !"
 };
 export default botStrings;
+};
+module.exports = { botStrings };
