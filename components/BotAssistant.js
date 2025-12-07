@@ -1017,13 +1017,11 @@ commission: "Commissions Amazon 3-12% 26 boutiques personnelles revenus passifs 
 reussitess: "REUSSITESS Global Nexus 26 Boutiques 75 Pays commissions WhatsApp 590690822482",
 ,quiz_nouveaux: "Quiz USA Amazon Guadeloupe commissions",
 aide_nouveaux: "Aide: 26 boutiques commissions TikTok WhatsApp"
-,
 usa: "USA 🇺🇸 Washington D.C. 340M 50 États 24 UNESCO Statue Liberté Grand Canyon Golden Gate Hollywood NBA Silicon Valley Apple Google Amazon #1 mondiale commissions 3-12% 26 boutiques personnelles",
 france: "France 🇫🇷 Paris 68M 13 régions 49 UNESCO Tour Eiffel Louvre Versailles Airbus Airbus LVMH Amazon.fr commissions 3-10% 26 boutiques personnelles personnel/influenceur",
 royaumeuni: "Royaume-Uni 🇬🇧 Londres 67M 4 nations 33 UNESCO Big Ben Stonehenge Shakespeare Premier League City finance BP Shell Amazon UK commissions 4-8% 26 boutiques",
 cotedivoire: "Côte d'Ivoire 🇨🇮 Abidjan 29M cacao #1 mondial 3 UNESCO Cathédrale Saint-Paul Bassam colonial Zouglou Ivoirien TikTok 7M users Amazon FR/US commissions croissance +6%/an",
 canada: "Canada 🇨🇦 Ottawa 39M Toronto Niagara 20 UNESCO sirop érable hockey multiculturalisme Amazon.ca commissions 5-12% boutiques personnelles"
-,
 espagne: "Espagne 🇪🇸 Madrid 47M Real Madrid flamenco Sagrada Familia 49 UNESCO tourisme #2 mondial paella corrida Amazon.es commissions 3-9% 26 boutiques",
 italie: "Italie 🇮🇹 Rome 59M pizza pasta Vatican Colisée 58 UNESCO Renaissance Ferrari Lamborghini mode Milan Amazon.it commissions 3-8%",
 allemagne: "Allemagne 🇩🇪 Berlin 84M BMW Mercedes Mur Berlin 51 UNESCO Oktoberfest bière ingénierie Siemens Bosch Amazon.de commissions 3-7%",
@@ -1034,20 +1032,17 @@ inde: "Inde 🇮🇳 New Delhi 1.4M Taj Mahal Bollywood cricket 42 UNESCO Tata R
 australie: "Australie 🇦🇺 Canberra 26M Sydney Opera kangourous Great Barrier Reef 19 UNESCO BHP Rio Tinto Amazon.com.au commissions 3-7%",
 coree_sud: "Corée du Sud 🇰🇷 Séoul 52M K-pop Samsung Hyundai BTS 15 UNESCO tech #4 mondiale Amazon via JP commissions 3-7%",
 thaïlande: "Thaïlande 🇹🇭 Bangkok 70M pad thaï temples bouddhistes 7 UNESCO tourisme #1 Asie Amazon via SG commissions 3-6%"
-,
 quiz_amazon: "Quiz Amazon: Combien boutiques actives? 26 Commissions France? 3-10% USA? 4-12%",
 quiz_boutiques: "Quiz Boutiques: Combien liens personnels? 26 Pays couverts? 14 TikTok officiel? @amourguadeloupe",
 quiz_commission: "Quiz Commissions: % moyenne Amazon? 3-12% Revenus passifs? Oui Base Guadeloupe? Oui",
 quiz_guadeloupe: "Quiz Guadeloupe: Boutiques Amazon? 26 WhatsApp commandes? 590690822482 TikTok? @amourguadeloupe",
 quiz_usa: "Quiz USA: Amazon #1 mondiale? Oui Commissions? 3-12% Capitale? Washington D.C.",
 quiz_france: "Quiz France: Amazon.fr commissions? 3-10% UNESCO? 49 Capitale? Paris Boutiques? Personnel/influenceur"
-,
 aide_boutiques: "Tes 26 Boutiques Amazon génèrent commissions 3-12%. Tape 'boutiques' pour liste complète ! 😊",
 aide_amazon: "Amazon: Liens personnels France/USA/UK commissions automatiques. Tape 'commission' pour % exacts.",
 aide_guadeloupe: "Guadeloupe base opérations 26 Boutiques → 14 pays. TikTok @amourguadeloupe WhatsApp 590690822482.",
 aide_pays: "75 pays disponibles! Tape 'usa' 'france' 'bresil' pour biographies complètes UNESCO économie.",
 aide_commission: "Commissions Amazon 3-12% par vente via tes 26 liens. Revenus passifs Guadeloupe → monde ! 💰"
-,
 // === MOTS-CLÉS PROJET COMPLET (lit tout site)
 boutiques: "26 Boutiques Amazon personnelles France personnel/influenceur USA UK Allemagne Italie Brésil Canada commissions 3-12% liens actifs",
 amazon: "Amazon 26 boutiques commissions automatiques France/USA/UK/Allemagne/Italie/Brésil/Canada 14 pays Guadeloupe base opérations",
@@ -1059,17 +1054,14 @@ guadeloupe: "Guadeloupe 🇬🇵 Basse-Terre 26 Boutiques Amazon base pages/bibl
 tiktok: "TikTok @amourguadeloupe Reussitess Global Nexus 26 Boutiques commissions stories lives Guadeloupe → 14 pays",
 whatsapp: "WhatsApp 590690822482 commandes Guide 26 Boutiques questions Amazon commissions Reussitess Global Nexus",
 vercel: "Vercel https://reussitess-global-nexus-jfgk.vercel.app/ production 26 Boutiques live Sécurité A Google Cloud checkpoint 0ee50b24"
-,
 github: "GitHub Reussitess30/reussitess-global-nexus commit 0ee50b24 checkpoint sécurité Dockerfile next.config.js standalone React 19.2.1",
 nextjs: "Next.js 16 Turbopack pages/_app.js components/BotAssistant.js importé sécurité A output standalone Vercel production",
 termux: "Termux npm run build git push origin main vercel --prod deploy 60s checkpoint 0ee50b24 sécurité A",
 deploy: "Deploy: npm run build → git add . → git commit → git push origin main → vercel --prod → https://reussitess-global-nexus-jfgk.vercel.app/ live"
-,
 structure: "Structure: pages/index.js (26 Boutiques) pages/bibliotheque/* (75 pays) pages/quiz/[id].js (5 Quiz) components/BotAssistant.js (bot 🌟)",
 domtom: "DOM-TOM: Guadeloupe Martinique Guyane Réunion Mayotte Nouvelle-Calédonie Polynésie Saint-Barth Saint-Martin Wallis Futuna pages/bibliotheque/dom-tom/*",
 afrique: "Afrique: Côte d'Ivoire Cameroun Madagascar Mali RDC Rwanda Sénégal pages/bibliotheque/afrique/* cacao zouglou croissance",
 pwa: "PWA installable manifest.json service worker mobile TikTok ready offline 26 Boutiques commissions Amazon"
-,
 // === SALUTATIONS HUMAINES (émotions)
 bonjour: "Bonjour ! 🌞 superBot REUSSITESS® vous souhaite une excellente journée ! Je parie vous trouverez un achat dans mes 26 boutiques qui vous plaira !",
 bonsoir: "Bonsoir ! 🌙 Merci d'être là. Guadeloupe terres de champions → Excellence Innovation succès à l'infini !",
@@ -1092,7 +1084,6 @@ achat: "Achat Amazon ! 🎉 Mettez panier → 24h → Achetez via mes liens = co
 reussitess971: "Réussitess971 Excellence Innovation succès à l'infini ! 🌟 Guadeloupe terres de champions boudoume 26 Boutiques Amazon !",
 boudoume: "Boudoume Guadeloupe ! 🇬🇵 Terres de champions → Excellence Innovation → Réussitess971 → Succès à l'infini !",
 champions: "Guadeloupe terres de champions ! 🏆 Réussitess971 Excellence → 26 Boutiques commissions → Votre succès commence !"
-,
 // === ASTUCES GAGNER ARGENT LÉGAL (Internet)
 argent: "💰 Astuces argent légal: 1) Amazon affiliation 26 boutiques commissions 3-12% 2) TikTok Shop @amourguadeloupe 3) Newsletter Reussitess971 4) Google Adsense site 5) Freelance Upwork Fiverr",
 affiliation: "Amazon affiliation: Inscrivez-vous partenaires.amazon.fr → Copiez liens 26 boutiques → Partagez → Commissions 3-12% légal 100% (https://partenaires.amazon.fr)",
@@ -1107,12 +1098,10 @@ tiktokbusiness: "TikTok Business: https://www.tiktok.com/business → @amourguad
 upwork: "Upwork freelance: https://www.upwork.com → Termux/Next.js/Vercel skills → $20-100h légal",
 fiverr: "Fiverr gigs: https://www.fiverr.com → Création bots/sites → $50-500/gig légal",
 adsense: "Google Adsense: https://adsense.google.com → Contenu 75 pays/quiz → Revenus passifs légal"
-,
 inscription: "Newsletter Reussitess971: Astuces argent légal + Guide 26 Boutiques + 75 pays → WhatsApp 590690822482 'INSCRIS-MOI' → Gratuit hebdo !",
 guide: "Guide 26 Boutiques: €9.99 → Toutes commissions + Astuces → WhatsApp 590690822482 'GUIDE' → Paiement sécurisé",
 revenus: "Revenus passifs: Amazon 3-12% + Newsletter 500 abonnés + TikTok Shop + Adsense = €2000/mois légal Guadeloupe !",
 legalaide: "Aide légale: Amazon partenaires.amazon.fr TikTok business upwork fiverr adsense.google.com → 100% légal déclaré commissions"
-,
 argentine: "Argentine 🇦🇷 Buenos Aires 46M tango Messi Malvinas 12 UNESCO agriculture soja boeuf Amazon via USA commissions 4-8%",
 maroc: "Maroc 🇲🇦 Rabat 37M tajine Marrakech médina 9 UNESCO tourisme phosphate pêche Amazon via FR commissions 3-7%",
 senegal: "Sénégal 🇸🇳 Dakar 18M thiéboudienne Youssou N'Dour 2 UNESCO croissance stable franc CFA Amazon via FR",
@@ -1123,10 +1112,9 @@ turquie: "Turquie 🇹🇷 Ankara 85M Cappadoce Istanbul Sainte-Sophie 19 UNESCO
 egypte: "Égypte 🇪🇬 Le Caire 110M Pyramides Sphinx Nil 7 UNESCO tourisme Suez Canal Amazon via UK",
 pologne: "Pologne 🇵🇱 Varsovie 38M Chopin Auschwitz Auschwitz 17 UNESCO industrie lourde Amazon.pl commissions 3-8%",
 grece: "Grèce 🇬🇷 Athènes 10M Acropole Parthenon 18 UNESCO tourisme îles Cyclades Amazon via DE/IT"
-,
 quiz_reussitess: "Quiz Reussitess: Combien boutiques? 26 WhatsApp? 590690822482 TikTok? amourguadeloupe Pays? 75",
 quiz_deploy: "Quiz Deploy: Commande production? npm run build + vercel --prod Checkpoint sécurité? 0ee50b24",
 quiz_commerce: "Quiz Commerce: Commissions Amazon? 3-12% Newsletter? WhatsApp 590690822482 Affiliation? partenaires.amazon.fr"
-,
 newsletter: "Newsletter Reussitess971 GRATUITE ! 📧 Astuces argent + Guide 26 Boutiques + 75 pays hebdo → WhatsApp 590690822482 'INSCRIS-MOI'",
 guide26: "Guide 26 Boutiques €9.99 ! 📖 Tous liens commissions + Astuces → WhatsApp 590690822482 'GUIDE' paiement sécurisé"
+,usa: "USA 🇺🇸 Washington 340M Amazon commissions 3-12%"
