@@ -1,0 +1,5 @@
+steps:
+  # ... vos étapes de construction ...
+
+options:
+  logging: CLOUD_LOGGING_ONLY
