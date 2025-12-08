@@ -1,4 +1,4 @@
-// AUTO-GENERATED (ESM)
+// AUTO-GENERATED (CJS)
 const botStrings = {
   "info": "REUSSITESS® Global Nexus - 26 boutiques Amazon affiliées dans 14 pays sur 5 continents",
   "pays": {
@@ -24,4 +24,4 @@ const botStrings = {
   "au_revoir": "Au revoir ! 🚀 À bientôt pour plus de succès. Commissions Amazon actives !",
   "salut": "Salut ! 😊 Prêt pour l'aventure ? Découvre mes 26 boutiques Amazon !"
 };
-export default botStrings;
+module.exports = botStrings;

@@ -1,5 +1,4 @@
-// AUTO-GENERATED (ESM)
-const botStrings = {
+{
   "info": "REUSSITESS® Global Nexus - 26 boutiques Amazon affiliées dans 14 pays sur 5 continents",
   "pays": {
     "usa": "États-Unis - amazon.com",
@@ -23,5 +22,4 @@ const botStrings = {
   "merci": "Merci infiniment ! 🙏 Votre confiance = ma motivation. Reussitess971 Excellence.",
   "au_revoir": "Au revoir ! 🚀 À bientôt pour plus de succès. Commissions Amazon actives !",
   "salut": "Salut ! 😊 Prêt pour l'aventure ? Découvre mes 26 boutiques Amazon !"
-};
-export default botStrings;
+}

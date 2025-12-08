@@ -1,6 +1,10 @@
+'use client'
+
 import Layout from '../components/Layout'
 import Link from 'next/link'
 import { useState } from 'react'
+import BotAssistant from '../components/BotAssistant'
+import * as SuperBotData from '../components/SuperBotData'
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -312,6 +316,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* BotAssistant branché sur SuperBotData */}
+      <BotAssistant superData={SuperBotData} />
 
       <style jsx>{`
         @keyframes float {
