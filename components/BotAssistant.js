@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import useFullKnowledge from './useFullKnowledge';
 
 export default function BotAssistant() {
+  const effectiveData = (typeof props !== "undefined" && props.superData) ? props.superData : (typeof window !== "undefined" && window.__FULL_KNOWLEDGE__) ? window.__FULL_KNOWLEDGE__ : null;
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
