@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect, useRef, useCallback } from 'react';
 import useFullKnowledge from './useFullKnowledge';
 
@@ -1411,3 +1412,6 @@ if (typeof knowledgeBase !== 'undefined') {
 if (typeof knowledgeBase !== 'undefined') {
   knowledgeBase.option1 = "Option 1 : Accès direct à tes 26 Boutiques Amazon Reussitess Global Nexus (France, USA, UK, Guadeloupe → 14 pays).";
 }
+=======
+[colle ici tout le code complet de BotAssistant que tu viens de m’envoyer]
+>>>>>>> main
