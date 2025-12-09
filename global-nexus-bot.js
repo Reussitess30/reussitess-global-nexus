@@ -1,3 +1,5 @@
+const { SuperBotData, getGreeting } = require("./components/SuperBotData_DATA.js");
+
 const { pronounceSuccessSignature } = require('./superbot-signature');
 const config = require('./reussitess-global-config.json');
 const { getGlobalNews, getWeather, getQuote, getBusinessTip } = require('./external-api');
@@ -28,3 +30,14 @@ async function runBot(country = "France", city = "Paris", topic = "innovation") 
 }
 
 module.exports = { runBot };
+async function main() {
+  const message = getGreeting('fr-FR');
+  console.log('[BOT ASSISTANT] Greeting :', message);
+  console.log(
+    '[BOT ASSISTANT] Greetings dispos :',
+  );
+
+  // ... ici tu gardes/ajoutes ta logique existante (boucles, timers, etc.)
+}
+
+main();

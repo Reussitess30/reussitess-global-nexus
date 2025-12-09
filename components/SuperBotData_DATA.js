@@ -1,0 +1,3 @@
+export function getGreeting(locale = 'fr-FR') {
+    // ... code de la fonction ...
+}

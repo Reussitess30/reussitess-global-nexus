@@ -5,6 +5,7 @@
    ▲ Next.js 15.4.7
 
    Creating an optimized production build ...
+   Using cached swc package @next/swc-wasm-nodejs...
 Failed to compile.
 
 ./components/SuperBotData.tsx
@@ -29,11 +30,11 @@ Caused by:
     at /data/data/com.termux/files/home/reussitess-global-nexus/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5828
     at r.callback (/data/data/com.termux/files/home/reussitess-global-nexus/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4039)
     at /data/data/com.termux/files/home/reussitess-global-nexus/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js:233:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
 
 Import trace for requested module:
 ./components/SuperBotData.tsx
-./components/useFullKnowledge.js
-./components/BotAssistant.js
+./pages/index.js
 
 
 > Build failed because of webpack errors
