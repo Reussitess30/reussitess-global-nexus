@@ -163,6 +163,36 @@ export default function Home() {
             </Link>
           </div>
 
+          {/* Bouton VISA UNIVERSEL */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: '2rem'
+          }}>
+            <Link
+              href="/visa-universel"
+              style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+                color: 'white',
+                padding: '1.5rem 3rem',
+                borderRadius: '50px',
+                textDecoration: 'none',
+                fontSize: '1.3rem',
+                fontWeight: '900',
+                boxShadow: '0 10px 40px rgba(102, 126, 234, 0.6), 0 0 20px rgba(118, 75, 162, 0.3)',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                border: '3px solid rgba(255, 255, 255, 0.3)',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}
+              className="btn-visa">
+              🌍 VISA UNIVERSEL DE RÉUSSITE
+            </Link>
+          </div>
+
           {/* Boutons Version Alternative et Version 2 */}
           <div style={{
             display: 'flex',
@@ -379,6 +409,12 @@ export default function Home() {
         .btn-version2:hover {
 
         .btn-passeport:hover {
+
+        .btn-visa:hover {
+          transform: translateY(-5px) scale(1.05);
+          box-shadow: 0 15px 50px rgba(102, 126, 234, 0.8), 0 0 30px rgba(118, 75, 162, 0.6);
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #f093fb 100%);
+        }
           transform: translateY(-5px) scale(1.05);
           box-shadow: 0 15px 50px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.5);
           background: linear-gradient(135deg, #ffed4e 0%, #ffd700 50%, #ffed4e 100%);
