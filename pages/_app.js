@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import BotAssistant from '../components/BotAssistant'
+import SuperBotUniversal from '../components/SuperBotUniversal'
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -76,6 +77,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} />
+      <SuperBotUniversal />
       <BotAssistant />
     </>
   )
