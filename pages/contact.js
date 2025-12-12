@@ -12,7 +12,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Ici tu peux ajouter l'envoi du formulaire plus tard
     setSubmitted(true)
   }
 
