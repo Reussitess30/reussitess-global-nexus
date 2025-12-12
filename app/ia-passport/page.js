@@ -1,6 +1,5 @@
 'use client'
 
-import Layout from '../../components/Layout'
 import { useState } from 'react'
 
 export default function IAPassport() {
@@ -18,84 +17,48 @@ export default function IAPassport() {
       icon: '🤖', 
       title: '100+ IA Connectées', 
       desc: 'Accès unifié aux meilleures IA mondiales',
-      details: {
-        title: 'Écosystème IA Universel',
-        content: `Accédez à plus de 100 modèles d'IA via une seule plateforme, inspiré des leaders mondiaux comme TypingMind, Magai et Alle-AI :
-
-• ChatGPT (OpenAI) - GPT-4, GPT-4o pour conversations avancées
-• Claude (Anthropic) - Analyse approfondie, contexte de 200K tokens
-• Gemini (Google) - Multimodal avancé (texte, image, vidéo, audio)
-• Perplexity - Recherche web avec citations vérifiables
-• Midjourney & DALL-E - Génération d'images professionnelles
-
-ÉCONOMIE RÉELLE : Au lieu de $60-100/mois pour 3-5 abonnements, économisez 75%.`,
-        stats: ['100+ Modèles', '1 Interface', '75% Économie']
-      }
+      content: 'TypingMind, Magai, ChatGPT, Claude, Gemini, Perplexity. Économie 75% vs abonnements séparés.',
+      stats: ['100+ Modèles', '1 Interface', '75% Économie']
     },
     { 
       icon: '🌐', 
       title: '195 Langues', 
       desc: 'Communication sans frontières',
-      details: {
-        title: 'Traduction Universelle',
-        content: `Technologie basée sur Wordly (4M users), Interprefy (6000+ pairs), Google Cloud Translation.
-
-Applications réelles : meetings internationaux, support client mondial, webinaires multilingues, recherche académique.`,
-        stats: ['195 Langues', '3000+ Paires', 'Temps Réel']
-      }
+      content: 'Wordly (4M users), Interprefy (6000+ pairs), Google Cloud Translation. Temps réel.',
+      stats: ['195 Langues', '3000+ Paires', 'Temps Réel']
     },
     { 
       icon: '🔐', 
       title: 'Blockchain NFT', 
       desc: 'Identité digitale certifiée',
-      details: {
-        title: 'Sécurité Blockchain',
-        content: `Technologie inspirée de Polygon ID, Worldcoin, ENS.
-
-Protection AES-256, NFT unique, biométrie optionnelle, anti-deepfake, RGPD compliant.`,
-        stats: ['NFT Unique', 'AES-256', 'RGPD']
-      }
+      content: 'Polygon ID, Worldcoin, ENS. AES-256, NFT unique, biométrie, anti-deepfake, RGPD.',
+      stats: ['NFT Unique', 'AES-256', 'RGPD']
     },
     { 
       icon: '💎', 
       title: 'REUSSITESS Tokens', 
       desc: 'Monnaie universelle IA',
-      details: {
-        title: 'Économie Simplifiée',
-        content: `Système de tokens : 1 token = 1h d'utilisation IA toutes plateformes.
-
-Économie vs abonnements séparés : ChatGPT $20 + Claude $20 + Gemini $20 = $60/mois → Pack tokens 75% moins cher.`,
-        stats: ['75% Économie', '1 Token = 1h', 'Revendable']
-      }
+      content: '1 token = 1h IA. ChatGPT $20 + Claude $20 + Gemini $20 = $60 → Économie 75%.',
+      stats: ['75% Économie', '1 Token = 1h', 'Revendable']
     },
     { 
       icon: '🎯', 
       title: 'Assistant Personnel', 
       desc: 'IA qui apprend de vous',
-      details: {
-        title: 'Intelligence Évolutive',
-        content: `Assistant qui se souvient de TOUT, inspiré de Magai (80K users).
-
-Gain productivité : 15h/semaine économisées selon études utilisateurs.`,
-        stats: ['24/7 Actif', '∞ Projets', '15h/sem']
-      }
+      content: 'Magai (80K users). Se souvient de tout. Gain 15h/semaine.',
+      stats: ['24/7 Actif', '∞ Projets', '15h/sem']
     },
     { 
       icon: '⚡', 
       title: 'Hub Universel', 
       desc: 'Toute l\'IA en 1 clic',
-      details: {
-        title: 'Plateforme Unifiée',
-        content: `Interface unique pour orchestrer toutes les IA.
-
-Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne.`,
-        stats: ['1 Interface', '10x Vitesse', 'API Ouverte']
-      }
+      content: 'Workflows automatisés, API complète, extensions, mode hors-ligne.',
+      stats: ['1 Interface', '10x Vitesse', 'API Ouverte']
     }
   ]
 
   return (
-    <Layout>
+    <div style={{ minHeight: '100vh', background: '#0f172a' }}>
       <div style={{
         minHeight: '100vh',
         background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
@@ -103,7 +66,6 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Animated backgrounds */}
         <div style={{
           position: 'absolute',
           top: '20%',
@@ -112,19 +74,7 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
           height: '400px',
           background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%)',
           borderRadius: '50%',
-          filter: 'blur(100px)',
-          animation: 'pulse 4s ease-in-out infinite'
-        }} />
-        <div style={{
-          position: 'absolute',
-          bottom: '20%',
-          right: '10%',
-          width: '350px',
-          height: '350px',
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(100px)',
-          animation: 'pulse 5s ease-in-out infinite'
+          filter: 'blur(100px)'
         }} />
 
         <div style={{
@@ -134,13 +84,7 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
           position: 'relative',
           zIndex: 1
         }}>
-          <div style={{
-            fontSize: '8rem',
-            marginBottom: '2rem',
-            animation: 'float 3s ease-in-out infinite'
-          }}>
-            🌍
-          </div>
+          <div style={{ fontSize: '8rem', marginBottom: '2rem' }}>🌍</div>
 
           <div style={{
             display: 'inline-block',
@@ -153,7 +97,7 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
             color: 'white',
             boxShadow: '0 10px 30px rgba(16, 185, 129, 0.4)'
           }}>
-            🇬🇵 MADE IN GUADELOUPE • TERRES DE CHAMPIONS
+            🇬🇵 MADE IN GUADELOUPE
           </div>
 
           <h1 style={{
@@ -172,21 +116,12 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
           <p style={{
             fontSize: 'clamp(1.2rem, 3vw, 2rem)',
             color: '#94a3b8',
-            marginBottom: '1rem',
+            marginBottom: '3rem',
             fontWeight: '600'
           }}>
             Le Premier Passeport Universel IA
           </p>
 
-          <p style={{
-            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-            color: '#64748b',
-            marginBottom: '3rem'
-          }}>
-            Une révolution mondiale depuis la Guadeloupe 🚀
-          </p>
-
-          {/* Features Grid */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
@@ -209,10 +144,9 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
                     : '1px solid rgba(255, 255, 255, 0.1)',
                   borderRadius: '20px',
                   padding: '2rem',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                className="feature-card">
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}>
                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{feature.icon}</div>
                 <h3 style={{ 
                   fontSize: '1.2rem', 
@@ -225,76 +159,31 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
                 <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '1rem' }}>
                   {feature.desc}
                 </p>
+                {selectedFeature === i && (
+                  <div style={{
+                    marginTop: '1rem',
+                    padding: '1rem',
+                    background: 'rgba(16, 185, 129, 0.1)',
+                    borderRadius: '10px',
+                    fontSize: '0.9rem',
+                    color: '#cbd5e1',
+                    textAlign: 'left'
+                  }}>
+                    {feature.content}
+                  </div>
+                )}
                 <div style={{
                   color: '#10b981',
                   fontSize: '0.85rem',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  marginTop: '0.5rem'
                 }}>
-                  {selectedFeature === i ? '📖 Fermer' : '👆 Détails'}
+                  {selectedFeature === i ? '📖 Fermer' : '👆 En savoir plus'}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Feature Details */}
-          {selectedFeature !== null && (
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%)',
-              backdropFilter: 'blur(20px)',
-              border: '2px solid rgba(16, 185, 129, 0.4)',
-              borderRadius: '30px',
-              padding: '3rem 2rem',
-              maxWidth: '900px',
-              margin: '0 auto 4rem',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
-              textAlign: 'left'
-            }}>
-              <h2 style={{
-                fontSize: 'clamp(1.5rem, 4vw, 2rem)',
-                fontWeight: '800',
-                color: 'white',
-                marginBottom: '1.5rem'
-              }}>
-                {features[selectedFeature].icon} {features[selectedFeature].details.title}
-              </h2>
-              
-              <div style={{
-                color: '#cbd5e1',
-                fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
-                lineHeight: '1.8',
-                whiteSpace: 'pre-line',
-                marginBottom: '2rem'
-              }}>
-                {features[selectedFeature].details.content}
-              </div>
-
-              <div style={{
-                display: 'flex',
-                gap: '1.5rem',
-                justifyContent: 'center',
-                flexWrap: 'wrap'
-              }}>
-                {features[selectedFeature].details.stats.map((stat, idx) => (
-                  <div key={idx} style={{
-                    background: 'rgba(16, 185, 129, 0.2)',
-                    padding: '1rem 2rem',
-                    borderRadius: '15px',
-                    border: '2px solid #10b981'
-                  }}>
-                    <span style={{
-                      color: '#10b981',
-                      fontWeight: 'bold',
-                      fontSize: '1.2rem'
-                    }}>
-                      {stat}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Beta Form */}
           <div style={{
             background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)',
             backdropFilter: 'blur(20px)',
@@ -319,7 +208,7 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
               color: '#94a3b8',
               marginBottom: '2rem'
             }}>
-              Rejoignez la liste BETA exclusive
+              Rejoignez la liste BETA
             </p>
 
             {!submitted ? (
@@ -331,7 +220,7 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
               }}>
                 <input
                   type="email"
-                  placeholder="Votre email BETA"
+                  placeholder="Votre email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -361,7 +250,7 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
                     boxShadow: '0 10px 30px rgba(16, 185, 129, 0.4)'
                   }}
                 >
-                  ✨ Rejoindre la Révolution
+                  ✨ Rejoindre
                 </button>
               </form>
             ) : (
@@ -370,19 +259,14 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
                 background: 'rgba(16, 185, 129, 0.2)',
                 borderRadius: '20px'
               }}>
-                <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🎉</div>
-                <h3 style={{ 
-                  fontSize: '1.5rem', 
-                  color: '#10b981',
-                  fontWeight: 'bold'
-                }}>
-                  Inscription Confirmée !
+                <div style={{ fontSize: '4rem' }}>🎉</div>
+                <h3 style={{ fontSize: '1.5rem', color: '#10b981', fontWeight: 'bold' }}>
+                  Inscrit !
                 </h3>
               </div>
             )}
           </div>
 
-          {/* Footer */}
           <div style={{
             marginTop: '5rem',
             paddingTop: '3rem',
@@ -398,21 +282,6 @@ Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 0.5; }
-          50% { opacity: 0.8; }
-        }
-        .feature-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-      `}</style>
-    </Layout>
+    </div>
   )
 }
