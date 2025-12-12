@@ -76,13 +76,13 @@ export default function Contact() {
               
               <div style={{ fontSize: '1.1rem', lineHeight: '2' }}>
                 <p style={{ marginBottom: '0.5rem' }}>
-                  <strong>👨‍💼 Dirigeant :</strong> Porinus Rony Roger
+                  <strong>👨‍💼 Dirigeant :</strong> Porinus Rony Roger (@reussitess)
                 </p>
                 <p style={{ marginBottom: '0.5rem' }}>
                   <strong>📋 SIRET :</strong> 444699979700031
                 </p>
                 <p style={{ marginBottom: '0.5rem' }}>
-                  <strong>💼 Statut :</strong> Auto-entrepreneur EI
+                  <strong>💼 Statut :</strong> Auto-entrepreneur EI - IT & Amazon Influencer
                 </p>
                 <p style={{ marginBottom: '0.5rem' }}>
                   <strong>✉️ Email :</strong>{' '}
@@ -98,7 +98,7 @@ export default function Contact() {
                   </a>
                 </p>
                 <p style={{ marginTop: '1rem' }}>
-                  <strong>🇬🇵 Localisation :</strong> Guadeloupe - Terres de Champions
+                  <strong>🇬🇵 Origine :</strong> Guadeloupe - Terres de Champions
                 </p>
               </div>
             </div>
