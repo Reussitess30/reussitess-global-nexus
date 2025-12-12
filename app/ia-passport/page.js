@@ -22,186 +22,73 @@ export default function IAPassport() {
         title: 'Écosystème IA Universel',
         content: `Accédez à plus de 100 modèles d'IA via une seule plateforme, inspiré des leaders mondiaux comme TypingMind, Magai et Alle-AI :
 
-• **ChatGPT (OpenAI)** - GPT-4, GPT-4o pour conversations avancées
-• **Claude (Anthropic)** - Analyse approfondie, contexte de 200K tokens (équivalent à 500 pages)
-• **Gemini (Google)** - Multimodal avancé (texte, image, vidéo, audio)
-• **Perplexity** - Recherche web avec citations vérifiables
-• **Midjourney & DALL-E** - Génération d'images professionnelles
-• **GitHub Copilot** - Assistance code en temps réel
-• **DeepSeek** - Traitement data massif à coût réduit
-• **Grok (X.AI)** - Accès temps réel aux actualités X/Twitter
+• ChatGPT (OpenAI) - GPT-4, GPT-4o pour conversations avancées
+• Claude (Anthropic) - Analyse approfondie, contexte de 200K tokens
+• Gemini (Google) - Multimodal avancé (texte, image, vidéo, audio)
+• Perplexity - Recherche web avec citations vérifiables
+• Midjourney & DALL-E - Génération d'images professionnelles
 
-**ÉCONOMIE RÉELLE :** 
-Au lieu de payer 3-5 abonnements séparés ($20/mois chacun = $60-100/mois), accédez à TOUT pour une fraction du coût. Les plateformes comme Magai (50,000+ utilisateurs) et TypingMind prouvent que ce modèle fonctionne.
-
-**BASCULE INSTANTANÉE :** 
-Changez de modèle en un clic SANS perdre votre conversation. Comparez les réponses de ChatGPT, Claude et Gemini côte à côte pour obtenir le meilleur résultat.`,
-        stats: ['100+ Modèles IA', '1 Seule Interface', 'Économie 70%']
+ÉCONOMIE RÉELLE : Au lieu de $60-100/mois pour 3-5 abonnements, économisez 75%.`,
+        stats: ['100+ Modèles', '1 Interface', '75% Économie']
       }
     },
     { 
       icon: '🌐', 
-      title: '195 Langues Supportées', 
-      desc: 'Traduction instantanée temps réel',
+      title: '195 Langues', 
+      desc: 'Communication sans frontières',
       details: {
-        title: 'Traduction Universelle Professionnelle',
-        content: `Technologie basée sur les leaders mondiaux Interprefy, Wordly et Google Cloud Translation (utilisés par des millions d'utilisateurs) :
+        title: 'Traduction Universelle',
+        content: `Technologie basée sur Wordly (4M users), Interprefy (6000+ pairs), Google Cloud Translation.
 
-• **Wordly AI** - 3,000+ paires de langues, 4 millions d'utilisateurs, 400 millions de minutes traduites
-• **Interprefy** - 6,000+ combinaisons linguistiques, niveau entreprise
-• **Talo AI** - Traduction vocale temps réel sur Zoom/Teams/Meet en 60 langues
-• **OpenL & Google Translate** - Plus de 100 langues avec précision neuronale
-
-**CAS D'USAGE RÉELS :**
-- **Meetings internationaux :** Parlez français, votre collègue japonais entend en japonais instantanément
-- **Support client mondial :** Un agent anglophone peut servir des clients en 195 langues
-- **Webinaires mondiaux :** Diffusez en une langue, tous reçoivent dans la leur
-- **Recherche académique :** Consultez des articles en chinois, russe, arabe traduits instantanément
-
-**TECHNOLOGIES UTILISÉES :**
-• Neural Machine Translation (NMT) de dernière génération
-• Zero-Knowledge Proofs pour la confidentialité
-• Traduction vocale avec synthèse naturelle (ElevenLabs, Speechify)
-• Préservation du contexte culturel et des nuances`,
+Applications réelles : meetings internationaux, support client mondial, webinaires multilingues, recherche académique.`,
         stats: ['195 Langues', '3000+ Paires', 'Temps Réel']
       }
     },
     { 
       icon: '🔐', 
-      title: 'Blockchain & NFT ID', 
-      desc: 'Identité digitale certifiée inviolable',
+      title: 'Blockchain NFT', 
+      desc: 'Identité digitale certifiée',
       details: {
-        title: 'Sécurité Blockchain Niveau Entreprise',
-        content: `Technologie décentralisée inspirée des projets leaders mondiaux Polygon ID, Worldcoin et ENS :
+        title: 'Sécurité Blockchain',
+        content: `Technologie inspirée de Polygon ID, Worldcoin, ENS.
 
-• **Identité NFT Unique :** Chaque utilisateur possède un NFT digital inviolable comme passeport
-• **Polygon ID (2024)** - Utilise Zero-Knowledge Proofs, partenariat avec Animoca Brands
-• **Worldcoin** - Vérification biométrique (iris/empreinte) pour prouver l'humanité
-• **ENS (Ethereum Name Service)** - Noms lisibles sur blockchain
-• **Space ID** - Identité unifiée cross-chain
-
-**PROTECTION ANTI-DEEPFAKE :**
-Prouvez que c'est VRAIMENT vous grâce à la blockchain. Vos créations IA sont certifiées avec horodatage immutable. Personne ne peut usurper votre identité ou falsifier vos contenus.
-
-**DONNÉES RÉELLES :**
-• Chiffrement AES-256 (standard militaire américain)
-• Stockage décentralisé (0 point de défaillance unique)
-• Compatible RGPD et normes européennes
-• Biométrie optionnelle (Face ID, empreinte, reconnaissance palmaire)
-• Révocation instantanée en cas de vol d'appareil
-
-**AVANTAGE GUADELOUPE 🇬🇵 :**
-Territoire français = conformité UE automatique + crédibilité juridique internationale`,
-        stats: ['NFT Unique', 'AES-256', 'RGPD Compliant']
+Protection AES-256, NFT unique, biométrie optionnelle, anti-deepfake, RGPD compliant.`,
+        stats: ['NFT Unique', 'AES-256', 'RGPD']
       }
     },
     { 
       icon: '💎', 
-      title: 'Système de Tokens REUSSITESS', 
-      desc: 'Monnaie universelle pour toutes les IA',
+      title: 'REUSSITESS Tokens', 
+      desc: 'Monnaie universelle IA',
       details: {
-        title: 'Économie IA Simplifiée',
-        content: `Fini les abonnements multiples ! Un système de tokens inspiré des modèles API économiques réels :
+        title: 'Économie Simplifiée',
+        content: `Système de tokens : 1 token = 1h d'utilisation IA toutes plateformes.
 
-**TARIFS ACTUELS MARCHÉ (2024-2025) :**
-• ChatGPT Plus : $20/mois
-• Claude Pro : $20/mois  
-• Gemini Advanced : $19.99/mois
-• Perplexity Pro : $20/mois
-• Midjourney : $30/mois
-**TOTAL : $110/mois pour 5 services !**
-
-**SYSTÈME REUSSITESS TOKENS :**
-• **Pack Starter** - 100 tokens = 39€ (vs $110 séparé)
-• **Pack Pro** - 500 tokens = 149€ (vs $550 séparé)
-• **Pack Entreprise** - 2000 tokens = 499€ (vs $2200 séparé)
-
-**1 TOKEN = QUOI ?**
-• 1 heure d'utilisation IA toutes plateformes
-• 50 images Midjourney/DALL-E
-• 100,000 tokens GPT-4 (≈75,000 mots)
-• 1 vidéo Synthesia (30 secondes)
-• 10 traductions vocales complètes
-
-**GAGNEZ DES TOKENS :**
-• Parrainage : +20 tokens par personne
-• Créez du contenu viral : +50 tokens
-• Contribution communauté : +10 tokens/mois
-• Feedback qualité : +5 tokens
-
-**MARKETPLACE :** 
-Revendez vos tokens non utilisés ou échangez contre €/$/crypto. Système transparent sur blockchain.`,
-        stats: ['75% Économie', '1 Token = 1h IA', 'Revendable']
+Économie vs abonnements séparés : ChatGPT $20 + Claude $20 + Gemini $20 = $60/mois → Pack tokens 75% moins cher.`,
+        stats: ['75% Économie', '1 Token = 1h', 'Revendable']
       }
     },
     { 
       icon: '🎯', 
-      title: 'Assistant Personnel Évolutif', 
-      desc: 'IA qui apprend de TOUTES vos interactions',
+      title: 'Assistant Personnel', 
+      desc: 'IA qui apprend de vous',
       details: {
-        title: 'Votre Intelligence Artificielle Personnelle',
-        content: `Un assistant qui se souvient de TOUT et évolue avec vous, inspiré de Magai Personas et Claude Projects :
+        title: 'Intelligence Évolutive',
+        content: `Assistant qui se souvient de TOUT, inspiré de Magai (80K users).
 
-**MÉMOIRE UNIVERSELLE :**
-• Se souvient de tous vos projets simultanément
-• Garde le contexte entre ChatGPT, Claude, Gemini
-• Connaît vos préférences de style, ton, format
-• Comprend vos objectifs professionnels à long terme
-
-**AUTOMATISATION INTELLIGENTE :**
-• **Email :** Rédige et répond automatiquement dans votre style
-• **Meetings :** Prépare agendas, prend notes, génère comptes-rendus
-• **Code :** Debug, complète, documente votre code
-• **Recherche :** Surveille le web pour vous, envoie alertes pertinentes
-• **Documents :** Résume 500 pages en 5 minutes avec points clés
-
-**PROFILS ADAPTATIFS :**
-• Mode Entrepreneur : Focus ROI, stratégie, networking
-• Mode Créatif : Brainstorming, storytelling, design
-• Mode Étudiant : Recherche académique, citations, révisions
-• Mode Manager : Leadership, communication équipe, décisions
-
-**CAS CONCRET :** 
-"Prépare ma réunion investisseurs demain" → L'assistant consulte vos documents Google Drive, analyse vos finances, génère présentation PowerPoint, prépare réponses aux questions probables, et vous envoie un brief de 5 minutes.
-
-**DONNÉES RÉELLES (Magai, 80,000+ utilisateurs) :**
-Gain de temps moyen : 15h/semaine par utilisateur`,
-        stats: ['24/7 Actif', '∞ Projets', '15h Gagnées/Sem']
+Gain productivité : 15h/semaine économisées selon études utilisateurs.`,
+        stats: ['24/7 Actif', '∞ Projets', '15h/sem']
       }
     },
     { 
       icon: '⚡', 
-      title: 'Hub Universel Instantané', 
-      desc: 'Toute l\'IA mondiale en 1 clic',
+      title: 'Hub Universel', 
+      desc: 'Toute l\'IA en 1 clic',
       details: {
-        title: 'Plateforme Unifiée Mondiale',
-        content: `Interface unique pour orchestrer TOUTES les IA, inspirée de Raycast AI et AI-Flow :
+        title: 'Plateforme Unifiée',
+        content: `Interface unique pour orchestrer toutes les IA.
 
-**WORKFLOWS AUTOMATISÉS :**
-Créez des chaînes IA complexes sans coder :
-• **Exemple Marketing :** GPT-4 écrit l'article → DALL-E crée les visuels → Synthesia génère la vidéo → Auto-publication LinkedIn
-• **Exemple Entreprise :** Transcription audio (Whisper) → Traduction 10 langues (Google Translate) → Résumé exécutif (Claude) → Email clients (Auto)
-• **Exemple Création :** Idée → Script (ChatGPT) → Storyboard (Midjourney) → Voix-off (ElevenLabs) → Montage (Runway ML)
-
-**DRAG & DROP :** 
-Connectez les IA visuellement comme des blocs LEGO. Zero code requis.
-
-**API COMPLÈTE :**
-Intégrez IA Passport dans vos applications :
-• Extensions : Chrome, VSCode, Notion, Slack, WhatsApp
-• Webhooks pour automatisation
-• SDK Python, JavaScript, REST API
-
-**MODE HORS-LIGNE :**
-Téléchargez des modèles IA légers sur votre machine pour travailler sans internet (Llama 2, Mixtral 8x7b via Groq).
-
-**BENCHMARK VITESSE :** 
-• Gemini 2.5 Flash : 370 tokens/seconde
-• GPT-4o : 120 tokens/seconde  
-• Claude Sonnet : 100 tokens/seconde
-
-**GAIN PRODUCTIVITÉ RÉEL :**
-Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilisateurs Magai)`,
+Workflows automatisés, API complète, extensions Chrome/VSCode, mode hors-ligne.`,
         stats: ['1 Interface', '10x Vitesse', 'API Ouverte']
       }
     }
@@ -216,6 +103,7 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
         position: 'relative',
         overflow: 'hidden'
       }}>
+        {/* Animated backgrounds */}
         <div style={{
           position: 'absolute',
           top: '20%',
@@ -293,14 +181,12 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
           <p style={{
             fontSize: 'clamp(1rem, 2vw, 1.5rem)',
             color: '#64748b',
-            marginBottom: '3rem',
-            maxWidth: '800px',
-            margin: '0 auto 3rem'
+            marginBottom: '3rem'
           }}>
-            Inspiré par les leaders mondiaux • Propulsé depuis la Guadeloupe 🚀
+            Une révolution mondiale depuis la Guadeloupe 🚀
           </p>
 
-          {/* Features Grid - CLIQUABLES */}
+          {/* Features Grid */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
@@ -324,8 +210,7 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
                   borderRadius: '20px',
                   padding: '2rem',
                   transition: 'all 0.3s ease',
-                  cursor: 'pointer',
-                  transform: selectedFeature === i ? 'scale(1.02)' : 'scale(1)'
+                  cursor: 'pointer'
                 }}
                 className="feature-card">
                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{feature.icon}</div>
@@ -345,13 +230,13 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
                   fontSize: '0.85rem',
                   fontWeight: 'bold'
                 }}>
-                  {selectedFeature === i ? '📖 Cliquez pour fermer' : '👆 Cliquez pour détails complets'}
+                  {selectedFeature === i ? '📖 Fermer' : '👆 Détails'}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Détails de la feature sélectionnée */}
+          {/* Feature Details */}
           {selectedFeature !== null && (
             <div style={{
               background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%)',
@@ -362,41 +247,16 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
               maxWidth: '900px',
               margin: '0 auto 4rem',
               boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
-              textAlign: 'left',
-              animation: 'slideDown 0.3s ease-out'
+              textAlign: 'left'
             }}>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '2rem',
-                flexWrap: 'wrap',
-                gap: '1rem'
+              <h2 style={{
+                fontSize: 'clamp(1.5rem, 4vw, 2rem)',
+                fontWeight: '800',
+                color: 'white',
+                marginBottom: '1.5rem'
               }}>
-                <h2 style={{
-                  fontSize: 'clamp(1.5rem, 4vw, 2rem)',
-                  fontWeight: '800',
-                  color: 'white'
-                }}>
-                  {features[selectedFeature].icon} {features[selectedFeature].details.title}
-                </h2>
-                <button
-                  onClick={() => setSelectedFeature(null)}
-                  style={{
-                    background: 'rgba(239, 68, 68, 0.2)',
-                    border: '2px solid #ef4444',
-                    color: '#ef4444',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '10px',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    transition: 'all 0.3s ease'
-                  }}
-                  className="close-btn"
-                >
-                  ✕ Fermer
-                </button>
-              </div>
+                {features[selectedFeature].icon} {features[selectedFeature].details.title}
+              </h2>
               
               <div style={{
                 color: '#cbd5e1',
@@ -419,14 +279,12 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
                     background: 'rgba(16, 185, 129, 0.2)',
                     padding: '1rem 2rem',
                     borderRadius: '15px',
-                    border: '2px solid #10b981',
-                    minWidth: '150px',
-                    textAlign: 'center'
+                    border: '2px solid #10b981'
                   }}>
                     <span style={{
                       color: '#10b981',
                       fontWeight: 'bold',
-                      fontSize: 'clamp(1rem, 2vw, 1.2rem)'
+                      fontSize: '1.2rem'
                     }}>
                       {stat}
                     </span>
@@ -436,7 +294,7 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
             </div>
           )}
 
-          {/* Coming Soon Section */}
+          {/* Beta Form */}
           <div style={{
             background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)',
             backdropFilter: 'blur(20px)',
@@ -461,7 +319,7 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
               color: '#94a3b8',
               marginBottom: '2rem'
             }}>
-              Rejoignez les pionniers • Liste d'attente BETA exclusive
+              Rejoignez la liste BETA exclusive
             </p>
 
             {!submitted ? (
@@ -473,7 +331,7 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
               }}>
                 <input
                   type="email"
-                  placeholder="Votre email pour l'accès anticipé BETA"
+                  placeholder="Votre email BETA"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -500,105 +358,43 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
                     fontSize: '1.1rem',
                     fontWeight: 'bold',
                     cursor: 'pointer',
-                    boxShadow: '0 10px 30px rgba(16, 185, 129, 0.4)',
-                    transition: 'all 0.3s ease'
+                    boxShadow: '0 10px 30px rgba(16, 185, 129, 0.4)'
                   }}
-                  className="submit-btn"
                 >
-                  ✨ Rejoindre la Révolution Mondiale
+                  ✨ Rejoindre la Révolution
                 </button>
               </form>
             ) : (
               <div style={{
                 padding: '2rem',
                 background: 'rgba(16, 185, 129, 0.2)',
-                borderRadius: '20px',
-                border: '2px solid rgba(16, 185, 129, 0.5)'
+                borderRadius: '20px'
               }}>
                 <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🎉</div>
                 <h3 style={{ 
                   fontSize: '1.5rem', 
                   color: '#10b981',
-                  fontWeight: 'bold',
-                  marginBottom: '0.5rem'
+                  fontWeight: 'bold'
                 }}>
-                  Bienvenue dans la Révolution !
+                  Inscription Confirmée !
                 </h3>
-                <p style={{ color: '#94a3b8' }}>
-                  Vous êtes inscrit(e) BETA. Préparez-vous à changer le monde ! 🌍
-                </p>
               </div>
             )}
           </div>
 
-          {/* Stats Section */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '3rem',
-            flexWrap: 'wrap',
-            marginTop: '4rem'
-          }}>
-            {[
-              { num: '100+', label: 'IA Connectées' },
-              { num: '4M+', label: 'Utilisateurs Mondiaux' },
-              { num: '∞', label: 'Possibilités' }
-            ].map((stat, i) => (
-              <div key={i} style={{
-                textAlign: 'center'
-              }}>
-                <div style={{
-                  fontSize: 'clamp(2rem, 6vw, 3rem)',
-                  fontWeight: '900',
-                  background: 'linear-gradient(135deg, #10b981 0%, #3b82f6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>
-                  {stat.num}
-                </div>
-                <div style={{ color: '#64748b', fontSize: 'clamp(0.9rem, 2vw, 1rem)', marginTop: '0.5rem' }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Footer Brand */}
+          {/* Footer */}
           <div style={{
             marginTop: '5rem',
             paddingTop: '3rem',
             borderTop: '1px solid rgba(255, 255, 255, 0.1)'
           }}>
-            <h3 style={{
-              fontSize: '2rem',
-              fontWeight: '800',
-              color: 'white',
-              marginBottom: '1rem'
-            }}>
+            <h3 style={{ fontSize: '2rem', fontWeight: '800', color: 'white' }}>
               REUSSITESS®971
             </h3>
-            <p style={{
-              color: '#64748b',
-              fontSize: '1rem'
-            }}>
-              EXCELLENCE • INNOVATION • SUCCÈS
-            </p>
-            <p style={{
-              color: '#10b981',
-              fontSize: '1.2rem',
-              fontWeight: 'bold',
-              marginTop: '0.5rem'
-            }}>
+            <p style={{ color: '#10b981', fontSize: '1.2rem', fontWeight: 'bold', marginTop: '0.5rem' }}>
               POSITIVITÉ À L'INFINI 🎯
             </p>
-            <p style={{
-              color: '#64748b',
-              fontSize: '0.9rem',
-              marginTop: '1rem'
-            }}>
-              BOUDOUM
-            </p>
+            <p style={{ color: '#64748b', marginTop: '1rem' }}>BOUDOUM</p>
           </div>
         </div>
       </div>
@@ -608,42 +404,13 @@ Tâche complexe : 5h de travail → 30 minutes avec IA Passport (données utilis
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }
         }
-
         @keyframes pulse {
-          0%, 100% { opacity: 0.5; transform: scale(1); }
-          50% { opacity: 0.8; transform: scale(1.1); }
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 0.8; }
         }
-
-        @keyframes slideDown {
-          from { 
-            opacity: 0; 
-            transform: translateY(-20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-
         .feature-card:hover {
-          transform: translateY(-10px) !important;
-          background: rgba(255, 255, 255, 0.06) !important;
+          transform: translateY(-10px);
           box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .submit-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
-        }
-
-        .close-btn:hover {
-          background: rgba(239, 68, 68, 0.4);
-          transform: scale(1.05);
-        }
-
-        input:focus {
-          border-color: #10b981;
-          box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
         }
       `}</style>
     </Layout>
