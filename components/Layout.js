@@ -1,75 +1,26 @@
-import Link from "next/link";
-import { useEffect } from "react";
-import AffiliateDisclaimer from "./AffiliateDisclaimer";
-import FeedbackWidget from "./FeedbackWidget";
-import VisitorCounter from "./VisitorCounter";
-import BotAssistant from "./BotAssistant";
+import Head from 'next/head'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import SuperBotAssistant from './SuperBotAssistant'
 
-export default function Layout({ children }) {
-  useEffect(() => {
-    const protectContent = () => {
-      document.addEventListener("copy", (e) => e.preventDefault());
-      document.addEventListener("contextmenu", (e) => e.preventDefault());
-    };
-    protectContent();
-  }, []);
+export default function Layout({ children, title = 'REUSSITESS®971' }) {
+  const router = useRouter()
 
   return (
     <>
-      {/* Fixed Top Disclaimer Banner - First Element */}
-      <AffiliateDisclaimer />
+      <Head>
+        <title>{title} - Excellence Innovation Succès</title>
+        <meta name="description" content="REUSSITESS®971 - Plateforme mondiale d'excellence depuis la Guadeloupe" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      <header className="header">
-        <nav>
-          <div className="logo">🌍 REUSSITESS® Global Nexus</div>
-          <div className="nav-links">
-            <Link href="/">🏠 Accueil</Link>
-            <Link href="/a-propos">ℹ️ À Propos</Link>
-            <Link href="/analytics">📊 Analytics</Link>
-            <Link href="/affiliation">🤝 Affiliation</Link>
-            <Link href="/bibliotheque/outils">🛠️ Outils</Link>
-            <Link href="/mentions-legales">⚖️ Juridique</Link>
-          </div>
-        </nav>
-      </header>
+      <main style={{ minHeight: '100vh', background: '#0f172a' }}>
+        {children}
+      </main>
 
-      <main>{children}</main>
-
-      <AffiliateDisclaimer />
-      <FeedbackWidget />
-      <VisitorCounter />
-      <BotAssistant />
-
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <h4>🌐 Réseau Global</h4>
-              <p>26 boutiques • 14 pays • 5 continents</p>
-            </div>
-            <div className="footer-section">
-              <h4>📞 Support</h4>
-              <p>24/7 • Multilingue • Global</p>
-            </div>
-            <div className="footer-section">
-              <h4>🔒 Sécurité</h4>
-              <p>Données cryptées • Transactions sécurisées</p>
-            </div>
-            <div className="footer-section">
-              <h4>⚖️ Légal</h4>
-              <Link href="/mentions-legales">Mentions Légales</Link>
-              <br />
-              <Link href="/politique-confidentialite">
-                Politique de Confidentialité
-              </Link>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; 2024 REUSSITESS® Global Nexus. Tous droits réservés.</p>
-            <p>🚀 Développé avec Next.js • PWA • SEO Optimisé</p>
-          </div>
-        </div>
-      </footer>
+      {/* SUPERBOT ASSISTANT - Toujours présent */}
+      <SuperBotAssistant />
     </>
-  );
+  )
 }
