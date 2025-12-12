@@ -68,7 +68,13 @@ export default function PolitiqueConfidentialite() {
             <p>
               <strong>REUSSITESS® Global Nexus</strong>
               <br />
-              Contact : via notre page de contact
+              <strong>Porinus Rony Roger</strong>
+              <br />
+              SIRET: 444699979700031
+              <br />
+              Auto-entrepreneur EI
+              <br />
+              Contact : influenceur@reussitess.fr
             </p>
           </section>
 
