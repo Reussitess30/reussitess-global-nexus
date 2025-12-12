@@ -65,6 +65,16 @@ export default function Layout({ children, title = 'REUSSITESS®971' }) {
             flexWrap: 'wrap',
             alignItems: 'center'
           }}>
+            <Link href="/" style={{
+              color: router.pathname === '/' ? '#10b981' : '#94a3b8',
+              textDecoration: 'none',
+              fontWeight: '600',
+              fontSize: '0.95rem',
+              transition: 'color 0.3s ease'
+            }}>
+              Accueil
+            </Link>
+
             <Link href="/a-propos" style={{
               color: router.pathname === '/a-propos' ? '#10b981' : '#94a3b8',
               textDecoration: 'none',
