@@ -328,6 +328,28 @@ export default function Home() {
               className="btn-ia-passport">
               🌍 IA PASSPORT MONDIAL - Révolution 2025
             </Link>
+            <Link
+              href="https://shop.reussitess.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                padding: "1.2rem 3rem",
+                background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                color: "white",
+                borderRadius: "50px",
+                textDecoration: "none",
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+                boxShadow: "0 10px 30px rgba(245, 87, 108, 0.4)",
+                transition: "all 0.3s ease",
+                marginTop: "1.5rem"
+              }}
+              className="btn-shop"
+            >
+              🏪 Visitez Notre Shop
+            </Link>
+
 
           </div>
         </div>
