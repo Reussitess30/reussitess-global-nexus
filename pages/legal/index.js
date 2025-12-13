@@ -66,10 +66,10 @@ export default function MentionsLegales() {
               }}>
                 📋 Éditeur du Site
               </h2>
-              <p><strong>Raison sociale :</strong> REUSSITESS®</p>
+              <p><strong>Raison sociale :</strong> Entreprise Individuelle</p>
               <p><strong>Nom du responsable :</strong> Porinus Rony Roger</p>
-              <p><strong>Statut :</strong> Auto-entrepreneur (Entreprise Individuelle)</p>
-              <p><strong>SIRET :</strong> 444 699 979 00031</p>
+              <p><strong>Statut :</strong> Auto-entrepreneur</p>
+              <p><strong>SIRET :</strong> 44469979700031</p>
               <p><strong>Activité :</strong> IT & Amazon Influencer</p>
               <p><strong>Adresse :</strong><br/>
                 40 Résidences Les Monbins<br/>
