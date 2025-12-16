@@ -5,10 +5,10 @@ export default function HubInternational() {
   return (
     <>
       <Head>
-        <title>Hub International REUSSITESS & Amazon</title>
+        <title>Hub International REUSSITESS</title>
         <meta
           name="description"
-          content="Hub International REUSSITESS & Amazon : accès direct à des ressources légales, pédagogiques, signées Guadeloupe, Terres de champions."
+          content="Découvrez un Hub International complet : légal, pédagogique, et innovant, par REUSSITESS & Amazon."
         />
       </Head>
 
@@ -16,54 +16,114 @@ export default function HubInternational() {
         style={{
           minHeight: "100vh",
           background:
-            "radial-gradient(circle at top, #667eea 0%, #764ba2 100%)",
+            "radial-gradient(circle at 20% 50%, #1f2937 0%, #111827 100%)",
           color: "white",
-          padding: "2rem",
+          padding: "3rem 1.5rem",
+          textAlign: "center",
         }}
       >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <h1
+        {/* Titre principal */}
+        <h1
+          style={{
+            fontSize: "clamp(2.5rem, 5vw, 4rem)",
+            fontWeight: "bold",
+            lineHeight: "1.2",
+            marginBottom: "2rem",
+            background: "linear-gradient(135deg, #eab308, #f59e0b)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          🚀 Hub International
+          <br />
+          REUSSITESS & Amazon
+        </h1>
+
+        {/* Bandeau de description */}
+        <p style={{ fontSize: "1.2rem", marginBottom: "3rem" }}>
+          Des ressources internationales légales, éducatives et innovantes,
+          pensées pour l’excellence.
+        </p>
+
+        {/* Bouton central */}
+        <div style={{ textAlign: "center", margin: "3rem 0" }}>
+          <Link
+            href="https://example.com/hub-reussitess" // Remplacez par le véritable lien
             style={{
-              textAlign: "center",
-              fontSize: "clamp(2.5rem, 6vw, 4rem)",
-              fontWeight: "900",
-              marginBottom: "2rem",
+              display: "inline-block",
+              padding: "1rem 2.5rem",
+              background:
+                "linear-gradient(135deg, #9333ea 0%, #a855f7 50%, #c084fc 100%)",
+              color: "white",
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+              borderRadius: "999px",
+              textDecoration: "none",
+              boxShadow: "0 12px 30px rgba(147, 51, 234, 0.4)",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease",
             }}
           >
-            🚀 Hub International REUSSITESS
-          </h1>
-
-          {/* Bouton Booster */}
-          <div style={{ textAlign: "center", margin: "2rem 0" }}>
-            <Link
-              href="https://example.com/hub-reussitess" // Remplace par l'URL cible définitive
-              style={{
-                display: "inline-block",
-                padding: "1rem 2.5rem",
-                background:
-                  "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                color: "white",
-                borderRadius: "50px",
-                textDecoration: "none",
-                fontSize: "1.1rem",
-                fontWeight: "bold",
-                boxShadow: "0 10px 30px rgba(102, 126, 234, 0.5)",
-                transition: "all 0.3s ease",
-              }}
-            >
-              🚀 Booster REUSSITESS & Amazon
-            </Link>
-          </div>
-
-          {/* Section des vraies boutiques (exemple) */}
-          <div style={{ marginTop: "2rem" }}>
-            <p style={{ textAlign: "center" }}>
-              Découvrez les boutiques internationales ci-dessous.
-            </p>
-            {/* Grille boutiques */}
-          </div>
+            🚀 Booster REUSSITESS & Amazon
+          </Link>
         </div>
       </div>
     </>
   );
 }
+        {/* Section Légale et Éducative */}
+        <section style={{ padding: '2rem', background: '#1f2833', color: 'white' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2rem', fontWeight: 'bold', color: '#00d1b2' }}>
+            🌍 Ressources Légales et Éducatives
+          </h2>
+          <ul style={{ listStyle: 'none', padding: '0', lineHeight: '1.8rem', fontSize: '1.15rem' }}>
+            <li>🔗 <a target="_blank" rel="noopener noreferrer" href='https://sustainability.aboutamazon.com/amazon-supply-chain-standards-english.pdf' target='_blank' style={{ color: '#00d1b0', textDecoration: 'none' }}>Amazon Supply Chain Standards</a></li>
+            <li>🔗 <a target="_blank" rel="noopener noreferrer" href='https://www.linnworks.com/blog/international-ecommerce-laws/' target='_blank' style={{ color: '#00d1b0', textDecoration: 'none' }}>Guide des Lois Internationales du E-commerce</a></li>
+            <li>📘 <a target="_blank" rel="noopener noreferrer" href='https://amzscout.net/blog/amazon-marketplaces/' target='_blank' style={{ color: '#00d1b0', textDecoration: 'none' }}>Amazon Marketplaces : Astuces Multilingues</a></li>
+          </ul>
+          <p style={{ textAlign: 'center', marginTop: '2rem', color: '#dddddd' }}>
+            🌟 Explorez ces ressources pour renforcer vos compétences dans les marketplaces internationales.
+          </p>
+        </section>
+        {/* Ressources éducatives et logistiques */}
+        <div style={{ padding: '2rem', background: '#111827', color: 'white', marginTop: '2rem' }}>
+          <h2 style={{ textAlign: 'center', color: '#3b82f6', marginBottom: '2rem', fontSize: '2rem' }}>
+            🌐 Bonnes Pratiques \u0026 Ressources Mondiales
+          </h2>
+          <ul style={{ lineHeight: '1.8', fontSize: '1.15rem' }}>
+            <li>📘 <a target="_blank" rel="noopener noreferrer" href='https://amzscout.net/blog/amazon-marketplaces/' target='_blank' style={{ color: '#3b82f6', textDecoration: 'none' }}>Guide Amazon Multimarketplace</a></li>
+            <li>📜 <a target="_blank" rel="noopener noreferrer" href='https://gdpr-info.eu/' target='_blank' style={{ color: '#3b82f6', textDecoration: 'none' }}>RGPD \u0026 Sécurité des Données (Europe)</a></li>
+            <li>🌟 <a target="_blank" rel="noopener noreferrer" href='https://riverbendconsulting.com/blog/amazon-international-marketplaces/' target='_blank' style={{ color: '#3b82f6', textDecoration: 'none' }}>Meilleures Pratiques Amazon International</a></li>
+            <li>📦 <a target="_blank" rel="noopener noreferrer" href='https://www.junglescout.com/resources/articles/amazon-marketplaces/' target='_blank' style={{ color: '#3b82f6', textDecoration: 'none' }}>FBA \u0026 Logistique Mondiale</a></li>
+            <li>🎥 <a target="_blank" rel="noopener noreferrer" href='https://sellercentral.amazon.com/learn' target='_blank' style={{ color: '#3b82f6', textDecoration: 'none' }}>Amazon Seller University</a></li>
+          </ul>
+          <p style={{ color: '#94a3b8', textAlign: 'center', marginTop: '1.5rem' }}>
+            Ces ressources vous permettront d\u0026#39;améliorer votre maîtrise des marketplaces à l\u0026#39;échelle mondiale en restant conforme aux lois.
+          </p>
+        </div>
+        {/* Section des outils de traduction avec drapeaux */}
+        <section style={{ padding: '2rem', background: '#1f2937', color: 'white', marginTop: '2rem' }}>
+          <h2 style={{ textAlign: 'center', color: '#93c5fd', marginBottom: '2rem', fontSize: '2rem' }}>
+            🌍 Outils Multilingues avec Drapeaux
+          </h2>
+          <p style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            Choisissez votre langue préférée grâce à nos outils de traduction : </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+            <a target="_blank" rel="noopener noreferrer" href='#' style={{ textDecoration: 'none' }}><img src='/flags/france.png' alt='Français' style={{ width: '40px', borderRadius: '50%' }}/></a>
+            <a target="_blank" rel="noopener noreferrer" href='#' style={{ textDecoration: 'none' }}><img src='/flags/usa.png' alt='English' style={{ width: '40px', borderRadius: '50%' }}/></a>
+            <a target="_blank" rel="noopener noreferrer" href='#' style={{ textDecoration: 'none' }}><img src='/flags/spain.png' alt='Español' style={{ width: '40px', borderRadius: '50%' }}/></a>
+            <a target="_blank" rel="noopener noreferrer" href='#' style={{ textDecoration: 'none' }}><img src='/flags/germany.png' alt='Deutsch' style={{ width: '40px', borderRadius: '50%' }}/></a>
+          </div>
+        </section>
+        {/* Ressources éducatives et légales internationales */}
+        <section style={{ padding: '2rem', background: '#111827', color: 'white', marginTop: '2rem' }}>
+          <h2 style={{ textAlign: 'center', color: '#34d399', marginBottom: '2rem', fontSize: '2rem' }}>
+            📘 Ressources Globales Légales et Best Practices
+          </h2>
+          <ul style={{ listStyle: 'none', padding: '0', lineHeight: '1.8', fontSize: '1.15rem' }}>
+            <li>🔗 <a target="_blank" rel="noopener noreferrer" href='https://learn.subkit.com/global-e-commerce-laws-guide-to-international-expansion-for-e-commerce-brands' target='_blank' style={{ color: '#4c71bb', fontWeight: 'bold' }}>Guide Global des Lois d'E-commerce</a>: Conformité aux lois internationales.</li>
+            <li>🔗 <a target="_blank" rel="noopener noreferrer" href='https://www.bigcommerce.com/articles/ecommerce/multilingual-ecommerce/' target='_blank' style={{ color: '#4c71bb', fontWeight: 'bold' }}>Multilinguisme et Marketplaces</a>: Adopter plusieurs langues pour atteindre de nouveaux publics.</li>
+            <li>🌟 <a target="_blank" rel="noopener noreferrer" href='https://www.rewixecommerce.com/en/magazine/international-ecommerce-guide-expand-your-online-business' target='_blank' style={{ color: '#4c71bb', fontWeight: 'bold' }}>SEO multilingue</a>: Optimisation pour moteurs de recherche internationaux.</li>
+            <li>📜 <a target="_blank" rel="noopener noreferrer" href='https://www.clarity-ventures.com/ecommerce/international-marketplace/international-ecommerce-legal-considerations' target='_blank' style={{ color: '#4c71bb', fontWeight: 'bold' }}>Considérations légales marketplace</a>: Gestion de la confidentialité et des taxes internationales.</li>
+            <li>🎓 <a target="_blank" rel="noopener noreferrer" href='https://www.coursera.org/' target='_blank' style={{ color: '#4c71bb', fontWeight: 'bold' }}>Coursera International</a>: Cours éducatifs multilingues.</li>
+          </ul>
+        </section>
