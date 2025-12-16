@@ -182,7 +182,7 @@ export default function HubInternational() {
               }}
               className="booster-btn"
             >
-              🚀 Booster REUSSITESS &amp; Amazon
+              🚀 Booster REUSSITESS & Amazon
             </Link>
           </div>
 
