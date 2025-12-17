@@ -47,7 +47,9 @@ export default function HubInternational() {
 
         {/* Bouton central — lien interne (remplacez "/hub-reussitess" si nécessaire) */}
         <div style={{ textAlign: "center", margin: "3rem 0" }}>
-          <a href="https://DIRECT_URL_Ici" target="_blank" rel="noopener noreferrer">🚀 Booster REUSSITESS & Amazon</a>
+          
+    <Link href="/vamazon"><a style={{display: "inline-block", padding: "0.9rem 1.8rem", background: "linear-gradient(90deg,#06b6d4,#3b82f6)", color: "white", borderRadius: 999, textDecoration: "none", fontWeight: 800, boxShadow: "0 6px 18px rgba(59,130,246,0.25)"}}>🚀 Booster REUSSITESS & Amazon</a></Link>
+  
         </div>
       </div>
 
