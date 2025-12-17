@@ -286,7 +286,7 @@ export default function Outils() {
                   🛍️ Amazon Seller
                 </a>
                 <Link
-                  href="/hub-international"
+                  href="/bibliotheque/outils"
                   style={{
                     background: "rgba(255, 255, 255, 0.2)",
                     color: "white",
@@ -298,7 +298,7 @@ export default function Outils() {
                     border: "2px solid white",
                   }}
                 >
-                  🌟 Explorer Richesses
+                  📚 Plus d'Outils
                 </Link>
               </div>
             </div>
