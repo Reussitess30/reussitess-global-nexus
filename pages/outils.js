@@ -302,7 +302,7 @@ gtag('config', '${GA_ID}', { page_path: window.location.pathname });`}
                 </a>
 
                 {/* Lien interne corrigé — pointe vers la page locale hub-international */}
-                <Link href="/hub-international" legacyBehavior>
+                <Link href="/hub-regional" legacyBehavior>
                   <a
                     style={{
                       background: "rgba(255, 255, 255, 0.2)",
