@@ -252,57 +252,7 @@ gtag('config', '${GA_ID}', { page_path: window.location.pathname });`}
                   flexWrap: "wrap",
                 }}
               >
-                <a
-                  href="https://analytics.google.com/analytics/web/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    background: "white",
-                    color: "#3b82f6",
-                    padding: "0.8rem 1.5rem",
-                    borderRadius: "50px",
-                    textDecoration: "none",
-                    fontWeight: "600",
-                    display: "inline-block",
-                  }}
-                >
-                  📊 Google Analytics
-                </a>
-                <a
-                  href="https://pagespeed.web.dev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    background: "white",
-                    color: "#3b82f6",
-                    padding: "0.8rem 1.5rem",
-                    borderRadius: "50px",
-                    textDecoration: "none",
-                    fontWeight: "600",
-                    display: "inline-block",
-                  }}
-                >
-                  ⚡ PageSpeed
-                </a>
-                <a
-                  href="https://sellercentral.amazon.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    background: "white",
-                    color: "#3b82f6",
-                    padding: "0.8rem 1.5rem",
-                    borderRadius: "50px",
-                    textDecoration: "none",
-                    fontWeight: "600",
-                    display: "inline-block",
-                  }}
-                >
-                  🛍️ Amazon Seller
-                </a>
-
-                {/* Lien interne corrigé — pointe vers la page locale existante */}
-                <a href="https://DIRECT_URL_Ici" target="_blank" rel="noopener noreferrer">🌟 Explorer Richesses</a>
+                
               </div>
             </div>
           </div>
