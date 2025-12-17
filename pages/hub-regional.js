@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Layout from "../components/Layout";
 
 export default function HubRegional() {
@@ -77,50 +78,39 @@ export default function HubRegional() {
           <h3 style={{ color: "#ffd28a", marginBottom: "0.5rem" }}>Pages régionales</h3>
           <ul style={{ color: "#cbd5e1", listStyle: "none", paddingLeft: 0 }}>
             <li style={{ marginBottom: "0.5rem" }}>
-              <a href="https://www.reussitess.fr/creole" target="_blank" rel="noopener noreferrer" style={{ color: "#a78bfa", textDecoration: "underline" }}>
-                Langue & Culture Créole — contenu dédié
-              </a>
+              <Link href="/creole"><a style={{ color: "#a78bfa", textDecoration: "underline" }}>Langue & Culture Créole — contenu dédié</a></Link>
             </li>
             <li style={{ marginBottom: "0.5rem" }}>
-              <a href="https://www.reussitess.fr/martinique" target="_blank" rel="noopener noreferrer" style={{ color: "#60a5fa", textDecoration: "underline" }}>
-                Martinique — ressources locales
-              </a>
+              <Link href="/martinique"><a style={{ color: "#60a5fa", textDecoration: "underline" }}>Martinique — ressources locales</a></Link>
             </li>
             <li style={{ marginBottom: "0.5rem" }}>
-              <a href="https://www.reussitess.fr/guadeloupe" target="_blank" rel="noopener noreferrer" style={{ color: "#60a5fa", textDecoration: "underline" }}>
-                Guadeloupe — ressources locales
-              </a>
+              <Link href="/guadeloupe"><a style={{ color: "#60a5fa", textDecoration: "underline" }}>Guadeloupe — ressources locales</a></Link>
             </li>
             <li style={{ marginBottom: "0.5rem" }}>
-              <a href="https://www.reussitess.fr/guyane" target="_blank" rel="noopener noreferrer" style={{ color: "#60a5fa", textDecoration: "underline" }}>
-                Guyane — ressources locales
-              </a>
+              <Link href="/guyane"><a style={{ color: "#60a5fa", textDecoration: "underline" }}>Guyane — ressources locales</a></Link>
             </li>
             <li style={{ marginBottom: "0.5rem" }}>
-              <a href="https://www.reussitess.fr/reunion" target="_blank" rel="noopener noreferrer" style={{ color: "#60a5fa", textDecoration: "underline" }}>
-                La Réunion — ressources locales
-              </a>
+              <Link href="/reunion"><a style={{ color: "#60a5fa", textDecoration: "underline" }}>La Réunion — ressources locales</a></Link>
             </li>
           </ul>
         </div>
 
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <a
-            href="https://www.reussitess.fr/hub-international"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-block",
-              padding: "0.8rem 1.6rem",
-              background: "linear-gradient(90deg,#06b6d4,#3b82f6)",
-              color: "white",
-              borderRadius: 999,
-              textDecoration: "none",
-              fontWeight: 700,
-            }}
-          >
-            🔙 Retour au Hub International
-          </a>
+          <Link href="/hub-international">
+            <a
+              style={{
+                display: "inline-block",
+                padding: "0.8rem 1.6rem",
+                background: "linear-gradient(90deg,#06b6d4,#3b82f6)",
+                color: "white",
+                borderRadius: 999,
+                textDecoration: "none",
+                fontWeight: 700,
+              }}
+            >
+              🔙 Retour au Hub International
+            </a>
+          </Link>
         </div>
       </div>
     </Layout>
