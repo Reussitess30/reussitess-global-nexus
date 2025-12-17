@@ -47,7 +47,7 @@ export default function HubInternational() {
 
         {/* Bouton central — lien interne (remplacez "/hub-reussitess" si nécessaire) */}
         <div style={{ textAlign: "center", margin: "3rem 0" }}>
-          <Link href="/hub-reussitess" legacyBehavior>
+          <Link href="/hub-international" legacyBehavior>
             <a
               style={{
                 display: "inline-block",
