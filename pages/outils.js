@@ -302,8 +302,7 @@ gtag('config', '${GA_ID}', { page_path: window.location.pathname });`}
                 </a>
 
                 {/* Lien interne corrigé — pointe vers la page locale existante */}
-                <Link href="/hub-international" legacyBehavior>
-                  <a
+                <a
                     style={{
                       background: "rgba(255, 255, 255, 0.2)",
                       color: "white",
@@ -314,10 +313,9 @@ gtag('config', '${GA_ID}', { page_path: window.location.pathname });`}
                       display: "inline-block",
                       border: "2px solid white",
                     }}
-                  >
+                   href="/hub-international">
                     🌟 Explorer Richesses
                   </a>
-                </Link>
               </div>
             </div>
           </div>

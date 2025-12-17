@@ -47,8 +47,7 @@ export default function HubInternational() {
 
         {/* Bouton central — lien interne (remplacez "/hub-reussitess" si nécessaire) */}
         <div style={{ textAlign: "center", margin: "3rem 0" }}>
-          <Link href="/hub-international" legacyBehavior>
-            <a
+          <a
               style={{
                 display: "inline-block",
                 padding: "1rem 2.5rem",
@@ -62,10 +61,9 @@ export default function HubInternational() {
                 boxShadow: "0 12px 30px rgba(147, 51, 234, 0.4)",
                 transition: "transform 0.2s ease, box-shadow 0.2s ease",
               }}
-            >
+             href="/hub-international">
               🚀 Booster REUSSITESS & Amazon
             </a>
-          </Link>
         </div>
       </div>
 
