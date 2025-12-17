@@ -61,7 +61,7 @@ export default function HubInternational() {
                 boxShadow: "0 12px 30px rgba(147, 51, 234, 0.4)",
                 transition: "transform 0.2s ease, box-shadow 0.2s ease",
               }}
-             href="/hub-international">
+             href="/hub-regional">
               🚀 Booster REUSSITESS & Amazon
             </a>
         </div>

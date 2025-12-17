@@ -313,7 +313,7 @@ gtag('config', '${GA_ID}', { page_path: window.location.pathname });`}
                       display: "inline-block",
                       border: "2px solid white",
                     }}
-                   href="/hub-international">
+                   href="/hub-regional">
                     🌟 Explorer Richesses
                   </a>
               </div>
