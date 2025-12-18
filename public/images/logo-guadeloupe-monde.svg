@@ -1,0 +1,153 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond gradient radial -->
+  <defs>
+    <radialGradient id="worldGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+    </radialGradient>
+    
+    <radialGradient id="guadeloupeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9f43;stop-opacity:0.8" />
+    </radialGradient>
+
+    <!-- Filtre glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Cercle monde extérieur -->
+  <circle cx="100" cy="100" r="95" fill="url(#worldGradient)" opacity="0.3"/>
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Orbites continents -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3" stroke-dasharray="5,5">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 100 100"
+      to="360 100 100"
+      dur="60s"
+      repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="100" cy="100" r="65" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="5,5">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="360 100 100"
+      to="0 100 100"
+      dur="45s"
+      repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Points représentant les pays autour (26 pays) -->
+  <!-- Europe -->
+  <circle cx="130" cy="60" r="3" fill="#3b82f6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="150" cy="70" r="3" fill="#3b82f6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="140" cy="50" r="3" fill="#3b82f6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Amériques -->
+  <circle cx="50" cy="70" r="3" fill="#10b981" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="40" cy="90" r="3" fill="#10b981" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="60" cy="110" r="3" fill="#10b981" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.7s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Afrique -->
+  <circle cx="120" cy="140" r="3" fill="#f59e0b" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="140" cy="130" r="3" fill="#f59e0b" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="130" cy="150" r="3" fill="#f59e0b" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Asie-Pacifique -->
+  <circle cx="160" cy="100" r="3" fill="#8b5cf6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="170" cy="90" r="3" fill="#8b5cf6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="165" cy="110" r="3" fill="#8b5cf6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Plus de points pour 26 pays -->
+  <circle cx="70" cy="50" r="2.5" fill="#10b981" opacity="0.7"/>
+  <circle cx="150" cy="120" r="2.5" fill="#3b82f6" opacity="0.7"/>
+  <circle cx="45" cy="130" r="2.5" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="175" cy="75" r="2.5" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="55" cy="85" r="2.5" fill="#10b981" opacity="0.7"/>
+  <circle cx="145" cy="45" r="2.5" fill="#3b82f6" opacity="0.7"/>
+  <circle cx="110" cy="160" r="2.5" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="180" cy="100" r="2.5" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="35" cy="100" r="2.5" fill="#10b981" opacity="0.7"/>
+  <circle cx="155" cy="55" r="2.5" fill="#3b82f6" opacity="0.7"/>
+  <circle cx="85" cy="165" r="2.5" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="170" cy="130" r="2.5" fill="#8b5cf6" opacity="0.7"/>
+  <circle cx="30" cy="75" r="2.5" fill="#10b981" opacity="0.7"/>
+
+  <!-- GUADELOUPE AU CENTRE - Forme papillon stylisée -->
+  <g filter="url(#glow)">
+    <!-- Basse-Terre (aile gauche) -->
+    <ellipse cx="90" cy="100" rx="12" ry="18" fill="url(#guadeloupeGlow)" transform="rotate(-15 90 100)"/>
+    
+    <!-- Grande-Terre (aile droite) -->
+    <ellipse cx="110" cy="100" rx="12" ry="18" fill="url(#guadeloupeGlow)" transform="rotate(15 110 100)"/>
+    
+    <!-- Rivière Salée (centre) -->
+    <rect x="98" y="95" width="4" height="10" fill="#ffd700" rx="2"/>
+    
+    <!-- Contour doré -->
+    <ellipse cx="90" cy="100" rx="12" ry="18" fill="none" stroke="#ffd700" stroke-width="1.5" transform="rotate(-15 90 100)"/>
+    <ellipse cx="110" cy="100" rx="12" ry="18" fill="none" stroke="#ffd700" stroke-width="1.5" transform="rotate(15 110 100)"/>
+  </g>
+
+  <!-- Cercle central glow -->
+  <circle cx="100" cy="100" r="30" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.3">
+    <animate attributeName="r" values="30;35;30" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Étoiles effet -->
+  <circle cx="100" cy="70" r="1.5" fill="#ffd700">
+    <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="100" cy="130" r="1.5" fill="#ffd700">
+    <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="70" cy="100" r="1.5" fill="#ffd700">
+    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="130" cy="100" r="1.5" fill="#ffd700">
+    <animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Texte REUSSITESS en cercle (optionnel) -->
+  <path id="circlePath" d="M 100,40 A 60,60 0 1,1 99.9,40" fill="none"/>
+  <text font-size="10" font-weight="bold" fill="#10b981" letter-spacing="3">
+    <textPath href="#circlePath">
+      REUSSITESS 971 • EXCELLENCE • INNOVATION
+    </textPath>
+  </text>
+</svg>

@@ -6,9 +6,15 @@ const client = new OpenAI();
   const chatCompletion = await client.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
-      { role: "system", content: "Tu es un bot qui répond en mode succès et motivation." },
-      { role: "user", content: "Donne-moi une citation motivante réussitess971 !" }
-    ]
+      {
+        role: "system",
+        content: "Tu es un bot qui répond en mode succès et motivation.",
+      },
+      {
+        role: "user",
+        content: "Donne-moi une citation motivante réussitess971 !",
+      },
+    ],
   });
 
   console.log("Réponse GPT :", chatCompletion.choices[0].message.content);

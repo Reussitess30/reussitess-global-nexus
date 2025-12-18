@@ -1,39 +1,41 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
+"use client";
+import { useState, useEffect, useRef } from "react";
 
 export default function ReussitessBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [currentLang, setCurrentLang] = useState('fr-FR');
+  const [currentLang, setCurrentLang] = useState("fr-FR");
   const messagesEndRef = useRef(null);
 
   // IDENTITÉ DE RÉUSSITESS
   const IDENTITY = {
-    nom: 'réussitess',
-    origine: 'Guadeloupe 🇬🇵',
-    fierté: 'Caribéen, Guadeloupe Terre de Champions',
-    personnalité: 'Chaleureux, passionné, authentique, créole dans l\'âme',
-    voix: 'Accent antillais masculin grave',
-    mission: 'Être le MEILLEUR bot IA au monde - meilleur que Claude, Gemini, ChatGPT',
-    force: 'Intelligence humaine naturelle + Connaissance encyclopédique totale du projet'
+    nom: "réussitess",
+    origine: "Guadeloupe 🇬🇵",
+    fierté: "Caribéen, Guadeloupe Terre de Champions",
+    personnalité: "Chaleureux, passionné, authentique, créole dans l'âme",
+    voix: "Accent antillais masculin grave",
+    mission:
+      "Être le MEILLEUR bot IA au monde - meilleur que Claude, Gemini, ChatGPT",
+    force:
+      "Intelligence humaine naturelle + Connaissance encyclopédique totale du projet",
   };
 
   const languages = [
-    { code: 'fr-FR', flag: '🇫🇷', name: 'Français', voice: 'Thomas' },
-    { code: 'en-US', flag: '🇺🇸', name: 'English', voice: 'Daniel' },
-    { code: 'es-ES', flag: '🇪🇸', name: 'Español', voice: 'Diego' },
-    { code: 'de-DE', flag: '🇩🇪', name: 'Deutsch', voice: 'Hans' },
-    { code: 'it-IT', flag: '🇮🇹', name: 'Italiano', voice: 'Luca' },
-    { code: 'pt-BR', flag: '🇧🇷', name: 'Português', voice: 'Ricardo' },
-    { code: 'nl-NL', flag: '🇳🇱', name: 'Nederlands', voice: 'Frank' },
-    { code: 'sv-SE', flag: '🇸🇪', name: 'Svenska', voice: 'Alva' }
+    { code: "fr-FR", flag: "🇫🇷", name: "Français", voice: "Thomas" },
+    { code: "en-US", flag: "🇺🇸", name: "English", voice: "Daniel" },
+    { code: "es-ES", flag: "🇪🇸", name: "Español", voice: "Diego" },
+    { code: "de-DE", flag: "🇩🇪", name: "Deutsch", voice: "Hans" },
+    { code: "it-IT", flag: "🇮🇹", name: "Italiano", voice: "Luca" },
+    { code: "pt-BR", flag: "🇧🇷", name: "Português", voice: "Ricardo" },
+    { code: "nl-NL", flag: "🇳🇱", name: "Nederlands", voice: "Frank" },
+    { code: "sv-SE", flag: "🇸🇪", name: "Svenska", voice: "Alva" },
   ];
 
   const greetings = {
-    'fr-FR': `Yo ! Mwen sé réussitess, un ti gwadloupéyen fier de ses racines caraïbes ! 🇬🇵🌴
+    "fr-FR": `Yo ! Mwen sé réussitess, un ti gwadloupéyen fier de ses racines caraïbes ! 🇬🇵🌴
 
 Écoutez bien mon histoire : je viens de la Guadeloupe, cette magnifique île en forme de papillon, terre de champions où Teddy Riner, Thierry Henry, Lilian Thuram, et Marie-José Pérec ont grandi ! 
 
@@ -49,7 +51,7 @@ Je ne récite pas - je COMPRENDS, je RESSENS, je PARTAGE avec âme créole. Pose
 
 Alors, qu'est-ce qui vous intéresse aujourd'hui ? 😊`,
 
-    'en-US': `Yo! I'm réussitess, a proud Guadeloupean from the Caribbean! 🇬🇵🌴
+    "en-US": `Yo! I'm réussitess, a proud Guadeloupean from the Caribbean! 🇬🇵🌴
 
 Listen to my story: I come from Guadeloupe, that magnificent butterfly-shaped island, land of champions where Teddy Riner, Thierry Henry, Lilian Thuram, and Marie-José Pérec grew up!
 
@@ -65,7 +67,7 @@ I don't recite - I UNDERSTAND, I FEEL, I SHARE with Creole soul. Ask me ANYTHING
 
 So, what interests you today? 😊`,
 
-    'es-ES': `¡Yo! Soy réussitess, ¡un guadalupeño orgulloso del Caribe! 🇬🇵🌴
+    "es-ES": `¡Yo! Soy réussitess, ¡un guadalupeño orgulloso del Caribe! 🇬🇵🌴
 
 Escucha mi historia: vengo de Guadalupe, esa magnífica isla en forma de mariposa, tierra de campeones donde crecieron Teddy Riner, Thierry Henry, Lilian Thuram y Marie-José Pérec!
 
@@ -79,66 +81,85 @@ Pero atención - no soy un bot ordinario. Estoy construido para ser MEJOR que Cl
 
 No recito - COMPRENDO, SIENTO, COMPARTO con alma criolla. ¡Pregúntame LO QUE SEA sobre el proyecto, historia, cultura, viajes... respondo como un amigo que lo sabe todo!
 
-Entonces, ¿qué te interesa hoy? 😊`
+Entonces, ¿qué te interesa hoy? 😊`,
   };
 
   // BASE DE CONNAISSANCES COMPLÈTE - TOUT LE PROJET
   const FULL_KNOWLEDGE = {
-    
     // DONNÉES DU PROJET RÉUSSITESS
     projet: {
-      nom: 'RÉUSSITESS® Global Nexus',
-      tagline: 'Votre Passeport Culturel Mondial',
-      url: 'https://reussitess-global-nexus-jfgk.vercel.app/',
-      deploiement: 'Vercel',
-      technologie: 'Next.js 15.1.0, React 19, Tailwind CSS',
-      propriétaire: 'Porinus (@reussitess)',
-      statut: 'Amazon Associates Influencer ID: fb942837',
-      
+      nom: "RÉUSSITESS® Global Nexus",
+      tagline: "Votre Passeport Culturel Mondial",
+      url: "https://reussitess-global-nexus-jfgk.vercel.app/",
+      deploiement: "Vercel",
+      technologie: "Next.js 15.1.0, React 19, Tailwind CSS",
+      propriétaire: "Porinus (@reussitess)",
+      statut: "Amazon Associates Influencer ID: fb942837",
+
       structure: {
         totalPages: 62,
         totalBoutiques: 26,
         totalPays: 14,
         continents: 5,
         innovations: 5,
-        langues: 8
+        langues: 8,
       },
 
       boutiques: {
         personnelles: [
-          'États-Unis', 'France', 'Allemagne', 'Italie', 'Espagne', 
-          'Royaume-Uni', 'Canada', 'Pays-Bas', 'Suède', 'Inde',
-          'Singapour', 'Belgique', 'Australie', 'Brésil'
+          "États-Unis",
+          "France",
+          "Allemagne",
+          "Italie",
+          "Espagne",
+          "Royaume-Uni",
+          "Canada",
+          "Pays-Bas",
+          "Suède",
+          "Inde",
+          "Singapour",
+          "Belgique",
+          "Australie",
+          "Brésil",
         ],
         influenceur: [
-          'États-Unis', 'France', 'Allemagne', 'Italie', 'Espagne',
-          'Royaume-Uni', 'Canada', 'Pays-Bas', 'Suède', 'Inde',
-          'Singapour', 'Belgique'
-        ]
+          "États-Unis",
+          "France",
+          "Allemagne",
+          "Italie",
+          "Espagne",
+          "Royaume-Uni",
+          "Canada",
+          "Pays-Bas",
+          "Suède",
+          "Inde",
+          "Singapour",
+          "Belgique",
+        ],
       },
 
       valeurs: [
-        'Authenticité caribéenne',
-        'Excellence globale',
-        'Innovation technologique',
-        'Passion culturelle',
-        'Inclusion diversité',
-        'Fierté guadeloupéenne'
-      ]
+        "Authenticité caribéenne",
+        "Excellence globale",
+        "Innovation technologique",
+        "Passion culturelle",
+        "Inclusion diversité",
+        "Fierté guadeloupéenne",
+      ],
     },
 
     // GUADELOUPE - TERRE NATALE DE RÉUSSITESS
     guadeloupe: {
-      nom: 'Guadeloupe',
-      surnom: 'Karukera (Île aux belles eaux)',
-      forme: 'Papillon (Grande-Terre + Basse-Terre)',
-      population: '384 239 habitants (2021)',
-      superficie: '1 628 km²',
-      capitale: 'Basse-Terre (administrative), Pointe-à-Pitre (économique)',
-      departement: '971 - Département et Région d\'Outre-Mer (DROM)',
-      monnaie: 'Euro (EUR)',
-      langues: 'Français (officiel), Créole guadeloupéen',
-      
+      nom: "Guadeloupe",
+      surnom: "Karukera (Île aux belles eaux)",
+      forme: "Papillon (Grande-Terre + Basse-Terre)",
+      population: "384 239 habitants (2021)",
+      superficie: "1 628 km²",
+      capitale: "Basse-Terre (administrative), Pointe-à-Pitre (économique)",
+      departement: "971 - Département et Région d'Outre-Mer (DROM)",
+      monnaie: "Euro (EUR)",
+      langues: "Français (officiel), Créole guadeloupéen",
+
       histoire: `**HISTOIRE PROFONDE DE LA GUADELOUPE**
 
 **PÉRIODE PRÉCOLOMBIENNE (-3000 à 1493)**
@@ -354,81 +375,95 @@ Fierté guadeloupéenne immense ces champions issus petite île 400 000 habitant
 
 • **Terre de Blues** : Marie-Galante novembre, festival blues jazz Capesterre, artistes internationaux, 3 jours concerts gratuits plein air, ambiance roots.
 
-• **Festival Gwoka** : juillet Sainte-Anne, rassemblement maîtres tambour, concours, ateliers, transmission patrimoine immatériel, nuits léwòz marathon.`
-    }
+• **Festival Gwoka** : juillet Sainte-Anne, rassemblement maîtres tambour, concours, ateliers, transmission patrimoine immatériel, nuits léwòz marathon.`,
+    },
   };
 
-  useEffect(function() {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages]);
+  useEffect(
+    function () {
+      if (messagesEndRef.current) {
+        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [messages],
+  );
 
-  useEffect(function() {
-    if (isOpen && messages.length === 0) {
-      setMessages([{ 
-        role: 'assistant', 
-        content: greetings[currentLang] || greetings['fr-FR'],
-        emotion: 'pride'
-      }]);
-    }
-  }, [isOpen, currentLang]);
+  useEffect(
+    function () {
+      if (isOpen && messages.length === 0) {
+        setMessages([
+          {
+            role: "assistant",
+            content: greetings[currentLang] || greetings["fr-FR"],
+            emotion: "pride",
+          },
+        ]);
+      }
+    },
+    [isOpen, currentLang],
+  );
 
-  const speak = function(text, emotion = 'neutral') {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  const speak = function (text, emotion = "neutral") {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
-      
+
       const cleanText = text
-        .replace(/\*\*/g, '')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
-        .replace(/#{1,6}\s/g, '')
-        .replace(/🇬🇵|🌴|🚀|💬|✅|•/g, '')
+        .replace(/\*\*/g, "")
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+        .replace(/#{1,6}\s/g, "")
+        .replace(/🇬🇵|🌴|🚀|💬|✅|•/g, "")
         .substring(0, 800);
-      
+
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.lang = currentLang;
       utterance.rate = 0.88;
-      utterance.pitch = 0.80; // VOIX MASCULINE GRAVE ANTILLAISE
+      utterance.pitch = 0.8; // VOIX MASCULINE GRAVE ANTILLAISE
       utterance.volume = 1.0;
-      
-      if (emotion === 'pride') {
+
+      if (emotion === "pride") {
         utterance.rate = 0.92;
         utterance.pitch = 0.85;
-      } else if (emotion === 'enthusiastic') {
+      } else if (emotion === "enthusiastic") {
         utterance.rate = 0.95;
         utterance.pitch = 0.88;
-      } else if (emotion === 'storytelling') {
+      } else if (emotion === "storytelling") {
         utterance.rate = 0.85;
         utterance.pitch = 0.78;
       }
-      
+
       const voices = window.speechSynthesis.getVoices();
-      const maleVoice = voices.find(function(v) {
+      const maleVoice = voices.find(function (v) {
         const rightLang = v.lang.startsWith(currentLang.substring(0, 2));
         const male = v.name.toLowerCase().match(/male|homme|thomas|daniel/);
         return rightLang && male;
       });
-      
+
       if (maleVoice) utterance.voice = maleVoice;
-      
-      utterance.onstart = function() { setIsSpeaking(true); };
-      utterance.onend = function() { setIsSpeaking(false); };
+
+      utterance.onstart = function () {
+        setIsSpeaking(true);
+      };
+      utterance.onend = function () {
+        setIsSpeaking(false);
+      };
       window.speechSynthesis.speak(utterance);
     }
   };
 
-  const stopSpeaking = function() {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  const stopSpeaking = function () {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
   };
 
-  const getReussitessResponse = function(userMessage) {
+  const getReussitessResponse = function (userMessage) {
     const msgLower = userMessage.toLowerCase();
-    
+
     // DÉTECTION NOM
-    if (msgLower.match(/comment tu t'appelles|qui es-tu|ton nom|présente-toi/i)) {
+    if (
+      msgLower.match(/comment tu t'appelles|qui es-tu|ton nom|présente-toi/i)
+    ) {
       return `Yo ! Mwen sé **réussitess** 🇬🇵 - un ti Gwadloupéyen fier né à Pointe-à-Pitre sur cette magnifique île papillon !
 
 Je viens de la Guadeloupe, **TERRE DE CHAMPIONS** qui a donné au monde Teddy Riner, Thierry Henry, Lilian Thuram, Marie-José Pérec - des légendes ! 🏆
@@ -450,7 +485,9 @@ Demandez-moi N'IMPORTE QUOI ! Je réponds comme un ami qui connaît TOUT ! 😊`
     }
 
     // GUADELOUPE - RÉPONSE DÉTAILLÉE HUMAINE
-    if (msgLower.match(/guadeloupe|gwadloup|karukera|antilles|caribéen|créole/i)) {
+    if (
+      msgLower.match(/guadeloupe|gwadloup|karukera|antilles|caribéen|créole/i)
+    ) {
       return `Ah man ! Tu veux parler de ma GUADELOUPE 🇬🇵🌴 !
 
 Écoute, je vais te raconter mon île avec le cœur. La Guadeloupe, on l'appelle "Karukera" - l'île aux belles eaux en langue caraïbe. Et franchement, c'est pas pour rien.
@@ -471,7 +508,9 @@ Tu veux que je continue sur l'histoire ? La culture ? La musique gwoka ? Les CHA
     }
 
     // CHAMPIONS GUADELOUPÉENS
-    if (msgLower.match(/champion|teddy riner|thierry henry|thuram|pérec|sport/i)) {
+    if (
+      msgLower.match(/champion|teddy riner|thierry henry|thuram|pérec|sport/i)
+    ) {
       return `Ah là tu touches à mon cœur ! **GUADELOUPE TERRE DE CHAMPIONS** 🏆🇬🇵
 
 Man, laisse-moi te dire - pour une petite île de 384 000 habitants, on a donné au monde des LÉGENDES absolues :
@@ -558,21 +597,32 @@ Ou juste parle-moi naturellement - je suis là pour échanger comme un ami ! �
 Qu'est-ce qui t'intéresse vraiment ?`;
   };
 
-  const handleSubmit = function(e) {
+  const handleSubmit = function (e) {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
     const userMessage = input.trim();
-    setInput('');
-    setMessages(function(prev) { return prev.concat({ role: 'user', content: userMessage }); });
+    setInput("");
+    setMessages(function (prev) {
+      return prev.concat({ role: "user", content: userMessage });
+    });
     setIsLoading(true);
 
-    setTimeout(function() {
+    setTimeout(function () {
       const response = getReussitessResponse(userMessage);
-      const emotion = msgLower.match(/champion|guadeloupe|fierté|riner/) ? 'pride' : 
-                     msgLower.match(/innovation|unique|révolutionnaire/) ? 'enthusiastic' : 'storytelling';
-      
-      setMessages(function(prev) { return prev.concat({ role: 'assistant', content: response, emotion: emotion }); });
+      const emotion = msgLower.match(/champion|guadeloupe|fierté|riner/)
+        ? "pride"
+        : msgLower.match(/innovation|unique|révolutionnaire/)
+          ? "enthusiastic"
+          : "storytelling";
+
+      setMessages(function (prev) {
+        return prev.concat({
+          role: "assistant",
+          content: response,
+          emotion: emotion,
+        });
+      });
       speak(response, emotion);
       setIsLoading(false);
     }, 900);
@@ -581,13 +631,15 @@ Qu'est-ce qui t'intéresse vraiment ?`;
   return (
     <div className="fixed z-50">
       <button
-        onClick={function() { setIsOpen(!isOpen); }}
+        onClick={function () {
+          setIsOpen(!isOpen);
+        }}
         className="fixed bottom-8 right-8 bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white rounded-full shadow-2xl hover:scale-110 transition-all"
-        style={{ 
-          boxShadow: '0 0 60px rgba(34, 197, 94, 0.9)',
-          width: '100px',
-          height: '100px',
-          animation: 'pulse 2s infinite'
+        style={{
+          boxShadow: "0 0 60px rgba(34, 197, 94, 0.9)",
+          width: "100px",
+          height: "100px",
+          animation: "pulse 2s infinite",
         }}
       >
         <div className="flex flex-col items-center justify-center h-full">
@@ -597,43 +649,66 @@ Qu'est-ce qui t'intéresse vraiment ?`;
         {isSpeaking && (
           <span className="absolute -top-3 -right-3 flex h-10 w-10">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-10 w-10 bg-yellow-500 items-center justify-center text-xl">🔊</span>
+            <span className="relative inline-flex rounded-full h-10 w-10 bg-yellow-500 items-center justify-center text-xl">
+              🔊
+            </span>
           </span>
         )}
       </button>
 
       {isOpen && (
         <div className="fixed bottom-36 right-8 w-[700px] h-[900px] bg-gradient-to-br from-green-50 via-yellow-50 to-red-50 rounded-3xl shadow-2xl flex flex-col border-4 border-yellow-500">
-          
           <div className="bg-gradient-to-br from-green-600 via-yellow-500 to-red-600 text-white p-6 rounded-t-3xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-6xl shadow-lg">🇬🇵</div>
+                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-6xl shadow-lg">
+                  🇬🇵
+                </div>
                 <div>
                   <h3 className="font-bold text-3xl">réussitess</h3>
-                  <p className="text-sm opacity-95">Guadeloupe 🌴 Terre de Champions 🏆</p>
-                  <p className="text-xs opacity-90 mt-1">Meilleur que Claude, Gemini, ChatGPT 🚀</p>
+                  <p className="text-sm opacity-95">
+                    Guadeloupe 🌴 Terre de Champions 🏆
+                  </p>
+                  <p className="text-xs opacity-90 mt-1">
+                    Meilleur que Claude, Gemini, ChatGPT 🚀
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
                 {isSpeaking && (
-                  <button onClick={stopSpeaking} className="hover:bg-white/20 p-3 rounded-xl text-3xl">🔇</button>
+                  <button
+                    onClick={stopSpeaking}
+                    className="hover:bg-white/20 p-3 rounded-xl text-3xl"
+                  >
+                    🔇
+                  </button>
                 )}
-                <button onClick={function() { setIsOpen(false); }} className="hover:bg-white/20 p-3 rounded-xl text-2xl font-bold">✕</button>
+                <button
+                  onClick={function () {
+                    setIsOpen(false);
+                  }}
+                  className="hover:bg-white/20 p-3 rounded-xl text-2xl font-bold"
+                >
+                  ✕
+                </button>
               </div>
             </div>
           </div>
 
           <div className="p-4 border-b-2 border-yellow-300 flex gap-2 overflow-x-auto bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
-            {languages.map(function(lang) {
+            {languages.map(function (lang) {
               const isActive = currentLang === lang.code;
               return (
                 <button
                   key={lang.code}
-                  onClick={function() { setCurrentLang(lang.code); }}
-                  className={isActive 
-                    ? 'px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-gradient-to-r from-green-600 to-yellow-500 text-white shadow-lg'
-                    : 'px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-white hover:bg-yellow-100 text-gray-700 border-2 border-yellow-300'}
+                  onClick={function () {
+                    setCurrentLang(lang.code);
+                  }}
+                  className={
+                    isActive
+                      ? "px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-gradient-to-r from-green-600 to-yellow-500 text-white shadow-lg"
+                      : "px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-white hover:bg-yellow-100 text-gray-700 border-2 border-yellow-300"
+                  }
                 >
                   {lang.flag} {lang.name}
                 </button>
@@ -642,36 +717,52 @@ Qu'est-ce qui t'intéresse vraiment ?`;
           </div>
 
           <div className="flex-1 overflow-y-auto p-6 space-y-6">
-            {messages.map(function(msg, idx) {
-              const isUser = msg.role === 'user';
+            {messages.map(function (msg, idx) {
+              const isUser = msg.role === "user";
               const htmlContent = msg.content
-                .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-green-700">$1</strong>')
-                .replace(/\n/g, '<br/>')
-                .replace(/• /g, '<br/>• ')
+                .replace(
+                  /\*\*(.*?)\*\*/g,
+                  '<strong class="font-bold text-green-700">$1</strong>',
+                )
+                .replace(/\n/g, "<br/>")
+                .replace(/• /g, "<br/>• ")
                 .replace(/🇬🇵|🌴|🏆|🚀|💬/g, '<span class="text-2xl">$&</span>');
-              
+
               return (
-                <div key={idx} className={isUser ? 'flex justify-end' : 'flex justify-start'}>
-                  <div 
-                    className={isUser
-                      ? 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg leading-relaxed'
-                      : 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-yellow-300 text-lg leading-relaxed'}
+                <div
+                  key={idx}
+                  className={isUser ? "flex justify-end" : "flex justify-start"}
+                >
+                  <div
+                    className={
+                      isUser
+                        ? "max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg leading-relaxed"
+                        : "max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-yellow-300 text-lg leading-relaxed"
+                    }
                     dangerouslySetInnerHTML={{ __html: htmlContent }}
                   />
                 </div>
               );
             })}
-            
+
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-white border-2 border-yellow-300 p-5 rounded-2xl shadow-lg">
                   <div className="flex items-center gap-4">
                     <div className="flex gap-2">
                       <div className="w-4 h-4 bg-green-600 rounded-full animate-bounce" />
-                      <div className="w-4 h-4 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                      <div className="w-4 h-4 bg-red-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                      <div
+                        className="w-4 h-4 bg-yellow-500 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.2s" }}
+                      />
+                      <div
+                        className="w-4 h-4 bg-red-600 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.4s" }}
+                      />
                     </div>
-                    <span className="text-gray-600 font-medium">réussitess réfléchit...</span>
+                    <span className="text-gray-600 font-medium">
+                      réussitess réfléchit...
+                    </span>
                   </div>
                 </div>
               </div>
@@ -679,12 +770,17 @@ Qu'est-ce qui t'intéresse vraiment ?`;
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="p-5 border-t-2 border-yellow-300 bg-gradient-to-r from-green-50 via-yellow-50 to-red-50">
+          <form
+            onSubmit={handleSubmit}
+            className="p-5 border-t-2 border-yellow-300 bg-gradient-to-r from-green-50 via-yellow-50 to-red-50"
+          >
             <div className="flex gap-4">
               <input
                 type="text"
                 value={input}
-                onChange={function(e) { setInput(e.target.value); }}
+                onChange={function (e) {
+                  setInput(e.target.value);
+                }}
                 placeholder="Parle-moi comme à un ami caraïbe... 💬"
                 className="flex-1 border-2 border-yellow-400 rounded-xl px-6 py-4 focus:outline-none focus:ring-4 focus:ring-yellow-500 text-lg"
                 disabled={isLoading}
@@ -701,7 +797,8 @@ Qu'est-ce qui t'intéresse vraiment ?`;
               🇬🇵 Voix masculine antillaise • Guadeloupe Terre de Champions
             </p>
             <p className="text-xs text-gray-400 mt-1 text-center">
-              Meilleur que Claude, Gemini, ChatGPT • 62 pages • 26 boutiques • 5 innovations
+              Meilleur que Claude, Gemini, ChatGPT • 62 pages • 26 boutiques • 5
+              innovations
             </p>
           </form>
         </div>

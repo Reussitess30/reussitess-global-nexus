@@ -1,0 +1,14 @@
+
+> reussitess-global-nexus@1.0.1 build
+> next build
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   Skipping creating a lockfile at /data/data/com.termux/files/home/reussitess-global-nexus/.next/lock because we're using WASM bindings
+   ▲ Next.js 16.0.3 (Turbopack)
+
+   Creating an optimized production build ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+
+> Build error occurred
+Error: `turbo.createProject` is not supported by the wasm bindings.
+    at ignore-listed frames

@@ -1,10 +1,29 @@
+# cloudbuild.yaml
 steps:
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['install']
+  # 1. Construction de l'image Docker
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ["build", "-t", "gcr.io/$PROJECT_ID/votre-service-bot:$COMMIT_SHA", "."]
 
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
+  # 2. Envoi de l'image au Container Registry (GCR)
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/votre-service-bot:$COMMIT_SHA"]
 
-serviceAccount: ton-service-account@ton-projet.iam.gserviceaccount.com
+  # 3. Déploiement de l'image sur Cloud Run
+  - name: "gcr.io/google.com/cloudsdk/cloud-sdk"
+    args: [
+        "gcloud",
+        "run",
+        "deploy",
+        "votre-service-bot", # REMPLACEZ PAR LE NOM DE VOTRE SERVICE CLOUD RUN
+        "--image",
+        "gcr.io/$PROJECT_ID/votre-service-bot:$COMMIT_SHA",
+        "--region",
+        "europe-west1", # REMPLACEZ PAR VOTRE RÉGION (ex: us-central1)
+        "--platform",
+        "managed",
+      ]
+
+# Correction du bug de journalisation/service account
 options:
   logging: CLOUD_LOGGING_ONLY

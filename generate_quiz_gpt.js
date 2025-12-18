@@ -3,25 +3,41 @@
  * réussitess971 - excellence, innovation, succes à l'infini boudoume
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // Liste des domaines disponibles pour les quiz
 const QUIZ_DOMAINS = [
-  'Art', 'Business', 'Cinéma', 'Culture_du_Monde', 'Découvertes',
-  'Environnement', 'Gastronomie', 'Géographie', 'Histoire', 'Innovations',
-  'Langue', 'Maths', 'Monuments', 'Musique', 'Personnalités',
-  'Politique', 'Santé', 'Sciences', 'Sport', 'Tech'
+  "Art",
+  "Business",
+  "Cinéma",
+  "Culture_du_Monde",
+  "Découvertes",
+  "Environnement",
+  "Gastronomie",
+  "Géographie",
+  "Histoire",
+  "Innovations",
+  "Langue",
+  "Maths",
+  "Monuments",
+  "Musique",
+  "Personnalités",
+  "Politique",
+  "Santé",
+  "Sciences",
+  "Sport",
+  "Tech",
 ];
 
 // Template de quiz
 const QUIZ_TEMPLATE = {
-  domain: '',
+  domain: "",
   questions: [],
   tips: [
     "Réussir, c'est apprendre dans tous les domaines.",
-    "réussitess971 – excellence, innovation, succes à l'infini boudoume."
-  ]
+    "réussitess971 – excellence, innovation, succes à l'infini boudoume.",
+  ],
 };
 
 /**
@@ -66,7 +82,7 @@ Important:
  */
 function generateQuizFileContent(domain, questions) {
   const quiz = { ...QUIZ_TEMPLATE, domain, questions };
-  
+
   return `module.exports = ${JSON.stringify(quiz, null, 2)};
 `;
 }
@@ -80,8 +96,8 @@ function saveQuizFile(domain, questions) {
   const filename = `quiz_${domain}.js`;
   const filepath = path.join(__dirname, filename);
   const content = generateQuizFileContent(domain, questions);
-  
-  fs.writeFileSync(filepath, content, 'utf8');
+
+  fs.writeFileSync(filepath, content, "utf8");
   console.log(`✅ Quiz "${domain}" sauvegardé: ${filename}`);
 }
 
@@ -91,14 +107,16 @@ function saveQuizFile(domain, questions) {
  */
 function listExistingQuizzes() {
   const files = fs.readdirSync(__dirname);
-  const quizFiles = files.filter(f => f.startsWith('quiz_') && f.endsWith('.js'));
-  
-  return quizFiles.map(f => {
-    const domain = f.replace('quiz_', '').replace('.js', '');
+  const quizFiles = files.filter(
+    (f) => f.startsWith("quiz_") && f.endsWith(".js"),
+  );
+
+  return quizFiles.map((f) => {
+    const domain = f.replace("quiz_", "").replace(".js", "");
     const quiz = require(path.join(__dirname, f));
     return {
       domain,
-      questionCount: quiz.questions?.length || 0
+      questionCount: quiz.questions?.length || 0,
     };
   });
 }
@@ -107,25 +125,27 @@ function listExistingQuizzes() {
  * Affiche le résumé des quiz
  */
 function displayQuizSummary() {
-  console.log('\n🎯 === RÉUSSITESS971 QUIZ GENERATOR ===');
-  console.log('positivité à l\'infini boudoume!\n');
-  
+  console.log("\n🎯 === RÉUSSITESS971 QUIZ GENERATOR ===");
+  console.log("positivité à l'infini boudoume!\n");
+
   const existing = listExistingQuizzes();
-  
-  console.log('📚 Quiz existants:');
-  existing.forEach(q => {
+
+  console.log("📚 Quiz existants:");
+  existing.forEach((q) => {
     console.log(`   • ${q.domain}: ${q.questionCount} question(s)`);
   });
-  
-  console.log('\n💡 Pour générer un nouveau quiz:');
-  console.log('   1. Utilisez le prompt GPT ci-dessous');
-  console.log('   2. Copiez le JSON généré');
-  console.log('   3. Exécutez: node generate_quiz_gpt.js --save <domain> <json>');
-  
-  console.log('\n🚀 Prompt GPT pour génération:');
-  console.log('---');
-  console.log(generateGPTPrompt('VotreDomaine', 5));
-  console.log('---\n');
+
+  console.log("\n💡 Pour générer un nouveau quiz:");
+  console.log("   1. Utilisez le prompt GPT ci-dessous");
+  console.log("   2. Copiez le JSON généré");
+  console.log(
+    "   3. Exécutez: node generate_quiz_gpt.js --save <domain> <json>",
+  );
+
+  console.log("\n🚀 Prompt GPT pour génération:");
+  console.log("---");
+  console.log(generateGPTPrompt("VotreDomaine", 5));
+  console.log("---\n");
 }
 
 /**
@@ -133,33 +153,33 @@ function displayQuizSummary() {
  */
 function parseArgs() {
   const args = process.argv.slice(2);
-  
+
   if (args.length === 0) {
     displayQuizSummary();
     return;
   }
-  
-  if (args[0] === '--list') {
+
+  if (args[0] === "--list") {
     const existing = listExistingQuizzes();
-    console.log('\n📚 Quiz disponibles:');
-    existing.forEach(q => {
+    console.log("\n📚 Quiz disponibles:");
+    existing.forEach((q) => {
       console.log(`   • ${q.domain}: ${q.questionCount} question(s)`);
     });
     return;
   }
-  
-  if (args[0] === '--domains') {
-    console.log('\n🌍 Domaines suggérés:');
-    QUIZ_DOMAINS.forEach(d => console.log(`   • ${d}`));
+
+  if (args[0] === "--domains") {
+    console.log("\n🌍 Domaines suggérés:");
+    QUIZ_DOMAINS.forEach((d) => console.log(`   • ${d}`));
     return;
   }
-  
-  if (args[0] === '--prompt' && args[1]) {
+
+  if (args[0] === "--prompt" && args[1]) {
     console.log(generateGPTPrompt(args[1], parseInt(args[2]) || 5));
     return;
   }
-  
-  if (args[0] === '--help') {
+
+  if (args[0] === "--help") {
     console.log(`
 🎯 RÉUSSITESS971 QUIZ GENERATOR - Aide
 
@@ -174,7 +194,7 @@ Excellence, innovation, succes à l'infini boudoume!
     `);
     return;
   }
-  
+
   displayQuizSummary();
 }
 
@@ -188,5 +208,5 @@ module.exports = {
   generateGPTPrompt,
   generateQuizFileContent,
   saveQuizFile,
-  listExistingQuizzes
+  listExistingQuizzes,
 };

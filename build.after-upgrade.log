@@ -1,0 +1,13 @@
+
+> reussitess-global-nexus@1.0.1 build
+> next build
+
+   Using cached swc package @next/swc-wasm-nodejs...
+   Skipping creating a lockfile at /data/data/com.termux/files/home/reussitess-global-nexus/.next/lock because we're using WASM bindings
+   ▲ Next.js 16.0.8 (Turbopack)
+
+   Creating an optimized production build ...
+
+> Build error occurred
+Error: `turbo.createProject` is not supported by the wasm bindings.
+    at ignore-listed frames

@@ -12,7 +12,12 @@
   --light: #f1f5f9;
   --white: #ffffff;
   --text-light: #94a3b8;
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 50%,
+    #f093fb 100%
+  );
   --gradient-gold: linear-gradient(135deg, #f59e0b, #fbbf24);
   --gradient-success: linear-gradient(135deg, #10b981, #3b82f6);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -26,7 +31,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--darker);
   color: var(--white);
   line-height: 1.6;
@@ -63,8 +68,13 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /* Header */
@@ -101,8 +111,13 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .logo-text {
@@ -148,7 +163,7 @@ body {
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 10%;
   left: 10%;
@@ -160,7 +175,7 @@ body {
 }
 
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 10%;
   right: 10%;
@@ -688,8 +703,14 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .quiz-category,

@@ -1,76 +1,119 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>réussitess971 — Version 2</title>
-  <link rel="stylesheet" href="./style.css">
-  <style>
-    header.site-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 2rem; background:transparent; }
-    .logo { font-weight:700; font-size:1.1rem; color:var(--text-color,#0f172a); text-decoration:none; }
-    .btn-alternative { background:linear-gradient(90deg,#06b6d4,#3b82f6); color:#fff; padding:0.5rem 0.9rem; border-radius:8px; text-decoration:none; font-weight:600; }
-    main.container { max-width:1100px; margin:1.2rem auto; padding:1.6rem; background:#fff; border-radius:12px; box-shadow:0 8px 30px rgba(2,6,23,0.06); }
-    #quizContainer button { margin:6px 6px 6px 0; padding:8px 12px; border-radius:8px; border:1px solid #e5e7eb; cursor:pointer; background:#fff; }
-    .shops-row { margin-top:1rem; display:flex; flex-wrap:wrap; gap:.6rem; }
-  </style>
-</head>
-<body>
-  <header class="site-header">
-    <a class="logo" href="/">réussitess-global-nexus</a>
-    <nav>
-      <a href="/reussitess971_v2/" class="btn-alternative">✨ Version 2</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>réussitess971 — Version 2</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      header.site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 2rem;
+        background: transparent;
+      }
+      .logo {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text-color, #0f172a);
+        text-decoration: none;
+      }
+      .btn-alternative {
+        background: linear-gradient(90deg, #06b6d4, #3b82f6);
+        color: #fff;
+        padding: 0.5rem 0.9rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      main.container {
+        max-width: 1100px;
+        margin: 1.2rem auto;
+        padding: 1.6rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.06);
+      }
+      #quizContainer button {
+        margin: 6px 6px 6px 0;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+        cursor: pointer;
+        background: #fff;
+      }
+      .shops-row {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/">réussitess-global-nexus</a>
+      <nav>
+        <a href="/reussitess971_v2/" class="btn-alternative">✨ Version 2</a>
+      </nav>
+    </header>
 
-  <main class="container" role="main">
-    <h1 style="margin-top:0;">réussitess971 — Quiz & Amazon (Version 2)</h1>
+    <main class="container" role="main">
+      <h1 style="margin-top: 0">réussitess971 — Quiz & Amazon (Version 2)</h1>
 
-    <section id="intro">
-      <p>Bienvenue sur la Version 2 — contenu interactif, quiz et boutiques. Supporte le projet en achetant via nos boutiques partenaires.</p>
-    </section>
+      <section id="intro">
+        <p>
+          Bienvenue sur la Version 2 — contenu interactif, quiz et boutiques.
+          Supporte le projet en achetant via nos boutiques partenaires.
+        </p>
+      </section>
 
-    <section id="quiz" aria-labelledby="quizTitle">
-      <h2 id="quizTitle">Quiz</h2>
-      <div id="quizContainer"></div>
-    </section>
+      <section id="quiz" aria-labelledby="quizTitle">
+        <h2 id="quizTitle">Quiz</h2>
+        <div id="quizContainer"></div>
+      </section>
 
-    <section id="shops" aria-labelledby="shopsTitle">
-      <h2 id="shopsTitle">Boutiques recommandées</h2>
-      <div id="shopsContainer" class="shops-row"></div>
-    </section>
+      <section id="shops" aria-labelledby="shopsTitle">
+        <h2 id="shopsTitle">Boutiques recommandées</h2>
+        <div id="shopsContainer" class="shops-row"></div>
+      </section>
 
-    <section id="positivite" aria-labelledby="positTitle">
-      <h2 id="positTitle">Positivité</h2>
-      <div id="positiviteContainer"></div>
-    </section>
+      <section id="positivite" aria-labelledby="positTitle">
+        <h2 id="positTitle">Positivité</h2>
+        <div id="positiviteContainer"></div>
+      </section>
 
-    <footer style="margin-top:1.5rem; color:#475569;">
-      <small>Page Version 2 — autonome et stylée comme la page d'accueil.</small>
-    </footer>
-  </main>
+      <footer style="margin-top: 1.5rem; color: #475569">
+        <small
+          >Page Version 2 — autonome et stylée comme la page d'accueil.</small
+        >
+      </footer>
+    </main>
 
-  <script src="./boutiques.js"></script>
-  <script src="./positivite.js"></script>
-  <script src="./script.js"></script>
-  <script src="./quiz_Art.js"></script>
-  <script src="./quiz_Business.js"></script>
-  <script src="./quiz_Cinéma.js"></script>
-  <script src="./quiz_Culture_du_Monde.js"></script>
-  <script src="./quiz_Découvertes.js"></script>
-  <script src="./quiz_Environnement.js"></script>
-  <script src="./quiz_Gastronomie.js"></script>
-  <script src="./quiz_Géographie.js"></script>
-  <script src="./quiz_Histoire.js"></script>
-  <script src="./quiz_Innovations.js"></script>
-  <script src="./quiz_Langue.js"></script>
-  <script src="./quiz_Maths.js"></script>
-  <script src="./quiz_Monuments.js"></script>
-  <script src="./quiz_Musique.js"></script>
-  <script src="./quiz_Personnalités.js"></script>
-  <script src="./quiz_Politique.js"></script>
-  <script src="./quiz_Santé.js"></script>
-  <script src="./quiz_Sciences.js"></script>
-  <script src="./quiz_Sport.js"></script>
-  <script src="./quiz_Tech.js"></script>
-</body>
+    <script src="./boutiques.js"></script>
+    <script src="./positivite.js"></script>
+    <script src="./script.js"></script>
+    <script src="./quiz_Art.js"></script>
+    <script src="./quiz_Business.js"></script>
+    <script src="./quiz_Cinéma.js"></script>
+    <script src="./quiz_Culture_du_Monde.js"></script>
+    <script src="./quiz_Découvertes.js"></script>
+    <script src="./quiz_Environnement.js"></script>
+    <script src="./quiz_Gastronomie.js"></script>
+    <script src="./quiz_Géographie.js"></script>
+    <script src="./quiz_Histoire.js"></script>
+    <script src="./quiz_Innovations.js"></script>
+    <script src="./quiz_Langue.js"></script>
+    <script src="./quiz_Maths.js"></script>
+    <script src="./quiz_Monuments.js"></script>
+    <script src="./quiz_Musique.js"></script>
+    <script src="./quiz_Personnalités.js"></script>
+    <script src="./quiz_Politique.js"></script>
+    <script src="./quiz_Santé.js"></script>
+    <script src="./quiz_Sciences.js"></script>
+    <script src="./quiz_Sport.js"></script>
+    <script src="./quiz_Tech.js"></script>
+  </body>
 </html>
