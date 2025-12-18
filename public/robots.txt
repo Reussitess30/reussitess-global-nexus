@@ -1,23 +1,35 @@
-# robots.txt pour REUSSITESS® Global Nexus
-# Autoriser tous les robots de moteurs de recherche
-
+# REUSSITESS® Global Nexus - Robots.txt Optimisé
 User-agent: *
 Allow: /
+Allow: /boutiques
+Allow: /champions
+Allow: /visa-universel
+Allow: /quiz
+Allow: /bibliotheque
+Allow: /hub-central
+Allow: /a-propos
+Allow: /contact
 
-# Sitemap
-Sitemap: https://reussitess-global-nexus.vercel.app/sitemap.xml
-
-# Robots spécifiques
+# Priorités pour les bots
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
-# Bloquer l'accès aux répertoires sensibles
-Disallow: /api/
-Disallow: /_next/
-Disallow: /backup/
+User-agent: facebookexternalhit
+Allow: /
 
-# Crawl-delay pour éviter la surcharge
-Crawl-delay: 1
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Sitemap
+Sitemap: https://reussitess.fr/api/sitemap.xml

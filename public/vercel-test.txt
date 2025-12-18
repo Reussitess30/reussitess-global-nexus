@@ -1,0 +1,6 @@
+TEST VERCEL DEPLOYMENT
+======================
+Date: $(date)
+Branch: reussitess971-branch
+Status: Active
+Message: Si vous voyez ce fichier, le déploiement fonctionne !

@@ -1,5 +1,7 @@
-import { useEffect } from 'react'
-import BotAssistant from '../components/BotAssistant'
+import { useEffect } from "react";
+import BotAssistant from "../components/BotAssistant";
+import SuperBotUniversal from "../components/SuperBotUniversal";
+import UniversalVoiceReader from "../components/UniversalVoiceReader";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -24,35 +26,36 @@ function MyApp({ Component, pageProps }) {
     // Désactiver raccourcis clavier
     const handleKeyDown = (e) => {
       // Bloquer F12
-      if (e.key === 'F12') {
+      if (e.key === "F12") {
         e.preventDefault();
         return false;
       }
 
       // Bloquer Ctrl+Shift+I
-      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+      if (e.ctrlKey && e.shiftKey && e.key === "I") {
         e.preventDefault();
         return false;
       }
 
       // Bloquer Ctrl+U
-      if (e.ctrlKey && e.key === 'u') {
+      if (e.ctrlKey && e.key === "u") {
         e.preventDefault();
         return false;
       }
 
       // Bloquer Ctrl+S
-      if (e.ctrlKey && e.key === 's') {
+      if (e.ctrlKey && e.key === "s") {
         e.preventDefault();
         return false;
       }
 
       // Bloquer Ctrl+C sauf dans formulaires
-      if (e.ctrlKey && e.key === 'c') {
+      if (e.ctrlKey && e.key === "c") {
         const target = e.target;
-        const isFormField = target.tagName === 'INPUT' ||
-                           target.tagName === 'TEXTAREA' ||
-                           target.isContentEditable;
+        const isFormField =
+          target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable;
         if (!isFormField) {
           e.preventDefault();
           return false;
@@ -60,27 +63,34 @@ function MyApp({ Component, pageProps }) {
       }
     };
 
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('selectstart', handleSelectStart);
-    document.addEventListener('copy', handleCopy);
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("selectstart", handleSelectStart);
+    document.addEventListener("copy", handleCopy);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('selectstart', handleSelectStart);
-      document.removeEventListener('copy', handleCopy);
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("selectstart", handleSelectStart);
+      document.removeEventListener("copy", handleCopy);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
   return (
     <>
-      <Component {...pageProps} />
+      <>
+        <>
+        <>
+        <StructuredData />
+        <Component {...pageProps} />
+      </>
+      </>
+      </>
+      <UniversalVoiceReader />
+      <SuperBotUniversal />
       <BotAssistant />
     </>
-  )
+  );
 }
 
-export default MyApp
-
-
+export default MyApp;

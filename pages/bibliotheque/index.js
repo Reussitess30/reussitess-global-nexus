@@ -1,106 +1,117 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
 
 const BibliothequeIndex = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const regions = {
-    'DOM-TOM': {
-      icon: '🇫🇷',
-      color: 'from-blue-600 to-blue-800',
-      folder: 'dom-tom',
+    "DOM-TOM": {
+      icon: "🇫🇷",
+      color: "from-blue-600 to-blue-800",
+      folder: "dom-tom",
       pays: [
-        { name: 'Guyane', flag: '🇬🇫', slug: 'guyane' },
-        { name: 'Réunion', flag: '🇷🇪', slug: 'reunion' },
-        { name: 'Mayotte', flag: '🇾🇹', slug: 'mayotte' },
-        { name: 'Guadeloupe', flag: '🇬🇵', slug: 'guadeloupe' },
-        { name: 'Martinique', flag: '🇲🇶', slug: 'martinique' },
-        { name: 'Polynésie', flag: '🇵🇫', slug: 'polynesie' },
-        { name: 'Nouvelle-Calédonie', flag: '🇳🇨', slug: 'nouvelle-caledonie' },
-        { name: 'St-Pierre-Miquelon', flag: '🇵🇲', slug: 'saint-pierre' },
-        { name: 'Wallis-Futuna', flag: '🇼🇫', slug: 'wallis-futuna' },
-        { name: 'Saint-Martin', flag: '🇲🇫', slug: 'saint-martin' },
-        { name: 'Saint-Barthélemy', flag: '🇧🇱', slug: 'saint-barthelemy' }
-      ]
+        { name: "Guyane", flag: "🇬🇫", slug: "guyane" },
+        { name: "Réunion", flag: "🇷🇪", slug: "reunion" },
+        { name: "Mayotte", flag: "🇾🇹", slug: "mayotte" },
+        { name: "Guadeloupe", flag: "🇬🇵", slug: "guadeloupe" },
+        { name: "Martinique", flag: "🇲🇶", slug: "martinique" },
+        { name: "Polynésie", flag: "🇵🇫", slug: "polynesie" },
+        { name: "Nouvelle-Calédonie", flag: "🇳🇨", slug: "nouvelle-caledonie" },
+        { name: "St-Pierre-Miquelon", flag: "🇵🇲", slug: "saint-pierre" },
+        { name: "Wallis-Futuna", flag: "🇼🇫", slug: "wallis-futuna" },
+        { name: "Saint-Martin", flag: "🇲🇫", slug: "saint-martin" },
+        { name: "Saint-Barthélemy", flag: "🇧🇱", slug: "saint-barthelemy" },
+      ],
     },
-    'Afrique': {
-      icon: '🌍',
-      color: 'from-green-600 to-green-800',
-      folder: 'afrique',
+    Afrique: {
+      icon: "🌍",
+      color: "from-green-600 to-green-800",
+      folder: "afrique",
       pays: [
-        { name: 'Sénégal', flag: '🇸🇳', slug: 'senegal' },
-        { name: 'Côte d\'Ivoire', flag: '🇨🇮', slug: 'cote-ivoire' },
-        { name: 'Cameroun', flag: '🇨🇲', slug: 'cameroun' },
-        { name: 'Madagascar', flag: '🇲🇬', slug: 'madagascar' },
-        { name: 'Mali', flag: '🇲🇱', slug: 'mali' },
-        { name: 'RD Congo', flag: '🇨🇩', slug: 'rdc' },
-        { name: 'Rwanda', flag: '🇷🇼', slug: 'rwanda' }
-      ]
+        { name: "Sénégal", flag: "🇸🇳", slug: "senegal" },
+        { name: "Côte d'Ivoire", flag: "🇨🇮", slug: "cote-ivoire" },
+        { name: "Cameroun", flag: "🇨🇲", slug: "cameroun" },
+        { name: "Madagascar", flag: "🇲🇬", slug: "madagascar" },
+        { name: "Mali", flag: "🇲🇱", slug: "mali" },
+        { name: "RD Congo", flag: "🇨🇩", slug: "rdc" },
+        { name: "Rwanda", flag: "🇷🇼", slug: "rwanda" },
+      ],
     },
-    'Maghreb': {
-      icon: '🏜️',
-      color: 'from-orange-600 to-orange-800',
-      folder: 'maghreb',
+    Maghreb: {
+      icon: "🏜️",
+      color: "from-orange-600 to-orange-800",
+      folder: "maghreb",
       pays: [
-        { name: 'Maroc', flag: '🇲🇦', slug: 'maroc' },
-        { name: 'Algérie', flag: '🇩🇿', slug: 'algerie' },
-        { name: 'Tunisie', flag: '🇹🇳', slug: 'tunisie' },
-        { name: 'Liban', flag: '🇱🇧', slug: 'liban' }
-      ]
+        { name: "Maroc", flag: "🇲🇦", slug: "maroc" },
+        { name: "Algérie", flag: "🇩🇿", slug: "algerie" },
+        { name: "Tunisie", flag: "🇹🇳", slug: "tunisie" },
+        { name: "Liban", flag: "🇱🇧", slug: "liban" },
+      ],
     },
-    'Asie-Pacifique': {
-      icon: '🌏',
-      color: 'from-red-600 to-red-800',
-      folder: 'asie-pacifique',
+    "Asie-Pacifique": {
+      icon: "🌏",
+      color: "from-red-600 to-red-800",
+      folder: "asie-pacifique",
       pays: [
-        { name: 'Vietnam', flag: '🇻🇳', slug: 'vietnam' },
-        { name: 'Cambodge', flag: '🇰🇭', slug: 'cambodge' },
-        { name: 'Laos', flag: '🇱🇦', slug: 'laos' },
-        { name: 'Vanuatu', flag: '🇻🇺', slug: 'vanuatu' }
-      ]
+        { name: "Vietnam", flag: "🇻🇳", slug: "vietnam" },
+        { name: "Cambodge", flag: "🇰🇭", slug: "cambodge" },
+        { name: "Laos", flag: "🇱🇦", slug: "laos" },
+        { name: "Vanuatu", flag: "🇻🇺", slug: "vanuatu" },
+      ],
     },
-    'Amériques': {
-      icon: '🌎',
-      color: 'from-purple-600 to-purple-800',
-      folder: 'ameriques',
+    Amériques: {
+      icon: "🌎",
+      color: "from-purple-600 to-purple-800",
+      folder: "ameriques",
       pays: [
-        { name: 'Québec', flag: '🇨🇦', slug: 'quebec' },
-        { name: 'Haïti', flag: '🇭🇹', slug: 'haiti' },
-        { name: 'Louisiane', flag: '🇺🇸', slug: 'louisiane' }
-      ]
+        { name: "Québec", flag: "🇨🇦", slug: "quebec" },
+        { name: "Haïti", flag: "🇭🇹", slug: "haiti" },
+        { name: "Louisiane", flag: "🇺🇸", slug: "louisiane" },
+      ],
     },
-    'Europe': {
-      icon: '🇪🇺',
-      color: 'from-indigo-600 to-indigo-800',
-      folder: 'europe',
+    Europe: {
+      icon: "🇪🇺",
+      color: "from-indigo-600 to-indigo-800",
+      folder: "europe",
       pays: [
-        { name: 'Belgique', flag: '🇧🇪', slug: 'belgique' },
-        { name: 'Suisse', flag: '🇨🇭', slug: 'suisse' },
-        { name: 'Luxembourg', flag: '🇱🇺', slug: 'luxembourg' },
-        { name: 'Monaco', flag: '🇲🇨', slug: 'monaco' }
-      ]
-    }
+        { name: "Belgique", flag: "🇧🇪", slug: "belgique" },
+        { name: "Suisse", flag: "🇨🇭", slug: "suisse" },
+        { name: "Luxembourg", flag: "🇱🇺", slug: "luxembourg" },
+        { name: "Monaco", flag: "🇲🇨", slug: "monaco" },
+      ],
+    },
   };
 
   return (
     <>
       <Head>
-        <title>Bibliothèque Mondiale | REUSSITESS® - Excellence • Innovation • Succès</title>
+        <title>
+          Bibliothèque Mondiale | REUSSITESS® - Excellence • Innovation • Succès
+        </title>
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
         <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-20 px-4">
           <div className="max-w-6xl mx-auto">
-            <Link href="/" className="inline-block mb-6 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full font-semibold transition-all">
+            <Link
+              href="/"
+              className="inline-block mb-6 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-full font-semibold transition-all"
+            >
               🏠 Retour à l'accueil
             </Link>
-            
+
             <div className="text-center">
-              <h1 className="text-6xl font-bold mb-6">📚 Bibliothèque Culturelle Mondiale</h1>
-              <p className="text-3xl font-semibold mb-4">Excellence • Innovation • Succès</p>
-              <p className="text-xl mb-8">Valoriser le savoir, la connaissance et la culture mondiale</p>
-              
+              <h1 className="text-6xl font-bold mb-6">
+                📚 Bibliothèque Culturelle Mondiale
+              </h1>
+              <p className="text-3xl font-semibold mb-4">
+                Excellence • Innovation • Succès
+              </p>
+              <p className="text-xl mb-8">
+                Valoriser le savoir, la connaissance et la culture mondiale
+              </p>
+
               <input
                 type="text"
                 placeholder="🔍 Rechercher un pays..."
@@ -118,26 +129,37 @@ const BibliothequeIndex = () => {
               <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
                 <span className="text-5xl">{regionData.icon}</span>
                 {regionName}
-                <span className="text-2xl text-gray-500">({regionData.pays.length})</span>
+                <span className="text-2xl text-gray-500">
+                  ({regionData.pays.length})
+                </span>
               </h2>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {regionData.pays
-                  .filter(pays => 
-                    searchTerm === '' || 
-                    pays.name.toLowerCase().includes(searchTerm.toLowerCase())
+                  .filter(
+                    (pays) =>
+                      searchTerm === "" ||
+                      pays.name
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase()),
                   )
                   .map((pays) => (
-                  <Link 
-                    key={pays.slug} 
-                    href={`/bibliotheque/${regionData.folder}/${pays.slug}`}
-                  >
-                    <div className={`bg-gradient-to-br ${regionData.color} rounded-2xl p-6 text-white hover:scale-105 transition-all cursor-pointer shadow-xl`}>
-                      <div className="text-6xl mb-4 text-center">{pays.flag}</div>
-                      <h3 className="text-xl font-bold text-center">{pays.name}</h3>
-                    </div>
-                  </Link>
-                ))}
+                    <Link
+                      key={pays.slug}
+                      href={`/bibliotheque/${regionData.folder}/${pays.slug}`}
+                    >
+                      <div
+                        className={`bg-gradient-to-br ${regionData.color} rounded-2xl p-6 text-white hover:scale-105 transition-all cursor-pointer shadow-xl`}
+                      >
+                        <div className="text-6xl mb-4 text-center">
+                          {pays.flag}
+                        </div>
+                        <h3 className="text-xl font-bold text-center">
+                          {pays.name}
+                        </h3>
+                      </div>
+                    </Link>
+                  ))}
               </div>
             </div>
           ))}

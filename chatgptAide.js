@@ -1,11 +1,11 @@
 // chatgptAide.js
 export async function callChatGPTAPI(prompt) {
   // À adapter selon ton API ChatGPT déjà intégrée (endpoint, clé, etc.)
-  return fetch('/api/chatgpt', {
-    method: 'POST',
+  return fetch("/api/chatgpt", {
+    method: "POST",
     body: JSON.stringify({ prompt }),
-    headers: { 'Content-Type': 'application/json' }
-  }).then(r => r.json());
+    headers: { "Content-Type": "application/json" },
+  }).then((r) => r.json());
 }
 
 export async function handleAide(context) {

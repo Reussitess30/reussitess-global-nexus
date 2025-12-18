@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--bg-gradient);
   color: var(--text-light);
   min-height: 100vh;
@@ -41,7 +41,7 @@ body {
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -83,7 +83,9 @@ body {
   border-radius: 16px;
   padding: 2rem 1rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .stat:hover {
@@ -131,7 +133,7 @@ body {
 }
 
 .boutique-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -279,16 +281,16 @@ body {
   .hero h1 {
     font-size: 2.5rem;
   }
-  
+
   .hero-stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-  
+
   .boutiques-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
@@ -306,7 +308,9 @@ body {
   }
 }
 
-.boutique-card, .feature-card, .card {
+.boutique-card,
+.feature-card,
+.card {
   animation: fadeInUp 0.6s ease-out;
 }
 
@@ -323,13 +327,13 @@ body {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #3B82F6;
+  border-left: 4px solid #3b82f6;
 }
 
 .back-link {
   display: inline-block;
   margin-top: 2rem;
-  color: #6B7280;
+  color: #6b7280;
   text-decoration: none;
 }
 

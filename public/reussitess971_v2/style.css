@@ -1,5 +1,32 @@
-h1 { color: #08099e; text-align:center; padding-top: 2em;}
-#quizContainer, #shopsContainer, #positiviteContainer { margin: 2em 0; text-align:center; }
-button { margin: 0.5em; padding: 1em; background: #ffc300; border: none; border-radius: 8px; font-weight: bold;}
-a.shop-link { display:inline-block; background:#fff4af; color:#23235b; padding:1em; border-radius:20px; margin:0.5em; text-decoration:none;}
-a.shop-link:hover { background:#00c3ff; color: #fff; }
+h1 {
+  color: #08099e;
+  text-align: center;
+  padding-top: 2em;
+}
+#quizContainer,
+#shopsContainer,
+#positiviteContainer {
+  margin: 2em 0;
+  text-align: center;
+}
+button {
+  margin: 0.5em;
+  padding: 1em;
+  background: #ffc300;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+a.shop-link {
+  display: inline-block;
+  background: #fff4af;
+  color: #23235b;
+  padding: 1em;
+  border-radius: 20px;
+  margin: 0.5em;
+  text-decoration: none;
+}
+a.shop-link:hover {
+  background: #00c3ff;
+  color: #fff;
+}

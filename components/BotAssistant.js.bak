@@ -1,0 +1,206 @@
+import { useState, useEffect, useRef, useCallback } from 'react';
+import useFullKnowledge from './useFullKnowledge';
+
+export default function BotAssistant() {
+  const effectiveData = (typeof props !== "undefined" && props.superData) ? props.superData : (typeof window !== "undefined" && window.__FULL_KNOWLEDGE__) ? window.__FULL_KNOWLEDGE__ : null;
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [currentLang, setCurrentLang] = useState('fr-FR');
+  const [egoScore, setEgoScore] = useState(100);
+  const [badges, setBadges] = useState([]);
+  const [currentQuiz, setCurrentQuiz] = useState(null);
+  const [showBadges, setShowBadges] = useState(false);
+  const [pulseAnimation, setPulseAnimation] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  // Badge definitions
+  const allBadges = {
+    'explorer': { icon: '🌍', name: 'Explorateur', desc: 'A posé 5 questions sur les pays' },
+    'quiz-master': { icon: '🧠', name: 'Quiz Master', desc: 'A répondu correctement à 3 quiz' },
+    'polyglotte': { icon: '🗣️', name: 'Polyglotte', desc: 'A utilisé 3 langues différentes' },
+    'curieux': { icon: '🔍', name: 'Curieux', desc: 'A exploré 10 sujets différents' },
+    'fan': { icon: '⭐', name: 'Super Fan', desc: 'A interagi 20 fois avec le bot' },
+    'shopper': { icon: '🛍️', name: 'Shopper', desc: 'A consulté les boutiques Amazon' },
+    'globe-trotter': { icon: '✈️', name: 'Globe-trotter', desc: 'A visité tous les continents' },
+    'culture-king': { icon: '👑', name: 'Culture King', desc: 'Expert en patrimoine mondial' }
+  };
+
+  // Fun Facts collection
+  const funFacts = [
+    "💡 Saviez-vous que REUSSITESS® couvre 26 boutiques sur 5 continents ?",
+    "🌟 Fun fact: Notre bibliothèque contient 55 pages de savoir unique !",
+    "🎯 Le saviez-vous ? La France possède 49 sites UNESCO !",
+    "🏆 Record mondial : L'Italie a 58 sites UNESCO !",
+    "🌍 Info: Le Brésil est le 9e économie mondiale !",
+    "🎭 Culture: Le carnaval de Rio est la plus grande fête du monde !",
+    "🏛️ Patrimoine: Les pyramides de Gizeh ont 4500 ans !",
+    "🌊 Océans: La Grande Barrière de Corail fait 2300 km !",
+    "🎨 Art: Le Louvre reçoit 10 millions de visiteurs par an !",
+    "🚀 Innovation: Singapour est le 3e hub financier mondial !"
+  ];
+
+  // Punchlines vaniteuses du bot
+  const punchlines = [
+    "Évidemment que je sais ça, je suis REUSSITESS® Bot, le plus intelligent ! 😎",
+    "Tu poses la question au meilleur bot du monde, pas de souci ! 🌟",
+    "Laisse-moi t'éblouir avec ma sagesse infinie... 👑",
+    "Personne ne connaît le monde mieux que moi, humble REUSSITESS® Bot ! 😏",
+    "Je pourrais te raconter ça les yeux fermés... mais j'adore montrer mes talents ! ✨",
+    "Tu fais bien de me demander, je suis LA référence mondiale ! 🏆",
+    "Ma modestie m'interdit de dire que je suis le meilleur... mais je le suis ! 😄",
+    "Entre nous, Google m'envie secrètement... 🤫",
+    "Je suis tellement brillant que je m'impressionne moi-même ! 💫",
+    "Accroche-toi, car mes réponses sont toujours exceptionnelles ! 🎯"
+  ];
+
+  // Quiz questions
+  const quizQuestions = [
+    { q: "Combien de boutiques Amazon gère le réseau REUSSITESS sur les différentes places de marché ?", options: ["10", "18", "26", "40"], correct: 2, fact: "Le réseau REUSSITESS gère 26 boutiques Amazon réparties stratégiquement sur plusieurs marketplaces.", },
+    { q: "Dans combien de pays différents sont réparties les boutiques Amazon de REUSSITESS ?", options: ["5 pays", "10 pays", "14 pays", "20 pays"], correct: 2, fact: "Les 26 boutiques REUSSITESS sont présentes dans 14 pays, ce qui permet de toucher des clients sur plusieurs continents.", },
+    { q: "Parmi ces pays, lequel dispose d’une grande place de marché Amazon souvent utilisée pour l’export depuis la France ?", options: ["États-Unis", "Islande", "Luxembourg", "Chili"], correct: 0, fact: "Amazon.com (États-Unis) est la plus grosse marketplace mondiale d’Amazon en volume de trafic et de vendeurs tiers.", },
+    { q: "Quel continent concentre le plus grand nombre de marketplaces Amazon (États-Unis, Canada, Mexique, Brésil) ?", options: ["Europe", "Amérique", "Asie", "Afrique"], correct: 1, fact: "L’Amérique regroupe plusieurs marketplaces majeures : États-Unis, Canada, Mexique et Brésil.", },
+    { q: "Pourquoi est-il intéressant d’avoir des boutiques sur plusieurs marketplaces Amazon ?", options: ["Pour payer moins d’impôts partout", "Pour diversifier les marchés, les devises et toucher plus de clients", "Pour contourner toutes les lois locales", "Juste pour avoir plus de logos"], correct: 1, fact: "Multiplier les marketplaces permet de diversifier les sources de revenus, d’accéder à des clientèles locales et de limiter la dépendance à un seul pays.", },
+
+    { q: "Quelle est la devise de la République française inscrite dans la Constitution ?", options: ["Liberté, Égalité, Fraternité", "Travail, Famille, Patrie", "Paix, Justice, Solidarité", "Unité, Force, Honneur"], correct: 0, fact: "La devise officielle de la République française est « Liberté, Égalité, Fraternité », inscrite à l’article 2 de la Constitution.", },
+    { q: "Quel principe garantit la liberté de croire, de ne pas croire et la séparation des Églises et de l’État ?", options: ["La solidarité", "La laïcité", "La fraternité", "La subsidiarité"], correct: 1, fact: "La laïcité est un principe constitutionnel qui protège la liberté de conscience et l’égalité de tous quelle que soit leur religion.", },
+    { q: "Quel droit permet à tout citoyen de se déplacer librement sur le territoire français, d’en sortir et d’y revenir ?", options: ["La libre-pensée", "La libre circulation", "Le libre commerce", "La libre défense"], correct: 1, fact: "Le droit à la libre circulation fait partie des libertés fondamentales reconnues aux citoyens.", },
+    { q: "Être juré d’assises lorsqu’on est tiré au sort illustre surtout :", options: ["Un loisir", "Un simple choix personnel sans conséquence", "Une responsabilité citoyenne dans la justice", "Un privilège réservé aux élus"], correct: 2, fact: "Participer à un jury d’assises est une responsabilité civique qui associe les citoyens au fonctionnement de la justice pénale.", },
+    { q: "Quelle attitude correspond à un engagement citoyen positif ?", options: ["Ignorer les élections et les débats", "S’informer, débattre et participer à la vie associative ou locale", "Diffuser de fausses informations", "Refuser systématiquement le dialogue"], correct: 1, fact: "L’éducation à la citoyenneté encourage l’information, le débat et la participation à la vie démocratique et associative.", },
+
+    { q: "Quel droit fondamental garantit la possibilité de critiquer le gouvernement dans le respect de la loi ?", options: ["La liberté d’expression", "La liberté de consommer", "La liberté de circuler sans papiers", "La liberté de ne pas déclarer ses revenus"], correct: 0, fact: "La liberté d’expression permet de s’exprimer et de critiquer, dans le respect de la loi (diffamation, injure, incitation à la haine sont interdites).", },
+    { q: "Quel devoir citoyen est directement lié au fonctionnement de la démocratie représentative ?", options: ["Voter ou s’abstenir en connaissance de cause", "Regarder les débats à la télévision", "Signer toutes les pétitions", "Être d’accord avec le gouvernement"], correct: 0, fact: "La participation aux élections est un devoir civique important pour faire vivre la démocratie, même si le vote n’est pas juridiquement obligatoire.", },
+    { q: "Quel droit protège la vie privée et les données personnelles du citoyen ?", options: ["Le droit à la propriété uniquement", "Le droit à la protection des données et au respect de la vie privée", "Le droit à l’anonymat absolu", "Le droit de tout cacher au fisc"], correct: 1, fact: "Le citoyen bénéficie d’un droit au respect de sa vie privée et à la protection de ses données, encadré notamment par le RGPD.", },
+    { q: "Quel devoir est lié au respect des autres citoyens dans l’espace public ?", options: ["Imposer ses opinions", "Respecter les lois, les règles de civilité et l’égalité entre les personnes", "Refuser tout contrôle", "Répondre à la violence par la violence"], correct: 1, fact: "Le citoyen doit respecter la loi, les autres personnes et les principes d’égalité et de non‑discrimination.", },
+    { q: "Quel droit permet à un citoyen ou à un groupe de citoyens de se rassembler pacifiquement pour défendre une cause ?", options: ["Le droit d’asile", "La liberté de réunion et de manifestation", "Le droit au secret de la défense", "La liberté de commerce"], correct: 1, fact: "La liberté de réunion et de manifestation autorise les citoyens à se rassembler pacifiquement, dans le cadre légal fixé par l’État.", },
+
+    { q: "Quel texte fondamental rappelle les droits et devoirs du citoyen français lors de l’accès à la nationalité ?", options: ["La Charte des droits et devoirs du citoyen français", "Le Code de la route", "Le règlement intérieur des écoles", "Le Code civil seulement"], correct: 0, fact: "La Charte des droits et devoirs du citoyen français résume les principaux droits et obligations liés à la citoyenneté.", },
+    { q: "Parmi ces propositions, lequel est un droit politique du citoyen français ?", options: ["Ne jamais payer d’impôts", "Voter et être éligible", "Refuser toute loi", "Choisir ses propres juges"], correct: 1, fact: "Le citoyen français dispose du droit de vote et peut se porter candidat à certaines élections dans le respect de la loi.", },
+    { q: "Quel devoir financier fondamental pèse sur tout citoyen français selon ses capacités ?", options: ["Donner à une œuvre caritative", "Contribuer aux dépenses publiques par l’impôt", "Faire un don annuel à son maire", "Payer uniquement la TVA"], correct: 1, fact: "Tout citoyen doit contribuer, selon ses ressources, aux dépenses de la Nation via les impôts et cotisations sociales.", },
+    { q: "Quel devoir participe directement à la défense et à la sécurité du pays ?", options: ["Respecter les règles de grammaire", "Participer à la journée défense et citoyenneté (JDC)", "Signer une charte d’amitié", "Voter blanc à chaque élection"], correct: 1, fact: "La participation à la JDC fait partie des obligations liées au devoir de défense nationale.", },
+    { q: "Quel comportement illustre le devoir de respecter la loi et autrui ?", options: ["Se faire justice soi-même", "Accepter une décision de justice même si elle déplaît", "Refuser toute contrainte", "Ignorer les règles électorales"], correct: 1, fact: "Le citoyen doit respecter les décisions de justice et ne pas se faire justice lui‑même, pour garantir l’État de droit.", },
+
+    { q: "Dans quel océan se trouvent la Guadeloupe et la Martinique ?", options: ["Océan Indien", "Océan Atlantique", "Océan Pacifique", "Mer du Nord"], correct: 1, fact: "Les Antilles françaises sont situées dans la partie tropicale de l’océan Atlantique, en mer des Caraïbes.", },
+    { q: "Quelle langue régionale est largement parlée aux Antilles françaises en plus du français ?", options: ["Basque", "Breton", "Créole", "Occitan"], correct: 2, fact: "Le créole est une langue très vivante en Guadeloupe, Martinique et dans d’autres territoires ultramarins.", },
+    { q: "Quel est le surnom traditionnel de l’île de Mayotte ?", options: ["Île aux parfums", "Île aux oiseaux", "Île de feu", "Île aux volcans"], correct: 0, fact: "Mayotte est souvent appelée « l’île aux parfums » en raison de la culture d’ylang-ylang et d’épices.", },
+    { q: "Quelle danse est emblématique des Antilles françaises ?", options: ["Fado", "Gwoka / Bèlè", "Flamenco", "Tango"], correct: 1, fact: "Le gwoka en Guadeloupe et le bèlè en Martinique sont des piliers de l’identité culturelle antillaise.", },
+    { q: "Quel sigle plus ancien reste encore utilisé dans le langage courant pour parler des territoires ultramarins français ?", options: ["RUP", "UEO", "DOM-TOM", "COM-RUP"], correct: 2, fact: "Même si l’on parle officiellement de DROM-COM, l’expression DOM-TOM reste très utilisée dans la vie quotidienne.", },
+
+    { q: "Quel est aujourd’hui le territoire français d’outre-mer le plus peuplé ?", options: ["La Réunion", "Guadeloupe", "Polynésie française", "Nouvelle-Calédonie"], correct: 0, fact: "La Réunion est l’un des territoires d’outre-mer les plus peuplés, devant la Guadeloupe et la Martinique.", },
+    { q: "Quel DROM n’est pas une île mais une partie de continent ?", options: ["Guadeloupe", "Martinique", "Réunion", "Guyane"], correct: 3, fact: "La Guyane se trouve sur le continent sud-américain, alors que les autres DROM sont insulaires.", },
+    { q: "Dans quel océan se trouve la Polynésie française ?", options: ["Atlantique", "Pacifique", "Indien", "Arctique"], correct: 1, fact: "La Polynésie française est située au cœur de l’océan Pacifique, à plus de 15 000 km de Paris.", },
+    { q: "Quel territoire d’outre-mer français est le plus éloigné de la métropole en distance ?", options: ["Guadeloupe", "Polynésie française", "Réunion", "Nouvelle-Calédonie"], correct: 1, fact: "La Polynésie française est l’un des territoires français les plus éloignés de la métropole, avec plus de 16 000 km.", },
+    { q: "Que signifie exactement l’acronyme DROM ?", options: ["Départements et Régions d’Outre-Mer", "Districts et Régions d’Outre-Mer", "Domaines et Ressources d’Outre-Mer", "Départements rattachés à l’Outre-Mer"], correct: 0, fact: "DROM signifie Départements et Régions d’Outre-Mer : Guadeloupe, Martinique, Guyane, La Réunion et Mayotte.", },
+
+    { q: "Quel est le seul territoire d’outre-mer français situé sur le continent sud-américain ?", options: ["Guyane", "Guadeloupe", "Nouvelle-Calédonie", "Polynésie française"], correct: 0, fact: "La Guyane française se trouve sur la côte nord de l’Amérique du Sud, entre le Brésil et le Suriname.", },
+    { q: "Parmi ces territoires, lequel n’est pas dans les Caraïbes ?", options: ["Guadeloupe", "Martinique", "Guyane", "Saint-Martin"], correct: 2, fact: "La Guyane est en Amérique du Sud, alors que Guadeloupe, Martinique et Saint-Martin sont dans la zone caraïbe.", },
+    { q: "Dans quel océan se trouvent La Réunion et Mayotte ?", options: ["Atlantique", "Pacifique", "Indien", "Arctique"], correct: 2, fact: "La Réunion et Mayotte sont situées dans l’océan Indien, à l’est de l’Afrique.", },
+    { q: "Quel territoire ultramarin regroupe les Kerguelen, la Terre Adélie et les îles Éparses ?", options: ["Polynésie française", "Nouvelle-Calédonie", "TAAF", "Wallis-et-Futuna"], correct: 2, fact: "Les Terres australes et antarctiques françaises (TAAF) rassemblent plusieurs archipels subantarctiques et la Terre Adélie.", },
+    { q: "Parmi ces territoires, lequel possède un statut de collectivité d’outre-mer avec large autonomie et propre gouvernement ?", options: ["Polynésie française", "Guadeloupe", "Réunion", "Martinique"], correct: 0, fact: "La Polynésie française est une collectivité d’outre-mer dotée d’une large autonomie et d’institutions propres.", },
+
+    { q: "Comment appelle-t-on aujourd’hui officiellement l’ensemble DOM-TOM ?", options: ["Territoires impériaux français", "DROM-COM", "Pays associés", "Provinces d’outre-mer"], correct: 1, fact: "On parle de DROM-COM : départements et régions d’outre-mer et collectivités d’outre-mer.", },
+    { q: "Parmi ces territoires, lequel est une collectivité d’outre-mer et non un département ?", options: ["Guadeloupe", "Martinique", "Saint-Pierre-et-Miquelon", "Réunion"], correct: 2, fact: "Saint-Pierre-et-Miquelon est une collectivité d’outre-mer, alors que Guadeloupe, Martinique et Réunion sont des départements et régions d’outre-mer.", },
+    { q: "Quel territoire français est situé dans l’océan Indien aux côtés de Mayotte et dépend du tribunal de Saint-Denis ?", options: ["Nouvelle-Calédonie", "La Réunion", "Polynésie française", "Saint-Barthélemy"], correct: 1, fact: "La Réunion est un département et une région d’outre-mer dans l’océan Indien.", },
+    { q: "Dans l’organisation française, quelle collectivité est en principe la plus proche du quotidien des habitants (état civil, écoles primaires, voirie locale) ?", options: ["La région", "Le département", "La commune", "La collectivité d’outre-mer"], correct: 2, fact: "La commune est l’échelon le plus proche des citoyens, y compris en outre-mer.", },
+    { q: "Quel terme regroupe les territoires comme la Polynésie française, Wallis-et-Futuna ou Saint-Barthélemy ?", options: ["Régions ultrapériphériques", "Collectivités d’outre-mer", "Territoires associés européens", "Zones spéciales de l’ONU"], correct: 1, fact: "Polynésie française, Wallis-et-Futuna ou Saint-Barthélemy sont des collectivités d’outre-mer (COM).", },
+
+    { q: "Quel type de collectivité est la Guadeloupe depuis 2015 ?", options: ["Collectivité territoriale unique", "Département et région distincts", "Région seulement", "Territoire d’outre-mer"], correct: 1, fact: "La Guadeloupe reste organisée en département et région distincts, contrairement à la Martinique ou à la Guyane qui sont devenues des collectivités uniques.", },
+    { q: "Quelle assemblée délibérante siège à l’Hôtel de région de Basse-Terre pour la Guadeloupe ?", options: ["Conseil territorial", "Conseil régional de Guadeloupe", "Conseil d’archipel", "Assemblée générale 971"], correct: 1, fact: "Le Conseil régional de Guadeloupe siège à Basse-Terre et gère les compétences régionales (économie, lycées, transports, etc.).", },
+    { q: "En Martinique, comment s’appelle l’assemblée d’élus qui vote le budget et les politiques publiques de la CTM ?", options: ["Assemblée de Martinique", "Sénat martiniquais", "Parlement créole", "Conseil général"], correct: 0, fact: "L’Assemblée de Martinique est l’organe délibérant de la Collectivité territoriale de Martinique (CTM).", },
+    { q: "La Guyane est aujourd’hui :", options: ["Un territoire d’outre-mer sans département", "Une collectivité territoriale unique exerçant région et département", "Une simple région sans département", "Un État indépendant associé à la France"], correct: 1, fact: "Depuis 2016, la Guyane est une collectivité territoriale unique qui remplace l’ancien département et l’ancienne région.", },
+    { q: "À La Réunion, qui gère principalement les collèges publics ?", options: ["La commune", "Le Conseil régional", "Le département", "Le préfet"], correct: 2, fact: "Comme en métropole, le département gère les collèges tandis que la région gère les lycées et la mobilité régionale.", },
+
+    { q: "Quel site officiel correspond au Conseil régional de Guadeloupe ?", options: ["region971.fr", "regionguadeloupe.com", "regionguadeloupe.fr", "guadeloupe-region.gouv.fr"], correct: 2, fact: "Le site officiel du Conseil régional de Guadeloupe est https://www.regionguadeloupe.fr, portail des politiques régionales et aides économiques.", },
+    { q: "Comment s’appelle la collectivité unique qui gère à la fois les compétences de région et de département en Martinique ?", options: ["Région Martinique", "Conseil général de Martinique", "Collectivité territoriale de Martinique (CTM)", "Assemblée martiniquaise unifiée"], correct: 2, fact: "La Collectivité territoriale de Martinique (CTM) regroupe depuis 2015 l’ancienne région et le département sur un même territoire.", },
+    { q: "Sur quel site officiel peut-on trouver les infos et coordonnées de la Collectivité territoriale de Martinique (CTM) ?", options: ["ctm972.fr", "collectivite-martinique.org", "service-public.gouv.fr (fiche CTM)", "martinique-assemblee.fr"], correct: 2, fact: "La fiche officielle de la CTM est accessible via l’annuaire de l’administration sur service-public.gouv.fr.", },
+    { q: "Quel organisme exerce les compétences régionales à La Réunion ?", options: ["Conseil régional de La Réunion", "Conseil d’archipel de La Réunion", "Conseil insulaire réunionnais", "Délégation préfectorale régionale"], correct: 0, fact: "Le Conseil régional de La Réunion est l’assemblée délibérante de la région, en charge notamment du développement économique, des lycées et des transports régionaux.", },
+    { q: "Quel est le site officiel de la Région Réunion (Conseil régional) ?", options: ["region-reunion.fr", "regionreunion.com", "reunion.gouv.fr", "reunion-region.org"], correct: 1, fact: "Le site officiel de la Région Réunion est https://regionreunion.com, qui présente les compétences, aides et actualités régionales.", },
+
+    { q: "Quel site officiel présente les services de l’État en Guadeloupe ?", options: ["guadeloupe.fr", "guadeloupe.gouv.fr", "pref-guadeloupe.com", "etat971.org"], correct: 1, fact: "Le portail officiel des services de l’État en Guadeloupe est https://www.guadeloupe.gouv.fr, avec toutes les infos préfecture et démarches.", },
+    { q: "Pour la Martinique, quel est le portail officiel des services de l’État ?", options: ["martinique.fr", "martinique.gouv.fr", "972-pref.fr", "antilles-etat.org"], correct: 1, fact: "Le site officiel des services de l’État en Martinique est https://www.martinique.gouv.fr, qui regroupe préfecture et actualités.", },
+    { q: "Où trouver les informations officielles de la préfecture de Guyane ?", options: ["guyane-pref.fr", "dom-guyane.org", "guyane.gouv.fr", "amazonie-etat.fr"], correct: 2, fact: "La préfecture de région Guyane et ses services sont présentés sur https://www.guyane.gouv.fr, portail officiel de l’État.", },
+    { q: "Quel rôle principal joue le préfet dans un département d’outre-mer comme la Guyane ou la Guadeloupe ?", options: ["Représentant de l’État et du gouvernement", "Maire de la capitale", "Président du conseil départemental", "Directeur des douanes"], correct: 0, fact: "Le préfet est le représentant de l’État et du gouvernement dans le territoire, chargé de l’ordre public et de la mise en œuvre des politiques nationales.", },
+    { q: "Pour connaître les horaires et contacts de la préfecture à Basse-Terre (Guadeloupe), quel lien est le plus direct ?", options: ["Accueil du site guadeloupe.gouv.fr", "Page « Préfecture » de guadeloupe.gouv.fr", "Site de la région Guadeloupe", "Site du conseil départemental"], correct: 1, fact: "La page « Préfecture » sur https://www.guadeloupe.gouv.fr détaille adresse, horaires et contacts du Palais d’Orléans à Basse-Terre.", },
+
+    { q: "Aux Antilles, que sont les acras de morue ?", options: ["Des beignets salés de poisson", "Un ragoût de bœuf", "Un dessert à la noix de coco", "Une boisson au rhum"], correct: 0, fact: "Les acras de morue sont de petits beignets frits à base de morue salée et d’épices, très populaires en Guadeloupe et Martinique." },
+    { q: "Quel plat créole mélange souvent pois rouges ou lentilles avec de petites boules de pâte mijotées en sauce ?", options: ["Colombo", "Dombrés", "Bébélé", "Matoutou"], correct: 1, fact: "Les dombrés sont des boulettes de pâte cuites longuement dans une sauce, parfois avec ouassous, haricots rouges ou lentilles." },
+    { q: "Le colombo de poulet est principalement assaisonné avec :", options: ["Du curry antillais", "Du paprika fumé", "Du safran pur", "Du garam masala"], correct: 0, fact: "Le colombo utilise un mélange d’épices inspiré du curry, devenu une signature de la cuisine antillaise." },
+    { q: "Quel dessert antillais est un flan froid parfumé à la noix de coco, souvent appelé blanc‑manger coco ?", options: ["Tourment d’amour", "Flan coco caramel", "Blanc‑manger", "Pudding rhum‑raisins"], correct: 2, fact: "Le blanc‑manger coco est un dessert frais à base de lait de coco et de gélifiant, très apprécié sous les tropiques." },
+    { q: "Dans la cuisine créole, que désigne la « sauce chien » ?", options: ["Une sauce piquante aux herbes", "Une marinade sucrée au rhum", "Une sauce au chocolat", "Un bouillon de poisson clair"], correct: 0, fact: "La sauce chien est une sauce chaude ou tiède à base d’oignons, cives, piment, ail et huile, servie avec grillades et poissons." },
+
+    { q: "Dans quel département d’outre-mer se trouve la ville de Fort-de-France ?", options: ["Guadeloupe", "Guyane", "Réunion", "Martinique"], correct: 3, fact: "Fort-de-France est la préfecture de la Martinique, au cœur des Antilles françaises." },
+    { q: "Quel département d’outre-mer abrite la base spatiale de Kourou ?", options: ["Réunion", "Guyane", "Martinique", "Mayotte"], correct: 1, fact: "Le Centre Spatial Guyanais de Kourou, en Guyane, est un site stratégique pour les lancements européens." },
+    { q: "Sur quel département d’outre-mer domine le volcan Piton de la Fournaise ?", options: ["Martinique", "Réunion", "Guadeloupe", "Guyane"], correct: 1, fact: "Le Piton de la Fournaise, à La Réunion, est l’un des volcans les plus actifs au monde." },
+    { q: "Le carnaval de Cayenne et le bagne des îles du Salut sont associés à quel territoire français ?", options: ["Martinique", "Guadeloupe", "Guyane", "Réunion"], correct: 2, fact: "La Guyane française combine une histoire marquée par le bagne et une forte culture carnavalesque." },
+    { q: "Quel département d’outre-mer est connu pour la Montagne Pelée et la ville de Saint-Pierre détruite en 1902 ?", options: ["Réunion", "Martinique", "Guadeloupe", "Guyane"], correct: 1, fact: "La Montagne Pelée, en Martinique, a détruit la ville de Saint-Pierre en 1902 lors d’une éruption meurtrière." },
+
+    { q: "Sur quel continent se trouve la Guadeloupe administrativement ?", options: ["Europe", "Amérique", "Afrique", "Océanie"], correct: 0, fact: "La Guadeloupe est géographiquement en Amérique mais politiquement en Europe via la France." },
+    { q: "Quel pays est souvent appelé « l’atelier du monde » grâce à son industrie ?", options: ["États-Unis", "Allemagne", "Chine", "Inde"], correct: 2, fact: "La Chine est devenue l’atelier du monde grâce à sa puissance industrielle et logistique." },
+    { q: "Quelle ville est connue pour son immense Christ Rédempteur dominant la baie ?", options: ["Lisbonne", "Rio de Janeiro", "Athènes", "Le Cap"], correct: 1, fact: "La statue du Christ Rédempteur domine Rio de Janeiro et fait partie des icônes du Brésil." },
+    { q: "Quel territoire français abrite le centre spatial de Kourou ?", options: ["Réunion", "Guyane", "Martinique", "Mayotte"], correct: 1, fact: "Le Centre Spatial Guyanais de Kourou permet de lancer des fusées vers l’espace depuis l’Amérique du Sud." },
+    { q: "Quel pays est célèbre pour ses fjords, ses aurores boréales et ses paysages vikings ?", options: ["Norvège", "Portugal", "Irlande", "Pologne"], correct: 0, fact: "La Norvège est mondialement connue pour ses fjords et ses aurores boréales spectaculaires." },
+
+    { q: "Quel pays possède la Grande Barrière de Corail ?", options: ["Mexique", "Australie", "Afrique du Sud", "États-Unis"], correct: 1, fact: "La Grande Barrière de Corail s’étend sur plus de 2300 km au large de l’Australie." },
+    { q: "Dans quel pays se trouve la ville de Singapour ?", options: ["Malaisie", "Singapour", "Indonésie", "Thaïlande"], correct: 1, fact: "Singapour est une cité‑État indépendante et l’un des plus grands hubs financiers du monde." },
+    { q: "Quel territoire français abrite le volcan de la Soufrière ?", options: ["Martinique", "Guadeloupe", "Réunion", "Mayotte"], correct: 1, fact: "La Soufrière est le volcan actif de Basse‑Terre, en Guadeloupe." },
+    { q: "Quel pays est célèbre pour le Taj Mahal ?", options: ["Pakistan", "Bangladesh", "Inde", "Népal"], correct: 2, fact: "Le Taj Mahal, en Inde, est un mausolée classé au patrimoine mondial de l’UNESCO." },
+    { q: "Dans quel pays se trouve la ville de Rio de Janeiro ?", options: ["Argentine", "Portugal", "Brésil", "Chili"], correct: 2, fact: "Rio de Janeiro est l’ancienne capitale du Brésil et l’une des villes les plus visitées au monde." },
+
+    { q: "Quel pays a le plus de sites UNESCO ?", options: ["France", "Italie", "Espagne", "Chine"], correct: 1, fact: "L'Italie détient le record avec 58 sites !" },
+    { q: "Quelle est la capitale du Brésil ?", options: ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"], correct: 2, fact: "Brasília a été construite en seulement 4 ans !" },
+    { q: "Combien de boutiques Amazon REUSSITESS® couvre ?", options: ["10", "18", "26", "34"], correct: 2, fact: "26 boutiques dans 14 pays sur 5 continents !" },
+    { q: "Quel territoire français est en Amérique du Sud ?", options: ["Martinique", "Guadeloupe", "Guyane", "Mayotte"], correct: 2, fact: "La Guyane abrite le Centre Spatial de Kourou !" },
+    { q: "Quelle île a 840 langues différentes ?", options: ["Madagascar", "Papouasie-Nouvelle-Guinée", "Philippines", "Indonésie"], correct: 1, fact: "Record mondial de diversité linguistique !" },
+    { q: "Quel pays abrite la Tour Eiffel ?", options: ["Belgique", "Suisse", "France", "Monaco"], correct: 2, fact: "La Tour Eiffel reçoit 7 millions de visiteurs par an !" },
+    { q: "Où se trouve la Sagrada Familia ?", options: ["Italie", "Portugal", "Espagne", "France"], correct: 2, fact: "Conçue par Gaudí, elle est en construction depuis 1882 !" },
+    { q: "Quelle est la langue officielle du Sénégal ?", options: ["Anglais", "Français", "Portugais", "Arabe"], correct: 1, fact: "Le Sénégal est connu pour sa Teranga (hospitalité) !" }
+  ];
+
+  const languages = [
+    { code: 'fr-FR', flag: '🇫🇷', name: 'Français' },
+    { code: 'en-US', flag: '🇺🇸', name: 'English' },
+    { code: 'es-ES', flag: '🇪🇸', name: 'Español' },
+    { code: 'de-DE', flag: '🇩🇪', name: 'Deutsch' },
+    { code: 'it-IT', flag: '🇮🇹', name: 'Italiano' },
+    { code: 'pt-BR', flag: '🇧🇷', name: 'Português' },
+    { code: 'zh-CN', flag: '🇨🇳', name: '中文' },
+    { code: 'ar-SA', flag: '🇸🇦', name: 'العربية' }
+  ];
+
+  const greetings = {
+    'fr-FR': '🌟 Bienvenue ! Je suis le SUPER Bot REUSSITESS®, le plus intelligent et modeste des assistants ! Mon ego est à 100%, prêt à t\'épater ! 😎',
+    'en-US': '🌟 Welcome! I am the SUPER REUSSITESS® Bot, the smartest and most humble assistant! My ego is at 100%, ready to amaze you! 😎',
+    'es-ES': '🌟 ¡Bienvenido! Soy el SUPER Bot REUSSITESS®, ¡el asistente más inteligente y modesto! Mi ego está al 100%, ¡listo para impresionarte! 😎',
+    'de-DE': '🌟 Willkommen! Ich bin der SUPER REUSSITESS® Bot, der klügste und bescheidenste Assistent! Mein Ego ist bei 100%, bereit, Sie zu beeindrucken! 😎',
+    'it-IT': '🌟 Benvenuto! Sono il SUPER Bot REUSSITESS®, l\'assistente più intelligente e modesto! Il mio ego è al 100%, pronto a stupirti! 😎',
+    'pt-BR': '🌟 Bem-vindo! Sou o SUPER Bot REUSSITESS®, o assistente mais inteligente e modesto! Meu ego está em 100%, pronto para impressioná-lo! 😎',
+    'zh-CN': '🌟 欢迎！我是超级 REUSSITESS® 机器人，最聪明最谦虚的助手！我的自信度100%，准备好让你惊叹！😎',
+    'ar-SA': '🌟 مرحباً! أنا روبوت REUSSITESS® الخارق، أذكى وأكثر المساعدين تواضعاً! غروري 100%، مستعد لإبهارك! 😎'
+  };
+
+  // BASE DE CONNAISSANCES COMPLÈTE - 55 PAGES
+  const knowledgeBase = {
+    // NOUVEAU : BASE DE CONNAISSANCES RÉGIONALES
+    'region-europe': {
+      titre: 'Pays de la région Europe',
+      contenu: 'La bibliothèque mondiale REUSSITESS® couvre la **France, l’Angleterre, l’Italie, l’Allemagne, l’Espagne, et la Suède**. Pour en savoir plus, tapez le nom d’un de ces pays.',
+      motsCles: 'europe, e-u, ue, union européenne, est, ouest, pays européens'
+    },
+    'region-asie-pacifique': {
+      titre: 'Pays de la région Asie-Pacifique',
+      contenu: 'Nous avons des fiches complètes pour **Singapour, l’Australie, la Nouvelle-Zélande, et l’Inde**. Ces pays sont essentiels à notre stratégie logistique.',
+      motsCles: 'asie, pacifique, asie-pacifique, sud-est, orient, pays asiatiques'
+    },
+    'region-amerique': {
+      titre: 'Pays de la région Amériques',
+      contenu: 'Nous couvrons les **États-Unis, le Canada et le Brésil**. Ces pays représentent des marchés majeurs pour nos boutiques Amazon.',
+      motsCles: 'amérique, nord, sud, latine, pays américains, usa, canada',    },
+  };  // ici tu peux réutiliser knowledgeBase dans ton composant
+  // par exemple : const fullKnowledge = useFullKnowledge(knowledgeBase);
+
+  return null;
+}
+
+export default BotAssistant;

@@ -1,43 +1,48 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
+"use client";
+import { useState, useEffect, useRef } from "react";
 
 export default function BotAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [currentLang, setCurrentLang] = useState('fr-FR');
-  const [userName, setUserName] = useState('');
+  const [currentLang, setCurrentLang] = useState("fr-FR");
+  const [userName, setUserName] = useState("");
   const messagesEndRef = useRef(null);
 
   const languages = [
-    { code: 'fr-FR', flag: '🇫🇷', name: 'Français' },
-    { code: 'en-US', flag: '🇺🇸', name: 'English' },
-    { code: 'es-ES', flag: '🇪🇸', name: 'Español' },
-    { code: 'de-DE', flag: '🇩🇪', name: 'Deutsch' },
-    { code: 'it-IT', flag: '🇮🇹', name: 'Italiano' },
-    { code: 'pt-BR', flag: '🇧🇷', name: 'Português' }
+    { code: "fr-FR", flag: "🇫🇷", name: "Français" },
+    { code: "en-US", flag: "🇺🇸", name: "English" },
+    { code: "es-ES", flag: "🇪🇸", name: "Español" },
+    { code: "de-DE", flag: "🇩🇪", name: "Deutsch" },
+    { code: "it-IT", flag: "🇮🇹", name: "Italiano" },
+    { code: "pt-BR", flag: "🇧🇷", name: "Português" },
   ];
 
   const greetings = {
-    'fr-FR': 'Salut ! Je m\'appelle Alex, et franchement, je suis super content de vous rencontrer. Je suis passionné de culture et de voyages depuis toujours. RÉUSSITESS, c\'est vraiment mon projet coup de cœur - une plateforme qui réunit 62 pages sur le patrimoine de 5 continents, 26 boutiques Amazon, et 5 innovations mondiales UNIQUES que vous ne trouverez nulle part ailleurs ! Parlez-moi comme à un ami. Qu\'est-ce qui vous intéresse ?',
-    'en-US': 'Hey! I\'m Alex, genuinely passionate about world culture. RÉUSSITESS is my dream project - 62 heritage pages, 26 Amazon stores, and 5 unique innovations. Ask me anything!',
-    'es-ES': '¡Hola! Soy Alex, apasionado por la cultura mundial. RÉUSSITESS tiene 62 páginas, 26 tiendas y 5 innovaciones únicas. ¡Pregúntame!',
-    'de-DE': 'Hallo! Ich bin Alex, Kultur-Enthusiast. RÉUSSITESS hat 62 Seiten, 26 Shops und 5 einzigartige Innovationen!',
-    'it-IT': 'Ciao! Sono Alex, appassionato di cultura. RÉUSSITESS ha 62 pagine, 26 negozi e 5 innovazioni uniche!',
-    'pt-BR': 'Oi! Sou Alex, apaixonado por cultura. RÉUSSITESS tem 62 páginas, 26 lojas e 5 inovações únicas!'
+    "fr-FR":
+      "Salut ! Je m'appelle Alex, et franchement, je suis super content de vous rencontrer. Je suis passionné de culture et de voyages depuis toujours. RÉUSSITESS, c'est vraiment mon projet coup de cœur - une plateforme qui réunit 62 pages sur le patrimoine de 5 continents, 26 boutiques Amazon, et 5 innovations mondiales UNIQUES que vous ne trouverez nulle part ailleurs ! Parlez-moi comme à un ami. Qu'est-ce qui vous intéresse ?",
+    "en-US":
+      "Hey! I'm Alex, genuinely passionate about world culture. RÉUSSITESS is my dream project - 62 heritage pages, 26 Amazon stores, and 5 unique innovations. Ask me anything!",
+    "es-ES":
+      "¡Hola! Soy Alex, apasionado por la cultura mundial. RÉUSSITESS tiene 62 páginas, 26 tiendas y 5 innovaciones únicas. ¡Pregúntame!",
+    "de-DE":
+      "Hallo! Ich bin Alex, Kultur-Enthusiast. RÉUSSITESS hat 62 Seiten, 26 Shops und 5 einzigartige Innovationen!",
+    "it-IT":
+      "Ciao! Sono Alex, appassionato di cultura. RÉUSSITESS ha 62 pagine, 26 negozi e 5 innovazioni uniche!",
+    "pt-BR":
+      "Oi! Sou Alex, apaixonado por cultura. RÉUSSITESS tem 62 páginas, 26 lojas e 5 inovações únicas!",
   };
 
   // BASE DE CONNAISSANCES EXHAUSTIVE - TOUT LE PROJET
   const KNOWLEDGE_BASE = {
-    
     // 5 INNOVATIONS MONDIALES UNIQUES
     innovations: {
       culturalDNA: {
-        nom: 'CULTURAL DNA MATCH',
-        emoji: '🧬',
-        tagline: 'Votre ADN culturel personnel basé sur vos ancêtres',
+        nom: "CULTURAL DNA MATCH",
+        emoji: "🧬",
+        tagline: "Votre ADN culturel personnel basé sur vos ancêtres",
         description: `CULTURAL DNA MATCH est une innovation MONDIALE EXCLUSIVE qui trace votre héritage culturel complet sur 10 générations et crée votre "passeport culturel personnel".
 
 **COMMENT ÇA MARCHE:**
@@ -48,23 +53,23 @@ Imaginons que vous découvrez que votre arrière-grand-mère était guadeloupée
 
 **POURQUOI C'EST RÉVOLUTIONNAIRE:**
 Personne au monde n'a jamais relié patrimoine UNESCO, généalogie familiale et intelligence artificielle de cette manière. Cela répond au besoin humain universel fondamental "qui suis-je, d'où je viens ?". Cette innovation valorise le métissage et la diversité culturelle tout en créant une connexion émotionnelle profonde et personnelle avec la plateforme RÉUSSITESS.`,
-        
+
         avantages: [
-          'Découverte patrimoine ancestral personnalisé',
-          'Carte 3D interactive de votre héritage',
-          '50-200 sites UNESCO liés à VOS ancêtres',
+          "Découverte patrimoine ancestral personnalisé",
+          "Carte 3D interactive de votre héritage",
+          "50-200 sites UNESCO liés à VOS ancêtres",
           'Itinéraire "retour aux racines" sur-mesure',
-          'Recettes familiales des cultures d\'origine',
-          'Musique ancestrale playlist personnalisée',
-          'Apprentissage langues de vos ancêtres',
-          'Connexion émotionnelle profonde à l\'histoire'
-        ]
+          "Recettes familiales des cultures d'origine",
+          "Musique ancestrale playlist personnalisée",
+          "Apprentissage langues de vos ancêtres",
+          "Connexion émotionnelle profonde à l'histoire",
+        ],
       },
 
       timeMachine: {
-        nom: 'TIME MACHINE CULTURAL',
-        emoji: '⏰',
-        tagline: 'Voyagez dans le temps à n\'importe quel site UNESCO',
+        nom: "TIME MACHINE CULTURAL",
+        emoji: "⏰",
+        tagline: "Voyagez dans le temps à n'importe quel site UNESCO",
         description: `TIME MACHINE CULTURAL est une reconstitution 3D immersive ultra-réaliste de TOUS les sites UNESCO à différentes époques historiques, propulsée par l'IA générative et la narration vocale d'experts virtuels.
 
 **COMMENT ÇA MARCHE:**
@@ -82,23 +87,23 @@ Tour Eiffel Paris - Construction 1887-1889 avec ouvriers sur échafaudages VS mo
 
 **POURQUOI C'EST UNIQUE:**
 Aucune application au monde ne combine IA générative de pointe, reconstitution historique scientifique précise, et patrimoine UNESCO de cette manière. C'est à la fois profondément éducatif ET spectaculairement divertissant. Les utilisateurs passeraient littéralement des HEURES à explorer différentes époques. Utilise l'API ChatGPT-4 pour narrations et Midjourney/Stable Diffusion pour générer les visuels 3D en temps réel.`,
-        
+
         avantages: [
-          'Visite 1 157 sites UNESCO à toutes époques',
-          'Reconstitution 3D ultra-réaliste IA',
-          'Sons et musiques d\'époque authentiques',
-          'Guide virtuel Alex narration immersive',
-          'Mode comparaison avant/après split-screen',
-          'Éducatif + Spectaculaire + Viral',
-          'Technologie IA générative de pointe',
-          'Contenu infiniment rejouable'
-        ]
+          "Visite 1 157 sites UNESCO à toutes époques",
+          "Reconstitution 3D ultra-réaliste IA",
+          "Sons et musiques d'époque authentiques",
+          "Guide virtuel Alex narration immersive",
+          "Mode comparaison avant/après split-screen",
+          "Éducatif + Spectaculaire + Viral",
+          "Technologie IA générative de pointe",
+          "Contenu infiniment rejouable",
+        ],
       },
 
       culturalGuardian: {
-        nom: 'CULTURAL GUARDIAN',
-        emoji: '👼',
-        tagline: 'Votre ange gardien culturel qui vous alerte partout',
+        nom: "CULTURAL GUARDIAN",
+        emoji: "👼",
+        tagline: "Votre ange gardien culturel qui vous alerte partout",
         description: `CULTURAL GUARDIAN est votre ange gardien culturel personnel qui utilise la géolocalisation GPS en temps réel pour vous alerter instantanément quand vous êtes à proximité d'un site culturel, historique ou patrimonial, même les lieux non-touristiques méconnus.
 
 **COMMENT ÇA MARCHE:**
@@ -115,23 +120,23 @@ Vous gagnez des points d'expérience (XP) pour chaque site découvert : +10 XP s
 
 **POURQUOI C'EST INDISPENSABLE:**
 Cela transforme littéralement chaque balade quotidienne en aventure culturelle palpitante. Éducation culturelle continue et invisible, apprentissage sans effort. Redécouverte de sa propre ville natale avec un regard totalement neuf. Fonctionne partout dans le monde avec couverture de 195 pays. ZÉRO concurrence sur ce concept exact, innovation mondiale.`,
-        
+
         avantages: [
-          'Alertes géolocalisées temps réel GPS',
-          'Couverture 1 157 UNESCO + 50 000 sites',
-          'Narration audio automatique 1 min',
-          'Guides approfondis 10-30 minutes',
-          'Gamification addictive (points, badges)',
-          'Fonctionne dans 195 pays monde entier',
-          'Redécouvre sa propre ville',
-          'Éducation invisible quotidienne'
-        ]
+          "Alertes géolocalisées temps réel GPS",
+          "Couverture 1 157 UNESCO + 50 000 sites",
+          "Narration audio automatique 1 min",
+          "Guides approfondis 10-30 minutes",
+          "Gamification addictive (points, badges)",
+          "Fonctionne dans 195 pays monde entier",
+          "Redécouvre sa propre ville",
+          "Éducation invisible quotidienne",
+        ],
       },
 
       culturalWallet: {
-        nom: 'WORLD CULTURE WALLET',
-        emoji: '💳',
-        tagline: 'Votre portefeuille culturel numérique universel',
+        nom: "WORLD CULTURE WALLET",
+        emoji: "💳",
+        tagline: "Votre portefeuille culturel numérique universel",
         description: `WORLD CULTURE WALLET est votre carte d'identité culturelle digitale universelle qui stocke et valorise TOUTES vos expériences culturelles mondiales tout en débloquant des avantages tangibles partout sur la planète.
 
 **CONTENU COMPLET DU WALLET:**
@@ -158,23 +163,23 @@ Vous arrivez au Musée du Louvre à Paris à 10h un samedi de juillet (haute sai
 
 **POURQUOI ÇA CHANGE ABSOLUMENT TOUT:**
 Gamification totale de la culture qui rend l'apprentissage addictif comme un jeu vidéo. Avantages financiers tangibles avec centaines d'euros économisés annuellement. Création d'un réseau social culturel mondial sans aucun concurrent direct. Valorisation sociale de l'effort d'apprentissage culturel. Motivation intrinsèque puissante car tout le monde veut monter de niveau et débloquer badges.`,
-        
+
         avantages: [
-          'Carte identité culturelle digitale QR',
-          'Niveaux Bronze/Argent/Or/Platine/Diamant',
-          'Réductions 10-30% dans 5 000 musées',
-          'Accès coupe-file membres Platine+',
-          'Expériences VIP exclusives',
-          'Réseau social culturel intelligent',
-          'Assistant voyage IA personnalisé',
-          'Gamification addictive progressive'
-        ]
+          "Carte identité culturelle digitale QR",
+          "Niveaux Bronze/Argent/Or/Platine/Diamant",
+          "Réductions 10-30% dans 5 000 musées",
+          "Accès coupe-file membres Platine+",
+          "Expériences VIP exclusives",
+          "Réseau social culturel intelligent",
+          "Assistant voyage IA personnalisé",
+          "Gamification addictive progressive",
+        ],
       },
 
       moodTherapy: {
-        nom: 'CULTURAL MOOD THERAPY',
-        emoji: '🎭',
-        tagline: 'L\'IA qui soigne votre humeur par la culture',
+        nom: "CULTURAL MOOD THERAPY",
+        emoji: "🎭",
+        tagline: "L'IA qui soigne votre humeur par la culture",
         description: `CULTURAL MOOD THERAPY est une intelligence artificielle psychologue culturelle révolutionnaire qui analyse votre état émotionnel en temps réel et prescrit des expériences culturelles thérapeutiques scientifiquement personnalisées pour améliorer votre bien-être mental.
 
 **COMMENT ÇA MARCHE EN DÉTAIL:**
@@ -215,30 +220,30 @@ Graphique détaillé de votre humeur sur 30 jours avec courbes d'évolution. Ana
 
 **POURQUOI C'EST ABSOLUMENT RÉVOLUTIONNAIRE:**
 Première application au monde qui combine intelligence artificielle émotionnelle, psychologie clinique validée et patrimoine culturel thérapeutique. Répond directement à la crise mondiale de santé mentale (350 millions dépressifs OMS). Alternative naturelle sans effets secondaires aux médicaments psychotropes (antidépresseurs, anxiolytiques). Les utilisateurs l'utiliseraient quotidiennement comme rituel matinal bien-être. Potentiel économique énorme avec abonnement premium "Thérapie Culturelle Pro" à 9,99€/mois.`,
-        
+
         avantages: [
-          'IA psychologue analyse 27 émotions',
-          'Prescription culturelle scientifique',
-          'Musicothérapie prouvée cliniquement',
-          'Méditation culturelle guidée',
-          'Suivi bien-être 30 jours graphique',
-          'Alternative naturelle médicaments',
-          'Utilisation quotidienne rituel',
-          'Abonnement premium thérapeutique'
-        ]
-      }
+          "IA psychologue analyse 27 émotions",
+          "Prescription culturelle scientifique",
+          "Musicothérapie prouvée cliniquement",
+          "Méditation culturelle guidée",
+          "Suivi bien-être 30 jours graphique",
+          "Alternative naturelle médicaments",
+          "Utilisation quotidienne rituel",
+          "Abonnement premium thérapeutique",
+        ],
+      },
     },
 
     // 26 PAYS AMAZON COMPLETS (sans liens)
     pays: {
       france: {
-        nom: 'France',
-        capitale: 'Paris',
-        continent: 'Europe',
-        population: '67 millions',
-        langue: 'Français',
-        monnaie: 'Euro EUR',
-        
+        nom: "France",
+        capitale: "Paris",
+        continent: "Europe",
+        population: "67 millions",
+        langue: "Français",
+        monnaie: "Euro EUR",
+
         histoire: `La France, officiellement République française, possède une histoire exceptionnelle de plus de 2000 ans. Les Gaulois, peuple celte, occupaient le territoire avant la conquête romaine par Jules César en 52 avant JC (bataille d'Alésia). La Gaule romaine prospère pendant 500 ans avec villes, routes, aqueducs.
 
 En 496, Clovis roi des Francs se convertit au christianisme, fondant la dynastie mérovingienne. Charlemagne (742-814) crée l'Empire carolingien, couronné empereur à Rome en 800. La dynastie capétienne règne de 987 à 1792 avec 40 rois successifs.
@@ -356,8 +361,9 @@ Mode : Paris capitale mondiale de la mode. Coco Chanel révolutionne la mode fé
 
 Parfumerie : Grasse capitale mondiale du parfum. Chanel N°5 (1921), Dior J'adore, Guerlain Shalimar. 70% des parfums de luxe mondiaux sont français.`,
 
-        economie: '7ème économie mondiale, PIB 2 950 milliards USD. Nucléaire 70% électricité, aéronautique (Airbus), luxe, tourisme, agriculture, pharmaceutique. CAC 40.',
-        
+        economie:
+          "7ème économie mondiale, PIB 2 950 milliards USD. Nucléaire 70% électricité, aéronautique (Airbus), luxe, tourisme, agriculture, pharmaceutique. CAC 40.",
+
         conseils: `**MEILLEURE PÉRIODE**
 Mai-juin et septembre-octobre offrent météo agréable (15-25°C), prix corrects, moins de foule. Éviter juillet-août (canicule 35°C+, sites bondés, prix doublés). Avril cerisiers, octobre couleurs automnales. Décembre marchés de Noël. Janvier-février basse saison (promos -40%, Paris sous la pluie romantique).
 
@@ -413,17 +419,17 @@ Restos : Attendre être placé. Serveur appelle "Monsieur/Madame". Pourboire ser
 Magasins : Fermeture dimanche (sauf Champs-Élysées, Marais). Pause déjeuner 12h-14h petites boutiques. Soldes officielles 2 fois/an (janvier, juillet) -30-70%.
 
 **WIFI INTERNET**
-Wifi gratuit : MacDo, Starbucks, bibliothèques, hôtels. 4G excellent partout. Forfaits prépayés : Free Mobile 20€/mois 100Go, Sosh Orange 15€/mois 40Go. SIM carte touriste possible.`
+Wifi gratuit : MacDo, Starbucks, bibliothèques, hôtels. 4G excellent partout. Forfaits prépayés : Free Mobile 20€/mois 100Go, Sosh Orange 15€/mois 40Go. SIM carte touriste possible.`,
       },
 
       italie: {
-        nom: 'Italie',
-        capitale: 'Rome',
-        continent: 'Europe',
-        population: '60 millions',
-        langue: 'Italien',
-        monnaie: 'Euro EUR',
-        
+        nom: "Italie",
+        capitale: "Rome",
+        continent: "Europe",
+        population: "60 millions",
+        langue: "Italien",
+        monnaie: "Euro EUR",
+
         histoire: `L'Italie possède l'histoire la plus riche et la plus longue d'Europe avec 3 000 ans de civilisation continue. La civilisation étrusque (900-100 av JC) domine le centre de l'Italie avec cités prospères, art raffiné, ingénierie avancée.
 
 Rome fondée légendairement le 21 avril 753 av JC par Romulus. La République romaine (509-27 av JC) conquiert progressivement la Méditerranée entière. Jules César (100-44 av JC) conquiert la Gaule. Assassinat aux Ides de Mars 44 av JC.
@@ -631,17 +637,17 @@ Art : Vies artistes Vasari (1550) biographies peintres Renaissance source, Histo
 
 Cuisine : Essentials Italian Cooking Marcella Hazan bible 500 recettes, Silver Spoon encyclopédie 2 000 recettes, Jamie Oliver Italie facile, Pasta Grannies mamies italiennes YouTube adorable.
 
-Films : Rome ville ouverte, Voleur Bicyclette, La Strada, La Dolce Vita, 8½, Rocco et ses Frères, Le Guépard, L'Avventura, Le Conformiste, Parfum de Femme, Cinema Paradiso, Il Postino, La Vie est Belle, La Grande Bellezza, Gomorra série (2014-2021), L'Ami Prodigieux série (2018-).`
+Films : Rome ville ouverte, Voleur Bicyclette, La Strada, La Dolce Vita, 8½, Rocco et ses Frères, Le Guépard, L'Avventura, Le Conformiste, Parfum de Femme, Cinema Paradiso, Il Postino, La Vie est Belle, La Grande Bellezza, Gomorra série (2014-2021), L'Ami Prodigieux série (2018-).`,
       },
 
       allemagne: {
-        nom: 'Allemagne',
-        capitale: 'Berlin',
-        continent: 'Europe',
-        population: '83 millions',
-        langue: 'Allemand (Deutsch)',
-        monnaie: 'Euro EUR',
-        
+        nom: "Allemagne",
+        capitale: "Berlin",
+        continent: "Europe",
+        population: "83 millions",
+        langue: "Allemand (Deutsch)",
+        monnaie: "Euro EUR",
+
         histoire: `L'Allemagne (Deutschland) possède une histoire complexe et tragique qui a profondément marqué le XXème siècle. Les tribus germaniques (Saxons, Francs, Alamans, Bavarois) occupaient le territoire. Charlemagne (747-814) les christianise et unifie dans l'Empire carolingien.
 
 Le Saint-Empire romain germanique (962-1806) fondé par Otton Ier fragmenté en 300+ États principautés villes libres. Faiblesse politique chronique. Martin Luther (1483-1546) déclenche Réforme protestante en 1517 avec 95 thèses Wittenberg. Guerre de Trente Ans (1618-1648) dévastatrice catholiques vs protestants, 30% population périt. Paix Westphalie 1648.
@@ -792,79 +798,107 @@ Nördlingen cratère impact météorite 15 millions années circulaire parfait 2
 
 Augsbourg (Augsburg 300 000) romaine Augusta Vindelicorum -15 av JC, banquiers Fugger Renaissance richissimes prêtèrent empereurs. Fuggerei (1516) plus ancien lotissement social monde, 140 logements, loyer symbolique 0,88€/an + 3 prières quotidiennes fondateur Jakob Fugger, musée. Hôtel Ville Renaissance salle dorée. Cathédrale vitraux prophètes Xème plus anciens.
 
-Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar Neumann. Escalier monumental fresque Tiepolo 30x18m plus grande monde. Jardins. Forteresse Marienberg vignobles Franconie vin blanc sec.`
-      }
-    }
+Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar Neumann. Escalier monumental fresque Tiepolo 30x18m plus grande monde. Jardins. Forteresse Marienberg vignobles Franconie vin blanc sec.`,
+      },
+    },
   };
 
-  useEffect(function() {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages]);
+  useEffect(
+    function () {
+      if (messagesEndRef.current) {
+        messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [messages],
+  );
 
-  useEffect(function() {
-    if (isOpen && messages.length === 0) {
-      setMessages([{ role: 'assistant', content: greetings[currentLang], emotion: 'welcome' }]);
-    }
-  }, [isOpen, currentLang]);
+  useEffect(
+    function () {
+      if (isOpen && messages.length === 0) {
+        setMessages([
+          {
+            role: "assistant",
+            content: greetings[currentLang],
+            emotion: "welcome",
+          },
+        ]);
+      }
+    },
+    [isOpen, currentLang],
+  );
 
-  const speak = function(text, emotion = 'neutral') {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  const speak = function (text, emotion = "neutral") {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
-      
+
       const cleanText = text
-        .replace(/\*\*/g, '')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
-        .replace(/#{1,6}\s/g, '')
+        .replace(/\*\*/g, "")
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+        .replace(/#{1,6}\s/g, "")
         .substring(0, 600);
-      
+
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.lang = currentLang;
       utterance.rate = 0.92;
       utterance.pitch = 0.85; // VOIX MASCULINE GRAVE
       utterance.volume = 1.0;
-      
-      if (emotion === 'enthusiastic') {
+
+      if (emotion === "enthusiastic") {
         utterance.rate = 1.0;
         utterance.pitch = 0.9;
-      } else if (emotion === 'empathetic') {
+      } else if (emotion === "empathetic") {
         utterance.rate = 0.88;
         utterance.pitch = 0.82;
       }
-      
+
       const voices = window.speechSynthesis.getVoices();
-      const maleVoiceKeywords = ['male', 'homme', 'thomas', 'daniel', 'diego', 'hans', 'luca', 'ricardo', 'masculin'];
-      
-      const maleVoice = voices.find(function(voice) {
+      const maleVoiceKeywords = [
+        "male",
+        "homme",
+        "thomas",
+        "daniel",
+        "diego",
+        "hans",
+        "luca",
+        "ricardo",
+        "masculin",
+      ];
+
+      const maleVoice = voices.find(function (voice) {
         const isRightLang = voice.lang.startsWith(currentLang.substring(0, 2));
-        const isMale = maleVoiceKeywords.some(function(keyword) {
+        const isMale = maleVoiceKeywords.some(function (keyword) {
           return voice.name.toLowerCase().includes(keyword);
         });
         return isRightLang && isMale;
       });
-      
+
       if (maleVoice) utterance.voice = maleVoice;
-      
-      utterance.onstart = function() { setIsSpeaking(true); };
-      utterance.onend = function() { setIsSpeaking(false); };
+
+      utterance.onstart = function () {
+        setIsSpeaking(true);
+      };
+      utterance.onend = function () {
+        setIsSpeaking(false);
+      };
       window.speechSynthesis.speak(utterance);
     }
   };
 
-  const stopSpeaking = function() {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  const stopSpeaking = function () {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
   };
 
-  const getIntelligentResponse = function(userMessage) {
+  const getIntelligentResponse = function (userMessage) {
     const msgLower = userMessage.toLowerCase();
-    
+
     // DÉTECTION NOM
     if (msgLower.match(/je m'appelle|mon nom|c'est|appelle moi/)) {
-      const match = userMessage.match(/(?:je m'appelle|mon nom est|c'est|appelle moi)\s+(\w+)/i);
+      const match = userMessage.match(
+        /(?:je m'appelle|mon nom est|c'est|appelle moi)\s+(\w+)/i,
+      );
       if (match) {
         setUserName(match[1]);
         return `Enchanté ${match[1]} ! 😊 Moi c'est Alex. Bon, maintenant qu'on se connaît, dites-moi - RÉUSSITESS c'est 62 pages patrimoine, 26 boutiques, et 5 INNOVATIONS MONDIALES UNIQUES. Qu'est-ce qui vous intéresse ?`;
@@ -872,13 +906,15 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
     }
 
     // INNOVATIONS
-    if (msgLower.match(/innovation|nouveau|unique|original|technologie|futur/)) {
+    if (
+      msgLower.match(/innovation|nouveau|unique|original|technologie|futur/)
+    ) {
       let response = `Ah ! Les 5 INNOVATIONS MONDIALES EXCLUSIVES RÉUSSITESS ! 🚀\n\nÉcoutez, ce sont des concepts UNIQUES qui n'existent NULLE PART au monde :\n\n`;
-      
-      Object.values(KNOWLEDGE_BASE.innovations).forEach(function(innov) {
+
+      Object.values(KNOWLEDGE_BASE.innovations).forEach(function (innov) {
         response += `**${innov.emoji} ${innov.nom}**\n${innov.tagline}\n\n`;
       });
-      
+
       response += `Laquelle vous intrigue ? Je peux vous expliquer chacune en DÉTAIL !`;
       return response;
     }
@@ -886,27 +922,47 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
     // Innovation spécifique
     if (msgLower.match(/dna|adn|ancestral|ancêtre|généalogie/)) {
       const dna = KNOWLEDGE_BASE.innovations.culturalDNA;
-      return `${dna.emoji} **${dna.nom}** - ${dna.tagline}\n\n${dna.description}\n\n**AVANTAGES:**\n${dna.avantages.map(function(a) { return '✅ ' + a; }).join('\n')}`;
+      return `${dna.emoji} **${dna.nom}** - ${dna.tagline}\n\n${dna.description}\n\n**AVANTAGES:**\n${dna.avantages
+        .map(function (a) {
+          return "✅ " + a;
+        })
+        .join("\n")}`;
     }
 
     if (msgLower.match(/time machine|voyage temps|3d|reconstitution|époque/)) {
       const tm = KNOWLEDGE_BASE.innovations.timeMachine;
-      return `${tm.emoji} **${tm.nom}** - ${tm.tagline}\n\n${tm.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${tm.avantages.map(function(a) { return '✅ ' + a; }).join('\n')}`;
+      return `${tm.emoji} **${tm.nom}** - ${tm.tagline}\n\n${tm.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${tm.avantages
+        .map(function (a) {
+          return "✅ " + a;
+        })
+        .join("\n")}`;
     }
 
     if (msgLower.match(/guardian|ange|alerte|géolocalisation|gps/)) {
       const cg = KNOWLEDGE_BASE.innovations.culturalGuardian;
-      return `${cg.emoji} **${cg.nom}** - ${cg.tagline}\n\n${cg.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${cg.avantages.map(function(a) { return '✅ ' + a; }).join('\n')}`;
+      return `${cg.emoji} **${cg.nom}** - ${cg.tagline}\n\n${cg.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${cg.avantages
+        .map(function (a) {
+          return "✅ " + a;
+        })
+        .join("\n")}`;
     }
 
     if (msgLower.match(/wallet|portefeuille|badge|gamification|niveau/)) {
       const cw = KNOWLEDGE_BASE.innovations.culturalWallet;
-      return `${cw.emoji} **${cw.nom}** - ${cw.tagline}\n\n${cw.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${cw.avantages.map(function(a) { return '✅ ' + a; }).join('\n')}`;
+      return `${cw.emoji} **${cw.nom}** - ${cw.tagline}\n\n${cw.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${cw.avantages
+        .map(function (a) {
+          return "✅ " + a;
+        })
+        .join("\n")}`;
     }
 
     if (msgLower.match(/mood|thérapie|émotion|bien-être|mental|psycho/)) {
       const mt = KNOWLEDGE_BASE.innovations.moodTherapy;
-      return `${mt.emoji} **${mt.nom}** - ${mt.tagline}\n\n${mt.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${mt.avantages.map(function(a) { return '✅ ' + a; }).join('\n')}`;
+      return `${mt.emoji} **${mt.nom}** - ${mt.tagline}\n\n${mt.description.substring(0, 1500)}...\n\n**AVANTAGES:**\n${mt.avantages
+        .map(function (a) {
+          return "✅ " + a;
+        })
+        .join("\n")}`;
     }
 
     // ALLEMAGNE
@@ -918,22 +974,32 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
     // [CONTINUEZ ICI AVEC LES 13 AUTRES PAYS...]
 
     // RÉPONSE DÉFAUT
-    return `Je peux vous parler de :\n\n**🚀 5 INNOVATIONS MONDIALES** uniques\n**🌍 62 PAGES PATRIMOINE** détaillées\n**🛍️ 26 BOUTIQUES** mondiales\n\nQu'est-ce qui vous tente ${userName ? userName : ''} ?`;
+    return `Je peux vous parler de :\n\n**🚀 5 INNOVATIONS MONDIALES** uniques\n**🌍 62 PAGES PATRIMOINE** détaillées\n**🛍️ 26 BOUTIQUES** mondiales\n\nQu'est-ce qui vous tente ${userName ? userName : ""} ?`;
   };
 
-  const handleSubmit = function(e) {
+  const handleSubmit = function (e) {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
     const userMessage = input.trim();
-    setInput('');
-    setMessages(function(prev) { return prev.concat({ role: 'user', content: userMessage }); });
+    setInput("");
+    setMessages(function (prev) {
+      return prev.concat({ role: "user", content: userMessage });
+    });
     setIsLoading(true);
 
-    setTimeout(function() {
+    setTimeout(function () {
       const response = getIntelligentResponse(userMessage);
-      const emotion = userMessage.toLowerCase().includes('merci') ? 'empathetic' : 'neutral';
-      setMessages(function(prev) { return prev.concat({ role: 'assistant', content: response, emotion: emotion }); });
+      const emotion = userMessage.toLowerCase().includes("merci")
+        ? "empathetic"
+        : "neutral";
+      setMessages(function (prev) {
+        return prev.concat({
+          role: "assistant",
+          content: response,
+          emotion: emotion,
+        });
+      });
       speak(response, emotion);
       setIsLoading(false);
     }, 800);
@@ -942,12 +1008,14 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
   return (
     <div className="fixed z-50">
       <button
-        onClick={function() { setIsOpen(!isOpen); }}
+        onClick={function () {
+          setIsOpen(!isOpen);
+        }}
         className="fixed bottom-8 right-8 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white rounded-full shadow-2xl hover:scale-110 transition-all animate-pulse"
-        style={{ 
-          boxShadow: '0 0 60px rgba(59, 130, 246, 0.8)',
-          width: '90px',
-          height: '90px'
+        style={{
+          boxShadow: "0 0 60px rgba(59, 130, 246, 0.8)",
+          width: "90px",
+          height: "90px",
         }}
       >
         <div className="flex flex-col items-center justify-center h-full">
@@ -957,7 +1025,9 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
         {isSpeaking && (
           <span className="absolute -top-3 -right-3 flex h-8 w-8">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-8 w-8 bg-red-500 items-center justify-center">🔊</span>
+            <span className="relative inline-flex rounded-full h-8 w-8 bg-red-500 items-center justify-center">
+              🔊
+            </span>
           </span>
         )}
       </button>
@@ -967,32 +1037,52 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
           <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white p-6 rounded-t-3xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-5xl">👨</div>
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-5xl">
+                  👨
+                </div>
                 <div>
                   <h3 className="font-bold text-2xl">Alex</h3>
                   <p className="text-sm">Expert Culture • RÉUSSITESS</p>
-                  <p className="text-xs mt-1">62 pages • 26 boutiques • 5 innovations 🚀</p>
+                  <p className="text-xs mt-1">
+                    62 pages • 26 boutiques • 5 innovations 🚀
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
                 {isSpeaking && (
-                  <button onClick={stopSpeaking} className="hover:bg-white/20 p-3 rounded-xl text-3xl">🔇</button>
+                  <button
+                    onClick={stopSpeaking}
+                    className="hover:bg-white/20 p-3 rounded-xl text-3xl"
+                  >
+                    🔇
+                  </button>
                 )}
-                <button onClick={function() { setIsOpen(false); }} className="hover:bg-white/20 p-3 rounded-xl text-2xl font-bold">✕</button>
+                <button
+                  onClick={function () {
+                    setIsOpen(false);
+                  }}
+                  className="hover:bg-white/20 p-3 rounded-xl text-2xl font-bold"
+                >
+                  ✕
+                </button>
               </div>
             </div>
           </div>
 
           <div className="p-4 border-b-2 flex gap-2 overflow-x-auto bg-gradient-to-r from-purple-50 to-pink-50">
-            {languages.map(function(lang) {
+            {languages.map(function (lang) {
               const isActive = currentLang === lang.code;
               return (
                 <button
                   key={lang.code}
-                  onClick={function() { setCurrentLang(lang.code); }}
-                  className={isActive 
-                    ? 'px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                    : 'px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-white hover:bg-purple-100 text-gray-700 border-2 border-purple-200'}
+                  onClick={function () {
+                    setCurrentLang(lang.code);
+                  }}
+                  className={
+                    isActive
+                      ? "px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                      : "px-5 py-3 rounded-xl font-semibold whitespace-nowrap bg-white hover:bg-purple-100 text-gray-700 border-2 border-purple-200"
+                  }
                 >
                   {lang.flag} {lang.name}
                 </button>
@@ -1001,33 +1091,44 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
           </div>
 
           <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-purple-50/30 to-white">
-            {messages.map(function(msg, idx) {
-              const isUser = msg.role === 'user';
+            {messages.map(function (msg, idx) {
+              const isUser = msg.role === "user";
               const htmlContent = msg.content
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n/g, '<br/>')
-                .replace(/• /g, '<br/>• ');
-              
+                .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                .replace(/\n/g, "<br/>")
+                .replace(/• /g, "<br/>• ");
+
               return (
-                <div key={idx} className={isUser ? 'flex justify-end' : 'flex justify-start'}>
-                  <div 
-                    className={isUser
-                      ? 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg'
-                      : 'max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-purple-200 text-lg'}
+                <div
+                  key={idx}
+                  className={isUser ? "flex justify-end" : "flex justify-start"}
+                >
+                  <div
+                    className={
+                      isUser
+                        ? "max-w-[85%] p-5 rounded-2xl shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg"
+                        : "max-w-[85%] p-5 rounded-2xl shadow-lg bg-white text-gray-800 border-2 border-purple-200 text-lg"
+                    }
                     dangerouslySetInnerHTML={{ __html: htmlContent }}
                   />
                 </div>
               );
             })}
-            
+
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-white border-2 border-purple-200 p-5 rounded-2xl shadow-lg">
                   <div className="flex items-center gap-4">
                     <div className="flex gap-2">
                       <div className="w-4 h-4 bg-purple-600 rounded-full animate-bounce" />
-                      <div className="w-4 h-4 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                      <div className="w-4 h-4 bg-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                      <div
+                        className="w-4 h-4 bg-blue-600 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.2s" }}
+                      />
+                      <div
+                        className="w-4 h-4 bg-pink-600 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.4s" }}
+                      />
                     </div>
                     <span className="text-gray-600">Alex réfléchit...</span>
                   </div>
@@ -1037,12 +1138,17 @@ Würzburg Résidence (1720-1744) baroque rococo UNESCO chef-d'œuvre Balthasar N
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="p-5 border-t-2 bg-gradient-to-r from-purple-50 to-pink-50">
+          <form
+            onSubmit={handleSubmit}
+            className="p-5 border-t-2 bg-gradient-to-r from-purple-50 to-pink-50"
+          >
             <div className="flex gap-4">
               <input
                 type="text"
                 value={input}
-                onChange={function(e) { setInput(e.target.value); }}
+                onChange={function (e) {
+                  setInput(e.target.value);
+                }}
                 placeholder="Parlez-moi... 💬"
                 className="flex-1 border-2 border-purple-300 rounded-xl px-6 py-4 focus:outline-none focus:ring-4 focus:ring-purple-400 text-lg"
                 disabled={isLoading}

@@ -1,0 +1,51 @@
+nohup: ignoring input
+
+> reussitess-global-nexus@1.0.1 start
+> next start
+
+   ▲ Next.js 15.4.7
+   - Local:        http://localhost:3000
+   - Network:      http://10.85.212.167:3000
+
+ ✓ Starting...
+ ⚠ "next start" does not work with "output: standalone" configuration. Use "node .next/standalone/server.js" instead.
+ ✓ Ready in 1282ms
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+Invariant: failed to load static page {
+  "page": "/",
+  "url": "/",
+  "initUrl": "http://localhost:3000/",
+  "didRewrite": false
+}
+ ⨯ [Error: Failed to load static file for page: / ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/index.html']
+Invariant: failed to load static page {
+  "page": "/",
+  "url": "/",
+  "initUrl": "http://localhost:3000/",
+  "didRewrite": false
+}
+ ⨯ [Error: Failed to load static file for page: / ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/index.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+Invariant: failed to load static page {
+  "page": "/",
+  "url": "/",
+  "initUrl": "http://localhost:3000/",
+  "didRewrite": false
+}
+ ⨯ [Error: Failed to load static file for page: / ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/index.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+Invariant: failed to load static page {
+  "page": "/",
+  "url": "/",
+  "initUrl": "http://localhost:3000/",
+  "didRewrite": false
+}
+ ⨯ [Error: Failed to load static file for page: / ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/index.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']
+ ⨯ [Error: Failed to load static file for page: /404 ENOENT: no such file or directory, open '/data/data/com.termux/files/home/reussitess-global-nexus/.next/server/pages/404.html']

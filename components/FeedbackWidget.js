@@ -1,31 +1,31 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function FeedbackWidget() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    rating: 5
-  })
-  const [submitted, setSubmitted] = useState(false)
+    name: "",
+    email: "",
+    message: "",
+    rating: 5,
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // In a real application, this would send data to a backend
-    console.log('Feedback submitted:', formData)
-    setSubmitted(true)
+    console.log("Feedback submitted:", formData);
+    setSubmitted(true);
     setTimeout(() => {
-      setIsOpen(false)
-      setSubmitted(false)
-      setFormData({ name: '', email: '', message: '', rating: 5 })
-    }, 2000)
-  }
+      setIsOpen(false);
+      setSubmitted(false);
+      setFormData({ name: "", email: "", message: "", rating: 5 });
+    }, 2000);
+  };
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <>
@@ -40,9 +40,12 @@ export default function FeedbackWidget() {
 
       {/* Feedback Modal */}
       {isOpen && (
-        <div className="feedback-modal-overlay" onClick={() => setIsOpen(false)}>
+        <div
+          className="feedback-modal-overlay"
+          onClick={() => setIsOpen(false)}
+        >
           <div className="feedback-modal" onClick={(e) => e.stopPropagation()}>
-            <button 
+            <button
               className="feedback-close"
               onClick={() => setIsOpen(false)}
               aria-label="Fermer"
@@ -54,12 +57,17 @@ export default function FeedbackWidget() {
               <div className="feedback-success">
                 <div className="success-icon">✓</div>
                 <h3>Merci pour votre feedback !</h3>
-                <p>Nous apprécions votre retour et nous nous efforçons de nous améliorer continuellement.</p>
+                <p>
+                  Nous apprécions votre retour et nous nous efforçons de nous
+                  améliorer continuellement.
+                </p>
               </div>
             ) : (
               <>
                 <h2 className="feedback-title">Votre Avis Compte !</h2>
-                <p className="feedback-subtitle">Aidez-nous à améliorer votre expérience</p>
+                <p className="feedback-subtitle">
+                  Aidez-nous à améliorer votre expérience
+                </p>
 
                 <form onSubmit={handleSubmit} className="feedback-form">
                   <div className="form-group">
@@ -95,9 +103,11 @@ export default function FeedbackWidget() {
                         <button
                           key={star}
                           type="button"
-                          className={`star ${formData.rating >= star ? 'active' : ''}`}
-                          onClick={() => setFormData(prev => ({ ...prev, rating: star }))}
-                          aria-label={`Note de ${star} étoile${star > 1 ? 's' : ''}`}
+                          className={`star ${formData.rating >= star ? "active" : ""}`}
+                          onClick={() =>
+                            setFormData((prev) => ({ ...prev, rating: star }))
+                          }
+                          aria-label={`Note de ${star} étoile${star > 1 ? "s" : ""}`}
                         >
                           ★
                         </button>
@@ -360,5 +370,5 @@ export default function FeedbackWidget() {
         }
       `}</style>
     </>
-  )
+  );
 }

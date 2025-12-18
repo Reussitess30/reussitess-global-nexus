@@ -1,31 +1,46 @@
-'use client'
+"use client";
 
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect } from "react";
 
-const TranslationContext = createContext()
+const TranslationContext = createContext();
 
 export function TranslationProvider({ children }) {
-  const [language, setLanguage] = useState('fr')
-  const [userCountry, setUserCountry] = useState('')
+  const [language, setLanguage] = useState("fr");
+  const [userCountry, setUserCountry] = useState("");
 
   useEffect(() => {
     // Détection simplifiée du pays
-    fetch('https://ipapi.co/json/')
-      .then(res => res.json())
-      .then(data => {
-        setUserCountry(data.country_code)
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((data) => {
+        setUserCountry(data.country_code);
         // Mapping pays -> langue
         const langMap = {
-          'FR':'fr','BE':'fr','CA':'fr','CH':'fr',
-          'US':'en','GB':'en','AU':'en','NZ':'en',
-          'ES':'es','MX':'es','AR':'es','CO':'es',
-          'DE':'de','AT':'de','IT':'it','PT':'pt',
-          'BR':'pt','CN':'zh','JP':'ja','RU':'ru'
-        }
-        setLanguage(langMap[data.country_code] || 'en')
+          FR: "fr",
+          BE: "fr",
+          CA: "fr",
+          CH: "fr",
+          US: "en",
+          GB: "en",
+          AU: "en",
+          NZ: "en",
+          ES: "es",
+          MX: "es",
+          AR: "es",
+          CO: "es",
+          DE: "de",
+          AT: "de",
+          IT: "it",
+          PT: "pt",
+          BR: "pt",
+          CN: "zh",
+          JP: "ja",
+          RU: "ru",
+        };
+        setLanguage(langMap[data.country_code] || "en");
       })
-      .catch(() => setLanguage('fr'))
-  }, [])
+      .catch(() => setLanguage("fr"));
+  }, []);
 
   const translations = {
     fr: {
@@ -33,44 +48,46 @@ export function TranslationProvider({ children }) {
       boutiques: "Boutiques",
       welcome: "Bienvenue sur REUSSITESS® Global Nexus",
       start: "Commencer",
-      visitStore: "Visiter la Boutique"
+      visitStore: "Visiter la Boutique",
     },
     en: {
-      home: "Home", 
+      home: "Home",
       boutiques: "Stores",
       welcome: "Welcome to REUSSITESS® Global Nexus",
       start: "Get Started",
-      visitStore: "Visit Store"
+      visitStore: "Visit Store",
     },
     es: {
       home: "Inicio",
-      boutiques: "Tiendas", 
+      boutiques: "Tiendas",
       welcome: "Bienvenido a REUSSITESS® Global Nexus",
       start: "Comenzar",
-      visitStore: "Visitar Tienda"
+      visitStore: "Visitar Tienda",
     },
     de: {
       home: "Startseite",
       boutiques: "Geschäfte",
-      welcome: "Willkommen bei REUSSITESS® Global Nexus", 
+      welcome: "Willkommen bei REUSSITESS® Global Nexus",
       start: "Starten",
-      visitStore: "Geschäft besuchen"
-    }
-  }
+      visitStore: "Geschäft besuchen",
+    },
+  };
 
-  const t = (key) => translations[language]?.[key] || key
+  const t = (key) => translations[language]?.[key] || key;
 
   return (
-    <TranslationContext.Provider value={{ language, setLanguage, t, userCountry }}>
+    <TranslationContext.Provider
+      value={{ language, setLanguage, t, userCountry }}
+    >
       {children}
     </TranslationContext.Provider>
-  )
+  );
 }
 
 export const useTranslation = () => {
-  const context = useContext(TranslationContext)
+  const context = useContext(TranslationContext);
   if (!context) {
-    throw new Error('useTranslation must be used within TranslationProvider')
+    throw new Error("useTranslation must be used within TranslationProvider");
   }
-  return context
-}
+  return context;
+};
