@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:webpack": "next build --webpack"
   },
   "dependencies": {
     "next": "16.0.7",
