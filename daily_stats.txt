@@ -1,0 +1,7 @@
+No command 0 found, did you mean:
+ Command c in package c-script
+ Command [ in package coreutils
+ Command k in package kona
+ Command o in package orbiton
+ Command q in package q-dns-client
+ Command X in package xorg-server from the x11-repo repository
