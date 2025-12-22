@@ -17,7 +17,7 @@ export default function Home() {
     { id: "Musique", name: "Musique", icon: "🎵", color: "#fd79a8" },
     { id: "Cinéma", name: "Cinéma", icon: "🎬", color: "#a29bfe" },
     { id: "Sport", name: "Sport", icon: "⚽", color: "#74b9ff" },
-    { id: "Tech", name: "Technologie", icon: "💻", color: "#00b894" },
+    { id: "Tech" }, { id: "Excellence971", title: "🌴 Excellence 971", color: "from-yellow-500 to-red-600", name: "Technologie", icon: "💻", color: "#00b894" },
     { id: "Langue", name: "Langues", icon: "🗣️", color: "#fdcb6e" },
     { id: "Maths", name: "Mathématiques", icon: "🔢", color: "#e17055" },
     { id: "Politique", name: "Politique", icon: "🏛️", color: "#636e72" },
