@@ -1,8 +1,13 @@
 {
   "brand": "REUSSITESS®",
-  "auth": "0x69f4...",
-  "vault": "1,000,000,000 REUS",
-  "network": "14 Countries / 100 IA / 26 Stores",
-  "status": "OPERATIONAL EXCELLENCE",
-  "seal": "Verified by CodeQL"
+  "secret_key": "0x69f4...",
+  "global_metrics": {
+    "total_power": "1 Billion REUS Tokens",
+    "deployment": "100 IA Agents Active",
+    "logistics": "26 Amazon Stores Verified",
+    "jurisdictions": 14
+  },
+  "countries": ["France", "England", "Italy", "Germany", "Sweden", "Singapore", "Australia", "Spain", "Brazil", "UK", "India", "New Zealand", "USA", "Canada"],
+  "security_clearance": "Excellence Opérationnelle Level 971",
+  "motto": "BOUDOUM - Positivité à l'infini"
 }
