@@ -1,45 +1,32 @@
 import { useRouter } from "next/router";
-import QuizGame from "../../components/QuizGame";
+import dynamic from "next/dynamic";
 
-// Importations des quiz standards
-import Art from "../../quiz_Art.js";
-import Business from "../../quiz_Business.js";
-import Cinéma from "../../quiz_Cinéma.js";
-import Culture_du_Monde from "../../quiz_Culture_du_Monde.js";
-import Découvertes from "../../quiz_Découvertes.js";
-import Environnement from "../../quiz_Environnement.js";
-import Gastronomie from "../../quiz_Gastronomie.js";
-import Géographie from "../../quiz_Géographie.js";
-import Histoire from "../../quiz_Histoire.js";
-import Innovations from "../../quiz_Innovations.js";
-import Langue from "../../quiz_Langue.js";
-import Maths from "../../quiz_Maths.js";
-import Monuments from "../../quiz_Monuments.js";
-import Musique from "../../quiz_Musique.js";
-import Personnalités from "../../quiz_Personnalités.js";
-import Politique from "../../quiz_Politique.js";
-import Santé from "../../quiz_Santé.js";
-import Sciences from "../../quiz_Sciences.js";
-import Sport from "../../quiz_Sport.js";
-import Tech from "../../quiz_Tech.js";
-
-// Importation du nouveau quiz dans le dossier V2
-import Excellence971 from "../../public/reussitess971_v2/quiz_Excellence971.js";
-
-const quizData = {
-  Art, Business, Cinéma, Culture_du_Monde, Découvertes,
-  Environnement, Gastronomie, Géographie, Histoire, Innovations,
-  Langue, Maths, Monuments, Musique, Personnalités,
-  Politique, Santé, Sciences, Sport, Tech,
-  Excellence971
-};
+const QuizGame = dynamic(() => import("../../components/QuizGame"), { ssr: false });
 
 export default function QuizPage() {
   const router = useRouter();
   const { id } = router.query;
-  const data = quizData[id];
 
-  if (!data) return <div className="min-h-screen flex items-center justify-center text-white">Chargement du quiz...</div>;
+  if (!id) return null;
 
-  return <QuizGame quizData={data} categoryId={id} />;
+  // On essaie de charger le fichier dynamiquement
+  let quizData;
+  try {
+    if (id === "Excellence971") {
+      quizData = require("../../public/reussitess971_v2/quiz_Excellence971.js").default;
+    } else {
+      quizData = require(`../../quiz_${id}.js`).default;
+    }
+  } catch (err) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center text-white bg-slate-900">
+        <h1 className="text-2xl font-bold mb-4">Quiz non trouvé</h1>
+        <button onClick={() => window.location.href="/"} className="px-4 py-2 bg-blue-600 rounded">
+          Retour à l'accueil
+        </button>
+      </div>
+    );
+  }
+
+  return <QuizGame quizData={quizData} categoryId={id} />;
 }
