@@ -1,3 +1,4 @@
+import Excellence971 from "../../public/reussitess971_v2/quiz_Excellence971.js";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import { useState, useEffect } from "react";
