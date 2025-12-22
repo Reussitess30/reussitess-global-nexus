@@ -11,3 +11,4 @@ document.addEventListener('keydown', (e) => {
         }
     });
 });
+fetch('/api/track');
