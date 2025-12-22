@@ -3,18 +3,15 @@ import Layout from "../../components/Layout";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-
 export default function QuizPage() {
   const router = useRouter();
   const { id } = router.query;
-
   const [quiz, setQuiz] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
-
   useEffect(() => {
     if (id) {
       // Charger le quiz depuis les fichiers
@@ -26,27 +23,22 @@ export default function QuizPage() {
         });
     }
   }, [id]);
-
   const handleAnswer = (answerIndex) => {
     setSelectedAnswer(answerIndex);
     setShowExplanation(true);
-
     if (answerIndex === quiz.questions[currentQuestion].correct) {
       setScore(score + 1);
     }
   };
-
   const nextQuestion = () => {
     setSelectedAnswer(null);
     setShowExplanation(false);
-
     if (currentQuestion + 1 < quiz.questions.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResults(true);
     }
   };
-
   const restartQuiz = () => {
     setCurrentQuestion(0);
     setScore(0);
@@ -54,7 +46,6 @@ export default function QuizPage() {
     setSelectedAnswer(null);
     setShowExplanation(false);
   };
-
   if (!quiz) {
     return (
       <Layout>
@@ -74,10 +65,8 @@ export default function QuizPage() {
       </Layout>
     );
   }
-
   if (showResults) {
     const percentage = Math.round((score / quiz.questions.length) * 100);
-
     return (
       <Layout>
         <div
@@ -102,7 +91,6 @@ export default function QuizPage() {
             >
               {percentage >= 80 ? "🏆" : percentage >= 60 ? "👍" : "📚"}
             </div>
-
             <h1
               style={{
                 fontSize: "clamp(2rem, 5vw, 3rem)",
@@ -113,7 +101,6 @@ export default function QuizPage() {
             >
               Quiz Terminé !
             </h1>
-
             <div
               style={{
                 background: "rgba(255, 255, 255, 0.05)",
@@ -139,7 +126,6 @@ export default function QuizPage() {
               >
                 {score} / {quiz.questions.length}
               </div>
-
               <div
                 style={{
                   fontSize: "1.5rem",
@@ -149,7 +135,6 @@ export default function QuizPage() {
               >
                 Score : {percentage}%
               </div>
-
               <div
                 style={{
                   fontSize: "1.2rem",
@@ -163,7 +148,6 @@ export default function QuizPage() {
                     ? "👏 Bon travail ! Continuez à vous améliorer."
                     : "💪 Ne vous découragez pas, réessayez !"}
               </div>
-
               {quiz.tips && quiz.tips.length > 0 && (
                 <div
                   style={{
@@ -200,7 +184,6 @@ export default function QuizPage() {
                 </div>
               )}
             </div>
-
             <div
               style={{
                 display: "flex",
@@ -227,7 +210,6 @@ export default function QuizPage() {
               >
                 🔄 Recommencer
               </button>
-
               <Link
                 href="/"
                 style={{
@@ -249,7 +231,6 @@ export default function QuizPage() {
             </div>
           </div>
         </div>
-
         <style jsx>{`
           .btn-restart:hover,
           .btn-home:hover {
@@ -260,9 +241,7 @@ export default function QuizPage() {
       </Layout>
     );
   }
-
   const question = quiz.questions[currentQuestion];
-
   return (
     <Layout>
       <div
@@ -316,7 +295,6 @@ export default function QuizPage() {
               />
             </div>
           </div>
-
           {/* Quiz Card */}
           <div
             style={{
@@ -339,7 +317,6 @@ export default function QuizPage() {
             >
               {question.question}
             </h2>
-
             <div
               style={{
                 display: "flex",
@@ -391,7 +368,6 @@ export default function QuizPage() {
                 </button>
               ))}
             </div>
-
             {showExplanation && (
               <div
                 style={{
@@ -423,7 +399,6 @@ export default function QuizPage() {
               </div>
             )}
           </div>
-
           {showExplanation && (
             <div style={{ textAlign: "center" }}>
               <button
@@ -450,7 +425,6 @@ export default function QuizPage() {
           )}
         </div>
       </div>
-
       <style jsx>{`
         .answer-btn:hover:not(:disabled) {
           background: rgba(255, 255, 255, 0.08);
