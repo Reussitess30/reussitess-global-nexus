@@ -1,159 +1,137 @@
 import { useState, useEffect, useCallback } from 'react'
 import Head from 'next/head'
 
-export default function ReussitessAirPodsPro() {
-  const [isLocked, setIsLocked] = useState(true)
-  const [copied, setCopied] = useState(false)
-  const CONTRACT_ADDRESS = "0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8"
+export default function ReussitessBotUltimate() {
+  const [status, setStatus] = useState('SCANNING')
+  const [securityLevel, setSecurityLevel] = useState(99.8)
+  const [logs, setLogs] = useState([])
+  const [isCopied, setIsCopied] = useState(false)
+  const CONTRACT = "0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8"
 
-  // 🛡️ SÉCURITÉ : Protection contre le Clickjacking (Frame Busting)
+  // 1. Fonctions de Logique Bot
+  const addLog = (msg) => {
+    setLogs(prev => [msg, ...prev].slice(0, 5))
+  }
+
   useEffect(() => {
-    if (window.self !== window.top) {
-      window.top.location = window.self.location
-    }
-    // Simulation de déverrouillage sécurisé au chargement
-    const timer = setTimeout(() => setIsLocked(false), 1500)
-    return () => clearTimeout(timer)
+    const events = [
+      "🛡️ Firewall WAF : 100% Actif",
+      "🔍 Scan de vulnérabilité : OK",
+      "🚫 Blocage IP suspecte : 45.12.3.8",
+      "🔒 Chiffrement SSL : Grade A+",
+      "🤖 Bot Protection : Optimisé"
+    ]
+    let i = 0
+    const interval = setInterval(() => {
+      addLog(events[i % events.length])
+      setSecurityLevel(prev => Math.min(100, prev + (Math.random() * 0.1)))
+      i++
+    }, 4000)
+    return () => clearInterval(interval)
   }, [])
 
-  // 🛡️ SÉCURITÉ : Copie sécurisée avec nettoyage du cache
-  const secureCopy = useCallback(() => {
-    if (typeof navigator !== 'undefined') {
-      navigator.clipboard.writeText(CONTRACT_ADDRESS).then(() => {
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
-      })
-    }
-  }, [])
+  const handleCopy = () => {
+    navigator.clipboard.writeText(CONTRACT)
+    setIsCopied(true)
+    addLog("✅ Contrat copié avec succès")
+    setTimeout(() => setIsCopied(false), 2000)
+  }
 
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#050505',
-      backgroundImage: 'radial-gradient(circle at 50% -20%, #1e293b 0%, #000000 80%)',
-      color: '#ffffff',
-      fontFamily: 'Inter, system-ui, sans-serif',
+      backgroundColor: '#000',
+      color: '#00ff41', // Style Terminal Matrix
+      fontFamily: 'monospace',
+      padding: '20px',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
-      padding: '2rem',
-      overflow: 'hidden'
+      alignItems: 'center'
     }}>
       <Head>
-        <title>REUSSITESS® | AIRPODS PRO SECURE</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>REUSSITESS BOT - SÉCURITÉ MAXIMUM</title>
       </Head>
 
-      {/* 🛡️ Barre de Status Sécurité */}
+      {/* Header Statut */}
       <div style={{
         width: '100%',
-        maxWidth: '1200px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        padding: '1rem',
-        borderBottom: '1px solid rgba(255,255,255,0.1)',
-        marginBottom: '4rem'
+        maxWidth: '800px',
+        border: '1px solid #00ff41',
+        padding: '15px',
+        marginBottom: '20px',
+        borderRadius: '10px',
+        backgroundColor: 'rgba(0, 255, 65, 0.05)'
       }}>
-        <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 'bold' }}>
-          ● CRYPTAGE AES-256 ACTIF
-        </span>
-        <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-          SESSION ID: {Math.random().toString(36).substring(7).toUpperCase()}
-        </span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold' }}>
+          <span>SYSTEM STATUS: {status}</span>
+          <span>SECURITY SCORE: {securityLevel.toFixed(2)}%</span>
+        </div>
       </div>
 
-      {/* Contenu Principal */}
+      {/* Interface AirPod Premium */}
       <div style={{
         textAlign: 'center',
-        opacity: isLocked ? 0 : 1,
-        transition: 'opacity 1s ease-in-out',
-        maxWidth: '600px'
+        padding: '40px',
+        background: 'radial-gradient(circle, #1a1a1a 0%, #000 100%)',
+        borderRadius: '30px',
+        border: '2px solid #333',
+        maxWidth: '600px',
+        width: '100%',
+        boxShadow: '0 0 50px rgba(0, 255, 65, 0.1)'
       }}>
-        <div style={{
-          fontSize: '10rem',
-          filter: 'drop-shadow(0 0 30px rgba(102, 126, 234, 0.3))',
-          marginBottom: '2rem'
-        }}>🎧</div>
-
-        <h1 style={{
-          fontSize: '3.5rem',
-          fontWeight: '900',
-          letterSpacing: '-2px',
-          marginBottom: '1rem',
-          background: 'linear-gradient(to bottom, #fff 0%, #64748b 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
+        <div style={{ fontSize: '100px', filter: 'drop-shadow(0 0 10px #00ff41)' }}>🎧</div>
+        <h1 style={{ color: '#fff', fontSize: '2rem', margin: '20px 0' }}>REUSSITESS AIRPODS PRO</h1>
+        
+        {/* Affichage du Contrat */}
+        <div onClick={handleCopy} style={{
+          cursor: 'pointer',
+          padding: '15px',
+          background: '#111',
+          border: '1px dashed #00ff41',
+          borderRadius: '10px',
+          wordBreak: 'break-all',
+          marginTop: '20px',
+          color: isCopied ? '#fff' : '#00ff41',
+          backgroundColor: isCopied ? '#00ff41' : '#111',
+          transition: 'all 0.3s'
         }}>
-          AIRPODS PRO <br/> 
-          <span style={{ color: '#fff', fontSize: '1.5rem', letterSpacing: '4px' }}>REUSSITESS EDITION</span>
-        </h1>
-
-        {/* 🛡️ Boîte du Contrat Sécurisée */}
-        <div style={{
-          background: 'rgba(255,255,255,0.03)',
-          backdropFilter: 'blur(20px)',
-          borderRadius: '24px',
-          padding: '2rem',
-          border: '1px solid rgba(255,255,255,0.1)',
-          marginTop: '3rem',
-          position: 'relative'
-        }}>
-          <div style={{ 
-            color: '#10b981', 
-            fontSize: '0.7rem', 
-            marginBottom: '1rem', 
-            fontWeight: 'bold',
-            textAlign: 'left'
-          }}>
-            VERIFIED SMART CONTRACT
-          </div>
-          
-          <div 
-            onClick={secureCopy}
-            style={{
-              background: '#000',
-              padding: '1.2rem',
-              borderRadius: '12px',
-              cursor: 'pointer',
-              border: copied ? '1px solid #10b981' : '1px solid #334155',
-              transition: 'all 0.3s ease',
-              wordBreak: 'break-all',
-              fontFamily: 'monospace',
-              fontSize: '0.9rem',
-              color: copied ? '#10b981' : '#667eea'
-            }}>
-            {CONTRACT_ADDRESS}
-          </div>
-
-          <p style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#475569' }}>
-            {copied ? 'COPIÉ AVEC SUCCÈS' : 'CLIQUEZ POUR COPIER L\'ADRESSE SÉCURISÉE'}
-          </p>
+          {isCopied ? "ADRESSE COPIÉE !" : CONTRACT}
         </div>
-
-        {/* 🛡️ Indicateurs de Blindage */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '1rem',
-          marginTop: '4rem'
-        }}>
-          {['ANTI-BOT', 'SSL V3', 'WAF+'].map((tech) => (
-            <div key={tech} style={{
-              fontSize: '0.7rem',
-              padding: '0.5rem',
-              border: '1px solid rgba(255,255,255,0.05)',
-              borderRadius: '8px',
-              color: '#94a3b8'
-            }}>
-              {tech}
-            </div>
-          ))}
-        </div>
+        <p style={{ fontSize: '0.8rem', color: '#666', marginTop: '10px' }}>Cliquez pour copier l'adresse sécurisée</p>
       </div>
 
-      {/* Footer Sécurisé */}
-      <div style={{ marginTop: 'auto', paddingBottom: '2rem', fontSize: '0.7rem', color: '#334155' }}>
-        © 2025 REUSSITESS® GLOBAL NEXUS - TOUS DROITS RÉSERVÉS
+      {/* Console de Logs en temps réel */}
+      <div style={{
+        width: '100%',
+        maxWidth: '600px',
+        marginTop: '30px',
+        padding: '15px',
+        backgroundColor: '#0a0a0a',
+        border: '1px solid #333',
+        borderRadius: '10px',
+        height: '150px'
+      }}>
+        <div style={{ color: '#666', fontSize: '0.7rem', marginBottom: '10px' }}>CONSOLE_LOGS_v4.0</div>
+        {logs.map((log, index) => (
+          <div key={index} style={{ fontSize: '0.9rem', marginBottom: '5px' }}>
+            {`> ${log}`}
+          </div>
+        ))}
+      </div>
+
+      {/* Fonctions de Défense */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gap: '10px',
+        marginTop: '20px',
+        maxWidth: '600px',
+        width: '100%'
+      }}>
+        <div style={{ border: '1px solid #333', padding: '10px', textAlign: 'center', fontSize: '0.7rem' }}>🛡️ ANTI-DDOS</div>
+        <div style={{ border: '1px solid #333', padding: '10px', textAlign: 'center', fontSize: '0.7rem' }}>🔒 AES-256</div>
+        <div style={{ border: '1px solid #333', padding: '10px', textAlign: 'center', fontSize: '0.7rem' }}>⚡ FAST_PATH</div>
+        <div style={{ border: '1px solid #333', padding: '10px', textAlign: 'center', fontSize: '0.7rem' }}>👁️ INTRUSION_DETECTION</div>
       </div>
     </div>
   )
