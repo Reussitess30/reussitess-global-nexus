@@ -23,7 +23,7 @@ export default function Certificat() {
 
         <div style={{ textAlign: 'center', borderBottom: '2px solid #000', paddingBottom: '20px', marginBottom: '40px', position: 'relative', zIndex: 1 }}>
           <h1 style={{ margin: 0, fontSize: '28px', textTransform: 'uppercase', letterSpacing: '6px' }}>Attestation de Conformité Blockchain</h1>
-          <p style={{ margin: '10px 0', fontSize: '14px', color: '#555' }}>Délivré sous le protocole de sécurité décentralisé Global Nexus</p>
+          <p style={{ margin: '10px 0', fontSize: '14px', color: '#555' }}>Délivré sous le protocole de sécurité décentralisé Reussitess©</p>
         </div>
 
         <div style={{ fontSize: '20px', lineHeight: '1.8', color: '#222', position: 'relative', zIndex: 1 }}>
@@ -47,7 +47,7 @@ export default function Certificat() {
           {/* ZONE DE SIGNATURE */}
           <div style={{ textAlign: 'center', minWidth: '200px' }}>
             <div style={{ fontFamily: '"Brush Script MT", cursive', fontSize: '32px', color: '#1a237e', marginBottom: '-10px', transform: 'rotate(-2deg)' }}>
-              Global Nexus Authority
+              Reussitess© Authority
             </div>
             <div style={{ width: '250px', height: '1px', background: '#000', margin: '0 auto' }}></div>
             <div style={{ fontSize: '12px', marginTop: '5px', textTransform: 'uppercase', fontWeight: 'bold' }}>Signature du Commissaire Numérique</div>
@@ -56,7 +56,7 @@ export default function Certificat() {
 
         {/* DISCLAIMER JURIDIQUE */}
         <div style={{ marginTop: '50px', borderTop: '1px solid #eee', paddingTop: '20px', fontSize: '9px', color: '#777', textAlign: 'justify', fontStyle: 'italic', lineHeight: '1.4' }}>
-          CLAUSE LÉGALE : Ce document constitue une preuve de participation au protocole "Passeport Mondial" au sein de l'architecture logicielle Reussitess. Il ne peut être utilisé comme pièce d'identité officielle auprès des autorités gouvernementales. Les 14 pays (France, Angleterre, Italie, Allemagne, Suède, Singapour, Australie, Espagne, Brésil, Royaume-Uni, Inde, Nouvelle-Zélande, États-Unis, Canada) sont régis par les conditions d'utilisation Global Nexus en vigueur.
+          CLAUSE LÉGALE : Ce document constitue une preuve de participation au protocole "Passeport Mondial" au sein de l'architecture logicielle Reussitess. Il ne peut être utilisé comme pièce d'identité officielle auprès des autorités gouvernementales. Les 14 pays (France, Angleterre, Italie, Allemagne, Suède, Singapour, Australie, Espagne, Brésil, Royaume-Uni, Inde, Nouvelle-Zélande, États-Unis, Canada) sont régis par les conditions d'utilisation Reussitess© en vigueur.
         </div>
       </div>
 
