@@ -1,3 +1,4 @@
+import ComplianceBot from "./ComplianceBot";
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -170,6 +171,7 @@ export default function Layout({ children, title = 'REUSSITESS®971' }) {
 
       <main style={{ minHeight: '100vh' }}>
         {children}
+<ComplianceBot />
       </main>
 
       <SuperBotAssistant />
