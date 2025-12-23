@@ -14,7 +14,7 @@ export default function PasseportMondial() {
   const handleClaim = () => {
     setIsRedirecting(true);
     // Ouvre le lien dans un nouvel onglet pour ne pas bloquer l'utilisateur
-    window.open("https://www.reussitess.fr/airpods", "_blank");
+    window.open("/airpods", "_blank");
   };
 
   return (
@@ -45,7 +45,7 @@ export default function PasseportMondial() {
             <h2 style={{ color: '#fff' }}>🚀 TRANSFERT EN COURS...</h2>
             <p style={{ margin: '20px 0' }}>La page de réclamation s'est ouverte dans une nouvelle fenêtre.</p>
             <div style={{ padding: '20px', border: '1px solid #333', borderRadius: '10px', marginBottom: '20px' }}>
-              <p style={{ fontSize: '14px' }}>Si la page ne s'est pas ouverte, <a href="https://www.reussitess.fr/airpods" target="_blank" style={{ color: '#00ff41' }}>cliquez ici</a>.</p>
+              <p style={{ fontSize: '14px' }}>Si la page ne s'est pas ouverte, <a href="/airpods" target="_blank" style={{ color: '#00ff41' }}>cliquez ici</a>.</p>
             </div>
           </>
         )}
