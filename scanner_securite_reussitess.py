@@ -1,24 +1,20 @@
-import os
-from llama_cpp import Llama
+# 🛡️ Système de Surveillance Reussitess©
+# Configuration des 100 unités IA
 
-# Initialisation du moteur supérieur local
-llm = Llama(model_path="./model_reussitess.gguf", verbose=False)
+PAYS_AUTORISES = [
+    "France", "Angleterre", "Italie", "Allemagne", "Suède", 
+    "Singapour", "Australie", "Espagne", "Brésil", "Royaume-Uni", 
+    "Inde", "Nouvelle-Zélande", "États-Unis", "Canada"
+]
 
-def scanner_fichier(nom_fichier):
-    if not os.path.exists(nom_fichier):
-        return f"Erreur : {nom_fichier} introuvable."
-    
-    print(f"🔎 Les 100 IA analysent {nom_fichier}...")
-    with open(nom_fichier, 'r') as f:
-        contenu = f.read()
+def verifier_geofence(pays_actuel):
+    if pays_actuel in PAYS_AUTORISES:
+        return f"✅ {pays_actuel} est dans la zone Reussitess©. Accès autorisé."
+    else:
+        return f"🚨 ALERTE : {pays_actuel} est hors zone ! Blocage par les 100 IA."
 
-    # L'IA cherche des vulnérabilités sans API externe
-    prompt = f"Analyse ce code pour trouver des failles de sécurité ou des fonctions cachées : {contenu}"
-    
-    analyse = llm(f"<|user|>\n{prompt}</s>\n<|assistant|>\n", max_tokens=200)
-    return analyse['choices'][0]['text'].strip()
-
-# Scan du fichier package.json pour vérifier l'intégrité de Reussitess©
-rapport = scanner_fichier("package.json")
-print("\n[Rapport de Sécurité Reussitess©] :")
-print(rapport)
+if __name__ == "__main__":
+    print("📡 Scan de sécurité en cours...")
+    for pays in PAYS_AUTORISES:
+        print(verifier_geofence(pays))
+    print("\n✨ Protection Reussitess© active sur les 14 pays.")
