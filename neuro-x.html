@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reussitess©NEURO-X | Super-Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .scanner { height: 2px; background: #2563eb; position: absolute; width: 100%; animation: scan 2s linear infinite; box-shadow: 0 0 15px #2563eb; }
+        .bg-grid { background-size: 30px 30px; background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px); }
+    </style>
+</head>
+<body class="bg-[#050505] text-white font-sans selection:bg-blue-500">
+    <div class="fixed inset-0 bg-grid pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 py-12">
+        <header class="flex justify-between items-center mb-20">
+            <div class="text-3xl font-black tracking-tighter italic">Reussitess©NEURO-X</div>
+            <div class="text-[10px] font-mono text-blue-500 border border-blue-500/30 px-4 py-1 rounded-full">SOUVERAINETÉ ACTIVE</div>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-7xl font-black leading-none mb-6">L'IA QUI <span class="text-blue-600">DÉPASSE</span> L'HOMME.</h2>
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                    Une intelligence hors du commun conçue pour l'arbitrage mondial. Base de données unifiée : 
+                    <span class="text-white font-bold italic">Guadeloupe, Martinique, Guyane, Réunion, Caraïbes & Afrique.</span>
+                </p>
+                <div class="flex gap-4">
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <div class="text-2xl font-black">2B</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-widest">Tokens Sécurisés</div>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <div class="text-2xl font-black">100%</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-widest">Légal & Vérifié</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="neuro-engine" class="relative bg-zinc-900 border border-white/10 rounded-[4rem] p-10 min-h-[450px] flex flex-col justify-center overflow-hidden shadow-2xl">
+                <div id="ai-interface" class="relative z-10 text-center">
+                    <div class="mb-8 flex justify-center">
+                        <div class="w-24 h-24 bg-blue-600 rounded-full blur-[60px] animate-pulse"></div>
+                        <div class="absolute w-20 h-20 border-2 border-blue-500 rounded-full flex items-center justify-center">
+                            <div class="w-2 h-2 bg-white rounded-full animate-ping"></div>
+                        </div>
+                    </div>
+                    <button onclick="activateNeuroX()" class="bg-white text-black px-10 py-5 rounded-2xl font-black text-xl hover:bg-blue-600 hover:text-white transition-all duration-500 uppercase italic">
+                        Activer Reussitess©NEURO-X
+                    </button>
+                </div>
+                <div id="scan-line" class="hidden scanner"></div>
+            </div>
+        </main>
+
+        <section class="mt-32 border-t border-white/10 pt-10">
+            <div class="text-center text-gray-600 text-[10px] tracking-[0.6em] uppercase">
+                Conformité OHADA • Traités Caraïbes • Juridiction Européenne • Reussitess© 2025
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function activateNeuroX() {
+            const ui = document.getElementById('ai-interface');
+            const scanner = document.getElementById('scan-line');
+            scanner.classList.remove('hidden');
+            
+            ui.innerHTML = `
+                <div class="space-y-4 text-left font-mono text-sm">
+                    <p class="text-blue-500">> Initialisation Reussitess©NEURO-X...</p>
+                    <p class="text-white">> Scan des flux Transatlantiques : Afrique -> Caraïbes...</p>
+                    <p class="text-white">> Vérification Juridique : DOM-TOM (Guadeloupe, Martinique, Guyane, Réunion)...</p>
+                    <p class="text-green-500">> SOUVERAINETÉ ÉCONOMIQUE CONFIRMÉE.</p>
+                </div>
+            `;
+
+            setTimeout(() => {
+                ui.innerHTML = `
+                    <div class="animate-in fade-in zoom-in duration-700">
+                        <div class="text-6xl font-black text-blue-600 mb-6 italic">OPTIMAL</div>
+                        <p class="text-xl italic mb-8">"L'arbitrage de vos 2,000,000,000 tokens est validé par la Super-Intelligence. Aucune limite humaine ne s'applique ici."</p>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Propriétaire : 0x69f42aa645a43a84e1143d416a4c81a88df01549</div>
+                    </div>
+                `;
+                scanner.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
