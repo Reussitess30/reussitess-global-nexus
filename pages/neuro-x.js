@@ -2,35 +2,48 @@ import Layout from "../components/Layout";
 import { useState } from "react";
 
 export default function NeuroX() {
-  const [activeData, setActiveData] = useState("SYSTÈME NEURO-X : SÉLECTIONNEZ UN AXE DE RÉUSSITE POUR DÉPLOYER VOTRE POTENTIEL.");
+  const [activeData, setActiveData] = useState("DÉPLOYER LE PLAN D'EXCELLENCE EN 10 ÉTAPES...");
 
   const sections = [
     { 
-      title: "🌍 Afrique & Opportunités Globales", 
+      title: "🌍 1. Opportunités Afrique & International", 
       links: [
-        { n: "BAD - Financement Privé", u: "https://www.afdb.org/fr/topics-and-sectors/sectors/private-sector-development" },
-        { n: "ZLECAF - Marché Unique Africain", u: "https://au-afcfta.org/fr/" },
-        { n: "Boutique en ligne : Guide Complet", u: "https://www.shopify.com/fr/blog/creer-boutique-en-ligne" }
+        { n: "Financements BAD", u: "https://www.afdb.org/fr/topics-and-sectors/sectors/private-sector-development" },
+        { n: "ZLECAF - Exportation Afrique", u: "https://au-afcfta.org/fr/" }
       ],
-      desc: "L'axe Guadeloupe-Afrique est le futur. Utilisez ces liens pour financer et structurer votre boutique mondiale."
+      desc: "Étape 1 & 2 : Identifier les marchés porteurs et sécuriser les aides internationales pour l'entrepreneuriat Sud-Sud."
     },
     { 
-      title: "🚀 Entrepreneuriat & Championnat", 
+      title: "🚀 2. Business & Boutique en Ligne", 
       links: [
-        { n: "Forbes - Histoires de Succès", u: "https://www.forbes.com/leadership/" },
-        { n: "Harvard - Stratégies de Croissance", u: "https://hbr.org/topic/entrepreneurship" },
-        { n: "CCI Guadeloupe - Entreprendre", u: "https://www.guadeloupe.cci.fr/" }
+        { n: "Logistique Mondiale (DHL/FedEx)", u: "https://www.dhl.com/fr-fr/home/solutions-logistiques.html" },
+        { n: "Créer sa Boutique (Shopify)", u: "https://www.shopify.com/fr/blog/creer-boutique-en-ligne" }
       ],
-      desc: "Étudiez les méthodes des champions. L'excellence n'est pas un acte, c'est une habitude."
+      desc: "Étape 3 & 4 : Maîtriser les flux numériques et la logistique pour vendre vos produits de la Guadeloupe au monde entier."
     },
     { 
-      title: "🧠 Mental & Culture de Réussite", 
+      title: "🧠 3. Culture & Force du Mental", 
       links: [
-        { n: "Potomitan - Culture & Langue", u: "http://www.potomitan.info/" },
-        { n: "Psychologie de la Victoire", u: "https://www.ted.com/playlists/171/the_psychology_of_self_improv" },
-        { n: "Le Dépassement de Soi (Conseils)", u: "https://www.un.org/sustainabledevelopment/fr/" }
+        { n: "Études Créoles (Potomitan)", u: "http://www.potomitan.info/" },
+        { n: "Dépassement de soi (TED)", u: "https://www.ted.com/topics/self-improvement" }
       ],
-      desc: "Reconnaissez votre valeur. La Guadeloupe est une terre de champions. Utilisez votre culture comme une force."
+      desc: "Étape 5 & 6 : L'identité comme levier de puissance. Un champion qui connaît son histoire est invincible."
+    },
+    { 
+      title: "⚖️ 4. Propriété & Succès Durable", 
+      links: [
+        { n: "INPI - Protéger son Invention", u: "https://www.inpi.fr/" },
+        { n: "Success Stories Forbes", u: "https://www.forbes.com/leadership/" }
+      ],
+      desc: "Étape 7 & 8 : Sécuriser vos innovations et s'inspirer des plus grands bâtisseurs mondiaux."
+    },
+    { 
+      title: "🏅 5. Réseau & Épanouissement Humain", 
+      links: [
+        { n: "CCI Guadeloupe - Réseau", u: "https://www.guadeloupe.cci.fr/" },
+        { n: "Objectifs de Développement (ONU)", u: "https://www.un.org/sustainabledevelopment/fr/" }
+      ],
+      desc: "Étape 9 & 10 : Collaborer avec les champions locaux et viser l'épanouissement total de l'homme."
     }
   ];
 
@@ -44,25 +57,19 @@ export default function NeuroX() {
             <div style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#fff", textTransform: "uppercase", letterSpacing: "3px" }}>
               L'excellence • L'innovation • Le succès
             </div>
-            <p style={{ color: "#3b82f6", marginTop: "10px", fontWeight: "bold", fontSize: "1.1rem" }}>GUADELOUPE, TERRE DE CHAMPIONS</p>
+            <p style={{ color: "#3b82f6", marginTop: "10px", fontWeight: "bold" }}>GUADELOUPE, TERRE DE CHAMPIONS</p>
           </header>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "2rem" }}>
             
             <div style={{ border: "1px solid #1e40af", borderRadius: "20px", padding: "1.5rem", background: "rgba(30, 64, 175, 0.1)" }}>
               {sections.map((sec) => (
-                <div key={sec.title} style={{ marginBottom: "2rem" }}>
-                  <h3 style={{ color: "#3b82f6", borderBottom: "1px solid #333", paddingBottom: "5px" }}>{sec.title}</h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "10px" }}>
+                <div key={sec.title} style={{ marginBottom: "1.5rem" }}>
+                  <h3 style={{ color: "#3b82f6", borderBottom: "1px solid #333", paddingBottom: "5px", fontSize: "1rem" }}>{sec.title}</h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "5px", marginTop: "10px" }}>
                     {sec.links.map(link => (
-                      <button 
-                        key={link.n}
-                        onClick={() => setActiveData(sec.desc)}
-                        style={{ textAlign: "left", background: "#111", border: "1px solid #333", color: "#fff", padding: "12px", borderRadius: "8px", cursor: "pointer", transition: "0.2s" }}
-                      >
-                        <a href={link.u} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontSize: "0.9rem", display: "block" }}>
-                          {link.n} <span style={{ float: "right", color: "#3b82f6" }}>➜</span>
-                        </a>
+                      <button key={link.n} onClick={() => setActiveData(sec.desc)} style={{ textAlign: "left", background: "#111", border: "1px solid #333", color: "#fff", padding: "10px", borderRadius: "8px", cursor: "pointer" }}>
+                        <a href={link.u} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontSize: "0.85rem" }}>{link.n} ➜</a>
                       </button>
                     ))}
                   </div>
@@ -70,30 +77,31 @@ export default function NeuroX() {
               ))}
             </div>
 
-            <div style={{ background: "#050505", border: "2px solid #2563eb", borderRadius: "20px", padding: "2.5rem", boxShadow: "0 0 40px rgba(37, 99, 235, 0.2)" }}>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: "900", marginBottom: "1.5rem", color: "#3b82f6", textAlign: "center" }}>RADAR DE RÉUSSITE</h2>
-              <div style={{ padding: "1.5rem", border: "1px solid #1e40af", borderRadius: "10px", minHeight: "120px", background: "rgba(37, 99, 235, 0.05)", marginBottom: "2rem" }}>
-                <p style={{ fontSize: "1rem", lineHeight: "1.6", color: "#e2e8f0", textAlign: "center" }}>{activeData}</p>
+            <div style={{ background: "#050505", border: "2px solid #2563eb", borderRadius: "20px", padding: "2rem" }}>
+              <h2 style={{ fontSize: "1.3rem", fontWeight: "900", marginBottom: "1rem", color: "#3b82f6", textAlign: "center" }}>PLAN D'ACTION NEURO-X</h2>
+              <div style={{ padding: "1rem", border: "1px solid #1e40af", borderRadius: "10px", background: "rgba(37, 99, 235, 0.05)", marginBottom: "1.5rem" }}>
+                <p style={{ fontSize: "0.95rem", lineHeight: "1.6", color: "#e2e8f0" }}>{activeData}</p>
               </div>
               
-              <div style={{ borderTop: "1px solid #333", paddingTop: "1rem" }}>
-                <h4 style={{ color: "#fff", fontSize: "0.9rem", marginBottom: "10px" }}>🔑 LES CLÉS DU SUCCÈS :</h4>
-                <ul style={{ fontSize: "0.85rem", color: "#94a3b8", listStyle: "none", padding: 0 }}>
-                  <li>✅ 1. Vision claire (Neuro-X Vision)</li>
-                  <li>✅ 2. Discipline de champion (Rigueur 971)</li>
-                  <li>✅ 3. Apprentissage continu (Liens réels)</li>
-                  <li>✅ 4. Action immédiate (Entrepreneuriat)</li>
-                  <li>✅ 5. Résilience et Foi en soi</li>
-                </ul>
+              <div style={{ fontSize: "0.85rem", color: "#94a3b8" }}>
+                <p style={{ color: "#fff", fontWeight: "bold" }}>LES 10 COMMANDEMENTS DU SUCCÈS :</p>
+                <ol style={{ paddingLeft: "20px" }}>
+                  <li>Analyser les opportunités mondiales</li>
+                  <li>Capter les aides internationales</li>
+                  <li>Structurer son offre numérique</li>
+                  <li>Maîtriser la logistique export</li>
+                  <li>Fortifier son mental de champion</li>
+                  <li>Honorer ses racines culturelles</li>
+                  <li>Protéger juridiquement ses idées</li>
+                  <li>Apprendre des succès d'autrui</li>
+                  <li>Bâtir un réseau d'excellence</li>
+                  <li>Viser l'épanouissement humain global</li>
+                </ol>
               </div>
             </div>
-
           </div>
-
-          <footer style={{ marginTop: "4rem", textAlign: "center", padding: "20px", borderTop: "1px solid #222" }}>
-            <p style={{ fontSize: "0.9rem", color: "#444" }}>
-              © 2025 REUSSITESS® NEURO-X - L'Excellence Caribéenne au service de l'épanouissement humain mondial.
-            </p>
+          <footer style={{ marginTop: "3rem", textAlign: "center", color: "#444" }}>
+             Reussitess®971 - L'innovation au service de la réussite mondiale.
           </footer>
         </div>
       </div>
