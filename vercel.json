@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "reussitess-empire",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SITE_NAME": "REUSSITESS EMPIRE v2.0",
+    "NEXT_PUBLIC_VERSION": "2.0.0"
+  }
+}
