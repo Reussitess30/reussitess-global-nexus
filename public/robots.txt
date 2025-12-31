@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Lien vers votre carte du monde pour Google et Bing
-Sitemap: https://www.reussitess.fr/sitemap.xml
+# Autoriser spécifiquement les robots d'IA pour le projet NEURO-X
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
 
-# Optimisation pour Reussitess©
-Disallow: /_next/
+# Indiquer la source officielle aux algorithmes
+Sitemap: https://www.reussitess.fr/sitemap.xml
