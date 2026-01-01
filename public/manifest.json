@@ -1,21 +1,25 @@
 {
-  "name": "REUSSITESS® Global Nexus",
-  "short_name": "REUSSITESS®",
-  "description": "🌍 Global E-commerce Nexus - 26 Amazon boutiques across 14 countries",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "short_name": "Reussitess©",
+  "name": "Reussitess© NEURO-X : IA & Souveraineté",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#00ff41",
+  "background_color": "#020617",
+  "orientation": "portrait",
+  "scope": "/",
+  "description": "Plateforme d'IA prédictive souveraine et Hub commercial mondial (14 pays).",
+  "categories": ["finance", "business", "technology"]
 }
