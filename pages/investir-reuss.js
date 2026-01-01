@@ -94,3 +94,38 @@ export default function InvestirReuss() {
             </div>
           </div>
         </section>
+
+        <section style={{ marginTop: '50px', borderTop: '1px solid #3b82f6', paddingTop: '30px' }}>
+          <h3 style={{ color: '#00ff41', fontSize: '1.2rem', textAlign: 'center', marginBottom: '30px' }}>
+            STRATÉGIE D'EXPANSION "BOUDOUM" : MARQUER LA PLANÈTE 🌍
+          </h3>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+            <div style={{ background: '#111827', padding: '20px', borderRadius: '15px', border: '1px solid #1e293b' }}>
+              <h4 style={{ color: '#3b82f6' }}>🇪🇺 ZONE EUROPE & UK</h4>
+              <p style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>
+                Déploiement de l'IA NEURO-X pour la souveraineté numérique. Focus : France, Belgique, Allemagne, Italie, Espagne, Suède et Royaume-Uni.
+              </p>
+            </div>
+            
+            <div style={{ background: '#111827', padding: '20px', borderRadius: '15px', border: '1px solid #1e293b' }}>
+              <h4 style={{ color: '#3b82f6' }}>🇺🇸 AMÉRIQUES & BRÉSIL</h4>
+              <p style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>
+                Hub de calcul de probabilités pour les marchés à haute fréquence. Focus : USA, Canada et Brésil.
+              </p>
+            </div>
+            
+            <div style={{ background: '#111827', padding: '20px', borderRadius: '15px', border: '1px solid #1e293b' }}>
+              <h4 style={{ color: '#3b82f6' }}>🌏 ASIE-PACIFIQUE & INDE</h4>
+              <p style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>
+                Expansion de l'écosystème de positivité et d'innovation. Focus : Inde, Singapour, Australie et Nouvelle-Zélande.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '30px', textAlign: 'center', padding: '20px', backgroundColor: 'rgba(0, 255, 65, 0.05)', borderRadius: '15px' }}>
+            <p style={{ fontWeight: 'bold', color: '#00ff41' }}>
+              "L'énergie de la Guadeloupe, Terres De Champions, est le moteur de cette conquête mondiale. Positivité à l'infini — BOUDOUM !"
+            </p>
+          </div>
+        </section>
