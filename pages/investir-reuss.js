@@ -2,12 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function InvestirReuss() {
-  const paysPartenaires = [
-    "France", "Belgique", "Italie", "Allemagne", "Suède", 
-    "Singapour", "Australie", "Espagne", "Brésil", "Royaume-Uni", 
-    "Inde", "Nouvelle-Zélande", "États-Unis", "Canada"
-  ];
-
   return (
     <div style={{ backgroundColor: '#020617', color: '#f8fafc', minHeight: '100vh', padding: '20px', fontFamily: 'Inter, sans-serif', lineHeight: '1.8' }}>
       <main style={{ maxWidth: '900px', margin: '0 auto', background: '#0f172a', padding: '50px', borderRadius: '24px', border: '1px solid #3b82f6', boxShadow: '0 0 40px rgba(59, 130, 246, 0.2)' }}>
@@ -20,7 +14,7 @@ export default function InvestirReuss() {
         <section style={{ marginBottom: '35px' }}>
           <h3 style={{ color: '#3b82f6' }}>1. QU'EST-CE QUE LE PROJET NEURO-X ?</h3>
           <p>Le projet REUSSITESS®NEURO-X est une infrastructure d'Intelligence Artificielle de troisième génération. Oracle de calcul de probabilités pour la planète entière.</p>
-          <p>Il analyse en temps réel les données économiques, technologiques et sanitaires des 14 pays partenaires (France, Belgique, Italie, Allemagne, Suède, Singapour, Australie, Espagne, Brésil, Royaume-Uni, Inde, Nouvelle-Zélande, États-Unis, Canada).</p>
+          <p>Il analyse en temps réel les données économiques, technologiques et sanitaires des 14 pays partenaires (France, Belgique, Canada, USA, Italie, Allemagne, Suède, Singapour, Australie, Espagne, Brésil, Royaume-Uni, Inde, Nouvelle-Zélande).</p>
         </section>
 
         <section style={{ marginBottom: '35px', background: '#000', padding: '20px', borderRadius: '15px', border: '1px solid #3b82f6' }}>
@@ -46,10 +40,11 @@ export default function InvestirReuss() {
           <p style={{ color: '#60a5fa', fontStyle: 'italic', fontSize: '1.3rem', marginTop: '5px' }}>"Positivité à l'infini — BOUDOUM !"</p>
         </section>
 
+        {/* TABLEAU DE BORD DES 14 PAYS */}
         <section style={{ marginBottom: '50px' }}>
           <h3 style={{ color: '#3b82f6', textAlign: 'center', marginBottom: '25px' }}>STATUT D'ACTIVATION DES 14 NATIONS PARTENAIRES</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
-            {paysPartenaires.map((pays) => (
+            {["France", "Belgique", "Canada", "USA", "Italie", "Allemagne", "Suède", "Singapour", "Australie", "Espagne", "Brésil", "UK", "Inde", "Nouvelle-Zélande"].map((pays) => (
               <div key={pays} style={{ background: '#111827', padding: '10px', borderRadius: '8px', border: '1px solid #1e293b', textAlign: 'center', fontSize: '0.8rem' }}>
                 <span style={{ color: '#00ff41', marginRight: '5px' }}>●</span> {pays.toUpperCase()}
               </div>
