@@ -76,3 +76,21 @@ export default function InvestirReuss() {
     </div>
   );
 }
+
+        <section style={{ marginTop: '40px', padding: '25px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid #1e293b' }}>
+          <h3 style={{ color: '#3b82f6', fontSize: '1.1rem', textAlign: 'center', marginBottom: '20px' }}>INDICATEURS DE DÉPLOIEMENT GLOBAL</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '20px', textAlign: 'center' }}>
+            <div>
+              <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#00ff41' }}>14</div>
+              <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>NATIONS PARTENAIRES</div>
+            </div>
+            <div>
+              <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#00ff41' }}>1B</div>
+              <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>UNITÉS (OFFRE TOTALE)</div>
+            </div>
+            <div>
+              <div style={{ fontSize: '1.5rem', fontWeight: '900', color: '#00ff41' }}>200</div>
+              <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>UNITÉS IA NEURO-X</div>
+            </div>
+          </div>
+        </section>
