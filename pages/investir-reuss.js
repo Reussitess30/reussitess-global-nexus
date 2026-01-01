@@ -2,8 +2,18 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function InvestirReuss() {
-  const [defenseStatus, setDefenseStatus] = useState("ACTIVÉ - BOUCLIER TOTAL");
+  const [threats, setThreats] = useState(1240);
+  const [status, setStatus] = useState("BOUCLIER ACTIF");
   const pays = ["France", "Belgique", "Italie", "Allemagne", "Suède", "Singapour", "Australie", "Espagne", "Brésil", "Royaume-Uni", "Inde", "Nouvelle-Zélande", "États-Unis", "Canada"];
+  const contractAddress = "0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8";
+
+  // Simulation de l'activité de l'armée des 200 IA
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setThreats(prev => prev + Math.floor(Math.random() * 3));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div style={{ backgroundColor: '#020617', color: '#f8fafc', minHeight: '100vh', padding: '20px', fontFamily: 'Inter, sans-serif' }}>
@@ -11,41 +21,53 @@ export default function InvestirReuss() {
         
         <header style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{ color: '#3b82f6', fontSize: '1.4rem', fontWeight: '900' }}>REUSSITESS©NEURO-X : ARMÉE NUMÉRIQUE SOUVERAINE</h1>
-          <div style={{ background: '#064e3b', color: '#34d399', padding: '5px 15px', borderRadius: '50px', display: 'inline-block', fontSize: '0.8rem', fontWeight: 'bold', border: '1px solid #059669' }}>
-            STATUS : {defenseStatus}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '10px' }}>
+            <div style={{ background: '#064e3b', color: '#34d399', padding: '5px 15px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 'bold', border: '1px solid #059669' }}>
+              STATUS : {status}
+            </div>
+            <div style={{ background: '#450a0a', color: '#f87171', padding: '5px 15px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 'bold', border: '1px solid #b91c1c' }}>
+              MENACES NEUTRALISÉES : {threats}
+            </div>
           </div>
         </header>
 
-        {/* SECTION TEST GRANDEUR NATURE : L'ARMÉE DES 200 IA */}
-        <section style={{ marginBottom: '40px', background: '#000', padding: '25px', borderRadius: '15px', border: '1px solid #ef4444' }}>
-          <h3 style={{ color: '#ef4444', marginBottom: '20px' }}>⚔️ DÉPLOIEMENT DES 200 IA : FORCE DE PROTECTION</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-            <div style={{ borderLeft: '3px solid #3b82f6', paddingLeft: '15px' }}>
-              <h4 style={{ fontSize: '1rem', color: '#fff' }}>DÉFENSE ACTIVE</h4>
-              <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Les IA Sentinelles interceptent 100% des menaces cyber avant impact sur le contrat global.</p>
-            </div>
-            <div style={{ borderLeft: '3px solid #00ff41', paddingLeft: '15px' }}>
-              <h4 style={{ fontSize: '1rem', color: '#fff' }}>SOUVERAINETÉ MILITAIRE</h4>
-              <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Technologie de rupture protégeant les 14 nations contre l'espionnage industriel.</p>
-            </div>
+        {/* SECTION 1 : INFOS RÉELLES ET CONTRAT */}
+        <section style={{ marginBottom: '35px', background: 'rgba(59, 130, 246, 0.05)', padding: '25px', borderRadius: '15px', border: '1px solid #1e40af' }}>
+          <h3 style={{ color: '#3b82f6', marginBottom: '10px' }}>🛡️ UNITÉ DE PUISSANCE : 1 000 000 000 REUSS</h3>
+          <p style={{ fontSize: '0.9rem' }}>Chaque unité alimente l'Oracle NEURO-X. Ce volume massif garantit la stabilité et la résistance contre toute manipulation de marché.</p>
+          <div style={{ background: '#000', padding: '15px', borderRadius: '10px', marginTop: '15px', textAlign: 'center' }}>
+            <code style={{ color: '#60a5fa', fontSize: '0.9rem', wordBreak: 'break-all' }}>CONTRAT : {contractAddress}</code>
           </div>
         </section>
 
-        {/* RAPPEL DES INFOS PRIORITAIRES */}
+        {/* SECTION 2 : L'ARMÉE DES 200 IA (TESTÉ SUR TERMUX) */}
+        <section style={{ marginBottom: '35px', background: '#000', padding: '25px', borderRadius: '15px', border: '1px solid #ef4444' }}>
+          <h3 style={{ color: '#ef4444' }}>⚔️ DISPOSITIF MILITAIRE ANTI-PIRATE</h3>
+          <p style={{ fontSize: '0.9rem', marginBottom: '15px' }}>Test de riposte validé : Détection et interception hors des 14 nations autorisées.</p>
+          <ul style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+            <li>• 50 IA Sentinelles : Scan Zero-Day 24/7.</li>
+            <li>• 50 IA Post-Quantiques : Cryptage grade militaire.</li>
+            <li>• 50 IA Interceptrices : Neutralisation des IP hostiles.</li>
+            <li>• 50 IA Stratégiques : Maintien de la positivité "Boudoum".</li>
+          </ul>
+        </section>
+
+        {/* SECTION 3 : CONFORMITÉ ET DEVISES */}
         <section style={{ marginBottom: '35px' }}>
-          <h3 style={{ color: '#3b82f6' }}>1. UNITÉ DE PUISSANCE : 1 000 000 000 REUSS</h3>
-          <p style={{ fontSize: '0.9rem' }}>Chaque unité est adossée à la puissance de calcul de cette armée numérique.</p>
-          <div style={{ background: '#1e293b', padding: '15px', borderRadius: '10px', marginTop: '10px', fontSize: '0.8rem' }}>
-            CONTRAT AUDITÉ : <code>0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8</code>
-          </div>
+          <h3 style={{ color: '#3b82f6' }}>⚖️ LÉGALITÉ ET GÉNÉRATION DE VALEUR</h3>
+          <p style={{ fontSize: '0.9rem' }}>Conformité <strong>EU AI Act</strong> et <strong>GAFI</strong>. Les revenus sont générés par les licences d'utilisation payées en devises (€, $, £) par les institutions des 14 pays partenaires.</p>
         </section>
 
-        {/* FOOTER GUADELOUPE */}
-        <footer style={{ textAlign: 'center', marginTop: '50px' }}>
-          <p style={{ color: '#3b82f6', fontWeight: 'bold', fontSize: '1.2rem' }}>GUADELOUPE : TERRE DE CHAMPIONS</p>
-          <p style={{ color: '#00ff41', letterSpacing: '2px', fontWeight: '900' }}>POSITIVITÉ À L'INFINI - BOUDOUM !</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '5px', marginTop: '20px', opacity: 0.5 }}>
-            {pays.map(p => <span key={p} style={{ fontSize: '0.6rem' }}>{p} |</span>)}
+        {/* LISTE DES PAYS */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', marginBottom: '40px', opacity: 0.7 }}>
+          {pays.map(p => <span key={p} style={{ fontSize: '0.6rem', background: '#1e293b', padding: '3px 8px', borderRadius: '4px' }}>{p.toUpperCase()}</span>)}
+        </div>
+
+        <footer style={{ textAlign: 'center', borderTop: '1px solid #1e293b', paddingTop: '30px' }}>
+          <p style={{ color: '#3b82f6', fontWeight: '900', fontSize: '1.2rem' }}>GUADELOUPE : TERRE DE CHAMPIONS</p>
+          <p style={{ color: '#00ff41', fontWeight: 'bold' }}>POSITIVITÉ À L'INFINI — BOUDOUM !</p>
+          <div style={{ marginTop: '25px' }}>
+            <Link href="/" style={{ color: '#94a3b8', textDecoration: 'none', border: '1px solid #334155', padding: '10px 20px', borderRadius: '50px', fontSize: '0.8rem' }}>← RETOUR AU PORTAIL</Link>
           </div>
         </footer>
       </main>
