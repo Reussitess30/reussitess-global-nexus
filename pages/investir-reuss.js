@@ -77,10 +77,10 @@ export default function InvestirReuss() {
           </div>
         </section>
 
-        {/* BOUTON DE RETOUR (AJOUTÉ ICI) */}
-        <div style={{ textAlign: 'center', margin: '40px 0' }}>
-          <Link href="/" style={{ background: '#1e293b', color: '#fff', padding: '15px 40px', borderRadius: '50px', border: '2px solid #3b82f6', textDecoration: 'none', fontWeight: 'bold', fontSize: '1rem', transition: '0.3s', boxShadow: '0 0 15px rgba(59, 130, 246, 0.5)' }}>
-            ↩️ RETOUR AU PORTAIL PRINCIPAL
+        {/* BOUTON DE RETOUR (PLUS PETIT) */}
+        <div style={{ textAlign: 'center', margin: '20px 0' }}>
+          <Link href="/" style={{ background: '#1e293b', color: '#fff', padding: '8px 20px', borderRadius: '30px', border: '1px solid #3b82f6', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.8rem', transition: '0.3s' }}>
+            ↩ Retour
           </Link>
         </div>
 
