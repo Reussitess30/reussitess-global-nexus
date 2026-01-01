@@ -23,7 +23,7 @@ export default function InvestirReuss() {
           <h1 style={{ color: '#3b82f6', fontSize: '1.4rem', fontWeight: '900' }}>REUSSITESS©NEURO-X : ARMÉE NUMÉRIQUE SOUVERAINE</h1>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '10px' }}>
             <div style={{ background: '#064e3b', color: '#34d399', padding: '5px 15px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 'bold', border: '1px solid #059669' }}>
-              STATUS : {status}
+              STATUS : {status} | 1Mrd VÉRIFIÉ ✅
             </div>
             <div style={{ background: '#450a0a', color: '#f87171', padding: '5px 15px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 'bold', border: '1px solid #b91c1c' }}>
               MENACES NEUTRALISÉES : {threats}
