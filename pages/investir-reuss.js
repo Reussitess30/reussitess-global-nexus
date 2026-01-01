@@ -50,7 +50,7 @@ export default function InvestirReuss() {
           <p style={{ color: '#00ff41', fontWeight: 'bold' }}>ARMÉE DES 200 IA - SOUVERAINETÉ GUADELOUPE</p>
         </header>
 
-        {/* MONITORING SYSTÈME RÉTABLI */}
+        {/* MONITORING SYSTÈME */}
         <section style={{ marginBottom: '35px', background: '#000', padding: '25px', borderRadius: '15px', border: '1px solid #00ff41' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
             <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>NIVEAU D'AUTO-RENFORCEMENT :</span>
@@ -65,58 +65,49 @@ export default function InvestirReuss() {
           </div>
         </section>
 
-        {/* CONTRAT CLIQUABLE RÉTABLI */}
+        {/* CONTRAT CLIQUABLE */}
         <section style={{ marginBottom: '35px', padding: '25px', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '15px', border: '2px solid #3b82f6' }}>
           <h3 style={{ color: '#fff', marginBottom: '15px' }}>💎 OFFRE TOTALE : 1 000 000 000 REUSS</h3>
           <p style={{ fontSize: '0.9rem', color: '#cbd5e1', marginBottom: '15px' }}>Vérifiez l'armée sur la Blockchain Polygon :</p>
-          <a 
-            href={`https://polygonscan.com/token/${contractAddress}`} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ display: 'block', background: '#3b82f6', color: '#fff', textAlign: 'center', padding: '15px', borderRadius: '10px', fontWeight: 'bold', textDecoration: 'none', transition: '0.3s' }}
-          >
+          <a href={`https://polygonscan.com/token/${contractAddress}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', background: '#3b82f6', color: '#fff', textAlign: 'center', padding: '15px', borderRadius: '10px', fontWeight: 'bold', textDecoration: 'none' }}>
             CONSULTER LE CONTRAT RÉEL →
           </a>
-          <p style={{ fontSize: '0.7rem', color: '#60a5fa', marginTop: '10px', textAlign: 'center', wordBreak: 'break-all' }}>
-            {contractAddress}
-          </p>
+          <p style={{ fontSize: '0.7rem', color: '#60a5fa', marginTop: '10px', textAlign: 'center', wordBreak: 'break-all' }}>{contractAddress}</p>
         </section>
 
-        {/* PROTOCOLES DES 200 IA RÉTABLIS */}
+        {/* PROTOCOLES IA */}
         <section style={{ marginBottom: '35px' }}>
           <h3 style={{ color: '#3b82f6' }}>🛡️ PROTOCOLE D'AUTO-DÉFENSE ACTIVE</h3>
           <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-            L'armée Reussitess© utilise la <strong>Self-Mutation</strong>. Chaque attaque bloque définitivement son vecteur pour les 14 pays. Le système ne se contente pas de défendre, il apprend et devient invincible à chaque seconde.
+            L'armée Reussitess© utilise la <strong>Self-Mutation</strong>. Chaque attaque bloque définitivement son vecteur pour les 14 pays. Le système apprend et devient invincible à chaque seconde.
           </p>
         </section>
 
-        {/* LA TOILE D'ARAIGNÉE SOCIALE (NOUVELLE SECTION) */}
+        {/* TOILE D'ARAIGNÉE SOCIALE */}
         <section style={{ marginBottom: '35px', borderTop: '1px solid #1e293b', paddingTop: '20px' }}>
           <h3 style={{ color: '#3b82f6', marginBottom: '20px' }}>🕸️ TOILE D'ARAIGNÉE MONDIALE</h3>
-          
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '10px', marginBottom: '25px' }}>
             {socialLinks.tiktok.map((tk, i) => (
-              <a key={i} href={tk.url} target="_blank" rel="noopener noreferrer" style={{ background: '#000', padding: '12px', borderRadius: '10px', border: '1px solid #ff0050', color: '#fff', fontSize: '0.75rem', textDecoration: 'none', textAlign: 'center', fontWeight: 'bold' }}>
-                TIKTOK {tk.name.toUpperCase()}
-              </a>
+              <a key={i} href={tk.url} target="_blank" rel="noopener noreferrer" style={{ background: '#000', padding: '12px', borderRadius: '10px', border: '1px solid #ff0050', color: '#fff', fontSize: '0.75rem', textDecoration: 'none', textAlign: 'center', fontWeight: 'bold' }}>TIKTOK {tk.name.toUpperCase()}</a>
             ))}
           </div>
-
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '25px', justifyContent: 'center' }}>
             {socialLinks.networks.map((net, i) => (
-              <a key={i} href={net.url} target="_blank" rel="noopener noreferrer" style={{ background: '#1e293b', padding: '10px 18px', borderRadius: '50px', border: '1px solid #3b82f6', color: '#fff', fontSize: '0.8rem', textDecoration: 'none' }}>
-                {net.icon} {net.name}
-              </a>
+              <a key={i} href={net.url} target="_blank" rel="noopener noreferrer" style={{ background: '#1e293b', padding: '10px 18px', borderRadius: '50px', border: '1px solid #3b82f6', color: '#fff', fontSize: '0.8rem', textDecoration: 'none' }}>{net.icon} {net.name}</a>
             ))}
           </div>
+        </section>
 
-          <div style={{ background: '#0a0f1d', padding: '20px', borderRadius: '15px', display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
-            {socialLinks.facebook.map((fb, i) => (
-              <a key={i} href={fb.url} target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', fontSize: '0.85rem', textDecoration: 'none', fontWeight: '600' }}>
-                📘 {fb.name}
-              </a>
-            ))}
-          </div>
+        {/* RUBRIQUE JURIDIQUE (LA PROTECTION) */}
+        <section style={{ marginBottom: '35px', padding: '20px', background: '#000', borderRadius: '15px', border: '1px solid #475569' }}>
+          <h3 style={{ color: '#ef4444', fontSize: '1rem', marginBottom: '15px' }}>⚖️ MENTION LÉGALE & PROTECTION</h3>
+          <p style={{ fontSize: '0.8rem', color: '#94a3b8', lineHeight: '1.5' }}>
+            Le projet REUSSITESS© est une infrastructure technologique expérimentale. 
+            L'acquisition d'unités REUSS ne constitue pas un investissement financier régulé. 
+            Vous êtes responsable de la sécurité de vos clés privées. 
+            En utilisant cette interface, vous acceptez les risques liés à la technologie blockchain.
+            Aucun remboursement possible après émission sur la blockchain Polygon.
+          </p>
         </section>
 
         <footer style={{ textAlign: 'center', borderTop: '1px solid #1e293b', paddingTop: '20px' }}>
@@ -124,7 +115,6 @@ export default function InvestirReuss() {
             {pays.map(p => <span key={p} style={{ fontSize: '0.65rem', background: '#1e293b', padding: '4px 10px', borderRadius: '6px', color: '#94a3b8', border: '1px solid #334155' }}>{p}</span>)}
           </div>
           <p style={{ color: '#00ff41', fontWeight: 'bold', fontSize: '1.1rem' }}>POSITIVITÉ À L'INFINI — BOUDOUM !</p>
-          <Link href="/" style={{ color: '#475569', fontSize: '0.8rem', textDecoration: 'underline', marginTop: '15px', display: 'block' }}>← RETOUR AU PORTAIL SOUVERAIN</Link>
         </footer>
       </main>
     </div>
