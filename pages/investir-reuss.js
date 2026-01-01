@@ -8,7 +8,7 @@ export default function InvestirReuss() {
         
         {/* --- PARTIE 1 : VOS DONNÉES PRÉSENTES (CONSERVÉES INTÉGRALEMENT) --- */}
         <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ color: '#3b82f6', fontSize: '1.8rem', fontWeight: '900' }}>REUSSITESS®NEURO-X : L'IA PRÉDICTIVE SOUVERAINE DES 14 NATIONS</h1>
+          <h1 style={{ color: '#3b82f6', fontSize: '1.4rem', fontWeight: '900' }}>REUSSITESS®NEURO-X : L'IA PRÉDICTIVE SOUVERAINE DES 14 NATIONS</h1>
           <h2 style={{ color: '#94a3b8', fontSize: '1.2rem', fontWeight: 'bold' }}>GUIDE OPÉRATIONNEL ET CONFORMITÉ JURIDIQUE</h2>
         </header>
 
