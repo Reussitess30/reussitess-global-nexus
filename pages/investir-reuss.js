@@ -8,84 +8,65 @@ export default function InvestirReuss() {
     "Inde", "Nouvelle-Zélande", "États-Unis", "Canada"
   ];
 
-  const [activeIa, setActiveIa] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIa((prev) => (prev + 1) % 3);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div style={{ backgroundColor: '#020617', color: '#f8fafc', minHeight: '100vh', padding: '20px', fontFamily: 'Inter, sans-serif', lineHeight: '1.8' }}>
       <main style={{ maxWidth: '900px', margin: '0 auto', background: '#0f172a', padding: '50px', borderRadius: '24px', border: '1px solid #3b82f6', boxShadow: '0 0 40px rgba(59, 130, 246, 0.2)' }}>
         
         <header style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{ color: '#3b82f6', fontSize: '1.4rem', fontWeight: '900' }}>REUSSITESS®NEURO-X : L'IA PRÉDICTIVE SOUVERAINE DES 14 NATIONS</h1>
-          <h2 style={{ color: '#94a3b8', fontSize: '1.1rem' }}>GUIDE OPÉRATIONNEL ET CONFORMITÉ JURIDIQUE</h2>
+          <h2 style={{ color: '#94a3b8', fontSize: '1.1rem' }}>SÉCURITÉ INFRASTRUCTURELLE ET SOUVERAINETÉ</h2>
         </header>
 
-        {/* SECTION 1: DÉFINITION RÉELLE */}
-        <section style={{ marginBottom: '35px' }}>
-          <h3 style={{ color: '#3b82f6' }}>1. QU'EST-CE QUE LE PROJET NEURO-X ?</h3>
-          <p>Infrastructure d'IA de troisième génération, agissant comme un Oracle de probabilités pour 14 pays partenaires stratégiques.</p>
-        </section>
-
-        {/* SECTION SÉCURITÉ MILITAIRE (AJOUT CRUCIAL) */}
-        <section style={{ marginBottom: '50px', background: 'linear-gradient(135deg, #0f172a 0%, #7f1d1d 100%)', padding: '30px', borderRadius: '20px', border: '2px solid #ef4444' }}>
+        {/* SECTION SÉCURITÉ MILITAIRE EXISTANTE */}
+        <section style={{ marginBottom: '40px', background: 'linear-gradient(135deg, #0f172a 0%, #7f1d1d 100%)', padding: '30px', borderRadius: '20px', border: '2px solid #ef4444' }}>
           <h3 style={{ color: '#fff', fontSize: '1.3rem', fontWeight: '900', marginBottom: '20px', textAlign: 'center' }}>
-            🛡️ PROTOCOLE DE PROTECTION DE GRADE MILITAIRE
+            🛡️ BOUCLIER CYBER DE GRADE MILITAIRE
           </h3>
-          <p style={{ color: '#fecaca', fontSize: '0.95rem', marginBottom: '20px', textAlign: 'center' }}>
-            Contre le piratage et l'espionnage industriel, NEURO-X déploie un bouclier actif :
-          </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
             <div style={{ background: 'rgba(0,0,0,0.5)', padding: '15px', borderRadius: '12px' }}>
               <h4 style={{ color: '#ef4444', fontSize: '0.9rem' }}>CRYPTOGRAPHIE POST-QUANTIQUE</h4>
-              <p style={{ fontSize: '0.8rem' }}>Algorithmes de chiffrement de niveau défense nationale, protégeant les transactions REUSS contre toute tentative de brute-force.</p>
+              <p style={{ fontSize: '0.8rem' }}>Protection totale contre le brute-force et l'espionnage d'État.</p>
             </div>
             <div style={{ background: 'rgba(0,0,0,0.5)', padding: '15px', borderRadius: '12px' }}>
-              <h4 style={{ color: '#ef4444', fontSize: '0.9rem' }}>ESSAIM ANTI-INTRUSION</h4>
-              <p style={{ fontSize: '0.8rem' }}>Les 200 IA intègrent des modules de contre-mesures cyber, neutralisant les vecteurs d'attaque avant qu'ils n'atteignent le contrat global.</p>
+              <h4 style={{ color: '#ef4444', fontSize: '0.9rem' }}>PROTOCOLES ANTI-PIRATES</h4>
+              <p style={{ fontSize: '0.8rem' }}>Neutralisation instantanée des tentatives d'intrusion par l'essaim des 200 IA.</p>
             </div>
           </div>
-          <p style={{ marginTop: '20px', fontSize: '0.85rem', textAlign: 'center', fontWeight: 'bold', color: '#fff' }}>
-            SÉCURITÉ ABSOLUE : ZÉRO TOLÉRANCE POUR LE PIRATAGE.
+        </section>
+
+        {/* NOUVELLE SECTION : SOUVERAINETÉ ET STOCKAGE FROID */}
+        <section style={{ marginBottom: '50px', background: 'rgba(59, 130, 246, 0.05)', padding: '30px', borderRadius: '20px', border: '1px solid #3b82f6' }}>
+          <h3 style={{ color: '#3b82f6', fontSize: '1.3rem', fontWeight: '900', marginBottom: '20px' }}>
+            📦 SOUVERAINETÉ DES DONNÉES & COLD STORAGE
+          </h3>
+          <div style={{ color: '#cbd5e1', fontSize: '0.95rem' }}>
+            <p style={{ marginBottom: '15px' }}>
+              Pour garantir une sécurité inviolable, <strong>Reussitess®NEURO-X</strong> utilise une architecture de stockage hybride :
+            </p>
+            <ul style={{ paddingLeft: '20px' }}>
+              <li style={{ marginBottom: '10px' }}><strong>Air-Gapped Cold Storage :</strong> Les clés critiques du contrat et les algorithmes sources sont conservés sur des serveurs physiquement déconnectés de tout réseau internet.</li>
+              <li style={{ marginBottom: '10px' }}><strong>Souveraineté Territoriale :</strong> Aucune donnée des 14 nations n'est stockée sur des serveurs tiers. L'infrastructure est la propriété exclusive du projet, opérée depuis la <strong>Guadeloupe</strong>.</li>
+              <li><strong>Immuabilité Blockchain :</strong> Chaque calcul de probabilité est ancré de manière indélébile, rendant toute manipulation rétroactive impossible.</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* RAPPEL DES 14 PAYS ET BOUDOUM */}
+        <section style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <p style={{ color: '#00ff41', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            FORCE - SÉCURITÉ - POSITIVITÉ : BOUDOUM !
           </p>
-        </section>
-
-        {/* SECTION 200 IA EN ACTION */}
-        <section style={{ marginBottom: '50px' }}>
-          <h3 style={{ color: '#00ff41', textAlign: 'center', marginBottom: '30px', fontSize: '1.3rem', fontWeight: '900' }}>PUISSANCE DE FEU DES 200 IA</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <div style={{ borderLeft: '4px solid #3b82f6', paddingLeft: '20px' }}>
-              <h4 style={{ color: '#fff' }}>FORCE DE CALCUL PRÉDICTIF</h4>
-              <p style={{ fontSize: '0.9rem' }}>Analyse exhaustive des flux pour les 14 pays (France, Belgique, USA, Canada, Brésil, etc.).</p>
-            </div>
-            <div style={{ borderLeft: '4px solid #00ff41', paddingLeft: '20px' }}>
-              <h4 style={{ color: '#fff' }}>POSITIVITÉ À L'INFINI (BOUDOUM)</h4>
-              <p style={{ fontSize: '0.9rem' }}>Technologie exclusive de la Guadeloupe pour la performance mondiale.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* STATUT PAYS */}
-        <section style={{ marginBottom: '40px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px', marginTop: '20px' }}>
             {paysPartenaires.map((p) => (
-              <div key={p} style={{ border: '1px solid #1e293b', padding: '8px', fontSize: '0.75rem', textAlign: 'center', borderRadius: '5px' }}>
-                <span style={{ color: '#00ff41' }}>●</span> {p.toUpperCase()}
+              <div key={p} style={{ border: '1px solid #1e293b', padding: '8px', fontSize: '0.7rem', borderRadius: '5px', opacity: 0.8 }}>
+                {p.toUpperCase()}
               </div>
             ))}
           </div>
         </section>
 
-        <footer style={{ textAlign: 'center', color: '#94a3b8', fontSize: '0.8rem' }}>
-          <p>Origine : Guadeloupe "Terres De Champions" - BOUDOUM !</p>
-          <div style={{ marginTop: '30px' }}>
-            <Link href="/" style={{ color: '#3b82f6', textDecoration: 'none' }}>← RETOUR AU PORTAIL</Link>
-          </div>
+        <footer style={{ textAlign: 'center', borderTop: '1px solid #334155', paddingTop: '20px' }}>
+          <Link href="/" style={{ color: '#3b82f6', textDecoration: 'none', fontWeight: 'bold' }}>← RETOUR AU PORTAIL SÉCURISÉ</Link>
         </footer>
       </main>
     </div>
