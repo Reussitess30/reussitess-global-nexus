@@ -7,7 +7,7 @@ export default function InvestirReuss() {
   const [armyPower, setArmyPower] = useState(1000000);
   
   const pays = ["France", "Angleterre", "Italie", "Allemagne", "Suède", "Singapour", "Australie", "Espagne", "Brésil", "Royaume-Uni", "Inde", "Nouvelle-Zélande", "États-Unis", "Canada"];
-  const contractAddress = "0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8";
+  const contractAddress = "0xbe8777aB450937bf107090F4F5F7c4834Db079cF";
   const genesisHash = "0xbc4e93ca3b4a04c5a5fa3b2ab19050fb85aa01e24df856d3be0171f163019a16";
 
   const socialLinks = {

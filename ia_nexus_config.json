@@ -1,0 +1,24 @@
+{
+    "NOM": "Reussitess\u00a9",
+    "ORIGINE": "Guadeloupe - Terres De Champions",
+    "SOURCE_MILLIARD": "0xbe8777aB450937bf107090F4F5F7c4834Db079cF",
+    "VECTEUR_TRADING_POOL": "0xB37531727fC07c6EED4f97F852A115B428046EB2",
+    "LIEN_ACHAT_OFFICIEL": "https://dapp.quickswap.exchange/swap/best/ETH/0xB37531727fC07c6EED4f97F852A115B428046EB2?chainId=137",
+    "CIBLE_PAYS": 14,
+    "PAYS_LISTE": [
+        "France",
+        "Belgique",
+        "Italie",
+        "Allemagne",
+        "Su\u00e8de",
+        "Singapour",
+        "Australie",
+        "Espagne",
+        "Br\u00e9sil",
+        "Royaume-Uni",
+        "Inde",
+        "Nouvelle-Z\u00e9lande",
+        "\u00c9tats-Unis",
+        "Canada"
+    ]
+}

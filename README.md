@@ -2,7 +2,7 @@
 
 **Origine :** Guadeloupe, Terres De Champions Positivité à l'infini Boudoum.
 **Offre Totale :** 1 000 000 000 (1 Milliard) REUSS
-**Contrat :** 0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8
+**Contrat :** 0xbe8777aB450937bf107090F4F5F7c4834Db079cF
 
 ## 🛡️ SYSTÈME D'AUTO-RENFORCEMENT DES 200 IA
 Le projet Reussitess© n'est pas une simple crypto-monnaie, c'est une infrastructure de défense neurale divisée en 4 escadrons de 50 IA :
