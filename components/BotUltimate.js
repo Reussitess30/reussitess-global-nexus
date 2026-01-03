@@ -928,6 +928,9 @@ export default function BotUltimate() {
   // BASE DE CONNAISSANCES ENRICHIE SUR VOTRE PROJET
   const knowledgeBase = {
     reussitess: {
+    contract_beta: "0xbe8777aB450937bf107090F4F5F7c4834Db079cF",
+    contract_gamma: "0xB37531727fC07c6EED4f97F852A115B428046EB2",
+    buy_link: "https://dapp.quickswap.exchange/swap/best/ETH/0xB37531727fC07c6EED4f97F852A115B428046EB2?chainId=137",
       titre: "REUSSITESS® REUSSITESS®NEURO-X",
       contenu: `**REUSSITESS® REUSSITESS®NEURO-X** est un réseau d'affiliation Amazon international couvrant **26 boutiques** dans **14 pays** sur **5 continents** ! 🌍
       
