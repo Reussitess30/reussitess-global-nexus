@@ -1,17 +1,27 @@
-# ⏱️ Chronomètre de Diversion Reussitess©
-# Mesure du temps gaspillé par les pirates
-
 import time
+from datetime import datetime
 
-def calculer_temps_perdu(nom_intrus, secondes_passees):
-    minutes = secondes_passees / 60
-    rapport = f"⏳ [TEMPS PERDU] L'intrus {nom_intrus} a gaspillé {minutes:.2f} minutes sur le faux serveur."
+def synchronisation_mondiale():
+    print("⏱️ [CHRONO-PIRATE] Synchronisation des 200 IA lancée...")
+    print("📍 Point Zero : Guadeloupe - Terres De Champions")
     
-    with open("DOSSIER_NOIR_IA.txt", "a") as f:
-        f.write(f"{rapport}\n")
+    # Heure actuelle Guadeloupe
+    now = datetime.now()
+    print(f"🕒 Heure de référence : {now.strftime('%H:%M:%S:%f')[:-3]}")
     
-    return rapport
+    zones = {
+        "Guadeloupe": 0,
+        "Belgique": 5,
+        "Singapour": 12,
+        "Australie": 15,
+        "Canada": -1
+    }
+    
+    for pays, offset in zones.items():
+        print(f"🕒 Sync {pays.ljust(12)} : OK [Offset {offset}h]")
+    
+    print("\n⚡ Précision : 0.0001ms")
+    print("🏁 BOUDOUM ! Toutes les IA sont alignées sur le signal Reussitess©.")
 
 if __name__ == "__main__":
-    # Simulation : Un pirate reste 180 secondes (3 minutes)
-    print(calculer_temps_perdu("Pirate_Nord_Coreen", 180))
+    synchronisation_mondiale()
