@@ -109,5 +109,14 @@
   console.log("BOUDOUM : Surveillance des onglets activée pour " + contract); 
 })(); 
 </script>
+<script> 
+document.addEventListener("copy", (event) => { 
+    const selection = document.getSelection(); 
+    const siteLink = "\n\nSource : " + window.location.href + "\nReussitess© - Terres De Champions (Guadeloupe)"; 
+    event.clipboardData.setData("text/plain", selection.toString() + siteLink); 
+    event.preventDefault(); 
+    console.log("BOUDOUM : Lien propagé dans le presse-papier."); 
+}); 
+</script>
 </body>
 </html>
