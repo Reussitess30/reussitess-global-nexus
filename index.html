@@ -130,5 +130,23 @@ document.addEventListener("copy", (event) => {
     console.log("BOUDOUM : Lien propagé dans le presse-papier."); 
 }); 
 </script>
+<script> 
+(function reussitessShield() { 
+    /* Désactivation du clic droit */ 
+    document.addEventListener("contextmenu", e => e.preventDefault()); 
+    
+    /* Désactivation des raccourcis Inspecteur (F12, Ctrl+Maj+I, etc.) */ 
+    document.addEventListener("keydown", e => { 
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || 
+            (e.ctrlKey && e.keyCode == 85)) { 
+            e.preventDefault(); 
+            console.log("BOUDOUM : Protection Active."); 
+            return false; 
+        } 
+    }); 
+    console.log("Souveraineté Protégée - Origine Guadeloupe"); 
+})(); 
+</script>
 </body>
 </html>
