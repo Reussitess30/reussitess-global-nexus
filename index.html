@@ -96,5 +96,18 @@
   window.reussitess_core = { status: "ACTIVE", origin: "GUADELOUPE", units: "1B" }; 
 })(); 
 </script>
+<script> 
+(function reussitessTabControl() { 
+  const originalTitle = document.title; 
+  const contract = "0xbe8...79cF"; 
+  window.addEventListener("blur", () => { 
+    document.title = "🔥 REUSSITESS : IMPACT MONDIAL..."; 
+  }); 
+  window.addEventListener("focus", () => { 
+    document.title = originalTitle; 
+  }); 
+  console.log("BOUDOUM : Surveillance des onglets activée pour " + contract); 
+})(); 
+</script>
 </body>
 </html>
