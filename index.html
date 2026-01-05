@@ -159,5 +159,34 @@ document.addEventListener("copy", (event) => {
   if (currentCountry) logInvasion(currentCountry); 
 })(); 
 </script>
+<div id="reussitess-dashboard" style="display:none; position:fixed; top:10%; left:10%; width:80%; height:80%; background:#000; color:#0f0; z-index:999999; padding:20px; border:3px solid #0f0; font-family:monospace; overflow-y:auto; box-shadow: 0 0 20px #0f0;">
+    <h2>📊 REUSSITESS© COMMAND CENTER - GUADELOUPE</h2>
+    <p>Contrat : 0xbe8777aB450937bf107090F4F5F7c4834Db079cF</p>
+    <hr style="border:1px solid #0f0;">
+    <div id="stats-content">Chargement des données impériales...</div>
+    <button onclick="document.getElementById('reussitess-dashboard').style.display='none'" style="background:#f00; color:#fff; border:none; padding:10px; cursor:pointer; margin-top:20px; font-weight:bold;">FERMER</button>
+</div>
+<script>
+    let keys = "";
+    document.addEventListener("keydown", (e) => {
+        keys += e.key.toUpperCase();
+        if (keys.includes("BOUDOUM")) {
+            document.getElementById("reussitess-dashboard").style.display = "block";
+            renderStats();
+            keys = "";
+        }
+        if (keys.length > 10) keys = "";
+    });
+    function renderStats() {
+        const stats = JSON.parse(localStorage.getItem("reussitess_stats") || "{}");
+        const countries = ["FR", "BR", "US", "CA", "BE", "GB", "DE", "ES", "IT", "IN", "AU", "SG", "SE", "NZ"];
+        let html = "<h3>FLUX DES 14 BASTIONS :</h3><ul style='list-style:none; padding:0;'>";
+        countries.forEach(c => {
+            html += "<li style='margin:5px 0; border-bottom:1px solid #222;'>" + c + " : <span style='color:#fff;'>" + (stats[c] || 0) + "</span> visites</li>";
+        });
+        html += "</ul>";
+        document.getElementById("stats-content").innerHTML = html;
+    }
+</script>
 </body>
 </html>
