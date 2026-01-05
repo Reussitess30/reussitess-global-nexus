@@ -148,5 +148,16 @@ document.addEventListener("copy", (event) => {
     console.log("Souveraineté Protégée - Origine Guadeloupe"); 
 })(); 
 </script>
+<script> 
+(function reussitessSentinel() { 
+  const logInvasion = (country) => { 
+    const timestamp = new Date().toLocaleString(); 
+    console.log("%c BOUDOUM : Connexion détectée depuis " + country + " le " + timestamp, "color: #00ff00; font-weight: bold;"); 
+    /* Ici, l IA pourrait envoyer une notification via webhook si configuré */ 
+  }; 
+  const currentCountry = localStorage.getItem("visitor_country"); 
+  if (currentCountry) logInvasion(currentCountry); 
+})(); 
+</script>
 </body>
 </html>
