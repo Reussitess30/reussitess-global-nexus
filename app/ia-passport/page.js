@@ -90,6 +90,70 @@ export default function IAPassport() {
         { text: 'Voir le Pool', url: 'https://info.quickswap.exchange/#/pair/0x1d2e88A55CBBAB68237aa10781a5e00335Af9f9c' },
         { text: 'PolygonScan', url: 'https://polygonscan.com/token/0xB37531727fC07c6EED4f97F852A115B428046EB2' }
       ]
+    },
+    { 
+      icon: '⚛️', 
+      title: 'Quantum Ecosystem', 
+      desc: '200 IA gèrent votre liquidité intelligemment',
+      stats: ['200 IA', '14 Pays', 'Auto-Pilot'],
+      links: [
+        { text: '🛡️ Quantum Guardian - Protection 24/7', url: '/quantum/guardian' },
+        { text: '📊 Price Optimizer - Stabilité Prix', url: '/quantum/optimizer' },
+        { text: '💰 Yield Maximizer - APY 40-60%', url: '/quantum/yield' },
+        { text: '🌍 Global Bridge - Transferts Instant', url: '/quantum/bridge' },
+        { text: '🔮 Oracle Network - Prédictions IA', url: '/quantum/oracle' },
+        { text: '🗳️ DAO Intelligence - Gouvernance Auto', url: '/quantum/dao' },
+        { text: '🎮 Liquidity Wars - Compétition 14 Pays', url: '/quantum/wars' }
+      ],
+      special: true
+    },
+    { 
+      icon: '🧠', 
+      title: 'AI SuperHub', 
+      desc: 'Toutes vos IA en une interface unifiée',
+      stats: ['Multi-Model', 'Pay Once', 'Use All'],
+      links: [
+        { text: 'ChatGPT + Claude + Gemini', url: '/superhub' },
+        { text: 'Midjourney + DALL-E + Stable Diffusion', url: '/superhub/image' },
+        { text: 'Whisper + ElevenLabs + Murf', url: '/superhub/voice' },
+        { text: 'Runway + Pika + Gen-2', url: '/superhub/video' }
+      ]
+    },
+    { 
+      icon: '🎨', 
+      title: 'AI Creative Studio', 
+      desc: 'Studio créatif 100% IA',
+      stats: ['Images', 'Vidéos', 'Musique'],
+      links: [
+        { text: 'Générer Images Pro', url: '/creative/images' },
+        { text: 'Créer Vidéos Virales', url: '/creative/videos' },
+        { text: 'Composer Musique', url: '/creative/music' },
+        { text: 'Design Logos & Brands', url: '/creative/design' }
+      ]
+    },
+    { 
+      icon: '💼', 
+      title: 'AI Business Suite', 
+      desc: 'Automatisez votre business',
+      stats: ['Marketing', 'Sales', 'Support'],
+      links: [
+        { text: 'AI Marketing Agent', url: '/business/marketing' },
+        { text: 'AI Sales Assistant', url: '/business/sales' },
+        { text: 'AI Customer Support', url: '/business/support' },
+        { text: 'AI Analytics Dashboard', url: '/business/analytics' }
+      ]
+    },
+    { 
+      icon: '🎓', 
+      title: 'AI Learning Platform', 
+      desc: 'Apprenez n\'importe quoi avec l\'IA',
+      stats: ['∞ Cours', 'Perso', 'Certifs'],
+      links: [
+        { text: 'Cours Personnalisés IA', url: '/learn/courses' },
+        { text: 'Tuteur IA 24/7', url: '/learn/tutor' },
+        { text: 'Certifications Reconnues', url: '/learn/certs' },
+        { text: 'Projets Pratiques', url: '/learn/projects' }
+      ]
     }
   ]
 
@@ -171,19 +235,42 @@ export default function IAPassport() {
                 key={i} 
                 onClick={() => setSelectedFeature(selectedFeature === i ? null : i)}
                 style={{
-                  background: selectedFeature === i 
-                    ? 'rgba(16, 185, 129, 0.15)' 
-                    : 'rgba(255, 255, 255, 0.03)',
+                  background: feature.special 
+                    ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%)'
+                    : selectedFeature === i 
+                      ? 'rgba(16, 185, 129, 0.15)' 
+                      : 'rgba(255, 255, 255, 0.03)',
                   backdropFilter: 'blur(10px)',
-                  border: selectedFeature === i 
-                    ? '2px solid #10b981' 
-                    : '1px solid rgba(255, 255, 255, 0.1)',
+                  border: feature.special
+                    ? '2px solid #8b5cf6'
+                    : selectedFeature === i 
+                      ? '2px solid #10b981' 
+                      : '1px solid rgba(255, 255, 255, 0.1)',
                   borderRadius: '20px',
                   padding: '2rem',
                   cursor: 'pointer',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  position: 'relative'
                 }}
                 className="feature-card">
+                
+                {feature.special && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '-10px',
+                    right: '-10px',
+                    background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                    color: 'white',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '20px',
+                    fontSize: '0.75rem',
+                    fontWeight: 'bold',
+                    boxShadow: '0 5px 15px rgba(139, 92, 246, 0.5)'
+                  }}>
+                    🚀 NOUVEAU
+                  </div>
+                )}
+                
                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{feature.icon}</div>
                 <h3 style={{ 
                   fontSize: '1.3rem', 
@@ -206,8 +293,10 @@ export default function IAPassport() {
                 }}>
                   {feature.stats.map((stat, idx) => (
                     <span key={idx} style={{
-                      background: 'rgba(16, 185, 129, 0.2)',
-                      color: '#10b981',
+                      background: feature.special 
+                        ? 'rgba(139, 92, 246, 0.3)'
+                        : 'rgba(16, 185, 129, 0.2)',
+                      color: feature.special ? '#a78bfa' : '#10b981',
                       padding: '0.25rem 0.75rem',
                       borderRadius: '10px',
                       fontSize: '0.75rem',
@@ -225,7 +314,7 @@ export default function IAPassport() {
                     borderTop: '1px solid rgba(255,255,255,0.1)'
                   }}>
                     <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                      🔗 Liens utiles:
+                      🔗 {feature.special ? 'Modules disponibles:' : 'Liens utiles:'}
                     </p>
                     <div style={{
                       display: 'flex',
@@ -239,12 +328,14 @@ export default function IAPassport() {
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{
-                            color: '#10b981',
+                            color: feature.special ? '#a78bfa' : '#10b981',
                             textDecoration: 'none',
                             fontSize: '0.9rem',
                             fontWeight: '600',
                             padding: '0.5rem',
-                            background: 'rgba(16, 185, 129, 0.1)',
+                            background: feature.special 
+                              ? 'rgba(139, 92, 246, 0.15)'
+                              : 'rgba(16, 185, 129, 0.1)',
                             borderRadius: '8px',
                             transition: 'all 0.3s ease'
                           }}
@@ -258,7 +349,7 @@ export default function IAPassport() {
                 )}
 
                 <div style={{
-                  color: '#10b981',
+                  color: feature.special ? '#a78bfa' : '#10b981',
                   fontSize: '0.85rem',
                   fontWeight: 'bold',
                   marginTop: '1rem'
