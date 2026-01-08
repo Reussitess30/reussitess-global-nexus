@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react'
 
 export default function IAPassport() {
@@ -199,740 +198,102 @@ export default function IAPassport() {
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Animated background orbs */}
+        {/* Orbs */}
         <div style={{
-          position: 'absolute',
-          top: '10%',
-          left: '5%',
-          width: '500px',
-          height: '500px',
+          position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px',
           background: 'radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(100px)',
-          animation: 'float 20s infinite'
+          borderRadius: '50%', filter: 'blur(100px)', animation: 'float 20s infinite'
         }} />
         <div style={{
-          position: 'absolute',
-          bottom: '10%',
-          right: '5%',
-          width: '400px',
-          height: '400px',
+          position: 'absolute', bottom: '10%', right: '5%', width: '400px', height: '400px',
           background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(100px)',
-          animation: 'float 15s infinite reverse'
+          borderRadius: '50%', filter: 'blur(100px)', animation: 'float 15s infinite reverse'
         }} />
 
-        <div style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          textAlign: 'center',
-          position: 'relative',
-          zIndex: 1
-        }}>
-          
-          {/* Hero Section */}
-          <div style={{ 
-            fontSize: '8rem', 
-            marginBottom: '2rem',
-            animation: 'bounce 3s infinite'
-          }}>
-            🌍
-          </div>
-
+        <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <div style={{ fontSize: '8rem', marginBottom: '2rem', animation: 'bounce 3s infinite' }}>🌍</div>
           <div style={{
-            display: 'inline-block',
-            background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-            padding: '1rem 2.5rem',
-            borderRadius: '50px',
-            marginBottom: '2rem',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            color: 'white',
-            boxShadow: '0 10px 40px rgba(16, 185, 129, 0.5)',
-            animation: 'pulse 2s infinite'
-          }}>
-            🇬🇵 MADE IN GUADELOUPE - TERRES DE CHAMPIONS
-          </div>
+            display: 'inline-block', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+            padding: '1rem 2.5rem', borderRadius: '50px', marginBottom: '2rem', fontSize: '1.1rem',
+            fontWeight: 'bold', color: 'white', boxShadow: '0 10px 40px rgba(16, 185, 129, 0.5)', animation: 'pulse 2s infinite'
+          }}>🇬🇵 MADE IN GUADELOUPE - TERRES DE CHAMPIONS</div>
 
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 10vw, 6rem)',
-            fontWeight: '900',
-            marginBottom: '1.5rem',
+            fontSize: 'clamp(2.5rem, 10vw, 6rem)', fontWeight: '900', marginBottom: '1.5rem',
             background: 'linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 70%, #ec4899 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            letterSpacing: '-3px',
-            lineHeight: '1.1'
-          }}>
-            IA PASSPORT<br/>
-            <span style={{ fontSize: '0.6em' }}>RÉVOLUTION MONDIALE</span>
-          </h1>
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-3px', lineHeight: '1.1'
+          }}>IA PASSPORT<br/><span style={{ fontSize: '0.6em' }}>RÉVOLUTION MONDIALE</span></h1>
 
-          <p style={{
-            fontSize: 'clamp(1.2rem, 3vw, 2.2rem)',
-            color: '#94a3b8',
-            marginBottom: '2rem',
-            fontWeight: '600',
-            maxWidth: '900px',
-            margin: '0 auto 3rem'
-          }}>
-            Le Seul Écosystème qui PAIE pour utiliser l'IA
-            <br/>
-            <span style={{ color: '#10b981', fontSize: '0.8em' }}>
-              💰 Utilisez → Gagnez des REUSS → Réutilisez → Repeat ∞
-            </span>
+          <p style={{ fontSize: 'clamp(1.2rem, 3vw, 2.2rem)', color: '#94a3b8', marginBottom: '3rem', fontWeight: '600' }}>
+            Le Seul Écosystème qui PAIE pour utiliser l'IA<br/>
+            <span style={{ color: '#10b981', fontSize: '0.8em' }}>💰 Utilisez → Gagnez des REUSS → Réutilisez → Repeat ∞</span>
           </p>
 
-          {/* CTA Buttons */}
-          <div style={{
-            display: 'flex',
-            gap: '1.5rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            marginBottom: '5rem'
-          }}>
-            <a
-              href="https://dapp.quickswap.exchange/swap/best/ETH/0xB37531727fC07c6EED4f97F852A115B428046EB2?chainId=137"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: '1.5rem 3rem',
-                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '50px',
-                fontSize: '1.3rem',
-                fontWeight: 'bold',
-                textDecoration: 'none',
-                boxShadow: '0 15px 40px rgba(16, 185, 129, 0.5)',
-                transition: 'all 0.3s ease',
-                display: 'inline-block'
-              }}
-              className="cta-button"
-            >
-              💎 ACHETER REUSS
-            </a>
-            <a
-              href="https://info.quickswap.exchange/#/pair/0x1d2e88A55CBBAB68237aa10781a5e00335Af9f9c"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: '1.5rem 3rem',
-                background: 'rgba(139, 92, 246, 0.2)',
-                color: 'white',
-                border: '2px solid #8b5cf6',
-                borderRadius: '50px',
-                fontSize: '1.3rem',
-                fontWeight: 'bold',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                display: 'inline-block'
-              }}
-              className="cta-button-secondary"
-            >
-              ⚛️ QUANTUM POOL
-            </a>
+          <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '5rem' }}>
+            <a href="https://dapp.quickswap.exchange/swap/best/ETH/0xB37531727fC07c6EED4f97F852A115B428046EB2?chainId=137" target="_blank" rel="noopener noreferrer" style={{ padding: '1.5rem 3rem', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: 'white', borderRadius: '50px', fontSize: '1.3rem', fontWeight: 'bold', textDecoration: 'none', boxShadow: '0 15px 40px rgba(16, 185, 129, 0.5)', display: 'inline-block' }}>💎 ACHETER REUSS</a>
+            <a href="https://info.quickswap.exchange/#/pair/0x1d2e88A55CBBAB68237aa10781a5e00335Af9f9c" target="_blank" rel="noopener noreferrer" style={{ padding: '1.5rem 3rem', background: 'rgba(139, 92, 246, 0.2)', color: 'white', border: '2px solid #8b5cf6', borderRadius: '50px', fontSize: '1.3rem', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block' }}>⚛️ QUANTUM POOL</a>
           </div>
 
-          {/* Stats Bar */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '2rem',
-            marginBottom: '5rem',
-            padding: '2rem',
-            background: 'rgba(255,255,255,0.03)',
-            borderRadius: '20px',
-            backdropFilter: 'blur(10px)'
-          }}>
-            {[
-              { label: 'Market Cap Target', value: '$500M', icon: '📈' },
-              { label: 'Holders Actifs', value: '10K+', icon: '👥' },
-              { label: 'Pays Connectés', value: '14', icon: '🌍' },
-              { label: 'IA Déployées', value: '200', icon: '🤖' }
-            ].map((stat, i) => (
-              <div key={i} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{stat.icon}</div>
-                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#10b981' }}>{stat.value}</div>
-                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Features Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem',
-            marginBottom: '5rem'
-          }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
             {features.map((feature, i) => (
-              <div 
-                key={i} 
-                onClick={() => setSelectedFeature(selectedFeature === i ? null : i)}
-                style={{
-                  background: feature.special === 'quantum'
-                    ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(16, 185, 129, 0.25) 100%)'
-                    : feature.special === 'money'
-                      ? 'linear-gradient(135deg, rgba(234, 179, 8, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%)'
-                      : feature.special === 'security'
-                        ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%)'
-                        : feature.special === 'creative'
-                          ? 'linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)'
-                          : feature.special === 'health'
-                            ? 'linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)'
-                            : feature.special === 'space'
-                              ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%)'
-                              : selectedFeature === i 
-                                ? 'rgba(16, 185, 129, 0.15)' 
-                                : 'rgba(255, 255, 255, 0.03)',
-                  backdropFilter: 'blur(10px)',
-                  border: feature.special
-                    ? '2px solid rgba(139, 92, 246, 0.5)'
-                    : selectedFeature === i 
-                      ? '2px solid #10b981' 
-                      : '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '24px',
-                  padding: '2.5rem',
-                  cursor: 'pointer',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-                className="feature-card">
-                
-                {feature.special && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '-10px',
-                    right: '-10px',
-                    background: feature.special === 'quantum'
-                      ? 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)'
-                      : feature.special === 'money'
-                        ? 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)'
-                        : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
-                    color: 'white',
-                    padding: '0.6rem 1.2rem',
-                    borderRadius: '20px',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold',
-                    boxShadow: '0 8px 20px rgba(139, 92, 246, 0.6)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px'
-                  }}>
-                    {feature.special === 'quantum' ? '🚀 RÉVOLUTION' : 
-                     feature.special === 'money' ? '💰 PROFIT' :feature.special === 'security' ? '🔐 SECURE' :
-                     feature.special === 'creative' ? '🎨 CREATE' :
-                     feature.special === 'health' ? '🏥 LIFE+' :
-                     feature.special === 'space' ? '🚀 SPACE' : '✨ NEW'}
-                  </div>
-                )}
-                
+              <div key={i} onClick={() => setSelectedFeature(selectedFeature === i ? null : i)} style={{
+                  background: feature.special ? 'rgba(139, 92, 246, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(10px)', border: feature.special ? '2px solid #8b5cf6' : '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: '24px', padding: '2.5rem', cursor: 'pointer', transition: 'all 0.4s'
+                }}>
                 <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>{feature.icon}</div>
-                <h3 style={{ 
-                  fontSize: '1.5rem', 
-                  fontWeight: '800', 
-                  color: 'white',
-                  marginBottom: '1rem',
-                  letterSpacing: '-0.5px'
-                }}>
-                  {feature.title}
-                </h3>
-                <p style={{ 
-                  fontSize: '1rem', 
-                  color: '#94a3b8', 
-                  marginBottom: '1.5rem',
-                  lineHeight: '1.6'
-                }}>
-                  {feature.desc}
-                </p>
-
-                <div style={{
-                  display: 'flex',
-                  gap: '0.6rem',
-                  justifyContent: 'center',
-                  flexWrap: 'wrap',
-                  marginBottom: '1.5rem'
-                }}>
-                  {feature.stats.map((stat, idx) => (
-                    <span key={idx} style={{
-                      background: feature.special === 'quantum'
-                        ? 'rgba(139, 92, 246, 0.3)'
-                        : feature.special === 'money'
-                          ? 'rgba(234, 179, 8, 0.3)'
-                          : 'rgba(16, 185, 129, 0.25)',
-                      color: feature.special === 'quantum'
-                        ? '#c4b5fd'
-                        : feature.special === 'money'
-                          ? '#fde047'
-                          : '#10b981',
-                      padding: '0.4rem 1rem',
-                      borderRadius: '12px',
-                      fontSize: '0.85rem',
-                      fontWeight: 'bold',
-                      border: `1px solid ${feature.special === 'quantum' ? 'rgba(139, 92, 246, 0.4)' : 'rgba(16, 185, 129, 0.3)'}`
-                    }}>
-                      {stat}
-                    </span>
-                  ))}
-                </div>
-
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'white', marginBottom: '1rem' }}>{feature.title}</h3>
+                <p style={{ fontSize: '1rem', color: '#94a3b8', marginBottom: '1.5rem' }}>{feature.desc}</p>
                 {selectedFeature === i && (
-                  <div style={{
-                    marginTop: '2rem',
-                    paddingTop: '2rem',
-                    borderTop: '1px solid rgba(255,255,255,0.1)',
-                    animation: 'slideDown 0.3s ease'
-                  }}>
-                    <p style={{ 
-                      color: '#10b981', 
-                      fontSize: '1rem', 
-                      marginBottom: '1.5rem',
-                      fontWeight: 'bold'
-                    }}>
-                      🔗 {feature.special ? '⚡ ACCÈS DIRECT :' : 'Ressources disponibles :'}
-                    </p>
-                    <div style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.8rem'
-                    }}>
-                      {feature.links.map((link, idx) => (
-                        <a
-                          key={idx}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{
-                            color: feature.special === 'quantum'
-                              ? '#c4b5fd'
-                              : feature.special === 'money'
-                                ? '#fde047'
-                                : '#10b981',
-                            textDecoration: 'none',
-                            fontSize: '0.95rem',
-                            fontWeight: '600',
-                            padding: '1rem',
-                            background: feature.special === 'quantum'
-                              ? 'rgba(139, 92, 246, 0.15)'
-                              : feature.special === 'money'
-                                ? 'rgba(234, 179, 8, 0.15)'
-                                : 'rgba(16, 185, 129, 0.1)',
-                            borderRadius: '12px',
-                            transition: 'all 0.3s ease',
-                            border: `1px solid ${feature.special === 'quantum' ? 'rgba(139, 92, 246, 0.3)' : 'rgba(16, 185, 129, 0.2)'}`,
-                            display: 'block',
-                            textAlign: 'left'
-                          }}
-                          className="feature-link"
-                        >
-                          → {link.text}
-                        </a>
-                      ))}
-                    </div>
+                  <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem' }}>
+                    {feature.links.map((link, idx) => (
+                      <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" style={{ color: '#10b981', display: 'block', padding: '0.8rem', textDecoration: 'none', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', marginBottom: '0.5rem' }}>→ {link.text}</a>
+                    ))}
                   </div>
                 )}
-
-                <div style={{
-                  color: feature.special === 'quantum' ? '#c4b5fd' : '#10b981',
-                  fontSize: '0.95rem',
-                  fontWeight: 'bold',
-                  marginTop: '1.5rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px'
-                }}>
-                  {selectedFeature === i ? '✕ FERMER' : '👆 DÉCOUVRIR'}
-                </div>
+                <div style={{ color: '#10b981', fontWeight: 'bold', marginTop: '1rem' }}>{selectedFeature === i ? '✕ FERMER' : '👆 DÉCOUVRIR'}</div>
               </div>
             ))}
           </div>
 
-          {/* Value Proposition */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
-            backdropFilter: 'blur(20px)',
-            border: '2px solid rgba(16, 185, 129, 0.3)',
-            borderRadius: '30px',
-            padding: '4rem 2rem',
-            maxWidth: '900px',
-            margin: '0 auto 5rem',
-            boxShadow: '0 25px 70px rgba(0,0,0,0.4)'
-          }}>
-            <h2 style={{
-              fontSize: 'clamp(2rem, 6vw, 3rem)',
-              fontWeight: '900',
-              color: 'white',
-              marginBottom: '2rem',
-              background: 'linear-gradient(135deg, #10b981 0%, #8b5cf6 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-              🚀 POURQUOI REUSS VA EXPLOSER ?
-            </h2>
-            
-            <div style={{
-              display: 'grid',
-              gap: '1.5rem',
-              textAlign: 'left',
-              marginBottom: '3rem'
-            }}>
-              {[
-                { icon: '💰', text: 'Seule crypto qui PAIE pour utiliser (pas dépenser)', color: '#10b981' },
-                { icon: '🔥', text: 'Auto-burn 0.5% = Deflation naturelle (supply diminue)', color: '#ef4444' },
-                { icon: '📈', text: 'Yield 40% APY géré par 200 IA (vs 5% ailleurs)', color: '#eab308' },
-                { icon: '🌍', text: '14 pays = adoption massive garantie', color: '#3b82f6' },
-                { icon: '🤖', text: '200 IA travaillent 24/7 pour augmenter valeur', color: '#8b5cf6' },
-                { icon: '💎', text: 'Use cases RÉELS : traduction, santé, business, space', color: '#ec4899' },
-                { icon: '🎯', text: 'Target $500M market cap = 100x depuis aujourd\'hui', color: '#10b981' }
-              ].map((item, i) => (
-                <div key={i} style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  padding: '1.5rem',
-                  background: 'rgba(255,255,255,0.05)',
-                  borderRadius: '15px',
-                  border: `1px solid ${item.color}20`
-                }}>
-                  <span style={{ fontSize: '2.5rem' }}>{item.icon}</span>
-                  <span style={{ 
-                    color: '#e2e8f0', 
-                    fontSize: '1.1rem',
-                    fontWeight: '600'
-                  }}>
-                    {item.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div style={{
-              background: 'rgba(16, 185, 129, 0.2)',
-              padding: '2rem',
-              borderRadius: '20px',
-              marginBottom: '3rem'
-            }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>💡</div>
-              <h3 style={{ 
-                fontSize: '1.8rem', 
-                color: '#10b981', 
-                fontWeight: 'bold',
-                marginBottom: '1rem'
-              }}>
-                CALCUL SIMPLE
-              </h3>
-              <p style={{ 
-                fontSize: '1.2rem', 
-                color: '#e2e8f0',
-                lineHeight: '1.8'
-              }}>
-                Si 0.1% des 195 pays adoptent (195K personnes)<br/>
-                × $100 investi moyen<br/>
-                = <span style={{ color: '#10b981', fontWeight: 'bold' }}>$19.5M market cap</span><br/>
-                <br/>
-                Avec 14 pays actifs + network effect :<br/>
-                Target réaliste = <span style={{ color: '#fde047', fontWeight: 'bold', fontSize: '1.4rem' }}>$500M en 2026</span>
-              </p>
-            </div>
-
-            <h2 style={{
-              fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
-              fontWeight: '800',
-              color: 'white',
-              marginBottom: '1.5rem'
-            }}>
-              🎯 LISTE BETA 2025
-            </h2>
-            
-            <p style={{
-              fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-              color: '#94a3b8',
-              marginBottom: '2.5rem'
-            }}>
-              Premiers inscrits = <span style={{ color: '#10b981' }}>100 REUSS offerts</span> + Accès prioritaire
-            </p>
-
-            {!submitted ? (
-              <form onSubmit={handleSubmit} style={{
-                display: 'flex',
-                gap: '1rem',
-                flexDirection: 'column',
-                alignItems: 'center'
-              }}>
-                <input
-                  type="email"
-                  placeholder="votre@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  style={{
-                    width: '100%',
-                    maxWidth: '500px',
-                    padding: '1.3rem 2rem',
-                    borderRadius: '50px',
-                    border: '2px solid rgba(16, 185, 129, 0.4)',
-                    background: 'rgba(15, 23, 42, 0.9)',
-                    color: 'white',
-                    fontSize: '1.1rem',
-                    outline: 'none',
-                    transition: 'all 0.3s'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = '#10b981'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(16, 185, 129, 0.4)'}
-                />
-                <button
-                  type="submit"
-                  style={{
-                    padding: '1.3rem 4rem',
-                    background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '50px',
-                    fontSize: '1.3rem',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                    boxShadow: '0 15px 40px rgba(16, 185, 129, 0.5)',
-                    transition: 'all 0.3s',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px'
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.transform = 'translateY(-3px)'
-                    e.target.style.boxShadow = '0 20px 50px rgba(16, 185, 129, 0.6)'
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.transform = 'translateY(0)'
-                    e.target.style.boxShadow = '0 15px 40px rgba(16, 185, 129, 0.5)'
-                  }}
-                >
-                  ✨ REJOINDRE LA RÉVOLUTION
-                </button>
-              </form>
-            ) : (
-              <div style={{
-                padding: '3rem',
-                background: 'rgba(16, 185, 129, 0.25)',
-                borderRadius: '25px',
-                border: '2px solid #10b981'
-              }}>
-                <div style={{ fontSize: '5rem', marginBottom: '1rem' }}>🎉</div>
-                <h3 style={{ 
-                  fontSize: '2rem', 
-                  color: '#10b981', 
-                  fontWeight: 'bold',
-                  marginBottom: '1rem'
-                }}>
-                  BIENVENUE DANS LA RÉVOLUTION !
-                </h3>
-                <p style={{ color: '#e2e8f0', fontSize: '1.2rem' }}>
-                  Vous recevrez 100 REUSS dès le lancement 🎁
-                </p>
+          {/* SECTION TECHNIQUE RÉELLE AJOUTÉE EN BAS */}
+          <div style={{ marginTop: '4rem', padding: '4rem 2rem', background: 'rgba(255,255,255,0.02)', border: '2px solid #10b981', borderRadius: '40px', textAlign: 'left' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '900', color: '#fff', textAlign: 'center', marginBottom: '3rem' }}>🛠️ TECHNIQUE COMPLÈTE & RÈGLEMENTS</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+              <div style={{ padding: '2rem', background: '#111', borderRadius: '25px', borderLeft: '5px solid #8b5cf6' }}>
+                <h3 style={{ color: '#8b5cf6' }}>1. Infrastructure APIs</h3>
+                <p style={{ color: '#94a3b8' }}>Plan technique optimisé pour les 14 pays via AWS & Vercel Edge.</p>
               </div>
-            )}
-          </div>
-
-          {/* Social Proof */}
-          <div style={{
-            background: 'rgba(255,255,255,0.03)',
-            backdropFilter: 'blur(10px)',
-            borderRadius: '25px',
-            padding: '3rem 2rem',
-            marginBottom: '5rem'
-          }}>
-            <h3 style={{ 
-              fontSize: '2rem', 
-              fontWeight: '800', 
-              color: 'white',
-              marginBottom: '2rem'
-            }}>
-              🌍 EXPANSION MONDIALE EN COURS
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-              gap: '1.5rem'
-            }}>
-              {[
-                '🇬🇵 Guadeloupe', '🇫🇷 France', '🇧🇪 Belgique', '🇮🇹 Italie',
-                '🇩🇪 Allemagne', '🇸🇪 Suède', '🇸🇬 Singapour', '🇦🇺 Australie',
-                '🇪🇸 Espagne', '🇧🇷 Brésil', '🇬🇧 Royaume-Uni', '🇮🇳 Inde',
-                '🇳🇿 Nouvelle-Zélande', '🇺🇸 États-Unis', '🇨🇦 Canada'
-              ].map((country, i) => (
-                <div key={i} style={{
-                  padding: '1rem',
-                  background: 'rgba(16, 185, 129, 0.1)',
-                  borderRadius: '12px',
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  color: '#10b981',
-                  border: '1px solid rgba(16, 185, 129, 0.3)'
-                }}>
-                  {country}
-                </div>
-              ))}
+              <div style={{ padding: '2rem', background: '#111', borderRadius: '25px', borderLeft: '5px solid #10b981' }}>
+                <h3 style={{ color: '#10b981' }}>2. Smart Contracts</h3>
+                <p style={{ color: '#94a3b8' }}>Audités sur Polygon. Contrat : 0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8.</p>
+              </div>
+              <div style={{ padding: '2rem', background: '#111', borderRadius: '25px', borderLeft: '5px solid #3b82f6' }}>
+                <h3 style={{ color: '#3b82f6' }}>3. Intégrations IA</h3>
+                <p style={{ color: '#94a3b8' }}>Connexions natives GPT-4, Claude 3.5 et Gemini Ultra.</p>
+              </div>
+            </div>
+            <div style={{ marginTop: '2rem', padding: '2rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '20px', border: '1px solid #ef4444' }}>
+              <h3 style={{ color: '#ef4444' }}>⚖️ PROTECTION EU AI ACT & RGPD</h3>
+              <p style={{ color: '#e2e8f0' }}>Conformité totale pour les investisseurs internationaux dans les 14 zones cibles.</p>
+            </div>
+            <div style={{ marginTop: '3rem', textAlign: 'center' }}>
+               <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#10b981' }}>💡 PAR QUEL SERVICE VOULEZ-VOUS COMMENCER ?</p>
             </div>
           </div>
-
-          {/* --- ARCHITECTURE TECHNIQUE COMPLÈTE & RÉGLEMENTATION (AJOUT RÉEL) --- */}
-          <div style={{
-            marginTop: '4rem',
-            padding: '4rem 2rem',
-            background: 'rgba(10, 10, 10, 0.9)',
-            border: '2px solid rgba(139, 92, 246, 0.4)',
-            borderRadius: '40px',
-            textAlign: 'left',
-            boxShadow: '0 30px 60px rgba(0,0,0,0.6)',
-            position: 'relative'
-          }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: '900', color: '#fff', marginBottom: '3rem', textAlign: 'center' }}>
-              🛠️ TECHNIQUE COMPLÈTE & RÈGLEMENTS
-            </h2>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2.5rem', borderRadius: '30px', borderLeft: '6px solid #8b5cf6' }}>
-                <h3 style={{ color: '#a78bfa', fontSize: '1.4rem', marginBottom: '1.2rem' }}>1. Infrastructure APIs</h3>
-                <p style={{ color: '#94a3b8', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-                  Plan technique pour chaque service (APIs, smart contracts, infrastructure cloud) optimisé pour les 14 pays partenaires via Vercel & AWS Edge.
-                </p>
-                <a href="https://vercel.com/docs/functions" target="_blank" style={{ color: '#a78bfa', fontWeight: 'bold', textDecoration: 'none', fontSize: '0.85rem' }}>🔗 DOC INFRASTRUCTURE →</a>
-              </div>
-
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2.5rem', borderRadius: '30px', borderLeft: '6px solid #10b981' }}>
-                <h3 style={{ color: '#34d399', fontSize: '1.4rem', marginBottom: '1.2rem' }}>2. Smart Contracts</h3>
-                <p style={{ color: '#94a3b8', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-                  Contrats audités pour le Staking, NFT ID biométrique, DAO spatiale et Quantum Pool automatisé (Contrat: 0x4b3b...DDB8).
-                </p>
-                <a href="https://polygonscan.com/address/0x4b3bFf4b58d22Ad363bb260e22032414d4CfdDB8" target="_blank" style={{ color: '#34d399', fontWeight: 'bold', textDecoration: 'none', fontSize: '0.85rem' }}>🔗 POLYGONSCAN →</a>
-              </div>
-
-              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '2.5rem', borderRadius: '30px', borderLeft: '6px solid #3b82f6' }}>
-                <h3 style={{ color: '#60a5fa', fontSize: '1.4rem', marginBottom: '1.2rem' }}>3. Intégrations IA</h3>
-                <p style={{ color: '#94a3b8', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-                  Connexions natives ultra-rapides aux APIs OpenAI (GPT-4), Anthropic (Claude), Google (Gemini) et DeepL pour une latence < 0.2s.
-                </p>
-                <a href="https://platform.openai.com/docs" target="_blank" style={{ color: '#60a5fa', fontWeight: 'bold', textDecoration: 'none', fontSize: '0.85rem' }}>🔗 API PORTAL →</a>
-              </div>
-            </div>
-
-            <div style={{ marginTop: '3rem', padding: '2.5rem', background: 'rgba(239, 68, 68, 0.05)', borderRadius: '30px', border: '1px solid #ef4444' }}>
-              <h3 style={{ color: '#f87171', marginBottom: '1rem' }}>⚖️ PROTECTION RÉGLEMENTAIRE INTERNATIONALE</h3>
-              <p style={{ color: '#e2e8f0', lineHeight: '1.6', fontSize: '0.95rem' }}>
-                Conformité <b>EU AI Act</b> (Europe), <b>RGPD</b> (Sécurité des données) et standards <b>ISO/IEC 42001</b>. 
-                L'écosystème Reussitess© est juridiquement protégé pour opérer les agents IA dans les 14 zones partenaires, garantissant la sécurité des investisseurs.
-              </p>
-            </div>
-
-            <div style={{ marginTop: '3rem', padding: '2.5rem', background: 'rgba(245, 158, 11, 0.05)', borderRadius: '30px', border: '1px dashed #f59e0b' }}>
-              <h3 style={{ color: '#fbbf24', marginBottom: '1rem' }}>🚀 Roadmap & Partenariats</h3>
-              <p style={{ color: '#e2e8f0', lineHeight: '1.6' }}>
-                Implémentation progressive : <b>Phase 1</b> (Prioritaire : Passport & KYC), <b>Phase 2</b> (Avancée : Quantum Pool), <b>Phase 3</b> (Futuriste : Space DAO). Liste des partenaires stratégiques disponible via le Quantum ID.
-              </p>
-            </div>
-            
-            <div style={{ marginTop: '4rem', textAlign: 'center' }}>
-               <p style={{ fontSize: '1.8rem', fontWeight: '900', color: '#10b981', marginBottom: '1.5rem' }}>💡 PAR QUEL SERVICE VOULEZ-VOUS COMMENCER ?</p>
-               <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                  <span style={{ background: '#333', padding: '10px 20px', borderRadius: '50px' }}>✅ AI Universal Brain</span>
-                  <span style={{ background: '#333', padding: '10px 20px', borderRadius: '50px' }}>✅ Real-Time Translator</span>
-                  <span style={{ background: '#333', padding: '10px 20px', borderRadius: '50px' }}>✅ Quantum Pool</span>
-               </div>
-            </div>
-          </div>
-          {/* --- FIN AJOUT --- */}
 
           {/* Footer */}
-          <div style={{
-            marginTop: '6rem',
-            paddingTop: '3rem',
-            borderTop: '2px solid rgba(255, 255, 255, 0.1)'
-          }}>
-            <h3 style={{ 
-              fontSize: '2.5rem', 
-              fontWeight: '900', 
-              color: 'white',
-              marginBottom: '1rem'
-            }}>
-              REUSSITESS®971
-            </h3>
-            <p style={{ 
-              color: '#10b981', 
-              fontSize: '1.5rem', 
-              fontWeight: 'bold', 
-              marginTop: '1rem',
-              marginBottom: '1rem'
-            }}>
-              POSITIVITÉ À L'INFINI 🎯
-            </p>
-            <p style={{ 
-              color: '#64748b', 
-              fontSize: '1.2rem',
-              fontWeight: 'bold'
-            }}>
-              🏁 BOUDOUM ! La Révolution IA commence ici
-            </p>
-            
-            <div style={{
-              display: 'flex',
-              gap: '2rem',
-              justifyContent: 'center',
-              marginTop: '2rem',
-              flexWrap: 'wrap'
-            }}>
-              <a href="https://polygonscan.com/token/0xB37531727fC07c6EED4f97F852A115B428046EB2" target="_blank" rel="noopener noreferrer" style={{ color: '#10b981', textDecoration: 'none', fontSize: '1.1rem' }}>
-                📊 PolygonScan
-              </a>
-              <a href="https://dapp.quickswap.exchange/swap/best/ETH/0xB37531727fC07c6EED4f97F852A115B428046EB2?chainId=137" target="_blank" rel="noopener noreferrer" style={{ color: '#10b981', textDecoration: 'none', fontSize: '1.1rem' }}>
-                💎 QuickSwap
-              </a>
-              <a href="https://info.quickswap.exchange/#/pair/0x1d2e88A55CBBAB68237aa10781a5e00335Af9f9c" target="_blank" rel="noopener noreferrer" style={{ color: '#10b981', textDecoration: 'none', fontSize: '1.1rem' }}>
-                ⚛️ Liquidity Pool
-              </a>
-            </div>
-            
-            <p style={{ marginTop: '3rem', fontSize: '0.8rem', color: '#444' }}>
-              Propriété Exclusive : 0x69f42aa645a43a84e1143d416a4c81a88df01549 | Tous droits réservés REUSSITESS©
-            </p>
+          <div style={{ marginTop: '6rem', paddingTop: '3rem', borderTop: '1px solid #333' }}>
+            <h3 style={{ fontSize: '2.5rem', fontWeight: '900', color: 'white' }}>REUSSITESS®971</h3>
+            <p style={{ color: '#10b981', fontSize: '1.5rem', fontWeight: 'bold' }}>POSITIVITÉ À L'INFINI 🎯</p>
+            <p style={{ color: '#64748b' }}>🏁 BOUDOUM ! La Révolution IA commence ici</p>
           </div>
         </div>
       </div>
-
       <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          50% { transform: translateY(-30px) translateX(30px); }
-        }
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-        }
-        @keyframes slideDown {
-          from { opacity: 0; transform: translateY(-20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .feature-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-        }
-        .feature-link:hover {
-          background: rgba(16, 185, 129, 0.25) !important;
-          transform: translateX(8px);
-          border-color: rgba(16, 185, 129, 0.5) !important;
-        }
-        .cta-button:hover {
-          transform: translateY(-5px) scale(1.05);
-          box-shadow: 0 20px 50px rgba(16, 185, 129, 0.7);
-        }
-        .cta-button-secondary:hover {
-          background: rgba(139, 92, 246, 0.3);
-          transform: translateY(-5px);
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
       `}</style>
     </div>
   )
