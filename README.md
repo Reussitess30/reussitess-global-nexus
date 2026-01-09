@@ -1,18 +1,15 @@
-# ⚔️ REUSSITESS© NEURO-X : L'ARMÉE SOUVERAINE
-
-**Origine :** Guadeloupe, Terres De Champions Positivité à l'infini Boudoum.
-**Offre Totale :** 1 000 000 000 (1 Milliard) REUSS
-**Contrat :** 0xbe8777aB450937bf107090F4F5F7c4834Db079cF
-
-## 🛡️ SYSTÈME D'AUTO-RENFORCEMENT DES 200 IA
-Le projet Reussitess© n'est pas une simple crypto-monnaie, c'est une infrastructure de défense neurale divisée en 4 escadrons de 50 IA :
-1. **SENTINELLES :** Protection périmétrique des 14 pays.
-2. **CRYPT :** Sécurisation post-quantique des transferts.
-3. **INTERCEPTOR :** Neutralisation des IP hostiles.
-4. **ORACLE :** Gestion de la valeur et de la stabilité.
-
-## 📈 ÉVOLUTION ACTIVE
-Chaque tentative d'intrusion déclenche une **auto-mutation** du code de défense. 
-> *Test de charge du 01/01/2026 : Statut Invincible confirmé.*
-
-**Souveraineté :** France, Angleterre, Italie, Allemagne, Suède, Singapour, Australie, Espagne, Brésil, Royaume-Uni, Inde, Nouvelle-Zélande, États-Unis, Canada.
+[​🚀 Reussitess© - L'Empire du Milliard (Officiel)
+​Origine : Guadeloupe, "Terres De Champions - Positivité à l'infini - Boudoum". 🇬🇵  
+​🌍 Vision Internationale
+​Le projet IA-Passport est pleinement opérationnel et dessert nos 14 pays cibles :
+France, Belgique, Italie, Allemagne, Suède, Singapour, Australie, Espagne, Brésil, Royaume-Uni, Inde, Nouvelle-Zélande, États-Unis, Canada.  
+​💎 Tokenomics & Contrats Officiels
+​Offre Totale : 1 000 000 000 (1 milliard) d'unités.  
+​Réseau : Polygon (POS)  
+​Contrat de Jeton (GAMMA) : 0xB37531727fC07c6EED4f97F852A115B428046EB2  
+​Pool de Liquidité Principal (QuickSwap V3) : 0x1d2e88A55CBBAB68237aa10781a5e00335Af9f9c  
+​🛠️ Écosystème IA-Passport
+​Site Officiel : reussitess.fr/ia-passport  
+​Infrastructure : Déploiement sécurisé sur Vercel et analyse via l'API Moralis.  
+​Support : rony.porinus@gmail.com  
+​© 2026 Reussitess©GlobalNexus - De la Guadeloupe au monde entier. Boudoum !]
