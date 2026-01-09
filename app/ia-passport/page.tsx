@@ -1,5 +1,6 @@
 
 'use client'
+import { Wallet, TrendingUp, Flame, Lock, ExternalLink, CheckCircle, Sparkles } from 'lucide-react'
 
 import { useState, useEffect } from 'react'
 
